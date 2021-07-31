@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mredrock.cyxbs.mine">
+
+    <application android:theme="@style/AppTheme">
+        <activity android:name=".page.setting.SettingActivity"></activity>
+        <activity android:name=".page.security.activity.FindPasswordActivity"/>
+        <activity android:name=".page.security.activity.ForgetPasswordActivity"/>
+        <activity android:name=".page.security.activity.BindEmailActivity" />
+        <activity android:name=".page.security.activity.SetPasswordProtectActivity" />
+        <activity android:name=".page.security.activity.ChangePasswordActivity" />
+        <activity
+            android:name=".page.security.activity.SecurityActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".page.myproduct.MyProductActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".page.edit.EditInfoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".page.sign.DailySignActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".page.about.AboutActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+    </application>
+
+</manifest>

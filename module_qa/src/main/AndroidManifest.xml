@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mredrock.cyxbs.qa">
+
+    <application android:theme="@style/AppTheme">
+        <activity android:name=".pages.mine.ui.MyPraiseActivity"></activity>
+        <activity android:name=".pages.mine.ui.MyCommentActivity" />
+        <activity android:name=".pages.mine.ui.MyIgnorePeopleActivity" />
+        <activity android:name=".pages.mine.ui.MyDynamicActivity" />
+        <activity
+            android:name=".pages.dynamic.ui.activity.ReplyDetailActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".pages.square.ui.activity.CircleDetailActivity" />
+        <activity android:name=".pages.square.ui.activity.CircleSquareActivity" />
+        <activity
+            android:name=".ui.activity.ViewImageCropActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.activity.ViewImageActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".pages.quiz.ui.QuizActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/QuizTheme" />
+        <activity
+            android:name=".pages.search.ui.SearchActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/SearchTheme"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
+        <activity
+            android:name=".pages.dynamic.ui.activity.DynamicDetailActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="101933868" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>

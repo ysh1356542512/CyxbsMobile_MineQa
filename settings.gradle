@@ -1,0 +1,11 @@
+rootProject.name = "CyxbsMobile_Single"
+include ':app'
+include ':lib_account:api_account'
+include ':module_main:api_main'
+include ':photolibrary-2.5'
+include ':lib_protocol:api_protocol'
+include ':lib_common'
+include ':module_qa'
+include ':lib_update:api_update'
+include ':lib_update'
+include ':module_mine'

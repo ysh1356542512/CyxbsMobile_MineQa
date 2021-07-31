@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+apply from: config
+
+dependencies {
+    implementation project(':lib_common')
+    implementation project(':lib_account')
+    implementation project(':lib_protocol')
+    implementation project(':lib_update')
+    if (!isSingleModuleDebug.toBoolean()) {
+        implementation project(':module_main')
+        implementation project(':module_mine')
+        implementation project(':module_qa')
+    }
+    kapt deps.arouter.compiler
+    implementation(deps.hotfix.runtime) {
+        exclude(module: 'alicloud-android-utdid')
+        exclude(module: 'alicloud-android-utils')
+    }
+}
