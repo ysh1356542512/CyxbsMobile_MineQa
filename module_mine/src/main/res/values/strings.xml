@@ -134,4 +134,18 @@
     <string name="mine_string_about_us">关于我们</string>
     <string name="mine_string_setting">设置</string>
     <string name="mine_string_score_store">积分商城</string>
+
+    <!--积分商城主页面-->
+
+    <string name="mine_stamp_center_stamp_after">邮票变化后</string>
+    <string name="mine_stamp_center_stamp_before">邮票变化前</string>
+    <string name="mine_stamp_center_my_stamp">我的邮票</string>
+    <string name="mine_stamp_center_detail_iv">明细</string>
+    <string name="mine_stamp_center_detail_tv">明细</string>
+    <string name="mine_stamp_center_wait_get_tv">你还有待领取的商品，请尽快领取</string>
+
+    <!--等待接口数据编辑-->
+    <string name="mine_stamp_center_num_after">178</string>
+    <string name="mine_stamp_center_num_tv">110000</string>
+
 </resources>
