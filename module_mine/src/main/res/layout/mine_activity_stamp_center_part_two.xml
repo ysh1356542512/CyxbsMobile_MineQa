@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mredrock.cyxbs.mine.page.stamp.util.CollapsibleToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:minHeight="30dp"
+    app:layoutDescription="@xml/mine_activity_stamp_center_part_two_scene"
+    app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+
+
+    <include
+        android:id="@+id/mine_center_part_three"
+        layout="@layout/mine_activity_stamp_center_part_three"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/qa_tv_center_stamp_num_after"
+        android:layout_width="90dp"
+        android:layout_height="28dp"
+        android:background="@drawable/mine_shape_center_balance"
+        android:gravity="end"
+        android:paddingEnd="8dp"
+        android:text="178"
+        android:textColor="#E9F2FB"
+        android:textSize="18.78sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
+
+    <View
+        android:id="@+id/qa_v_center_zhezhu"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:background="@drawable/mine_shape_center_balance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/qa_iv_center_after"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.473"
+        app:srcCompat="@drawable/mine_ic_center_stamp_backword" />
+
+    <ImageView
+        android:id="@+id/qa_iv_center_before"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.003"
+        app:srcCompat="@drawable/mine_ic_center_stamp_forword" />
+
+
+</com.mredrock.cyxbs.mine.page.stamp.util.CollapsibleToolbar>
