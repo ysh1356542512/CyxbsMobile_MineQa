@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
+<!--    邮票界面的通用颜色-->
+    <color name="mine_activity_stamp_background_color">#FBFCFF</color>
 </resources>
