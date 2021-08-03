@@ -3,4 +3,5 @@
     <dimen name="mine_main_small_s">11sp</dimen>
     <dimen name="mine_main_medium">18sp</dimen>
     <dimen name="mine_main_medium_l">22sp</dimen>
+    <dimen name="mine_size_10">10sp</dimen>
 </resources>
