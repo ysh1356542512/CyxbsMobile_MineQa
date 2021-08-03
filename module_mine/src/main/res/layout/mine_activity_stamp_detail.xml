@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/mine_activity_stamp_tool_bar_margin_top"
+    android:layout_marginTop="@dimen/mine_activity_stamp_tool_bar_padding_top"
     android:background="@color/mine_activity_stamp_background_color"
     tools:context=".page.stampcenter.detail.StampDetailActivity">
 
@@ -19,7 +19,7 @@
         android:id="@+id/view_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#2A4E84"
+        android:background="@color/mine_activity_stamp_decoration_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/include_tool_bar" />

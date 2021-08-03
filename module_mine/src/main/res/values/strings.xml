@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <string name="mine_user_empty_username">请填写用户名</string>
     <string name="mine_user_empty_introduce">写下你对世界想说的话，就现在</string>
@@ -134,4 +134,12 @@
     <string name="mine_string_about_us">关于我们</string>
     <string name="mine_string_setting">设置</string>
     <string name="mine_string_score_store">积分商城</string>
+
+    <!--兑换详细界面的固定字符串-->
+    <string name="mine_activity_exchange_title">订单详细</string>
+    <string name="mine_activity_exchange_banner_content">请凭订单号在30天内到红岩网校领取商品，超时自动失效</string>
+    <string name="mine_activity_exchange_product_name_text">商品名称:</string>
+    <string name="mine_activity_exchange_product_detail_text">商品详细:</string>
+    <string name="mine_activity_exchange_trading_hours">交易时间:</string>
+    <string name="mine_activity_exchange_product_state_text">商品状态:</string>
 </resources>

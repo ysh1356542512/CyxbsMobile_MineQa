@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <dimen name="mine_main_small_s">11sp</dimen>
     <dimen name="mine_main_medium">18sp</dimen>
     <dimen name="mine_main_medium_l">22sp</dimen>
-    <dimen name="mine_activity_stamp_tool_bar_margin_top">53dp</dimen>
+    <!--    Toobar与屏幕最上方的Padding插值-->
+    <dimen name="mine_activity_stamp_tool_bar_padding_top">53dp</dimen>
+    <!--    兑换详细界面的圆角度数-->
+    <dimen name="mine_activity_exchange_detail_round_radius">8dp</dimen>
 </resources>

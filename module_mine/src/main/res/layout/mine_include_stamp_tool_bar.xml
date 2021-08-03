@@ -40,7 +40,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/mine_layout_iv_back_arrow"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="This is Title" />
+                tools:text="邮票明细" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
