@@ -6,7 +6,7 @@
     android:layout_marginTop="25dp"
     android:layout_marginEnd="16dp"
     android:layout_marginBottom="30dp"
-    android:background="#5F5CEC"
+    android:background="@drawable/mine_ic_stamp_center_card_bg"
     app:layoutDescription="@xml/mine_activity_stamp_center_part_three_scene">
 
     <androidx.constraintlayout.widget.Guideline
