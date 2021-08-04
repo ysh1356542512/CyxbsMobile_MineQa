@@ -135,6 +135,10 @@
     <string name="mine_string_setting">设置</string>
     <string name="mine_string_score_store">积分商城</string>
 
+    <!--等待接口数据编辑-->
+    <string name="mine_stamp_center_num_after">178</string>
+    <string name="mine_stamp_center_num_tv">110000</string>
+
     <!--积分商城主页面-->
 
     <string name="mine_stamp_center_stamp_after">邮票变化后</string>
@@ -143,11 +147,21 @@
     <string name="mine_stamp_center_detail_iv">明细</string>
     <string name="mine_stamp_center_detail_tv">明细</string>
     <string name="mine_stamp_center_wait_get_tv">你还有待领取的商品，请尽快领取</string>
+    <string name="mine_stamp_center">邮票中心</string>
+    <string name="mine_stamp_back_iv">返回键</string>
 
-    <!--等待接口数据编辑-->
-    <string name="mine_stamp_center_num_after">178</string>
-    <string name="mine_stamp_center_num_tv">110000</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--商品详情页面 -->
+    <string name="mine_stamp_center_decorate_detail_real">邮物详情</string>
+    <string name="mine_stamp_goods_detail_title">小米充电宝</string>
+    <string name="mine_stamp_goods_detail_decribe_tv">商品描述:带上这个名片，你就是这条街最亮的仔带上这个名片，你就是这条街最亮的仔</string>
+    <string name="mine_stamp_goods_detail_duration">有效期:15天</string>
+    <string name="mine_stamp_goods_detail_intr_tv">权益说明</string>
+    <string name="mine_stamp_goods_detail_intr_dl_tv">1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。</string>
+    <string name="mine_stamp_goods_detail_intr_dl_2_iv">2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。</string>
+    <string name="mine_stamp_goods_detail_last_tv">库存量: 999</string>
+    <string name="mine_stamp_center_goods_price">121</string>
+    <string name="mine_stamp_goods_detail_num">余额: 1222</string>
+    <string name="mine_stamp_goods_detail_btn">兑换</string>
+
 
 </resources>

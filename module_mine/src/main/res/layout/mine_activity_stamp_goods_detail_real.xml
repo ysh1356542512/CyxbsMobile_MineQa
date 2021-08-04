@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/mine_relativelayout2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/v_underline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.1"
+            android:background="#2A4E84" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:id="@+id/iv_center_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/mine_stamp_back_iv"
+                app:srcCompat="@drawable/mine_ic_center_back" />
+
+            <TextView
+                android:id="@+id/tv_center_stamp_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@id/iv_center_back"
+                android:gravity="center_vertical"
+                android:text="@string/mine_stamp_center_decorate_detail_real"
+                android:textColor="#15315B"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.74" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.43" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.51" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.54" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.56" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+        android:id="@+id/tv_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_stamp_goods_detail_title"
+        android:textColor="#15315B"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline3"
+        app:layout_constraintStart_toStartOf="@+id/tv_description"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline2" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:alpha="0.8"
+        android:text="@string/mine_stamp_goods_detail_decribe_tv"
+        android:textColor="#15315B"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_duration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_duration"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline3" />
+
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_stamp_goods_detail_duration"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline5"
+        app:layout_constraintStart_toStartOf="@+id/tv_intr"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline4" />
+
+    <TextView
+        android:id="@+id/tv_intr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:text="@string/mine_stamp_goods_detail_intr_tv"
+        android:textColor="#15315B"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline7"
+        app:layout_constraintStart_toStartOf="@+id/tv_intr_detail"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline6" />
+
+    <TextView
+        android:id="@+id/tv_intr_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:alpha="0.4"
+        android:maxLines="2"
+        android:text="@string/mine_stamp_goods_detail_intr_dl_tv"
+        android:textColor="#15315B"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_intr_detail_2"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline7" />
+
+    <TextView
+        android:id="@+id/tv_intr_detail_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="10dp"
+        android:alpha="0.4"
+        android:maxLines="2"
+        android:text="@string/mine_stamp_goods_detail_intr_dl_2_iv"
+        android:textColor="#15315B"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_intr_detail"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:alpha="0.4"
+        android:text="@string/mine_stamp_goods_detail_last_tv"
+        android:textColor="#15315B"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/mine_guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <View
+        android:id="@+id/v_bottom_up"
+        android:layout_width="0dp"
+        android:layout_height="0.3dp"
+        android:alpha="0.4"
+        android:background="#DBE5F3"
+        app:layout_constraintBottom_toTopOf="@+id/v_bottom_middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/v_bottom_down"
+        android:layout_width="0dp"
+        android:layout_height="0.3dp"
+        android:alpha="0.4"
+        android:background="#DBE5F3"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline9" />
+
+    <View
+        android:id="@+id/v_bottom_middle"
+        android:layout_width="0dp"
+        android:layout_height="0.4dp"
+        android:background="#DBE5F3"
+        app:layout_constraintBottom_toTopOf="@+id/v_bottom_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_stamp_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/mine_stamp_center_stamp_after"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline11"
+        app:layout_constraintStart_toStartOf="@+id/tv_intr_detail_2"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline9"
+        app:srcCompat="@drawable/mine_ic_center_stamp_backword" />
+
+    <TextView
+        android:id="@+id/tv_stamp_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/din_medium"
+        android:text="@string/mine_stamp_center_goods_price"
+        android:textColor="#5177FF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iv_stamp_icon"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline9" />
+
+    <TextView
+        android:id="@+id/tv_stamp_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.4"
+        android:text="@string/mine_stamp_goods_detail_num"
+        android:textColor="#15315B"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline10"
+        app:layout_constraintStart_toStartOf="@+id/tv_intr_detail_2"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline11"
+        tools:ignore="SmallSp"
+        tools:layout_editor_absoluteX="23dp" />
+
+    <Button
+        android:id="@+id/tv_stamp_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mine_shape_goods_detail_btn"
+        android:text="@string/mine_stamp_goods_detail_btn"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/mine_guideline10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mine_guideline9" />
+</androidx.constraintlayout.widget.ConstraintLayout>
