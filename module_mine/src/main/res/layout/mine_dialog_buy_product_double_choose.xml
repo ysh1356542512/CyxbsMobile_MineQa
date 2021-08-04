@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="255dp"
+    android:layout_height="178dp"
+    android:background="@drawable/mine_shape_dialog_backgroud_light"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="18dp"
+        android:gravity="center"
+        android:textColor="#15315B"
+        android:textSize="14sp"
+        tools:text="确认要用100邮票兑换PM名片吗确认要用100邮票"
+        tools:textSize="14sp" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="36dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_confuse"
+            android:layout_width="93dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="26dp"
+            android:background="@drawable/mine_shape_dialog_negative_button_bg_dark"
+            tools:text="取消" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_confirm"
+            android:layout_width="93dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="19dp"
+            android:background="@drawable/mine_shape_dialog_positive_button_bg_light"
+            tools:text="确定" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
