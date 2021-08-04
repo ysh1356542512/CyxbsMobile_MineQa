@@ -9,5 +9,8 @@
     <color name="mine_activity_exchange_text_color">#15315B</color>
     <color name="mine_activity_exchange_banner_text_color">#FFFFFF</color>
     <color name="mine_activity_exchange_banner_background_color">#5956F1</color>
+    <color name="mine_task_recycle_item_task_name_color">#15315B</color>
+    <color name="mine_task_recycle_item_multi_progress_color">#7D8AFF</color>
+    <color name="mine_task_recycle_item_description_color">#A1ADBD</color>
 
 </resources>
