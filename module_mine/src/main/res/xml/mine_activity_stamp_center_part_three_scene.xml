@@ -51,8 +51,12 @@
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="@+id/guideline2"
+<<<<<<< HEAD
             motion:layout_constraintTop_toTopOf="@+id/guideline4"
             motion:layout_constraintVertical_bias="0.51" />
+=======
+            motion:layout_constraintTop_toTopOf="@+id/guideline4" />
+>>>>>>> 78fc96f5d90c691d69c048f13887645f4a4e3055
         <Constraint
             android:id="@+id/tv_center_detail"
             android:layout_width="wrap_content"
