@@ -151,17 +151,23 @@
     <string name="mine_stamp_back_iv">返回键</string>
 
     <!--商品详情页面 -->
-    <string name="mine_stamp_center_decorate_detail_real">邮物详情</string>
-    <string name="mine_stamp_goods_detail_title">小米充电宝</string>
-    <string name="mine_stamp_goods_detail_decribe_tv">商品描述:带上这个名片，你就是这条街最亮的仔带上这个名片，你就是这条街最亮的仔</string>
-    <string name="mine_stamp_goods_detail_duration">有效期:15天</string>
     <string name="mine_stamp_goods_detail_intr_tv">权益说明</string>
-    <string name="mine_stamp_goods_detail_intr_dl_tv">1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。</string>
-    <string name="mine_stamp_goods_detail_intr_dl_2_iv">2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。</string>
     <string name="mine_stamp_goods_detail_last_tv">库存量: 999</string>
-    <string name="mine_stamp_center_goods_price">121</string>
     <string name="mine_stamp_goods_detail_num">余额: 1222</string>
+    <string name="mine_stamp_center_goods_price">121</string>
     <string name="mine_stamp_goods_detail_btn">兑换</string>
+    <string name="mine_stamp_center_decorate_detail_real">邮物详情</string>
+    <string name="mine_stamp_goods_detail_title_real">小米充电宝</string>
+    <string name="mine_stamp_goods_detail_duration_real">有效期:永久</string>
+    <string name="mine_stamp_goods_detail_intr_dl_tv_real">1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。</string>
+    <string name="mine_stamp_goods_detail_intr_dl_2_iv_real">2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。</string>
+    <string name="mine_stamp_goods_detail_decribe_tv_real">商品描述: 规格:10000mAh 放电: 5V 2.1A</string>
+    <string name="mine_stamp_center_decorate_detail_inter">装扮详情</string>
+    <string name="mine_stamp_goods_detail_title_inter">掌游PM名片</string>
+    <string name="mine_stamp_goods_detail_duration_inter">有效期:15天</string>
+    <string name="mine_stamp_goods_detail_intr_dl_tv_inter">1、虚拟商品版权归红岩网校工作站所有。</string>
+    <string name="mine_stamp_goods_detail_intr_dl_2_iv_inter">2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。</string>
+    <string name="mine_stamp_goods_detail_decribe_tv_inter">商品描述:带上这个名片，你就是这条街最亮的仔带上这个名片，你就是这条街最亮的仔</string>
 
 
 </resources>
