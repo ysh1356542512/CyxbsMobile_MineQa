@@ -1,12 +1,12 @@
-package com.mredrock.cyxbs.mine.page.stampcenter.center
+package com.mredrock.cyxbs.mine.page.stamp.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mredrock.cyxbs.mine.R
 
-class StampCenterActivity : AppCompatActivity() {
+class StampDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.mine_activity_stamp_center)
+        setContentView(R.layout.mine_activity_stamp_detail)
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/mine_activity_stamp_tool_bar_padding_top"
     android:background="@color/mine_activity_stamp_background_color"
-    tools:context=".page.stampcenter.detail.StampDetailActivity">
+    tools:context=".page.stamp.detail.StampDetailActivity">
 
     <include
         android:id="@+id/include_tool_bar"
