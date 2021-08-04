@@ -13,6 +13,17 @@ import com.mredrock.cyxbs.mine.databinding.MineDialogBuyProductNoneBinding
  *@time 2021/8/4  11:24
  *@signature 我们不明前路，却已在路上
  */
+
+/*
+val dialog = NoneProductDialog()
+    .setContent("啊哦！手慢了！下次再来吧！")
+    .setPositiveButtonText("2")
+    .setPositiveButtonClick {
+        Toast.makeText(requireContext(), "确认", Toast.LENGTH_SHORT).show()
+    }
+dialog.show(childFragmentManager,"dialog")
+*/
+
 class NoneProductDialog : DialogFragment() {
     //内部可更改的属性
     private var content: String? = null
@@ -64,7 +75,10 @@ class NoneProductDialog : DialogFragment() {
 
     //对布局的view事件和属性进行设置
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding?.btConfirm?.setOnClickListener(positiveButtonClick)
+        binding?.btConfirm?.setOnClickListener{
+            positiveButtonClick?.invoke(it)
+            dismiss()
+        }
         binding?.btConfirm?.text = positiveText
     }
 

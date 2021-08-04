@@ -15,6 +15,19 @@ import com.mredrock.cyxbs.mine.databinding.MineDialogBuyProductDoubleChooseBindi
  *@signature 我们不明前路，却已在路上
  */
 
+/*
+val dialog = DoubleCheckDialog()
+               .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
+               .setNegativeButtonText("再想想")
+               .setPositiveButtonText("好的")
+               .setNegativeButtonClick {
+                   Toast.makeText(requireContext(), "我还没悟透", Toast.LENGTH_SHORT).show()
+               }
+               .setPositiveButtonClick {
+                   Toast.makeText(requireContext(), "我想通了", Toast.LENGTH_SHORT).show()
+               }
+           dialog.show(childFragmentManager,"dialog")
+           */
 
 class DoubleCheckDialog : DialogFragment() {
     //内部可更改的属性
@@ -67,8 +80,14 @@ class DoubleCheckDialog : DialogFragment() {
     //传入事件和更改View的属性
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //事件
-        binding?.btConfirm?.setOnClickListener(positiveButtonClick)
-        binding?.btConfuse?.setOnClickListener(negativeButtonClick)
+        binding?.btConfirm?.setOnClickListener{
+            positiveButtonClick?.invoke(it)
+            dismiss()
+        }
+        binding?.btConfuse?.setOnClickListener{
+            negativeButtonClick?.invoke(it)
+            dismiss()
+        }
         //Text
         binding?.btConfuse?.text = negativeText
         binding?.btConfirm?.text = positiveText

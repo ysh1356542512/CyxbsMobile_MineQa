@@ -143,4 +143,6 @@
     <string name="mine_activity_exchange_trading_hours">交易时间:</string>
     <string name="mine_activity_exchange_product_state_text">商品状态:</string>
     <string name="mine_dialog_buy_product_none_content">啊哦！手慢了！下次再来吧！</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
