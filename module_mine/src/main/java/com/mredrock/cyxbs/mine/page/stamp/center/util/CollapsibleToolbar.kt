@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.util
+package com.mredrock.cyxbs.mine.page.stamp.center.util
 
 import android.content.Context
 import android.util.AttributeSet

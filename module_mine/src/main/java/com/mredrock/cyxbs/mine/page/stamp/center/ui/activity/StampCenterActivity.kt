@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.ui.activity
+package com.mredrock.cyxbs.mine.page.stamp.center.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.mine.R
-import com.mredrock.cyxbs.mine.page.stamp.ui.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.ui.fragment.CenterShopFragment
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 /**
