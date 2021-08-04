@@ -1,7 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.shop.ui.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.shop.ui.adapter.BannerAdapter
@@ -10,8 +9,8 @@ import com.mredrock.cyxbs.mine.page.stamp.shop.util.BannerViewPager
 class GoodsActivity : AppCompatActivity() {
     private lateinit var bvpViewPager: BannerViewPager<Int>
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.mine_activity_stamp_goods_detail_real)
         val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)

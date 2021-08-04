@@ -1,7 +1,6 @@
 package com.mredrock.cyxbs.mine.page.setting
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.launcher.ARouter
@@ -10,13 +9,13 @@ import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.common.component.CommonDialogFragment
 import com.mredrock.cyxbs.common.config.*
-import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.service.ServiceManager
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.utils.extensions.*
 import com.mredrock.cyxbs.main.MAIN_LOGIN
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.security.activity.SecurityActivity
+import com.mredrock.cyxbs.mine.page.stamp.shop.ui.activity.GoodsActivity
 import com.mredrock.cyxbs.mine.util.apiService
 import com.mredrock.cyxbs.mine.util.ui.WarningDialog
 import kotlinx.android.synthetic.main.mine_activity_setting.*
@@ -63,6 +62,12 @@ class SettingActivity : BaseActivity() {
         mine_setting_fm_shield_person.setOnClickListener { doIfLogin { ARouter.getInstance().build(QA_MY_IGNORE).navigation() } }
         //退出登录
         mine_setting_btn_exit.setOnClickListener { doIfLogin { onExitClick() } }
+
+        //for test
+        mine_setting_fm_shield_test.setOnClickListener {
+            val intent = Intent(this, GoodsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun onExitClick() {
@@ -96,7 +101,7 @@ class SettingActivity : BaseActivity() {
                 )
     }
 
-    private fun doExit(){
+    private fun doExit() {
         val tag = "exit"
         if (this.supportFragmentManager.findFragmentByTag(tag) == null) {
             CommonDialogFragment().apply {

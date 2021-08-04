@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <string name="mine_user_empty_username">请填写用户名</string>
     <string name="mine_user_empty_introduce">写下你对世界想说的话，就现在</string>
@@ -135,13 +135,10 @@
     <string name="mine_string_setting">设置</string>
     <string name="mine_string_score_store">积分商城</string>
 
-<<<<<<< HEAD
     <!--等待接口数据编辑-->
     <string name="mine_stamp_center_num_after">178</string>
     <string name="mine_stamp_center_num_tv">110000</string>
 
-=======
->>>>>>> 78fc96f5d90c691d69c048f13887645f4a4e3055
     <!--积分商城主页面-->
 
     <string name="mine_stamp_center_stamp_after">邮票变化后</string>
@@ -150,7 +147,6 @@
     <string name="mine_stamp_center_detail_iv">明细</string>
     <string name="mine_stamp_center_detail_tv">明细</string>
     <string name="mine_stamp_center_wait_get_tv">你还有待领取的商品，请尽快领取</string>
-<<<<<<< HEAD
     <string name="mine_stamp_center">邮票中心</string>
     <string name="mine_stamp_back_iv">返回键</string>
 
@@ -176,11 +172,5 @@
     <string name="mine_stamp_task_title">邮票任务</string>
     <string name="mine_stamp_task_pot">TODO</string>
 
-=======
-
-    <!--等待接口数据编辑-->
-    <string name="mine_stamp_center_num_after">178</string>
-    <string name="mine_stamp_center_num_tv">110000</string>
->>>>>>> 78fc96f5d90c691d69c048f13887645f4a4e3055
 
 </resources>
