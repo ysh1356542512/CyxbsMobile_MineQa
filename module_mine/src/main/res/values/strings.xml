@@ -168,6 +168,9 @@
     <string name="mine_stamp_goods_detail_intr_dl_tv_inter">1、虚拟商品版权归红岩网校工作站所有。</string>
     <string name="mine_stamp_goods_detail_intr_dl_2_iv_inter">2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。</string>
     <string name="mine_stamp_goods_detail_decribe_tv_inter">商品描述:带上这个名片，你就是这条街最亮的仔带上这个名片，你就是这条街最亮的仔</string>
+    <string name="mine_stamp_shop_title">邮票小店</string>
+    <string name="mine_stamp_task_title">邮票任务</string>
+    <string name="mine_stamp_task_pot">TODO</string>
 
 
 </resources>
