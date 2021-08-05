@@ -7,7 +7,7 @@
     <data>
         <variable
             name="vm"
-            type="com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel" />
+            type="com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -75,6 +75,7 @@
                 <include layout="@layout/mine_activity_stamp_center_part_two"
                     android:id="@+id/include_center_part_2"
                     binding:vm="@{vm}"/>
+
             </com.google.android.material.appbar.AppBarLayout>
 
             <LinearLayout
@@ -103,6 +104,11 @@
                     android:layout_height="wrap_content"
                     android:overScrollMode="never"/>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

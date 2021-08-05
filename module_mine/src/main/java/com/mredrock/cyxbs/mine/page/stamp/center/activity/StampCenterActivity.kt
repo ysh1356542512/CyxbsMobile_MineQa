@@ -1,6 +1,10 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
+
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -12,8 +16,10 @@ import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
+import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 /**
 * @Date : 2021/8/4
@@ -21,7 +27,9 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
 * @Usage : 邮票中心主界面
 * @Request : God bless my code
 */
-class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel,MineActivityStampCenterBinding>() {
+
+class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, MineActivityStampCenterBinding>() {
+
     //用于记录今天是否已经点击小店
     private var isClickToday = false
 
@@ -47,6 +55,7 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel,Mi
                 override fun getItemCount(): Int {
                     return 2
                 }
+
 
                 override fun createFragment(position: Int): Fragment {
                     return fragments[position]
@@ -76,6 +85,7 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel,Mi
                         }
                     }
                 }).attach()
+
             }
             tlCenter.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabReselected(tab: TabLayout.Tab?) {

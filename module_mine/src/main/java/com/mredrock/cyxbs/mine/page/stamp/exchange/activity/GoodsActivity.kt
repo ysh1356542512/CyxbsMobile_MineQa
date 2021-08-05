@@ -6,13 +6,19 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
+import com.mredrock.cyxbs.common.ui.BaseDBViewModelActivity
+import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
+import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
+import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 
-class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel,MineActivityStampGoodsDetailRealBinding>() {
+
+class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding>() {
     private lateinit var bvpViewPager: BannerViewPager<Int>
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
@@ -20,12 +26,13 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel,MineActivityS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.mine_activity_stamp_goods_detail_real)
-        binding?.vm = viewModel
+        binding?.vm =viewModel
 
         Log.e(TAG, "$viewModel $binding" )
     }
 
     override fun initView() {
+
         val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
         bvpViewPager.apply {
@@ -66,6 +73,7 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel,MineActivityS
     override fun observeData() {
 
     }
+
 
 
 }

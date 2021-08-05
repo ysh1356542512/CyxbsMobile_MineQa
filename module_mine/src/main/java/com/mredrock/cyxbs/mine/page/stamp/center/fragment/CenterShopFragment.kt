@@ -52,5 +52,4 @@ class CenterShopFragment : BaseBindingViewModelFragment<StampCenterViewModel,Min
         }
     }
 
-
 }
