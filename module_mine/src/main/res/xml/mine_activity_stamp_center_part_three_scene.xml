@@ -5,10 +5,10 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="1000">
-        <OnSwipe
-            motion:dragDirection="dragRight"
-            motion:touchAnchorId="@+id/button"
-            motion:touchAnchorSide="right" />
+<!--        <OnSwipe-->
+<!--            motion:dragDirection="dragRight"-->
+<!--            motion:touchAnchorId="@+id/button"-->
+<!--            motion:touchAnchorSide="right" />-->
         <KeyFrameSet></KeyFrameSet>
     </Transition>
 
