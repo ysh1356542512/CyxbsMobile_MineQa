@@ -14,7 +14,12 @@ import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.common.viewmodel.event.ProgressDialogEvent
 import java.lang.reflect.ParameterizedType
 
-
+/**
+* @Date : 2021/8/5
+* @By : ysh
+* @Usage : 基于BaseViewModelActivity上实现的获得DataBinding和ViewModel的Base类
+* @Request : God bless my code
+*/
 abstract class BaseDBViewModelActivity<T : BaseViewModel,D:ViewDataBinding> : BaseActivity() {
     lateinit var viewModel: T
 
@@ -61,7 +66,22 @@ abstract class BaseDBViewModelActivity<T : BaseViewModel,D:ViewDataBinding> : Ba
                 }
             }
         }
+
+        //统一加载view
+        initView()
+
+        //统一数据监听
+        observeData()
+
+        //统一监听器
+        initListener()
     }
+
+    open fun initView(){}
+
+    open fun observeData(){}
+
+    open fun initListener(){}
 
     protected open fun getViewModelFactory(): ViewModelProvider.Factory? = null
 

@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -9,9 +10,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseDBViewModelActivity
+import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityFindPasswordBinding
+import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 /**
@@ -20,7 +24,7 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 * @Usage : 邮票中心主界面
 * @Request : God bless my code
 */
-class StampCenterActivity : AppCompatActivity() {
+class StampCenterActivity : BaseDBViewModelActivity<StampCenterViewModel,MineActivityStampCenterBinding>() {
 
     //用于记录今天是否已经点击小店
     private var isClickToday = false
@@ -29,12 +33,16 @@ class StampCenterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.mine_activity_stamp_center)
+
+    }
+
+    override fun initView() {
+
         //先使用kotlin拓展库得到控件 之后会改为dataBinding
         //先进行 viewPager2 和 tablayout 的绑定
-        vp_center.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         val fragments = arrayListOf<Fragment>(CenterShopFragment(), CenterShopFragment())
-        vp_center.adapter = object : FragmentStateAdapter(this) {
+        binding.vpCenter.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int {
                 return 2
             }
@@ -43,7 +51,7 @@ class StampCenterActivity : AppCompatActivity() {
                 return fragments[position]
             }
         }
-        vp_center.apply {
+        binding.vpCenter.apply {
             offscreenPageLimit = 2
             //此处可动态设置tabItem布局
             //关于tablayout代码的设计 这样能够尽可能的减少网络请求的次数
@@ -62,13 +70,12 @@ class StampCenterActivity : AppCompatActivity() {
 
                         //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
                         tab.setCustomView(R.layout.mine_item_tab_task_no_click)
-
-
                     }
                 }
             }).attach()
         }
-        tl_center.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+        binding.tlCenter.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
             }
@@ -101,5 +108,16 @@ class StampCenterActivity : AppCompatActivity() {
             }
 
         })
+
+
     }
+
+    override fun initListener() {
+        //设置返回键的监听事件
+        binding.ivCenterBack.setOnSingleClickListener {
+            onBackPressed()
+        }
+        binding.includePartTwo.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener {  }
+    }
+
 }

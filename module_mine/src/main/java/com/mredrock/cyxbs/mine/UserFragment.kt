@@ -28,6 +28,7 @@ import com.mredrock.cyxbs.mine.page.edit.EditInfoActivity
 import com.mredrock.cyxbs.mine.page.security.util.Jump2QQHelper
 import com.mredrock.cyxbs.mine.page.setting.SettingActivity
 import com.mredrock.cyxbs.mine.page.sign.DailySignActivity
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterActivity
 import kotlinx.android.synthetic.main.mine_fragment_main.*
 import java.io.BufferedReader
 import java.io.IOException
@@ -56,7 +57,8 @@ class UserFragment : BaseViewModelFragment<UserViewModel>() {
             mine_main_fm_setting.setOnSingleClickListener { doIfLogin { startActivity<SettingActivity>() } }
             mine_main_fm_about_us.setOnSingleClickListener { doIfLogin { startActivity<AboutActivity>() } }
             mine_main_fm_point_store.setOnClickListener { doIfLogin { DailySignActivity.actionStart(this, BottomSheetBehavior.STATE_EXPANDED) } }
-            mine_main_tv_sign.setOnClickListener { doIfLogin { DailySignActivity.actionStart(this, BottomSheetBehavior.STATE_COLLAPSED) } }
+//            mine_main_tv_sign.setOnClickListener { doIfLogin { DailySignActivity.actionStart(this, BottomSheetBehavior.STATE_COLLAPSED) } }
+            mine_main_tv_sign.setOnClickListener{doIfLogin { startActivity<StampCenterActivity>() } }
             mine_main_tv_dynamic_number.setOnSingleClickListener { doIfLogin { jump(QA_DYNAMIC_MINE) } }
             mine_main_tv_dynamic.setOnSingleClickListener { doIfLogin { jump(QA_DYNAMIC_MINE) } }
             mine_main_tv_comment_number.setOnSingleClickListener { doIfLogin { jumpAndSaveTime(QA_MY_COMMENT, 1) } }

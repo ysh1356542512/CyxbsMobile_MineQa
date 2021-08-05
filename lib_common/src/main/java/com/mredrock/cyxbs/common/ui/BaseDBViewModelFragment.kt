@@ -19,7 +19,12 @@ import java.lang.reflect.ParameterizedType
 
 
 
-
+/**
+* @Date : 2021/8/5
+* @By : ysh
+* @Usage : 基于BaseViewModelActivity上实现的获得DataBinding和ViewModel的Base类
+* @Request : God bless my code
+*/
 abstract class BaseDBViewModelFragment<T : BaseViewModel,D:ViewDataBinding> : BaseFragment() {
     protected lateinit var viewModel: T
 

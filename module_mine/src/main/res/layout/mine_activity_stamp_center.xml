@@ -67,7 +67,9 @@
                 app:elevation="0dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <include layout="@layout/mine_activity_stamp_center_part_two" />
+                <include layout="@layout/mine_activity_stamp_center_part_two"
+                    android:id="@+id/include_part_two"/>
+
             </com.google.android.material.appbar.AppBarLayout>
 
             <LinearLayout
