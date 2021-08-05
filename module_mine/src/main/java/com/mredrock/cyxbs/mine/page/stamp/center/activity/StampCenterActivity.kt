@@ -1,14 +1,18 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
+import android.app.Activity
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.util.extension.log
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 /**
@@ -17,15 +21,14 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 * @Usage : 邮票中心主界面
 * @Request : God bless my code
 */
-class StampCenterActivity : AppCompatActivity() {
-
+class StampCenterActivity : BaseBindingViewModelActivity<StampViewModel,MineActivityStampCenterBinding>() {
     //用于记录今天是否已经点击小店
     private var isClickToday = false
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.mine_activity_stamp_center)
         //先使用kotlin拓展库得到控件 之后会改为dataBinding
         //先进行 viewPager2 和 tablayout 的绑定
         vp_center.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -97,5 +100,12 @@ class StampCenterActivity : AppCompatActivity() {
             }
 
         })
+
+        Log.e(TAG, "$viewModel $binding" )
     }
+
+    override fun getLayoutId(): Int = R.layout.mine_layout_dialog_exchange
+
+
+
 }
