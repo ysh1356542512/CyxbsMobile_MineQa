@@ -5,6 +5,8 @@ package com.mredrock.cyxbs.common.ui
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -27,7 +29,6 @@ abstract class BaseViewModelActivity<T : BaseViewModel> : BaseActivity() {
         setMessage("Loading...")
         setOnDismissListener { viewModel.onProgressDialogDismissed() }
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModelFactory = getViewModelFactory()

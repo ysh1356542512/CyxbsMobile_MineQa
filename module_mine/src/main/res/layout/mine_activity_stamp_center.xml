@@ -1,99 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".page.stamp.center.activity.StampCenterActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <RelativeLayout
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".page.stamp.center.activity.StampCenterActivity">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="5dp">
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iv_center_back"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/mine_stamp_back_iv"
-                app:srcCompat="@drawable/mine_ic_center_back" />
-
-            <TextView
-                android:id="@+id/tv_center_stamp_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
-                android:layout_toEndOf="@id/iv_center_back"
-                android:gravity="center_vertical"
-                android:text="@string/mine_stamp_center"
-                android:textColor="#15315B"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </RelativeLayout>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:background="#00000000"
-            app:elevation="0dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <include layout="@layout/mine_activity_stamp_center_part_two" />
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tl_center"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@color/common_transparent_background"
-                app:tabBackground="@color/common_transparent_background"
-                app:tabIndicator="@drawable/mine_ic_tab_indicator"
-                app:tabIndicatorColor="#1AD0F2"
-                app:tabIndicatorFullWidth="false"
-                app:tabIndicatorHeight="3dp"
-                app:tabRippleColor="@color/common_transparent_background"
-                app:tabSelectedTextColor="#112C57" />
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="5dp">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_center"
+                <ImageView
+                    android:id="@+id/iv_center_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/mine_stamp_back_iv"
+                    app:srcCompat="@drawable/mine_ic_center_back" />
+
+                <TextView
+                    android:id="@+id/tv_center_stamp_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@id/iv_center_back"
+                    android:gravity="center_vertical"
+                    android:text="@string/mine_stamp_center"
+                    android:textColor="#15315B"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="190dp"
+                android:background="#00000000"
+                app:elevation="0dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv"
+                <include layout="@layout/mine_activity_stamp_center_part_two" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone" />
-        </LinearLayout>
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tl_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/common_transparent_background"
+                    app:tabBackground="@color/common_transparent_background"
+                    app:tabIndicator="@drawable/mine_ic_tab_indicator"
+                    app:tabIndicatorColor="#1AD0F2"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabRippleColor="@color/common_transparent_background"
+                    app:tabSelectedTextColor="#112C57" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -2,12 +2,15 @@ package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.mredrock.cyxbs.common.ui.BaseDBViewModelActivity
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.databinding.MineActivityFindPasswordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
@@ -21,6 +24,7 @@ class StampCenterActivity : AppCompatActivity() {
 
     //用于记录今天是否已经点击小店
     private var isClickToday = false
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
