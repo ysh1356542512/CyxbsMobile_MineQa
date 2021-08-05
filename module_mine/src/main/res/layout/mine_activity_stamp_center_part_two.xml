@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="vm"
+            type="com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel" />
     </data>
 
     <com.mredrock.cyxbs.mine.page.stamp.center.util.CollapsibleToolbar
@@ -22,7 +25,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            binding:vm ="@{vm}" />
 
         <TextView
             android:id="@+id/qa_tv_center_stamp_num_after"

@@ -1,9 +1,8 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
-import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -15,8 +14,6 @@ import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
-import com.mredrock.cyxbs.mine.util.extension.log
-import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 /**
 * @Date : 2021/8/4
@@ -24,17 +21,19 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 * @Usage : 邮票中心主界面
 * @Request : God bless my code
 */
-class StampCenterActivity : BaseBindingViewModelActivity<StampViewModel,MineActivityStampCenterBinding>() {
+class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel,MineActivityStampCenterBinding>() {
     //用于记录今天是否已经点击小店
     private var isClickToday = false
+
 
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding?.vm = viewModel
 
-        }
+    }
 
 //        Log.e(TAG, "$viewModel $binding" )
 
@@ -119,10 +118,10 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampViewModel,MineActi
             ivCenterBack.setOnSingleClickListener {
                 onBackPressed()
             }
-            includeCenter2.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
-            includeCenter2.mineCenterPartThree.tvCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
+            includeCenterPart2.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
+            includeCenterPart2.mineCenterPartThree.tvCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
             //这个到时候可能会跳转至订单详情页 需要在 ExchangeDetailActivity中再加一个方法来跳转到详情页
-            includeCenter2.mineCenterPartThree.tvCenterCommend.setOnSingleClickListener { startActivity<ExchangeDetailActivity>() }
+            includeCenterPart2.mineCenterPartThree.tvCenterCommend.setOnSingleClickListener { startActivity<ExchangeDetailActivity>() }
         }
     }
 

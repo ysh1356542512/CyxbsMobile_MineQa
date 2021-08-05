@@ -20,7 +20,7 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel,MineActivityS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.mine_activity_stamp_goods_detail_real)
-
+        binding?.vm = viewModel
 
         Log.e(TAG, "$viewModel $binding" )
     }
@@ -59,6 +59,7 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel,MineActivityS
             btnStampBuy.setOnSingleClickListener {
                 //
             }
+
         }
     }
 
