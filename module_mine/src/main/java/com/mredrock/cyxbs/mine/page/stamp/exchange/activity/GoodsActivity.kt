@@ -1,10 +1,10 @@
-package com.mredrock.cyxbs.mine.page.stamp.shop.ui.activity
+package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.mine.R
-import com.mredrock.cyxbs.mine.page.stamp.shop.ui.adapter.BannerAdapter
-import com.mredrock.cyxbs.mine.page.stamp.shop.util.BannerViewPager
+import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
+import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 
 class GoodsActivity : AppCompatActivity() {
     private lateinit var bvpViewPager: BannerViewPager<Int>

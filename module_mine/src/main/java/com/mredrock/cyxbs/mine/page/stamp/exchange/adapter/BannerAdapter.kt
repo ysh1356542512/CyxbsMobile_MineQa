@@ -1,11 +1,11 @@
-package com.mredrock.cyxbs.mine.page.stamp.shop.ui.adapter
+package com.mredrock.cyxbs.mine.page.stamp.exchange.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.mine.R
-import com.mredrock.cyxbs.mine.page.stamp.shop.util.BaseBannerAdapter
+import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 
 class BannerAdapter : BaseBannerAdapter<Int, BannerAdapter.ViewHolder>() {
 

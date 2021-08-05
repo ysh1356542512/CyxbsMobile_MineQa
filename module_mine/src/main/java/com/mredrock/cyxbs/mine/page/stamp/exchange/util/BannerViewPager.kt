@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.shop.util
+package com.mredrock.cyxbs.mine.page.stamp.exchange.util
 
 import android.content.Context
 import android.content.res.Resources

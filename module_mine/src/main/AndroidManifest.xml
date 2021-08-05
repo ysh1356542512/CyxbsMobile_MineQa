@@ -3,8 +3,8 @@
     package="com.mredrock.cyxbs.mine">
 
     <application android:theme="@style/AppTheme">
-        <activity android:name="com.mredrock.cyxbs.mine.page.stamp.center.ui.activity.StampCenterActivity"></activity>
-        <activity android:name=".page.stamp.shop.ui.activity.GoodsActivity" />
+        <activity android:name="com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterActivity"></activity>
+        <activity android:name="com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity" />
         <activity android:name=".page.setting.SettingActivity" />
         <activity android:name=".page.security.activity.FindPasswordActivity" />
         <activity android:name=".page.security.activity.ForgetPasswordActivity" />

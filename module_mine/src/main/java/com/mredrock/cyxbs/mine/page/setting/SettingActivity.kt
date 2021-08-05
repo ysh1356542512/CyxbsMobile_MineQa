@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.common.utils.extensions.*
 import com.mredrock.cyxbs.main.MAIN_LOGIN
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.security.activity.SecurityActivity
-import com.mredrock.cyxbs.mine.page.stamp.shop.ui.activity.GoodsActivity
+import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 import com.mredrock.cyxbs.mine.util.apiService
 import com.mredrock.cyxbs.mine.util.ui.WarningDialog
 import kotlinx.android.synthetic.main.mine_activity_setting.*

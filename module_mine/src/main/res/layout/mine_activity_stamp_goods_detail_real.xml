@@ -303,7 +303,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mine_guideline9" />
 
-    <com.mredrock.cyxbs.mine.page.stamp.shop.util.BannerViewPager
+    <com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
         android:id="@+id/bvp_goods_real"
         android:layout_width="0dp"
         android:layout_height="0dp"

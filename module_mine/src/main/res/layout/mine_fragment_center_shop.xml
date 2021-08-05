@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.stamp.center.ui.fragment.CenterShopFragment">
+    tools:context=".page.stamp.center.fragment.CenterShopFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.center.ui.fragment
+package com.mredrock.cyxbs.mine.page.stamp.center.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
