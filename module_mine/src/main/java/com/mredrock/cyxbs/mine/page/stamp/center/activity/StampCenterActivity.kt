@@ -9,9 +9,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
+import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
+import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
 import com.mredrock.cyxbs.mine.util.extension.log
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
@@ -26,10 +29,17 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampViewModel,MineActi
     private var isClickToday = false
 
 
+    override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //先使用kotlin拓展库得到控件 之后会改为dataBinding
+
+        }
+
+//        Log.e(TAG, "$viewModel $binding" )
+
+
+    override fun initView() {
         //先进行 viewPager2 和 tablayout 的绑定
         binding?.apply {
             vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -102,11 +112,19 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampViewModel,MineActi
 
             })
         }
-
-        Log.e(TAG, "$viewModel $binding" )
     }
 
-    override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
+    override fun initListener() {
+        binding?.apply {
+            ivCenterBack.setOnSingleClickListener {
+                onBackPressed()
+            }
+            includeCenter2.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
+            includeCenter2.mineCenterPartThree.tvCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
+            //这个到时候可能会跳转至订单详情页 需要在 ExchangeDetailActivity中再加一个方法来跳转到详情页
+            includeCenter2.mineCenterPartThree.tvCenterCommend.setOnSingleClickListener { startActivity<ExchangeDetailActivity>() }
+        }
+    }
 
 
 

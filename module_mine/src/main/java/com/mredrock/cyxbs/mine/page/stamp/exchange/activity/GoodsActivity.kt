@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
+import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
@@ -14,9 +15,17 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel,MineActivityStampGoodsDetailRealBinding>() {
     private lateinit var bvpViewPager: BannerViewPager<Int>
 
+    override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.mine_activity_stamp_goods_detail_real)
+
+
+        Log.e(TAG, "$viewModel $binding" )
+    }
+
+    override fun initView() {
         val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
         bvpViewPager.apply {
@@ -39,10 +48,23 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel,MineActivityS
                         R.drawable.mine_ic_banner_pic
                 )
         )
-
-        Log.e(TAG, "$viewModel $binding" )
     }
 
-    override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
+    override fun initListener() {
+        binding?.apply {
+            ivCenterBack.setOnSingleClickListener {
+                onBackPressed()
+            }
+            //之后可能会对照片进行点击看大图的转换 到时候再说
+            btnStampBuy.setOnSingleClickListener {
+                //
+            }
+        }
+    }
+
+    override fun observeData() {
+
+    }
+
 
 }

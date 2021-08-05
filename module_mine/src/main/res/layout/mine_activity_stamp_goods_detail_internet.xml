@@ -290,7 +290,7 @@
         tools:layout_editor_absoluteX="23dp" />
 
     <Button
-        android:id="@+id/tv_stamp_button"
+        android:id="@+id/btn_stamp_buy"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:background="@drawable/mine_shape_goods_detail_btn"

@@ -28,6 +28,25 @@ abstract class BaseBindingViewModelFragment<VM : BaseViewModel, T : ViewDataBind
 
         binding = DataBindingUtil.inflate(inflater,getLayoutId(),container,false)
         binding?.lifecycleOwner = this
+
+        //初始化view
+        initView()
+
+        //初始化监听器
+        initListener()
+
+        //初始化数据监听
+        observeData()
+
         return binding?.root
+
+
     }
+
+
+    open fun initView(){}
+
+    open fun initListener() {}
+
+    open fun observeData(){}
 }
