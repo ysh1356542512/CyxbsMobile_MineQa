@@ -19,7 +19,7 @@
         <activity android:name=".page.sign.DailySignActivity" />
         <activity android:name=".page.draft.DraftActivity" />
         <activity android:name=".page.answer.AnswerActivity" />
-        <activity android:name=".page.ask.AskActivity" />
+        <activity android:name=".page.ask.AsDkActivity" />
         <activity android:name=".page.comment.CommentActivity" />
         <activity android:name=".page.about.AboutActivity" />
     </application>

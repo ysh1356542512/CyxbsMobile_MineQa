@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/mine_activity_exchange_background_color"
     android:paddingTop="@dimen/mine_activity_stamp_tool_bar_padding_top"
-    tools:context=".page.stamp.detail.ExchangeDetailActivity">
+    tools:context=".page.stamp.detail.activity.ExchangeDetailActivity">
 
     <include
         android:id="@+id/include_tool_bar"

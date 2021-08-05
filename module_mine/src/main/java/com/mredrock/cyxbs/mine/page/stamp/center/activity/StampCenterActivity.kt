@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.center
+package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

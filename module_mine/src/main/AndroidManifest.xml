@@ -4,13 +4,13 @@
 
     <application android:theme="@style/AppTheme">
         <activity
-            android:name=".page.stamp.detail.ExchangeDetailActivity"
+            android:name=".page.stamp.detail.activity.ExchangeDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".page.stamp.detail.StampDetailActivity"
+            android:name=".page.stamp.detail.activity.StampDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".page.stamp.center.StampCenterActivity"
+            android:name=".page.stamp.center.activity.StampCenterActivity"
             android:exported="true" />
         <activity android:name=".page.setting.SettingActivity" />
         <activity android:name=".page.security.activity.FindPasswordActivity" />
