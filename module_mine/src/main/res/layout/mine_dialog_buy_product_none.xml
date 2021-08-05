@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="255dp"
+        android:layout_height="178dp"
+        android:background="@drawable/mine_shape_dialog_backgroud_light"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="34dp"
+            android:gravity="center"
+            android:text="@string/mine_dialog_buy_product_none_content"
+            android:textColor="#15315B"
+            android:textSize="14sp"
+            tools:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_confirm"
+            android:layout_width="129dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/mine_shape_dialog_positive_button_bg_light"
+            tools:text="确定" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
+    <!--    邮票明细界面的通用颜色-->
+    <color name="mine_activity_stamp_background_color">#F2F3F8</color>
+    <color name="mine_activity_stamp_decoration_color">#DEE3EC</color>
+
+    <!--    兑换详细界面的通用颜色-->
+    <color name="mine_activity_exchange_background_color">#FBFCFF</color>
+    <color name="mine_activity_exchange_text_color">#15315B</color>
+    <color name="mine_activity_exchange_banner_text_color">#FFFFFF</color>
+    <color name="mine_activity_exchange_banner_background_color">#5956F1</color>
+    <color name="mine_task_recycle_item_task_name_color">#15315B</color>
+    <color name="mine_task_recycle_item_multi_progress_color">#7D8AFF</color>
+    <color name="mine_task_recycle_item_description_color">#A1ADBD</color>
 
 </resources>

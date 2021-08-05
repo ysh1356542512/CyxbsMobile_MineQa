@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="20dp"
+    android:paddingBottom="5dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_task_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="逛逛邮问"
+        tools:textSize="16sp"
+        android:textSize="16sp"
+        android:textColor="@color/mine_task_recycle_item_task_name_color"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_task_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_name"
+        tools:text="浏览5条动态 +15"
+        tools:textSize="14sp"
+        android:textColor="@color/mine_task_recycle_item_description_color"/>
+
+    <ProgressBar
+        android:id="@+id/mine_space"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/mine_task_round_progress_bar_layer"
+        android:max="5"
+        android:progress="1"
+        android:layout_width="150dp"
+        android:layout_height="8dp"
+        android:layout_marginTop="9dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_content" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="12sp"
+        android:textColor="@color/mine_task_recycle_item_multi_progress_color"
+        android:id="@+id/tv_current_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mine_space"
+        app:layout_constraintStart_toEndOf="@+id/mine_space"
+        app:layout_constraintTop_toTopOf="@+id/mine_space"
+        tools:text="1/5" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/mine_appcompatimageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mine_task_ic_task_state_finished" />
+</androidx.constraintlayout.widget.ConstraintLayout>

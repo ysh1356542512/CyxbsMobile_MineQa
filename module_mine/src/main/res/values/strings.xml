@@ -135,20 +135,16 @@
     <string name="mine_string_setting">设置</string>
     <string name="mine_string_score_store">积分商城</string>
 
-    <!--等待接口数据编辑-->
-    <string name="mine_stamp_center_num_after">178</string>
-    <string name="mine_stamp_center_num_tv">110000</string>
-
-    <!--积分商城主页面-->
-
-    <string name="mine_stamp_center_stamp_after">邮票变化后</string>
-    <string name="mine_stamp_center_stamp_before">邮票变化前</string>
-    <string name="mine_stamp_center_my_stamp">我的邮票</string>
-    <string name="mine_stamp_center_detail_iv">明细</string>
-    <string name="mine_stamp_center_detail_tv">明细</string>
-    <string name="mine_stamp_center_wait_get_tv">你还有待领取的商品，请尽快领取</string>
-    <string name="mine_stamp_center">邮票中心</string>
-    <string name="mine_stamp_back_iv">返回键</string>
+    <!--兑换详细界面的固定字符串-->
+    <string name="mine_activity_exchange_title">订单详细</string>
+    <string name="mine_activity_exchange_banner_content">请凭订单号在30天内到红岩网校领取商品，超时自动失效</string>
+    <string name="mine_activity_exchange_product_name_text">商品名称:</string>
+    <string name="mine_activity_exchange_product_detail_text">商品详细:</string>
+    <string name="mine_activity_exchange_trading_hours">交易时间:</string>
+    <string name="mine_activity_exchange_product_state_text">商品状态:</string>
+    <string name="mine_dialog_buy_product_none_content">啊哦！手慢了！下次再来吧！</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mine_task_do_it_btn_text">去签到</string>
 
     <!--商品详情页面 -->
     <string name="mine_stamp_goods_detail_intr_tv">权益说明</string>
@@ -172,5 +168,19 @@
     <string name="mine_stamp_task_title">邮票任务</string>
     <string name="mine_stamp_task_pot">TODO</string>
 
+    <!--等待接口数据编辑-->
+    <string name="mine_stamp_center_num_after">178</string>
+    <string name="mine_stamp_center_num_tv">110000</string>
+
+    <!--积分商城主页面-->
+
+    <string name="mine_stamp_center_stamp_after">邮票变化后</string>
+    <string name="mine_stamp_center_stamp_before">邮票变化前</string>
+    <string name="mine_stamp_center_my_stamp">我的邮票</string>
+    <string name="mine_stamp_center_detail_iv">明细</string>
+    <string name="mine_stamp_center_detail_tv">明细</string>
+    <string name="mine_stamp_center_wait_get_tv">你还有待领取的商品，请尽快领取</string>
+    <string name="mine_stamp_center">邮票中心</string>
+    <string name="mine_stamp_back_iv">返回键</string>
 
 </resources>

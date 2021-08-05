@@ -50,30 +50,36 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
     private var requestPointStore = false
 
     private val dividerResArr: Array<Stick> by lazy {
-        arrayOf(mine_daily_v_divider_mon_tue,
-                mine_daily_v_divider_tue_wed,
-                mine_daily_v_divider_wed_thurs,
-                mine_daily_v_divider_thurs_fri,
-                mine_daily_v_divider_fri_sat,
-                mine_daily_v_divider_sat_sun)
+        arrayOf(
+            mine_daily_v_divider_mon_tue,
+            mine_daily_v_divider_tue_wed,
+            mine_daily_v_divider_wed_thurs,
+            mine_daily_v_divider_thurs_fri,
+            mine_daily_v_divider_fri_sat,
+            mine_daily_v_divider_sat_sun
+        )
     }
     private val imageViewResArr: Array<ImageView> by lazy {
-        arrayOf(mine_daily_iv_mon,
-                mine_daily_iv_tue,
-                mine_daily_iv_wed,
-                mine_daily_iv_thurs,
-                mine_daily_iv_fri,
-                mine_daily_iv_sat,
-                mine_daily_iv_sun)
+        arrayOf(
+            mine_daily_iv_mon,
+            mine_daily_iv_tue,
+            mine_daily_iv_wed,
+            mine_daily_iv_thurs,
+            mine_daily_iv_fri,
+            mine_daily_iv_sat,
+            mine_daily_iv_sun
+        )
     }
     private val spaceResArr: Array<Space> by lazy {
-        arrayOf(mine_daily_space_mon,
-                mine_daily_space_tue,
-                mine_daily_space_wed,
-                mine_daily_space_thurs,
-                mine_daily_space_fri,
-                mine_daily_space_sat,
-                mine_daily_space_sun)
+        arrayOf(
+            mine_daily_space_mon,
+            mine_daily_space_tue,
+            mine_daily_space_wed,
+            mine_daily_space_thurs,
+            mine_daily_space_fri,
+            mine_daily_space_sat,
+            mine_daily_space_sun
+        )
     }
     private val weekGenerator: WeekGenerator by lazy {
         WeekGenerator()
@@ -83,8 +89,8 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
         ProductAdapter()
     }
 
-    companion object{
-        fun actionStart(context: Context, bottomSheetStatus: Int){
+    companion object {
+        fun actionStart(context: Context, bottomSheetStatus: Int) {
             val intent = Intent(context, DailySignActivity::class.java)
             intent.putExtra("status", bottomSheetStatus)
             context.startActivity(intent)
@@ -117,7 +123,8 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             window.statusBarColor = Color.TRANSPARENT
         }
     }
@@ -168,7 +175,10 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
         mine_store_rv.addItemDecoration(SpaceDecoration(dp2px(8f)))
         mine_store_my_product.setOnClickListener {
             startActivity<MyProductActivity>()
-            overridePendingTransition(R.anim.common_slide_in_from_bottom_with_bezier, R.anim.common_scale_fade_out_with_bezier)
+            overridePendingTransition(
+                R.anim.common_slide_in_from_bottom_with_bezier,
+                R.anim.common_scale_fade_out_with_bezier
+            )
         }
     }
 
@@ -203,14 +213,22 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
         if (scoreStatus.isChecked or !scoreStatus.canCheckIn) {
             mine_daily_sign.apply {
                 isClickable = false
-                background = ResourcesCompat.getDrawable(resources, R.drawable.mine_bg_round_corner_grey, null)
+                background = ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.mine_bg_round_corner_grey,
+                    null
+                )
                 setTextColor(ContextCompat.getColor(context, R.color.common_grey_button_text))
                 text = if (scoreStatus.canCheckIn) "已签到" else "签到"
             }
         } else {
             mine_daily_sign.apply {
                 isClickable = true
-                background = ResourcesCompat.getDrawable(resources, R.drawable.common_dialog_btn_positive_blue, null)
+                background = ResourcesCompat.getDrawable(
+                    resources,
+                    R.drawable.common_dialog_btn_positive_blue,
+                    null
+                )
                 setTextColor(ContextCompat.getColor(context, R.color.common_white_font_color))
                 text = "签到"
             }
@@ -308,13 +326,16 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
     private fun setDividerColor(i: Int, color: ColorState) {
         when (color) {
             ColorState.COLOR_GREY -> {
-                dividerResArr[i].color.color = ContextCompat.getColor(this, R.color.common_mine_sign_divider_grey)
+                dividerResArr[i].color.color =
+                    ContextCompat.getColor(this, R.color.common_mine_sign_divider_grey)
             }
             ColorState.COLOR_BLUE -> {
-                dividerResArr[i].color.color = ContextCompat.getColor(this, R.color.common_mine_sign_divider_blue)
+                dividerResArr[i].color.color =
+                    ContextCompat.getColor(this, R.color.common_mine_sign_divider_blue)
             }
             else -> {
-                dividerResArr[i].color.color = ContextCompat.getColor(this, R.color.common_mine_sign_divider_blue_light)
+                dividerResArr[i].color.color =
+                    ContextCompat.getColor(this, R.color.common_mine_sign_divider_blue_light)
             }
         }
     }
@@ -326,24 +347,26 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
 
             integral?.let {
                 //防止商品积分为空，同时需处理积分为小数的情况
-                val productIntegral = if (product.integral.isEmpty()) 0 else product.integral.toFloat().toInt()
+                val productIntegral =
+                    if (product.integral.isEmpty()) 0 else product.integral.toFloat().toInt()
                 //判断用户积分是否大于物品所需积分数 && 物品剩余数大于0
                 if (integral >= productIntegral && product.count > 0) {
                     val tag = "exchange"
                     if (supportFragmentManager.findFragmentByTag(tag) == null) {
                         CommonDialogFragment().apply {
                             initView(
-                                    containerRes = R.layout.mine_layout_dialog_exchange,
-                                    positiveString = "确认兑换",
-                                    onPositiveClick = {
-                                        viewModel.exchangeProduct(product, position)
-                                        dismiss()
-                                    },
-                                    onNegativeClick = { dismiss() },
-                                    elseFunction = {
-                                        val str = "这将消耗您的${product.integral}个积分，仍然要兑换吗？"
-                                        it.findViewById<TextView>(R.id.mine_tv_exchange_for_sure_content).text = str
-                                    }
+                                containerRes = R.layout.mine_layout_dialog_exchange,
+                                positiveString = "确认兑换",
+                                onPositiveClick = {
+                                    viewModel.exchangeProduct(product, position)
+                                    dismiss()
+                                },
+                                onNegativeClick = { dismiss() },
+                                elseFunction = {
+                                    val str = "这将消耗您的${product.integral}个积分，仍然要兑换吗？"
+                                    it.findViewById<TextView>(R.id.mine_tv_exchange_for_sure_content).text =
+                                        str
+                                }
                             )
                         }.show(supportFragmentManager, tag)
                     }
@@ -353,17 +376,19 @@ class DailySignActivity : BaseViewModelActivity<DailyViewModel>() {
                     if (supportFragmentManager.findFragmentByTag(tag) == null) {
                         CommonDialogFragment().apply {
                             initView(
-                                    containerRes = R.layout.mine_layout_dialog_exchange,
-                                    positiveString = "确认",
-                                    onPositiveClick = { dismiss() },
-                                    elseFunction = {
-                                        //区分是积分不足还是物品剩余数为0
-                                        if (product.count <= 0) {
-                                            it.findViewById<TextView>(R.id.mine_tv_exchange_for_sure_content).text = "物品被抢光了，明天再来吧"
-                                        } else {
-                                            it.findViewById<TextView>(R.id.mine_tv_exchange_for_sure_content).text = "积分不足"
-                                        }
+                                containerRes = R.layout.mine_layout_dialog_exchange,
+                                positiveString = "确认",
+                                onPositiveClick = { dismiss() },
+                                elseFunction = {
+                                    //区分是积分不足还是物品剩余数为0
+                                    if (product.count <= 0) {
+                                        it.findViewById<TextView>(R.id.mine_tv_exchange_for_sure_content).text =
+                                            "物品被抢光了，明天再来吧"
+                                    } else {
+                                        it.findViewById<TextView>(R.id.mine_tv_exchange_for_sure_content).text =
+                                            "积分不足"
                                     }
+                                }
                             )
                         }.show(supportFragmentManager, tag)
                     }
