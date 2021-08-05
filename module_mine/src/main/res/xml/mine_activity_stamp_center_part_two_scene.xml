@@ -77,8 +77,8 @@
 
         <Constraint
             android:id="@+id/qa_iv_center_before"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="132dp"
+            android:layout_height="119dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintHorizontal_bias="0.86"
@@ -87,8 +87,8 @@
             motion:layout_constraintVertical_bias="0.0" />
         <Constraint
             android:id="@+id/qa_iv_center_after"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="23dp"
+            android:layout_height="22dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintHorizontal_bias="0.76"
@@ -121,7 +121,7 @@
 
         <Constraint
             android:id="@+id/qa_iv_center_before"
-            android:layout_width="wrap_content"
+            android:layout_width="132dp"
             android:layout_height="wrap_content"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
@@ -132,8 +132,8 @@
             motion:transitionEasing="linear" />
         <Constraint
             android:id="@+id/qa_iv_center_after"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="23dp"
+            android:layout_height="22dp"
             motion:layout_constraintBottom_toBottomOf="parent"
 
             motion:layout_constraintEnd_toEndOf="parent"

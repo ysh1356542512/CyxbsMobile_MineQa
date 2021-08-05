@@ -182,5 +182,9 @@
     <string name="mine_stamp_center_wait_get_tv">你还有待领取的商品，请尽快领取</string>
     <string name="mine_stamp_center">邮票中心</string>
     <string name="mine_stamp_back_iv">返回键</string>
+    <string name="mine_stamp_goods_iv">商品图片</string>
+    <string name="mine_stamp_goods_title">挂件挂件挂件挂件挂件挂件</string>
+    <string name="mine_stamp_goods_amount">库存：20</string>
+    <string name="mine_stamp_user_amount">121</string>
 
 </resources>

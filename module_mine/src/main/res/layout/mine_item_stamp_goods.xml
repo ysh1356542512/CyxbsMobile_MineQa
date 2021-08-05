@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="260dp">
+
+    <ImageView
+        android:id="@+id/iv_goods_pic"
+        android:layout_width="185dp"
+        android:layout_height="164dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mine_ic_center_goods"
+        android:contentDescription="@string/mine_stamp_goods_iv" />
+
+    <TextView
+        android:id="@+id/tv_goods_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_stamp_goods_title"
+        android:textColor="#15315B"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+    <TextView
+        android:id="@+id/tv_goods_remain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:text="@string/mine_stamp_goods_amount"
+        android:textColor="#15315B"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_goods_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goods_title"
+        tools:ignore="SmallSp" />
+
+    <ImageView
+        android:id="@+id/iv_stamp_icon"
+        android:layout_width="23dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num"
+        app:layout_constraintStart_toStartOf="@+id/tv_goods_remain"
+        app:srcCompat="@drawable/mine_ic_center_stamp_backword"
+        android:contentDescription="@string/mine_stamp_goods_detail_last_tv" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.77692306" />
+
+    <TextView
+        android:id="@+id/tv_stamp_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/din_medium"
+        android:text="@string/mine_stamp_user_amount"
+        android:textColor="#5177FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_stamp_icon"
+        app:layout_constraintTop_toTopOf="@+id/guideline11" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8923077" />
+
+    <Button
+        android:id="@+id/btn_goods_buy"
+        android:layout_width="53dp"
+        android:layout_height="27dp"
+        android:background="@drawable/mine_shape_goods_buy_btn"
+        android:text="@string/mine_stamp_goods_detail_btn"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

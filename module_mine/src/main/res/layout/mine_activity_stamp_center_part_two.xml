@@ -71,8 +71,8 @@
 
         <ImageView
             android:id="@+id/qa_iv_center_before"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="132dp"
+            android:layout_height="119dp"
             android:contentDescription="@string/mine_stamp_center_stamp_before"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

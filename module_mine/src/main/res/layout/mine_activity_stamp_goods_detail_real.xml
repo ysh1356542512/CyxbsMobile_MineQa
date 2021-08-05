@@ -261,8 +261,8 @@
 
         <ImageView
             android:id="@+id/iv_stamp_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="23dp"
+            android:layout_height="22dp"
             android:contentDescription="@string/mine_stamp_center_stamp_after"
             app:layout_constraintBottom_toTopOf="@+id/mine_guideline11"
             app:layout_constraintStart_toStartOf="@+id/tv_intr_detail_2"
