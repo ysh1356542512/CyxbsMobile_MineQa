@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.activity
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.mine.R
@@ -14,9 +15,12 @@ class StampDetailActivity :
     BaseBindingViewModelActivity<StampDetailViewModel, MineActivityStampDetailBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.e(TAG, "$viewModel" )
     }
 
     override fun initView() {
+        binding?.lifecycleOwner = this
+
         binding?.apply {
             //配置ViewPager的Adapter
             vpDetail.adapter =
@@ -36,9 +40,6 @@ class StampDetailActivity :
                     }
                 }
             }.attach()
-
-
-
         }
     }
 
