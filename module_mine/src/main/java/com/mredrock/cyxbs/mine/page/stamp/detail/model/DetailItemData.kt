@@ -5,7 +5,7 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.model
  *@time 2021/8/6  13:56
  *@signature 我们不明前路，却已在路上
  */
-data class ExchangeItemData (
+data class DetailItemData (
         val name:String,
         val date:String,
         val price:Int,
