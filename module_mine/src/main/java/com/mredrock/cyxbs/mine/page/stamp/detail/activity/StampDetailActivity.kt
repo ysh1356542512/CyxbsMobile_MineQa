@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.mine.R
@@ -20,7 +21,7 @@ class StampDetailActivity :
 
     override fun initView() {
         binding?.lifecycleOwner = this
-
+        binding?.eventHandler = EventHandler()
         binding?.apply {
             //配置ViewPager的Adapter
             vpDetail.adapter =
@@ -40,9 +41,18 @@ class StampDetailActivity :
                     }
                 }
             }.attach()
+
+
         }
     }
 
     //设置布局
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_detail
+
+
+    inner class EventHandler{
+        fun backArrowClick(view:View){
+            this@StampDetailActivity.finish()
+        }
+    }
 }

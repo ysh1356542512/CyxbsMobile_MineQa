@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentExchangeRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.ExchangeRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
@@ -47,7 +49,8 @@ class ExchangeRecordFragment :
             add(DetailItemData("卷卷鼠标垫", "2030-1-1", 4000, false))
         }
         mAdapter?.notifyAdapterChanged((0..2).map {
-            ExchangeRecordBinder(list[it])
+            ExchangeRecordBinder(list[it]).apply {
+            }
         })
     }
 
@@ -55,5 +58,9 @@ class ExchangeRecordFragment :
     override fun getActivityVMClass(): Class<StampDetailViewModel> =
         StampDetailViewModel::class.java
 
+    inner class ClickHandler(){
+        fun onItemClicked(v:View,any: Any?){
 
+        }
+    }
 }

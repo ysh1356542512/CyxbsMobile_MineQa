@@ -14,17 +14,49 @@
         android:paddingTop="@dimen/mine_activity_stamp_tool_bar_padding_top"
         tools:context=".page.stamp.detail.activity.ExchangeDetailActivity">
 
-        <include
+        <!--<include
             android:id="@+id/include_tool_bar"
             layout="@layout/mine_include_stamp_light_tool_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/include_tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/mine_ic_stamp_back_arrow"
+                android:paddingStart="17dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:textColor="#15315B"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/iv_back_arrow"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/mine_exchange_tool_bar_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ll_exchange_detail"
             android:layout_width="match_parent"
-            android:layout_height="108dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
@@ -37,8 +69,8 @@
                 android:id="@+id/iv_half_magioke_pg"
                 android:layout_width="180dp"
                 android:layout_height="82dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/mine_show_ic_half_magipoke_light" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -50,29 +82,35 @@
                 android:text="@string/mine_activity_exchange_title"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
                 android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:textSize="14sp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_exchange_detail_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_exchange_detail_title"
-                android:layout_alignStart="@id/tv_exchange_detail_title"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
                 android:textSize="23sp"
+                app:layout_constraintStart_toStartOf="@id/tv_exchange_detail_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_exchange_detail_title"
                 tools:text="245769" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mine_appcompattextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_exchange_detail_id"
-                android:layout_alignStart="@id/tv_exchange_detail_title"
                 android:layout_marginTop="7dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="18dp"
                 android:text="@string/mine_activity_exchange_banner_content"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/tv_exchange_detail_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_exchange_detail_id"
+                tools:paddingBottom="18dp" />
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.appcompat.widget.AppCompatTextView

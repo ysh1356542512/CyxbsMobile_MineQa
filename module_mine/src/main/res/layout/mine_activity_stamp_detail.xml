@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="eventHandler"
+            type="com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity.EventHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,12 +16,42 @@
         android:background="@color/mine_activity_stamp_background_color"
         tools:context=".page.stamp.detail.activity.StampDetailActivity">
 
-        <include
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/include_tool_bar"
-            layout="@layout/mine_include_stamp_tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#F2F3F8"
+            android:paddingStart="17dp"
+            android:paddingEnd="17dp">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/iv_back_arrow"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:tintMode="add"
+                android:onClick="@{(v)->eventHandler.backArrowClick(v)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/mine_ic_stamp_back_arrow" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:textColor="#15315B"
+                android:textSize="22sp"
+                android:text="@string/mine_stamp_detail_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/iv_back_arrow"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:id="@+id/view_divider"
@@ -66,7 +98,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tl_detail"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"/>
 
         <!--<androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_detail"

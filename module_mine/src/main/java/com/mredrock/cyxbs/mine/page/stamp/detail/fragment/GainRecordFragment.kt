@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentGainRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.GainRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
@@ -51,11 +53,16 @@ class GainRecordFragment :
         )
     }
 
+    override fun initConfiguration() {
+
+    }
+
     //设置布局
     override fun getLayoutId(): Int = R.layout.mine_fragment_gain_record
 
     //设置ViewModel
     override fun getActivityVMClass(): Class<StampDetailViewModel> =
         StampDetailViewModel::class.java
+
 
 }

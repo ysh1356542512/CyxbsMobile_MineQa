@@ -44,6 +44,10 @@ abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> 
 
     abstract fun getActivityVMClass(): Class<VM>
 
+    open fun initConfiguration() {}
+
+    open fun initData() {}
+
     open fun initView() {}
 
     open fun initListener() {}
