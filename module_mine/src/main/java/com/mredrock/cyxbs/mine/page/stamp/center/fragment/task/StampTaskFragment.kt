@@ -10,6 +10,7 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentStampTaskBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.MultiTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.OneTaskBinder
+import com.mredrock.cyxbs.mine.page.stamp.center.binder.TitleBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.model.FirstLevelTask
 import com.mredrock.cyxbs.mine.page.stamp.center.model.MoreTask
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
@@ -31,6 +32,9 @@ class StampTaskFragment :
                     OneTaskBinder(
                         FirstLevelTask("每日签到", "每日签到 +10", false)
                     )
+                )
+                add(
+                    TitleBinder("更多任务")
                 )
                 addAll((0..2).map {
                     MultiTaskBinder(MoreTask("逛邮问", "浏览5条动态 +15", it, false))

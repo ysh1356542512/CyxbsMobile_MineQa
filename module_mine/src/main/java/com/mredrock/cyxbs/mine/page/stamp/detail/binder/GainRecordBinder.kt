@@ -10,7 +10,7 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
  *@time 2021/8/6  16:13
  *@signature 我们不明前路，却已在路上
  */
-class GainRecordBinder(val data:DetailItemData) : MultiTypeBinder<MineRecycleItemGainBinding>() {
+class GainRecordBinder(val data: DetailItemData) : MultiTypeBinder<MineRecycleItemGainBinding>() {
 
     override fun onBindViewHolder(binding: MineRecycleItemGainBinding) {
         binding.apply {
@@ -22,5 +22,6 @@ class GainRecordBinder(val data:DetailItemData) : MultiTypeBinder<MineRecycleIte
 
     override fun layoutId(): Int = R.layout.mine_recycle_item_gain
 
-    override fun areContentsTheSame(other: Any): Boolean = other is GainRecordBinder && other.data == data
+    override fun areContentsTheSame(other: Any): Boolean =
+        other is GainRecordBinder && other.data == data
 }
