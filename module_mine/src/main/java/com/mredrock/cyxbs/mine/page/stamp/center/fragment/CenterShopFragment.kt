@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentCenterShopBinding
@@ -16,6 +17,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealContainerBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import kotlinx.android.synthetic.main.mine_item_stamp_goods.*
 
 
 class CenterShopFragment : BaseBindingViewModelFragment<StampCenterViewModel,MineFragmentCenterShopBinding>(),OnViewClickListener {
@@ -57,8 +59,14 @@ class CenterShopFragment : BaseBindingViewModelFragment<StampCenterViewModel,Min
 
     override fun onClick(view: View, any: Any?) {
         when(view.id){
-
+            R.id.goods_container->{
+                any as GoodsRealBinder
+                toast(view,"点击${any.index}")
+            }
         }
     }
 
+}
+fun toast(view: View, message: String) {
+    Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
 }

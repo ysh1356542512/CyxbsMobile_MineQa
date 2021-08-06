@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.binder
 
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineItemStampGoodsBinding
@@ -8,6 +9,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.GridLayou
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.invoke
+import com.mredrock.cyxbs.mine.util.extension.log
 
 /**
 * @Date : 2021/8/6
@@ -32,6 +34,7 @@ class GoodsRealContainerBinder(val goods: List<GoodsRealBinder>,val type:String)
         (createMultiTypeAdapter(binding.rvGoodsContainer, GridLayoutManager(binding.root.context, 2))) {
             notifyAdapterChanged(goods)
         }
+        Log.d("sss", "onBindViewHolder2:${goods[0].binding?.data} ")
     }
 }
 
@@ -41,4 +44,9 @@ class GoodsRealBinder(val index:Int):MultiTypeBinder<MineItemStampGoodsBinding>(
     }
 
     override fun areContentsTheSame(other: Any): Boolean = other is GoodsRealBinder && other.index == index
+
+    override fun onBindViewHolder(binding: MineItemStampGoodsBinding) {
+        Log.d("sss", "onBindViewHolder:${binding.data} ")
+        binding.data = this
+    }
 }
