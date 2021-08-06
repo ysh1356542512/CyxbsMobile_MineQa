@@ -27,7 +27,7 @@ abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> 
 
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         binding?.lifecycleOwner = this
-        shardViewModel = ViewModelProvider(requireActivity()).get(getViewModelClass())
+        shardViewModel = ViewModelProvider(requireActivity()).get(getActivityVMClass())
         //初始化view
         initView()
 
@@ -42,7 +42,7 @@ abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> 
 
     }
 
-    abstract fun getViewModelClass(): Class<VM>
+    abstract fun getActivityVMClass(): Class<VM>
 
     open fun initView() {}
 

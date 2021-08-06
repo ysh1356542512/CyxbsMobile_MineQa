@@ -16,6 +16,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealContainerBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
 
 
 class CenterShopFragment : BaseBindingViewModelFragment<StampCenterViewModel,MineFragmentCenterShopBinding>(),OnViewClickListener {
@@ -39,10 +40,12 @@ class CenterShopFragment : BaseBindingViewModelFragment<StampCenterViewModel,Min
 
     private fun setRecyclerViewContent(){
         mAdapter?.notifyAdapterChanged(mutableListOf<MultiTypeBinder<*>>().apply {
-            add(GoodsRealContainerBinder((1..20).map{ GoodsRealBinder(it).apply {
+            add(
+                GoodsRealContainerBinder((1..20).map{ GoodsRealBinder(it).apply {
                 setOnClickListener(this@CenterShopFragment::onClick)
             }
-            }))
+            })
+            )
         })
     }
 
