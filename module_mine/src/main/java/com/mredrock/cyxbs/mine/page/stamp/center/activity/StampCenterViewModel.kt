@@ -8,5 +8,6 @@ import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
  *@signature 我们不明前路，却已在路上
  */
 class StampCenterViewModel : BaseViewModel() {
+    
 
 }
