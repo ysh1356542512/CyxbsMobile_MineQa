@@ -1,12 +1,47 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.material.tabs.TabLayoutMediator
+import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.databinding.MineActivityStampDetailBinding
+import com.mredrock.cyxbs.mine.page.stamp.detail.adapter.DetailPagerAdapter
+import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
+import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.GainRecordFragment
+import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
-class StampDetailActivity : AppCompatActivity() {
+class StampDetailActivity :
+    BaseBindingViewModelActivity<StampDetailViewModel, MineActivityStampDetailBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.mine_activity_stamp_detail)
     }
+
+    override fun initView() {
+        binding?.apply {
+            //配置ViewPager的Adapter
+            vpDetail.adapter =
+                DetailPagerAdapter(
+                    listOf(ExchangeRecordFragment(), GainRecordFragment()),
+                    this@StampDetailActivity
+                )
+
+            //ViewPager和TabLayout联动
+            TabLayoutMediator(tlDetail, vpDetail) { tb, position ->
+                when (position) {
+                    0 -> {
+                        tb.text = "兑换记录"
+                    }
+                    1 -> {
+                        tb.text = "获取记录"
+                    }
+                }
+            }.attach()
+
+
+
+        }
+    }
+
+    //设置布局
+    override fun getLayoutId(): Int = R.layout.mine_activity_stamp_detail
 }

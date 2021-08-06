@@ -1,159 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/mine_activity_exchange_background_color"
-    android:paddingTop="@dimen/mine_activity_stamp_tool_bar_padding_top"
-    tools:context=".page.stamp.detail.activity.ExchangeDetailActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <include
-        android:id="@+id/include_tool_bar"
-        layout="@layout/mine_include_stamp_light_tool_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <RelativeLayout
-        android:id="@+id/ll_exchange_detail"
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="108dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/mine_shape_round_cornor_shape"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/include_tool_bar">
+        android:layout_height="match_parent"
+        android:background="@color/mine_activity_exchange_background_color"
+        android:paddingTop="@dimen/mine_activity_stamp_tool_bar_padding_top"
+        tools:context=".page.stamp.detail.activity.ExchangeDetailActivity">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_half_magioke_pg"
-            android:layout_width="180dp"
-            android:layout_height="82dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            app:srcCompat="@drawable/mine_show_ic_half_magipoke_light" />
+        <include
+            android:id="@+id/include_tool_bar"
+            layout="@layout/mine_include_stamp_light_tool_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_exchange_detail_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <RelativeLayout
+            android:id="@+id/ll_exchange_detail"
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/mine_activity_exchange_title"
-            android:textColor="@color/mine_activity_exchange_banner_text_color"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/mine_shape_round_cornor_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/include_tool_bar">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_half_magioke_pg"
+                android:layout_width="180dp"
+                android:layout_height="82dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                app:srcCompat="@drawable/mine_show_ic_half_magipoke_light" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_exchange_detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/mine_activity_exchange_title"
+                android:textColor="@color/mine_activity_exchange_banner_text_color"
+                android:textSize="14sp"
+                tools:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_exchange_detail_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_exchange_detail_title"
+                android:layout_alignStart="@id/tv_exchange_detail_title"
+                android:textColor="@color/mine_activity_exchange_banner_text_color"
+                android:textSize="23sp"
+                tools:text="245769" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_exchange_detail_id"
+                android:layout_alignStart="@id/tv_exchange_detail_title"
+                android:layout_marginTop="7dp"
+                android:text="@string/mine_activity_exchange_banner_content"
+                android:textColor="@color/mine_activity_exchange_banner_text_color"
+                android:textSize="11sp" />
+
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_appcompattextview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/mine_activity_exchange_product_detail_text"
+            android:textColor="@color/mine_activity_exchange_text_color"
+            app:layout_constraintStart_toStartOf="@+id/ll_exchange_detail"
+            app:layout_constraintTop_toBottomOf="@+id/ll_exchange_detail" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_appcompattextview3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/mine_activity_exchange_product_name_text"
+            android:textColor="@color/mine_activity_exchange_text_color"
             android:textSize="14sp"
-            tools:textSize="14sp" />
+            app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview2"
+            app:layout_constraintTop_toBottomOf="@+id/mine_appcompattextview2" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_exchange_detail_id"
+            android:id="@+id/tv_product_name_context"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_exchange_detail_title"
-            android:layout_alignStart="@id/tv_exchange_detail_title"
-            android:textColor="@color/mine_activity_exchange_banner_text_color"
-            android:textSize="23sp"
-            tools:text="245769" />
+            android:layout_marginStart="35dp"
+            android:textColor="@color/mine_activity_exchange_text_color"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview2"
+            app:layout_constraintStart_toEndOf="@+id/mine_appcompattextview2"
+            app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview2"
+            tools:text="卷卷鼠标垫" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_appcompattextview4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mine_activity_exchange_text_color"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview3"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_name_context"
+            app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview3"
+            tools:text="1000邮豆" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_appcompattextview5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/mine_activity_exchange_trading_hours"
+            android:textColor="@color/mine_activity_exchange_text_color"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview3"
+            app:layout_constraintTop_toBottomOf="@+id/mine_appcompattextview3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_appcompattextview6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mine_activity_exchange_text_color"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview5"
+            app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview4"
+            app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview5"
+            tools:text="2021-2-25 14:32" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_appcompattextview7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/mine_activity_exchange_product_state_text"
+            android:textColor="@color/mine_activity_exchange_text_color"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview5"
+            app:layout_constraintTop_toBottomOf="@+id/mine_appcompattextview5" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_exchange_detail_id"
-            android:layout_alignStart="@id/tv_exchange_detail_title"
-            android:layout_marginTop="7dp"
-            android:text="@string/mine_activity_exchange_banner_content"
-            android:textColor="@color/mine_activity_exchange_banner_text_color"
-            android:textSize="11sp" />
+            android:textColor="@color/mine_activity_exchange_text_color"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview7"
+            app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview6"
+            app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview7"
+            tools:text="待领取" />
 
-    </RelativeLayout>
-
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mine_appcompattextview2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/mine_activity_exchange_product_detail_text"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        app:layout_constraintStart_toStartOf="@+id/ll_exchange_detail"
-        app:layout_constraintTop_toBottomOf="@+id/ll_exchange_detail" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mine_appcompattextview3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/mine_activity_exchange_product_name_text"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview2"
-        app:layout_constraintTop_toBottomOf="@+id/mine_appcompattextview2" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_product_name_context"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview2"
-        app:layout_constraintStart_toEndOf="@+id/mine_appcompattextview2"
-        app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview2"
-        tools:text="卷卷鼠标垫" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mine_appcompattextview4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview3"
-        app:layout_constraintStart_toStartOf="@+id/tv_product_name_context"
-        app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview3"
-        tools:text="1000邮豆" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mine_appcompattextview5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/mine_activity_exchange_trading_hours"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview3"
-        app:layout_constraintTop_toBottomOf="@+id/mine_appcompattextview3" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mine_appcompattextview6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview5"
-        app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview4"
-        app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview5"
-        tools:text="2021-2-25 14:32" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mine_appcompattextview7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/mine_activity_exchange_product_state_text"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview5"
-        app:layout_constraintTop_toBottomOf="@+id/mine_appcompattextview5" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/mine_activity_exchange_text_color"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview7"
-        app:layout_constraintStart_toStartOf="@+id/mine_appcompattextview6"
-        app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview7"
-        tools:text="待领取" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
