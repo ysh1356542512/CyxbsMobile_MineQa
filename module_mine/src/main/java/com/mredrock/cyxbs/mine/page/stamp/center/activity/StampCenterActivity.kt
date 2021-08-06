@@ -16,6 +16,7 @@ import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
@@ -33,8 +34,6 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
     //用于记录今天是否已经点击小店
     private var isClickToday = false
 
-
-
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +49,7 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
         //先进行 viewPager2 和 tablayout 的绑定
         binding?.apply {
             vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-            val fragments = arrayListOf<Fragment>(CenterShopFragment(), CenterShopFragment())
+            val fragments = arrayListOf<Fragment>(CenterShopFragment(), StampTaskFragment())
             vpCenter.adapter = object : FragmentStateAdapter(this@StampCenterActivity) {
                 override fun getItemCount(): Int {
                     return 2

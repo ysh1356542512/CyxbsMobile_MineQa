@@ -68,7 +68,7 @@ class SettingActivity : BaseActivity() {
 
         //for test
         mine_setting_fm_shield_test.setOnClickListener {
-            val intent = Intent(this, ExchangeDetailActivity::class.java)
+            val intent = Intent(this, StampCenterActivity::class.java)
             startActivity(intent)
         }
     }
