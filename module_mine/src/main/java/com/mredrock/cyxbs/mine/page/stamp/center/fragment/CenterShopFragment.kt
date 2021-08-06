@@ -48,7 +48,11 @@ class CenterShopFragment : BaseBindingViewModelFragment<StampCenterViewModel,Min
         //在这里可以add很多个类型的ContainerBinder
         mAdapter?.notifyAdapterChanged(mutableListOf<MultiTypeBinder<*>>().apply {
             //用map函数给每一个Binder设置监听事件 具体事件在这个类里的onClick函数定义 根据id来判断binder
-            add(GoodsRealContainerBinder((1..20).map{ GoodsRealBinder(it).apply {
+            add(GoodsRealContainerBinder((1..20)
+                    .filter {
+                        it>0
+                    }.map{
+                        GoodsRealBinder(it).apply {
                 setOnClickListener(this@CenterShopFragment::onClick)
             }
             },"装扮"))

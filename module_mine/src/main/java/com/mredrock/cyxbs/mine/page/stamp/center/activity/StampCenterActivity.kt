@@ -1,12 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
-
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -22,17 +17,16 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 /**
-* @Date : 2021/8/4
-* @By : ysh
-* @Usage : 邮票中心主界面
-* @Request : God bless my code
-*/
+ * @Date : 2021/8/4
+ * @By : ysh
+ * @Usage : 邮票中心主界面
+ * @Request : God bless my code
+ */
 
 class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, MineActivityStampCenterBinding>() {
 
     //用于记录今天是否已经点击小店
     private var isClickToday = false
-
 
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
@@ -49,6 +43,8 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
     override fun initView() {
         //先进行 viewPager2 和 tablayout 的绑定
         binding?.apply {
+//            context = this@StampCenterActivity
+
             vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
             val fragments = arrayListOf<Fragment>(CenterShopFragment(), CenterShopFragment())
             vpCenter.adapter = object : FragmentStateAdapter(this@StampCenterActivity) {
@@ -102,6 +98,8 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
                         true -> {
                             when (tab?.position) {
                                 1 -> {
+//                                    tab.orCreateBadge
+
                                     //在这个点卡了比较久 因为发现如果只setCustomView一次其实 tab 不会去更换布局 而是会类似于解绑布局 导致切换tab直接不显示布局内容
                                     //所以在这里调用两次 setCustomView 一次用来解除布局绑定 第二次来重新绑定来实现切换布局
                                     tab.setCustomView(R.layout.mine_item_tab_click)
@@ -134,7 +132,6 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
             includeCenterPart2.mineCenterPartThree.tvCenterCommend.setOnSingleClickListener { startActivity<ExchangeDetailActivity>() }
         }
     }
-
 
 
 }

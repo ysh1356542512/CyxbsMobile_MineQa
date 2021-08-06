@@ -1,6 +1,10 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+import com.mredrock.cyxbs.mine.network.bean.CenterInfo
 
 /**
  *@author ZhiQiang Tu
@@ -8,5 +12,24 @@ import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
  *@signature 我们不明前路，却已在路上
  */
 class StampCenterViewModel : BaseViewModel() {
+
+    private val _isEnterToday = MutableLiveData<Boolean>()
+
+    val isEnterToday:LiveData<Boolean>
+    get() = _isEnterToday
+
+    fun getIsEnterToday(){
+//        apiService.getScoreStatus()
+//                .mapOrThrowApiException()
+//                .setSchedulers()
+//                .doOnErrorWithDefaultErrorHandler { true }
+//                .safeSubscribeBy(
+//                        onNext = {
+//                            _status.postValue(it)
+//                        }
+//                )
+//                .lifeCycle()
+    }
+
 
 }

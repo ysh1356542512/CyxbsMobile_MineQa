@@ -28,6 +28,7 @@ class GoodsRealContainerBinder(val goods: List<GoodsRealBinder>,val type:String)
     //判断是否重复
     override fun areContentsTheSame(other: Any): Boolean = other is GoodsRealContainerBinder &&other.goods ==goods
 
+    //对布局进行处理 比如标题：装饰/邮物
     override fun onBindViewHolder(binding: MineItemStampGoodsRealContainerBinding) {
         binding.rvGoodsContainer.addItemDecoration(GridLayoutDecorationDivider(binding.root.context, 2, 10))
         binding.tvTypeReal.text = type
@@ -39,6 +40,7 @@ class GoodsRealContainerBinder(val goods: List<GoodsRealBinder>,val type:String)
 }
 
 //在此类的构造函数中填入布局中需要的 所有信息 如 bean类等等
+//此处传入页面上展示需要的信息 也就是商品信息的List
 class GoodsRealBinder(val index:Int):MultiTypeBinder<MineItemStampGoodsBinding>(){
     override fun layoutId(): Int {
         return R.layout.mine_item_stamp_goods
@@ -47,7 +49,7 @@ class GoodsRealBinder(val index:Int):MultiTypeBinder<MineItemStampGoodsBinding>(
     override fun areContentsTheSame(other: Any): Boolean = other is GoodsRealBinder && other.index == index
 
     override fun onBindViewHolder(binding: MineItemStampGoodsBinding) {
-        Log.d("sss", "onBindViewHolder:${binding.data} ")
+        //在这里对把信息传给binding
         binding.data = this
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="27dp"
+    android:background="@drawable/mine_shape_center_balance"
+    android:scrollbarSize="18.78sp"
+    app:layoutDescription="@xml/mine_activity_stamp_center_part_four_scene">
+
+    <ImageView
+        android:id="@+id/iv_stamp_before"
+        android:layout_width="23dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num_after"
+        app:layout_constraintEnd_toStartOf="@+id/tv_stamp_num_after"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_stamp_num_after"
+        app:srcCompat="@drawable/mine_ic_center_stamp_backword"
+        android:contentDescription="@string/mine_stamp_center_stamp_after" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_stamp_num_after"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/mine_stamp_center_num_after"
+        android:textColor="#E9F2FB"
+        android:textSize="18.78dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iv_stamp_before" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
