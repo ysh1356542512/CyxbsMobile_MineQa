@@ -38,6 +38,7 @@ class GoodsRealContainerBinder(val goods: List<GoodsRealBinder>,val type:String)
     }
 }
 
+//在此类的构造函数中填入布局中需要的 所有信息 如 bean类等等
 class GoodsRealBinder(val index:Int):MultiTypeBinder<MineItemStampGoodsBinding>(){
     override fun layoutId(): Int {
         return R.layout.mine_item_stamp_goods

@@ -6,6 +6,12 @@ import android.view.MotionEvent
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.abs
 
+/**
+* @Date : 2021/8/6
+* @By : ysh
+* @Usage : 消除滑动冲突的RV
+* @Request : God bless my code
+*/
 class RecyclerviewAtVP2 : RecyclerView {
     constructor(context: Context) : super(context) {}
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}

@@ -10,7 +10,6 @@ import androidx.lifecycle.MutableLiveData
 import com.mredrock.cyxbs.api.account.IAccountService
 import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.common.service.ServiceManager
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.common.utils.extensions.*
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.mine.network.model.QANumber
@@ -19,7 +18,6 @@ import com.mredrock.cyxbs.mine.network.model.UserCount
 import com.mredrock.cyxbs.mine.network.model.UserUncheckCount
 import com.mredrock.cyxbs.mine.util.apiService
 import com.mredrock.cyxbs.mine.util.extension.normalWrapper
-import com.mredrock.cyxbs.common.utils.extensions.defaultSharedPreferences
 
 
 /**
@@ -80,7 +78,7 @@ class UserViewModel : BaseViewModel() {
                 .doOnErrorWithDefaultErrorHandler { true }
                 .safeSubscribeBy(
                         onNext = {
-                                _userCount.postValue(it.data)
+                            _userCount.postValue(it.data)
                         },
                         onError = {
                             BaseApp.context.toast("请求异常:${it.message}")
@@ -99,7 +97,7 @@ class UserViewModel : BaseViewModel() {
                 .doOnErrorWithDefaultErrorHandler { true }
                 .safeSubscribeBy(
                         onNext = {
-                                _userUncheckCount.postValue(it.data)
+                            _userUncheckCount.postValue(it.data)
                         },
                         onError = {
                             BaseApp.context.toast("请求异常:${it.message}")
@@ -108,7 +106,7 @@ class UserViewModel : BaseViewModel() {
     }
 
     //思考了一下，这里view的引用应该会随着函数调用的结束出栈，所以不会引起内存泄漏
-    fun judgeChangedAndSetText(textView: TextView, count: Int){
+    fun judgeChangedAndSetText(textView: TextView, count: Int) {
         val text = getNumber(count)
         if (textView.text == text) return
         textView.text = text
@@ -197,12 +195,12 @@ class UserViewModel : BaseViewModel() {
         else -> "0"
     }
 
-    fun saveCheckTimeStamp(type: Int){
+    fun saveCheckTimeStamp(type: Int) {
         BaseApp.context.defaultSharedPreferences.editor {
-            if (type == 1){//刷新未读回复数的本地记录时间戳
-                putLong(UNCHECK_COMMENT_KEY,System.currentTimeMillis()/1000)
-            } else if (type == 2){//刷新点赞数的本地记录时间戳
-                putLong(UNCHECK_PRAISE_KEY,System.currentTimeMillis()/1000)
+            if (type == 1) {//刷新未读回复数的本地记录时间戳
+                putLong(UNCHECK_COMMENT_KEY, System.currentTimeMillis() / 1000)
+            } else if (type == 2) {//刷新点赞数的本地记录时间戳
+                putLong(UNCHECK_PRAISE_KEY, System.currentTimeMillis() / 1000)
             }
             apply()
         }
