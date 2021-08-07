@@ -1,5 +1,8 @@
 package com.mredrock.cyxbs.mine.network.bean
 
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 /**
 * @Date : 2021/8/6
 * @By : ysh
@@ -7,19 +10,19 @@ package com.mredrock.cyxbs.mine.network.bean
 * @Request : God bless my code
 */
 data class OrderResponse(
-        val code: Int,
-        val `data`: List<Data>,
-        val message: String,
-        val success: Boolean
-) {
-    data class Data(
-            val buy_time: String,
-            val buyer: Int,
-            val num: Int,
-            val price: Int,
-            val remain_time: Int,
-            val status: Boolean,
-            val title: String
-    )
-}
+        @SerializedName("buy_name")
+        val buyTime: String,
+        @SerializedName("buyer")
+        val buyer: Int,
+        @SerializedName("num")
+        val num: Int,
+        @SerializedName("price")
+        val price: Int,
+        @SerializedName("remain_time")
+        val remainTime: Int,
+        @SerializedName("status")
+        val status: Boolean,
+        @SerializedName("title")
+        val title: String
+):Serializable
 

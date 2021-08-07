@@ -1,17 +1,19 @@
 package com.mredrock.cyxbs.mine.network.bean
 
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 class ShopInfo(
-        val code: Int,
-        val `data`: Data,
-        val message: String,
-        val success: Boolean
-) {
-    data class Data(
-            val amount: Any,
-            val id: Int,
-            val price: Int,
-            val title: String,
-            val type: Int,
-            val url: String
-    )
-}
+        @SerializedName("amount")
+        val amount: Int,
+        @SerializedName("id")
+        val id: Int,
+        @SerializedName("price")
+        val price: Int,
+        @SerializedName("title")
+        val title: String,
+        @SerializedName("type")
+        val type: Int,
+        @SerializedName("url")
+        val url: String
+) :Serializable

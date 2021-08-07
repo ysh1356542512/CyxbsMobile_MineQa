@@ -1,5 +1,8 @@
 package com.mredrock.cyxbs.mine.network.bean
 
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 /**
 * @Date : 2021/8/6
 * @By : ysh
@@ -7,14 +10,9 @@ package com.mredrock.cyxbs.mine.network.bean
 * @Request : God bless my code
 */
 data class StampRemain(
-        val code: Int,
-        val `data`: Data,
-        val message: String,
-        val success: Boolean
-) {
-    data class Data(
-            val msg: String,
-            val remain: Int
-    )
-}
+        @SerializedName("msg")
+        val msg: String,
+        @SerializedName("remain")
+        val remain: Int
+):Serializable
 

@@ -1,14 +1,22 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Pair
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
+import com.mredrock.cyxbs.common.utils.extensions.startActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
+import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
+import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
+import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.NoneProductDialog
 
 
 class GoodsActivity :
@@ -44,6 +52,14 @@ class GoodsActivity :
             setCanShowIndicator(true)
             //设置适配器
             setAdapter(bannerViewPager)
+            setOnPageClickListener(object : BaseBannerAdapter.OnPageClickListener {
+                override fun onPageClick(position: Int) {
+                    //传入 position 和 List<Photo>
+                    val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
+                    intent.putExtra("photo_item",2)
+                    startActivity(intent)
+                }
+            })
         }.create(
             listOf(
                 R.drawable.mine_ic_banner_pic,
@@ -60,8 +76,26 @@ class GoodsActivity :
             }
             //之后可能会对照片进行点击看大图的转换 到时候再说
             btnStampBuy.setOnSingleClickListener {
-                //
+//                val dialog = NoneProductDialog()
+//                        .setContent("啊哦！手慢了！下次再来吧！")
+//                        .setPositiveButtonText("2")
+//                        .setPositiveButtonClick {
+//                            Toast.makeText(this@GoodsActivity, "确认", Toast.LENGTH_SHORT).show()
+//                        }
+//                dialog.show(supportFragmentManager,"dialog")
+                val dialog = DoubleCheckDialog()
+                        .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
+                        .setNegativeButtonText("再想想")
+                        .setPositiveButtonText("好的")
+                        .setNegativeButtonClick {
+                            Toast.makeText(this@GoodsActivity, "我还没悟透", Toast.LENGTH_SHORT).show()
+                        }
+                        .setPositiveButtonClick {
+                            Toast.makeText(this@GoodsActivity, "我想通了", Toast.LENGTH_SHORT).show()
+                        }
+                dialog.show(supportFragmentManager,"dialog")
             }
+
 
         }
     }

@@ -1,5 +1,8 @@
 package com.mredrock.cyxbs.mine.network.bean
 
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 /**
 * @Date : 2021/8/6
 * @By : ysh
@@ -7,15 +10,11 @@ package com.mredrock.cyxbs.mine.network.bean
 * @Request : God bless my code
 */
 data class DetailResponse(
-        val code: Int,
-        val `data`: List<Data>,
-        val message: String,
-        val success: Boolean
-) {
-    data class Data(
-            val date: String,
-            val gain_stamp: Int,
-            val task_name: String
-    )
-}
+        @SerializedName("date")
+        val date: String,
+        @SerializedName("gain_stamp")
+        val gainStamp: Int,
+        @SerializedName("task_name")
+        val taskName: String
+): Serializable
 

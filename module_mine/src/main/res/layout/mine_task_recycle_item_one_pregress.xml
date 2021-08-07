@@ -21,9 +21,11 @@
             android:id="@+id/mine_appcompattextview8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="@{data.taskName}"
             android:textColor="@color/mine_task_recycle_item_task_name_color"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="每日打卡"
@@ -32,6 +34,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:paddingTop="4dp"
             android:text="@{data.taskDescription}"
             android:textColor="@color/mine_task_recycle_item_description_color"
@@ -45,14 +48,14 @@
             android:id="@+id/btn_to_do_it"
             android:layout_width="66dp"
             android:layout_height="28dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/mine_task_shape_do_it_btn_light"
             android:text="@string/mine_task_do_it_btn_text"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

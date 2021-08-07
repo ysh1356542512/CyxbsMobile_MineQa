@@ -11,17 +11,11 @@ import java.io.Serializable
 * @Request : God bless my code
 */
 data class CenterInfo(
-        val code: Int,
-        val `data`: Data,
-        val message: String,
-        val success: Boolean
-) :Serializable{
-    data class Data(
-            val isEnter: Boolean,
-            val user_account: Int
-    )
-
-}
+        @SerializedName("is_enter")
+        val isEnter: Boolean,
+        @SerializedName("user_account")
+        val userAccount: Int
+) :Serializable
 
 
 
