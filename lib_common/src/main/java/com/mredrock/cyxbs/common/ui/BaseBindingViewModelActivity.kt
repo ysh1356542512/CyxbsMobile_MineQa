@@ -25,6 +25,21 @@ abstract class BaseBindingViewModelActivity<VM : BaseViewModel,T : ViewDataBindi
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,getLayoutId())
         binding?.lifecycleOwner = this
+
+        //初始化view
+        initView()
+
+        //初始化监听器
+        initListener()
+
+        //初始化数据监听
+        observeData()
     }
+
+    open fun observeData() {}
+
+    open fun initListener() {}
+
+    open fun initView() {}
 
 }

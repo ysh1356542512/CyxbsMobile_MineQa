@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
@@ -26,7 +28,7 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
  */
 
 class StampCenterActivity :
-    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding,StampCenterPresenter,>() {
+    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding,BasePresenter<*>>() {
 
     //用于记录今天是否已经点击小店
     private var isClickToday = false
@@ -36,6 +38,9 @@ class StampCenterActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding?.vm = viewModel
+
+        Log.e(TAG, "$viewModel $presenter $binding")
+        //presenter?.do1()
 
     }
 

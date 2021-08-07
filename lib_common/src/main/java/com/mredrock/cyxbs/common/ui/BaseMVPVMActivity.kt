@@ -36,7 +36,7 @@ abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : Bas
         presenter?.onAttachView(this)
         //双向关联成功
 
-
+        lifecycle.addObserver(presenter as LifecycleObserver)
 
         //初始化view
         initView()

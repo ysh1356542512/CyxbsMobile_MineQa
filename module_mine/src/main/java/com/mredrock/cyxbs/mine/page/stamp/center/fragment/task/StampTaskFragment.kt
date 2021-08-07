@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.task
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +16,10 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.FirstLevelTask
 import com.mredrock.cyxbs.mine.page.stamp.center.model.MoreTask
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import com.mredrock.cyxbs.mine.util.extension.log
 
 class StampTaskFragment :
-    BaseMVPVMFragment< StampTaskViewModel, MineFragmentStampTaskBinding,TaskPresenter>() {
+    BaseMVPVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding,TaskPresenter>() {
 
     private val mAdapter by lazy {
         binding?.rvTask?.let {

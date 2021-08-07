@@ -29,8 +29,6 @@ abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> 
         binding?.lifecycleOwner = this
         shardViewModel = ViewModelProvider(requireActivity()).get(getActivityVMClass())
         return binding?.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

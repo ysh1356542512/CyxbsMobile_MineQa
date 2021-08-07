@@ -19,6 +19,7 @@ abstract class BaseBindingViewModelFragment<VM : BaseViewModel, T : ViewDataBind
     var binding: T? = null
 
     abstract fun getLayoutId(): Int
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

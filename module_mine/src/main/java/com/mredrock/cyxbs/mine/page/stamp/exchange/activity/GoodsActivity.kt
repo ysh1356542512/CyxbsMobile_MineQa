@@ -23,11 +23,10 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
 
         Log.e(TAG, "$viewModel $binding" )
         initListener()
-        initView()
         observeData()
     }
 
-    fun initView() {
+    override fun initView() {
 
         val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
@@ -53,7 +52,7 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
         )
     }
 
-    fun initListener() {
+    override fun initListener() {
         binding?.apply {
             ivCenterBack.setOnSingleClickListener {
                 onBackPressed()
@@ -66,7 +65,7 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
         }
     }
 
-    fun observeData() {
+    override fun observeData() {
 
     }
 
