@@ -11,7 +11,8 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 
 
-class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding>() {
+class GoodsActivity :
+    BaseBindingViewModelActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding>() {
     private lateinit var bvpViewPager: BannerViewPager<Int>
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
@@ -19,9 +20,9 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.mine_activity_stamp_goods_detail_real)
-        binding?.vm =viewModel
+        binding?.vm = viewModel
 
-        Log.e(TAG, "$viewModel $binding" )
+        Log.e(TAG, "$viewModel $binding")
         initListener()
         observeData()
     }
@@ -44,11 +45,11 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
             //设置适配器
             setAdapter(bannerViewPager)
         }.create(
-                listOf(
-                        R.drawable.mine_ic_banner_pic,
-                        R.drawable.mine_ic_banner_pic,
-                        R.drawable.mine_ic_banner_pic
-                )
+            listOf(
+                R.drawable.mine_ic_banner_pic,
+                R.drawable.mine_ic_banner_pic,
+                R.drawable.mine_ic_banner_pic
+            )
         )
     }
 
@@ -68,7 +69,6 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
     override fun observeData() {
 
     }
-
 
 
 }

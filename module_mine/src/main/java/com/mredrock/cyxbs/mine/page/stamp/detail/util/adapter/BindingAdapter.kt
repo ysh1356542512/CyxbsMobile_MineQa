@@ -14,7 +14,7 @@ object BindingAdapter {
     @JvmStatic
     fun finishOrNot(
         imageView: ImageView,
-         doing: Drawable,
+        doing: Drawable,
         isFinished: Boolean,
         finished: Drawable
     ) {

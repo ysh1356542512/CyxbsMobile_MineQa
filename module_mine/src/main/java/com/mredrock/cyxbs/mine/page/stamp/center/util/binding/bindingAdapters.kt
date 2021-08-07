@@ -10,11 +10,11 @@ import com.bumptech.glide.Glide
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 
 /**
-* @Date : 2021/8/6
-* @By : ysh
-* @Usage : 对bindingAdapter的事件管理
-* @Request : God bless my code
-*/
+ * @Date : 2021/8/6
+ * @By : ysh
+ * @Usage : 对bindingAdapter的事件管理
+ * @Request : God bless my code
+ */
 
 
 //加载图片
@@ -29,7 +29,7 @@ fun setImage(Iv: ImageView, goodsImage: String?) {
 
 //本来想
 @BindingAdapter("adapter")
-fun bindAdapter(vp:ViewPager2,activity: FragmentActivity){
+fun bindAdapter(vp: ViewPager2, activity: FragmentActivity) {
     vp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     val fragments = arrayListOf<Fragment>(CenterShopFragment(), CenterShopFragment())
     vp.adapter = object : FragmentStateAdapter(activity) {

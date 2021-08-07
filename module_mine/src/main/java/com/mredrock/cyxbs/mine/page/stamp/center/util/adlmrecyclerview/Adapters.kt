@@ -8,12 +8,15 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
 /**
-* @Date : 2021/8/6
-* @By : ysh
-* @Usage : 扩展类
-* @Request : God bless my code
-*/
-fun createMultiTypeAdapter(recyclerView: RecyclerView, layoutManager: RecyclerView.LayoutManager): MultiTypeAdapter {
+ * @Date : 2021/8/6
+ * @By : ysh
+ * @Usage : 扩展类
+ * @Request : God bless my code
+ */
+fun createMultiTypeAdapter(
+    recyclerView: RecyclerView,
+    layoutManager: RecyclerView.LayoutManager
+): MultiTypeAdapter {
     recyclerView.layoutManager = layoutManager
     val mMultiTypeAdapter = MultiTypeAdapter(layoutManager)
     recyclerView.adapter = mMultiTypeAdapter
@@ -22,7 +25,8 @@ fun createMultiTypeAdapter(recyclerView: RecyclerView, layoutManager: RecyclerVi
         override fun onViewDetachedFromWindow(v: View?) {
             mMultiTypeAdapter.onDetachedFromRecyclerView(recyclerView)
         }
-        override fun onViewAttachedToWindow(v: View?) { }
+
+        override fun onViewAttachedToWindow(v: View?) {}
     })
     return mMultiTypeAdapter
 }
@@ -34,4 +38,5 @@ inline operator fun MultiTypeAdapter.invoke(block: MultiTypeAdapter.() -> Unit):
 }
 
 
-fun <T : ViewDataBinding> ViewGroup.inflateDataBinding(layoutId: Int): T = DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, this, false)
+fun <T : ViewDataBinding> ViewGroup.inflateDataBinding(layoutId: Int): T =
+    DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, this, false)

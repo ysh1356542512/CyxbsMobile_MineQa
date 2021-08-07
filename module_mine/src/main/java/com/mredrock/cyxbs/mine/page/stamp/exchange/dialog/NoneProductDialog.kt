@@ -75,7 +75,7 @@ class NoneProductDialog : DialogFragment() {
 
     //对布局的view事件和属性进行设置
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding?.btConfirm?.setOnClickListener{
+        binding?.btConfirm?.setOnClickListener {
             positiveButtonClick?.invoke(it)
             dismiss()
         }

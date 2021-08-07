@@ -15,7 +15,7 @@ private const val TAG = "StampCenterPresenter"
 
 class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     TabLayoutMediator.TabConfigurationStrategy,
-    TabLayout.OnTabSelectedListener{
+    TabLayout.OnTabSelectedListener {
     //ViewPager与TabLayout的联动部分
     //TabLayoutMediator.TabConfigurationStrategy
     override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {

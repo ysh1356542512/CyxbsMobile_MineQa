@@ -42,7 +42,7 @@ class ExchangeRecordFragment :
     }
 
     private fun setRecyclerViewContent() {
-        val handler:ClickHandler = ClickHandler()
+        val handler: ClickHandler = ClickHandler()
         val list: MutableList<DetailItemData> = mutableListOf()
         list.apply {
             add(DetailItemData("卷卷鼠标垫", "2030-1-1", 4000, true))
@@ -51,19 +51,19 @@ class ExchangeRecordFragment :
         }
         mAdapter?.notifyAdapterChanged(
             (0..2).map { it ->
-            ExchangeRecordBinder(list[it],handler)
-        })
+                ExchangeRecordBinder(list[it], handler)
+            })
     }
 
     override fun getLayoutId(): Int = R.layout.mine_fragment_exchange_record
     override fun getActivityVMClass(): Class<StampDetailViewModel> =
         StampDetailViewModel::class.java
 
-    inner class ClickHandler(){
-        fun onClicked(v:View,any: Any?){
-            when(v.id){
-                R.id.cl_item->{
-                    onItemClicked(v,any)
+    inner class ClickHandler() {
+        fun onClicked(v: View, any: Any?) {
+            when (v.id) {
+                R.id.cl_item -> {
+                    onItemClicked(v, any)
                 }
             }
         }

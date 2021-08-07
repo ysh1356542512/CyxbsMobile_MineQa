@@ -7,5 +7,5 @@ import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
  *@time 2021/8/6  20:18
  *@signature 我们不明前路，却已在路上
  */
-class StampTaskViewModel : BaseViewModel(){
+class StampTaskViewModel : BaseViewModel() {
 }

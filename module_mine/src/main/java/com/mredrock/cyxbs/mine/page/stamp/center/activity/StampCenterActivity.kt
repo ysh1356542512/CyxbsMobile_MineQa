@@ -46,7 +46,7 @@ class StampCenterActivity :
             vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
             val fragments = arrayListOf<Fragment>(CenterShopFragment(), StampTaskFragment())
             //设置Adapter
-            vpCenter.adapter = PagerAdapter(fragments,this@StampCenterActivity)
+            vpCenter.adapter = PagerAdapter(fragments, this@StampCenterActivity)
 
             vpCenter.apply {
                 offscreenPageLimit = 2
@@ -60,7 +60,7 @@ class StampCenterActivity :
                     ).attach()
                 }
             }
-            presenter?.let {tlCenter.addOnTabSelectedListener(it)}
+            presenter?.let { tlCenter.addOnTabSelectedListener(it) }
         }
     }
 
