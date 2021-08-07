@@ -19,4 +19,5 @@ dependencies {
         exclude(module: 'alicloud-android-utdid')
         exclude(module: 'alicloud-android-utils')
     }
+
 }

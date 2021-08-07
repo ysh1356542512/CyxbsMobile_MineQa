@@ -1,7 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.task
 
 import com.mredrock.cyxbs.common.presenter.BasePresenter
-import com.mredrock.cyxbs.mine.page.stamp.center.activity.MyModel
 
 /**
  *@author ZhiQiang Tu

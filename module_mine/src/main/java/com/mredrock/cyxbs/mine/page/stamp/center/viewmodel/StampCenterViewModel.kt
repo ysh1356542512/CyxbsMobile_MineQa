@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.mine.page.stamp.center.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterActivity
 
 
 //class StampCenterViewModel(private val userId:Int)
@@ -11,8 +12,4 @@ class StampCenterViewModel():BaseViewModel() {
     var isClickToday = false
     //我们要得到的bean类
     private val _userAccount = MutableLiveData<Int>()
-
-
-
-
 }
