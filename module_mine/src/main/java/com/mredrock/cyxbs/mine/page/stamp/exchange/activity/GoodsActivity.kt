@@ -2,6 +2,8 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
@@ -9,6 +11,8 @@ import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBindi
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
+import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
+import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.NoneProductDialog
 
 
 class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding>() {
@@ -57,8 +61,26 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
             }
             //之后可能会对照片进行点击看大图的转换 到时候再说
             btnStampBuy.setOnSingleClickListener {
-                //
+//                val dialog = NoneProductDialog()
+//                        .setContent("啊哦！手慢了！下次再来吧！")
+//                        .setPositiveButtonText("2")
+//                        .setPositiveButtonClick {
+//                            Toast.makeText(this@GoodsActivity, "确认", Toast.LENGTH_SHORT).show()
+//                        }
+//                dialog.show(supportFragmentManager,"dialog")
+                val dialog = DoubleCheckDialog()
+                        .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
+                        .setNegativeButtonText("再想想")
+                        .setPositiveButtonText("好的")
+                        .setNegativeButtonClick {
+                            Toast.makeText(this@GoodsActivity, "我还没悟透", Toast.LENGTH_SHORT).show()
+                        }
+                        .setPositiveButtonClick {
+                            Toast.makeText(this@GoodsActivity, "我想通了", Toast.LENGTH_SHORT).show()
+                        }
+                dialog.show(supportFragmentManager,"dialog")
             }
+
 
         }
     }

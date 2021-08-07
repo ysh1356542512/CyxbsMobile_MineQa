@@ -81,8 +81,6 @@
             </com.google.android.material.appbar.AppBarLayout>
 
             <LinearLayout
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -94,7 +92,7 @@
                     android:layout_height="40dp"
                     android:background="@color/common_transparent_background"
                     app:tabBackground="@color/common_transparent_background"
-                    app:tabIndicator="@drawable/mine_ic_tab_indicator"
+                    app:tabIndicator="@drawable/mine_ic_stamp_indicator"
                     app:tabIndicatorColor="#1AD0F2"
                     app:tabIndicatorFullWidth="false"
                     app:tabIndicatorHeight="3dp"
@@ -107,6 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:overScrollMode="never"
+                    android:background="@drawable/mine_shape_shop_bg"
                     />
 <!--                sob:adapter="@{context}"-->
 <!--                <androidx.recyclerview.widget.RecyclerView-->
