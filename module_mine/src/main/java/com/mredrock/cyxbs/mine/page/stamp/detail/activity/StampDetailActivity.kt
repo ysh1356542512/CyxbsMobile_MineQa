@@ -17,9 +17,10 @@ class StampDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.e(TAG, "$viewModel" )
+        initView()
     }
 
-    override fun initView() {
+    fun initView() {
         binding?.lifecycleOwner = this
         binding?.eventHandler = EventHandler()
         binding?.apply {

@@ -28,6 +28,15 @@ abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> 
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         binding?.lifecycleOwner = this
         shardViewModel = ViewModelProvider(requireActivity()).get(getActivityVMClass())
+        return binding?.root
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //初始化配置
+        initConfiguration()
+
         //初始化view
         initView()
 
@@ -36,10 +45,6 @@ abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> 
 
         //初始化数据监听
         observeData()
-
-        return binding?.root
-
-
     }
 
     abstract fun getActivityVMClass(): Class<VM>

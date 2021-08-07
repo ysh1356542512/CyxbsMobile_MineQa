@@ -1,8 +1,6 @@
 package com.mredrock.cyxbs.common.ui
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +15,7 @@ import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
  */
 abstract class BaseBindingViewModelFragment<VM : BaseViewModel, T : ViewDataBinding> :
     BaseViewModelFragment<VM>() {
+
     var binding: T? = null
 
     abstract fun getLayoutId(): Int
@@ -26,9 +25,14 @@ abstract class BaseBindingViewModelFragment<VM : BaseViewModel, T : ViewDataBind
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,getLayoutId(),container,false)
+        binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         binding?.lifecycleOwner = this
 
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         //初始化view
         initView()
 
@@ -37,16 +41,12 @@ abstract class BaseBindingViewModelFragment<VM : BaseViewModel, T : ViewDataBind
 
         //初始化数据监听
         observeData()
-
-        return binding?.root
-
-
     }
 
 
-    open fun initView(){}
+    open fun initView() {}
 
     open fun initListener() {}
 
-    open fun observeData(){}
+    open fun observeData() {}
 }

@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
+import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
@@ -25,7 +25,8 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
  * @Request : God bless my code
  */
 
-class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, MineActivityStampCenterBinding>() {
+class StampCenterActivity :
+    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding,StampCenterPresenter,>() {
 
     //用于记录今天是否已经点击小店
     private var isClickToday = false
@@ -62,26 +63,29 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
                 offscreenPageLimit = 2
                 //此处可动态设置tabItem布局
                 //关于tablayout代码的设计 这样能够尽可能的减少网络请求的次数
-                TabLayoutMediator(tlCenter, vpCenter, TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-                    when (position) {
-                        0 -> {
-                            //此处setCustomView来设置布局 tab.setCustomView(R.layout.xxx)
-                            //在TabLayoutMediator源码的populateTabsFromPagerAdapter方法中可查看逻辑
-                            tab.setCustomView(R.layout.mine_item_tab_shop)
+                TabLayoutMediator(
+                    tlCenter,
+                    vpCenter,
+                    TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+                        when (position) {
+                            0 -> {
+                                //此处setCustomView来设置布局 tab.setCustomView(R.layout.xxx)
+                                //在TabLayoutMediator源码的populateTabsFromPagerAdapter方法中可查看逻辑
+                                tab.setCustomView(R.layout.mine_item_tab_shop)
+                            }
+                            else -> {
+
+                                //邮票任务在此处进行网络申请 若该日未点击过 则设置带有小红点的布局(在之前统一申请两个fragment和该activity的所有数据)
+                                //因为每次加载该Activity的时候都要经过此代码 为了减少onTabSelected处网络申请的次数
+                                //定义一个boolean类型的成员变量isClickToday来供判断 若此处返回的结果表示用户今日已点击过 则为true
+
+                                //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
+                                tab.setCustomView(R.layout.mine_item_tab_task_no_click)
+
+
+                            }
                         }
-                        else -> {
-
-                            //邮票任务在此处进行网络申请 若该日未点击过 则设置带有小红点的布局(在之前统一申请两个fragment和该activity的所有数据)
-                            //因为每次加载该Activity的时候都要经过此代码 为了减少onTabSelected处网络申请的次数
-                            //定义一个boolean类型的成员变量isClickToday来供判断 若此处返回的结果表示用户今日已点击过 则为true
-
-                            //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
-                            tab.setCustomView(R.layout.mine_item_tab_task_no_click)
-
-
-                        }
-                    }
-                }).attach()
+                    }).attach()
 
             }
             tlCenter.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -133,6 +137,8 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
             includeCenterPart2.mineCenterPartThree.tvCenterCommend.setOnSingleClickListener { startActivity<ExchangeDetailActivity>() }
         }
     }
+
+    override fun createPresenter(): StampCenterPresenter = StampCenterPresenter()
 
 
 }
