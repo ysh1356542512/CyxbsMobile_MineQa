@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
  *@time 2021/8/7  13:11
  *@signature 我们不明前路，却已在路上
  */
-abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : BasePresenter<*>> :
+abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : BasePresenter<*,*>> :
     BaseViewModelFragment<VM>(), IView {
     protected var presenter: P? = null
     protected var binding: T? = null

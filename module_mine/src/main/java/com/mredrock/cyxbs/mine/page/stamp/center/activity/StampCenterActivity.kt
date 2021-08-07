@@ -13,10 +13,14 @@ import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.ITaskView
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.presenter.StampCenterPresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
+import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
+import com.mredrock.cyxbs.mine.page.stamp.ext.isFirstTimeComeIn
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 
@@ -28,106 +32,40 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
  */
 
 class StampCenterActivity :
-    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding,BasePresenter<*>>() {
+    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>(),
+    ITaskView {
 
-    //用于记录今天是否已经点击小店
-    private var isClickToday = false
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding?.vm = viewModel
-
-        Log.e(TAG, "$viewModel $presenter $binding")
-        //presenter?.do1()
-
     }
-
-//        Log.e(TAG, "$viewModel $binding" )
 
 
     override fun initView() {
-        //先进行 viewPager2 和 tablayout 的绑定
+        //先进行 viewPager2 和 TabLayout 的绑定
         binding?.apply {
-//            context = this@StampCenterActivity
-
+            //设置Vp的方向
             vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
             val fragments = arrayListOf<Fragment>(CenterShopFragment(), StampTaskFragment())
-            vpCenter.adapter = object : FragmentStateAdapter(this@StampCenterActivity) {
-                override fun getItemCount(): Int {
-                    return 2
-                }
+            //设置Adapter
+            vpCenter.adapter = PagerAdapter(fragments,this@StampCenterActivity)
 
-
-                override fun createFragment(position: Int): Fragment {
-                    return fragments[position]
-                }
-            }
             vpCenter.apply {
                 offscreenPageLimit = 2
                 //此处可动态设置tabItem布局
                 //关于tablayout代码的设计 这样能够尽可能的减少网络请求的次数
-                TabLayoutMediator(
-                    tlCenter,
-                    vpCenter,
-                    TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-                        when (position) {
-                            0 -> {
-                                //此处setCustomView来设置布局 tab.setCustomView(R.layout.xxx)
-                                //在TabLayoutMediator源码的populateTabsFromPagerAdapter方法中可查看逻辑
-                                tab.setCustomView(R.layout.mine_item_tab_shop)
-                            }
-                            else -> {
-
-                                //邮票任务在此处进行网络申请 若该日未点击过 则设置带有小红点的布局(在之前统一申请两个fragment和该activity的所有数据)
-                                //因为每次加载该Activity的时候都要经过此代码 为了减少onTabSelected处网络申请的次数
-                                //定义一个boolean类型的成员变量isClickToday来供判断 若此处返回的结果表示用户今日已点击过 则为true
-
-                                //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
-                                tab.setCustomView(R.layout.mine_item_tab_task_no_click)
-
-
-                            }
-                        }
-                    }).attach()
-
+                presenter?.let {
+                    TabLayoutMediator(
+                        tlCenter,
+                        vpCenter,
+                        it
+                    ).attach()
+                }
             }
-            tlCenter.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-
-                }
-
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-                }
-
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    //先判断isClickToday是否为true 若为true 只切换 为false 则Post提交数据 表示今日第一次点击 并将小红点GONE或者重新换布局
-                    when (!isClickToday) {
-                        true -> {
-                            when (tab?.position) {
-                                1 -> {
-//                                    tab.orCreateBadge
-
-                                    //在这个点卡了比较久 因为发现如果只setCustomView一次其实 tab 不会去更换布局 而是会类似于解绑布局 导致切换tab直接不显示布局内容
-                                    //所以在这里调用两次 setCustomView 一次用来解除布局绑定 第二次来重新绑定来实现切换布局
-                                    tab.setCustomView(R.layout.mine_item_tab_click)
-                                    tab.setCustomView(R.layout.mine_item_tab_click)
-                                    //在这里POST数据 并将isClickToday为true表示已经点击
-                                    isClickToday = true
-                                }
-                                else -> {
-
-                                }
-                            }
-                        }
-                        else -> {
-                        }
-                    }
-                }
-
-            })
+            presenter?.let {tlCenter.addOnTabSelectedListener(it)}
         }
     }
 
@@ -144,6 +82,4 @@ class StampCenterActivity :
     }
 
     override fun createPresenter(): StampCenterPresenter = StampCenterPresenter()
-
-
 }

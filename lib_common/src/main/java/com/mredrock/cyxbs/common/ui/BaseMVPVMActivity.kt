@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference
  *@time 2021/8/7  11:38
  *@signature 我们不明前路，却已在路上
  */
-abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : BasePresenter<*>> :
+abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : BasePresenter<*,*>> :
     BaseViewModelActivity<VM>() , IView {
 
     protected var presenter: P? = null

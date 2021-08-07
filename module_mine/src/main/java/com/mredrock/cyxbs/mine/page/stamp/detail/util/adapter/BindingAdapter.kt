@@ -1,8 +1,7 @@
-package com.mredrock.cyxbs.mine.page.stamp.detail.adapter
+package com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
-import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 
 /**
