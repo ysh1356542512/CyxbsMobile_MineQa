@@ -15,6 +15,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.FirstLevelTask
 import com.mredrock.cyxbs.mine.page.stamp.center.model.MoreTask
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import com.mredrock.cyxbs.mine.page.stamp.ext.isFirstTimeComeIn
 
 class StampTaskFragment :
     BaseBindingSharedVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding>() {
@@ -26,6 +27,7 @@ class StampTaskFragment :
     }
 
     override fun initView() {
+        val boolean = context?.isFirstTimeComeIn()
         mAdapter?.notifyAdapterChanged(
             mutableListOf<MultiTypeBinder<*>>().apply {
                 add(

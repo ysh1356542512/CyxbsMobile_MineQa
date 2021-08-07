@@ -28,7 +28,6 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 * @Usage : 邮票中心主界面
 * @Request : God bless my code
 */
-
 class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, MineActivityStampCenterBinding>() {
 
     //用于记录今天是否已经点击小店
