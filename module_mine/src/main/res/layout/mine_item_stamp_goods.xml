@@ -4,103 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="data"
+            type="com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealBinder" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:background="#FFF"
-        android:layout_height="260dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="10dp">
 
-        <ImageView
-            android:id="@+id/iv_goods_pic"
-            android:layout_width="185dp"
-            android:layout_height="164dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/mine_ic_center_goods"
-            android:contentDescription="@string/mine_stamp_goods_iv" />
-
-        <TextView
-            android:id="@+id/tv_goods_title"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mine_stamp_goods_title"
-            android:textColor="#15315B"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline11"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline10" />
+            android:id="@+id/goods_container"
+            android:onClick="@{(view) -> data.onClick(view, data)}"
+            android:background="@drawable/mine_shape_dialog_back">
 
-        <TextView
-            android:id="@+id/tv_goods_remain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.7"
-            android:text="@string/mine_stamp_goods_amount"
-            android:textColor="#15315B"
-            android:textSize="11sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_goods_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_goods_title"
-            tools:ignore="SmallSp" />
+            <ImageView
+                android:id="@+id/iv_goods_pic"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/mine_stamp_goods_iv"
+                app:layout_constraintDimensionRatio="w,145:167"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/mine_ic_center_goods" />
 
-        <ImageView
-            android:id="@+id/iv_stamp_icon"
-            android:layout_width="23dp"
-            android:layout_height="22dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num"
-            app:layout_constraintStart_toStartOf="@+id/tv_goods_remain"
-            app:srcCompat="@drawable/mine_ic_center_stamp_backword"
-            android:contentDescription="@string/mine_stamp_goods_detail_last_tv" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_goods_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="10dp"
+                android:text="@string/mine_stamp_goods_title"
+                android:textColor="#15315B"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_goods_pic" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.77692306" />
+            <TextView
+                android:id="@+id/tv_goods_remain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:paddingStart="10dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:text="@string/mine_stamp_goods_amount"
+                android:textColor="#15315B"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_goods_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_goods_title"
+                tools:ignore="SmallSp" />
 
-        <TextView
-            android:id="@+id/tv_stamp_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/din_medium"
-            android:text="@string/mine_stamp_user_amount"
-            android:textColor="#5177FF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_stamp_icon"
-            app:layout_constraintTop_toTopOf="@+id/guideline11" />
+            <ImageView
+                android:id="@+id/iv_stamp_icon"
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="@string/mine_stamp_goods_detail_last_tv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_goods_remain"
+                app:layout_constraintTop_toBottomOf="@+id/tv_goods_remain"
+                app:srcCompat="@drawable/mine_ic_center_stamp_backword" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.8923077" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.65" />
 
-        <Button
-            android:id="@+id/btn_goods_buy"
-            android:layout_width="53dp"
-            android:layout_height="27dp"
-            android:background="@drawable/mine_shape_goods_buy_btn"
-            android:text="@string/mine_stamp_goods_detail_btn"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.91"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline12" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.77692306" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_stamp_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/din_medium"
+                android:text="@string/mine_stamp_user_amount"
+                android:textColor="#5177FF"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_stamp_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/iv_stamp_icon" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8923077" />
+
+            <Button
+                android:id="@+id/btn_goods_buy"
+                android:layout_width="53dp"
+                android:layout_height="27dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/mine_shape_goods_buy_btn"
+                android:text="@string/mine_stamp_goods_detail_btn"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:onClick="@{(view) -> data.onClick(view, data)}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_stamp_num"
+                app:layout_constraintTop_toTopOf="@+id/iv_stamp_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

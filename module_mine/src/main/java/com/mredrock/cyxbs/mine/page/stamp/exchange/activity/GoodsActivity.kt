@@ -1,18 +1,11 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
-import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
-import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
-import com.mredrock.cyxbs.common.ui.BaseDBViewModelActivity
-import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
-import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
-import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel

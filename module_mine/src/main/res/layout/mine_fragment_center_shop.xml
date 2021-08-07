@@ -12,10 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.mredrock.cyxbs.mine.page.stamp.center.util.RecyclerviewAtVP2
             android:id="@+id/rv_shop_real"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/mine_shape_shop_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

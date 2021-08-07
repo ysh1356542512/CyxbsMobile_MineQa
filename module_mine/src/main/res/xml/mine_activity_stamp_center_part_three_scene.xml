@@ -9,7 +9,33 @@
 <!--            motion:dragDirection="dragRight"-->
 <!--            motion:touchAnchorId="@+id/button"-->
 <!--            motion:touchAnchorSide="right" />-->
-        <KeyFrameSet></KeyFrameSet>
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_center_my_stamp"
+                motion:framePosition="100"
+                android:scaleX="0.2"
+                android:scaleY="0.2" />
+            <KeyAttribute
+                motion:motionTarget="@+id/iv_center_detail"
+                motion:framePosition="100"
+                android:scaleX="0.3"
+                android:scaleY="0.3" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_center_detail"
+                motion:framePosition="100"
+                android:scaleX="0.2"
+                android:scaleY="0.2" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_center_stamp_num_before"
+                motion:framePosition="100"
+                android:scaleX="0.2"
+                android:scaleY="0.2" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_center_commend"
+                motion:framePosition="100"
+                android:scaleX="0.2"
+                android:scaleY="0.2" />
+        </KeyFrameSet>
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -71,7 +97,7 @@
             android:id="@+id/tv_center_commend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
+            android:alpha="0.3"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintHorizontal_bias="0.05"
@@ -82,7 +108,7 @@
             android:id="@+id/tv_center_my_stamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
+            android:alpha="0.3"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline2"
             motion:layout_constraintHorizontal_bias="0.42"
@@ -92,7 +118,7 @@
             android:id="@+id/iv_center_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
+            android:alpha="0.3"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
             motion:layout_constraintHorizontal_bias="0.0"
@@ -102,7 +128,7 @@
             android:id="@+id/tv_center_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
+            android:alpha="0.3"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
             motion:layout_constraintHorizontal_bias="0.31"

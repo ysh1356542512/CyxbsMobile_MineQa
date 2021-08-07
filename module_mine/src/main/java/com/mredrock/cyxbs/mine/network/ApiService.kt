@@ -6,7 +6,6 @@ import com.mredrock.cyxbs.mine.network.model.*
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.http.*
 
 /**
@@ -223,7 +222,7 @@ interface ApiService {
      * 获取用户的动态、评论、获赞数
      */
     @GET("/magipoke-loop/user/getUserCount")
-    fun getUserCount():Observable<RedrockApiWrapper<UserCount>>
+    fun getUserCount(): Observable<RedrockApiWrapper<UserCount>>
 
     /**
      * 获取未查看的评论和点赞数
@@ -235,7 +234,7 @@ interface ApiService {
     fun getUncheckCount(
             @Query("time") timeStamp: Long,
             @Query("type") type: Int
-    ):Observable<RedrockApiWrapper<UserUncheckCount>>
+    ): Observable<RedrockApiWrapper<UserUncheckCount>>
 
     //仿ping接口，用于检测magipoke系列接口状态
     @GET("magipoke/ping")

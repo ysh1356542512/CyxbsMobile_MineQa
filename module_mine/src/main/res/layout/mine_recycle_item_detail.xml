@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="handler"
+            type="com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment.ClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="73dp">
+        android:layout_height="73dp"
+        android:id="@+id/cl_item"
+        android:onClick="@{(v)->handler.onClicked(v,null)}">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"

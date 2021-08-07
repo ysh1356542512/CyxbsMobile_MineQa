@@ -15,7 +15,6 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.FirstLevelTask
 import com.mredrock.cyxbs.mine.page.stamp.center.model.MoreTask
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
-import com.mredrock.cyxbs.mine.page.stamp.ext.isFirstTimeComeIn
 
 class StampTaskFragment :
     BaseBindingSharedVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding>() {
@@ -27,19 +26,26 @@ class StampTaskFragment :
     }
 
     override fun initView() {
-        val boolean = context?.isFirstTimeComeIn()
+        val handler: ClickEventHandler = ClickEventHandler()
         mAdapter?.notifyAdapterChanged(
             mutableListOf<MultiTypeBinder<*>>().apply {
                 add(
                     OneTaskBinder(
                         FirstLevelTask("每日签到", "每日签到 +10", false)
-                    )
+                    ).also { it.setOnClickListener(handler::onClicked) }
                 )
                 add(
-                    TitleBinder("更多任务")
+                    TitleBinder("更多任务").also { it.setOnClickListener(handler::onClicked) }
                 )
                 addAll((0..2).map {
-                    MultiTaskBinder(MoreTask("逛邮问", "浏览5条动态 +15", it, false))
+                    MultiTaskBinder(
+                        MoreTask(
+                            "逛邮问",
+                            "浏览5条动态 +15",
+                            it,
+                            false
+                        )
+                    ).also { it.setOnClickListener(handler::onClicked) }
                 })
             }
         )
@@ -56,5 +62,11 @@ class StampTaskFragment :
     override fun getLayoutId(): Int = R.layout.mine_fragment_stamp_task
 
     override fun getActivityVMClass(): Class<StampTaskViewModel> = StampTaskViewModel::class.java
+
+    inner class ClickEventHandler() {
+        fun onClicked(v: View, any: Any?) {
+
+        }
+    }
 
 }

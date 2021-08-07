@@ -23,16 +23,15 @@
                 app:layout_constraintGuide_percent="0.16" />
 
             <TextView
-                android:id="@+id/tv_type_real"
+                android:id="@+id/tv_type_inter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="4dp"
-                android:text="邮物"
+                android:layout_marginBottom="15dp"
+                android:text="装扮"
                 android:textColor="#15315B"
                 android:textSize="20sp"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/mine_guideline12"
                 app:layout_constraintHorizontal_bias="0.1"
@@ -40,10 +39,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_mind_real"
+                android:id="@+id/tv_mind_inter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:alpha="0.4"
                 android:text="请在个人资料查看"
@@ -57,11 +55,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_goods_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never"
-                android:padding="10dp"/>
+            android:id="@+id/rv_goods_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:padding="10dp" />
 
 
     </LinearLayout>
