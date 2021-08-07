@@ -7,8 +7,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
+import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
+import com.mredrock.cyxbs.mine.page.stamp.center.animation.DepthPageTransformer
+import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
@@ -44,7 +47,7 @@ class StampCenterActivity : BaseBindingViewModelActivity<StampCenterViewModel, M
         //先进行 viewPager2 和 tablayout 的绑定
         binding?.apply {
 //            context = this@StampCenterActivity
-
+            vpCenter.setPageTransformer(ZoomOutPageTransformer())
             vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
             val fragments = arrayListOf<Fragment>(CenterShopFragment(), StampTaskFragment())
             vpCenter.adapter = object : FragmentStateAdapter(this@StampCenterActivity) {
