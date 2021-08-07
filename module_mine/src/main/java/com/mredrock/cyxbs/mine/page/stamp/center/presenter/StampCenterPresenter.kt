@@ -4,7 +4,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.mine.R
-import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 
 /**
  *@author ZhiQiang Tu
