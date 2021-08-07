@@ -14,7 +14,7 @@ import com.mredrock.cyxbs.mine.network.bean.CenterInfo
 class StampCenterViewModel : BaseViewModel() {
 
     //用于记录今天是否已经点击小店
-    private var isClickToday = false
+    var isClickToday = false
 
     private val _isEnterToday = MutableLiveData<Boolean>()
 

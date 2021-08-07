@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference
  *@time 2021/8/7  11:38
  *@signature 我们不明前路，却已在路上
  */
-abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : BasePresenter<*,*>> :
+abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : BasePresenter<*>> :
     BaseViewModelActivity<VM>() , IView {
 
     protected var presenter: P? = null
@@ -33,7 +33,9 @@ abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : Bas
         //创建一个弱引用的Presenter
         presenter = createPresenter()
         //建立联系
-        presenter?.onAttachView(this)
+//        presenter?.onAttachView(this)
+
+        presenter?.onAttachVM(viewModel)
         //双向关联成功
 
         lifecycle.addObserver(presenter as LifecycleObserver)
@@ -49,7 +51,8 @@ abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : Bas
     override fun onDestroy() {
         super.onDestroy()
         //presenter中的引用
-        presenter?.detachView()
+        /*presenter?.detachView()
+        presenter?.detachVM()*/
         //解除自己对presenter的引用
         presenter = null
         //activity凉了

@@ -1,17 +1,10 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.presenter
 
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.mine.R
-import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
-import com.mredrock.cyxbs.mine.page.stamp.center.activity.MyModel
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.ITaskView
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
-import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 
 /**
  *@author ZhiQiang Tu
@@ -20,12 +13,9 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
  */
 private const val TAG = "StampCenterPresenter"
 
-class StampCenterPresenter : BasePresenter<ITaskView,MyModel>(),
+class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     TabLayoutMediator.TabConfigurationStrategy,
     TabLayout.OnTabSelectedListener{
-
-    override fun createModel(): MyModel = MyModel()
-
     //ViewPager与TabLayout的联动部分
     //TabLayoutMediator.TabConfigurationStrategy
     override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
@@ -59,7 +49,7 @@ class StampCenterPresenter : BasePresenter<ITaskView,MyModel>(),
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
-        val isClickToday = model?.isClickToday ?: false
+        val isClickToday = vm?.isClickToday ?: false
         //先判断isClickToday是否为true 若为true 只切换 为false 则Post提交数据 表示今日第一次点击 并将小红点GONE或者重新换布局
         when (!isClickToday) {
             true -> {

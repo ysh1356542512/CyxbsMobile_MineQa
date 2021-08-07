@@ -1,13 +1,9 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
@@ -20,7 +16,6 @@ import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
-import com.mredrock.cyxbs.mine.page.stamp.ext.isFirstTimeComeIn
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 

@@ -1,11 +1,9 @@
 package com.mredrock.cyxbs.common.presenter
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 import com.mredrock.cyxbs.common.model.IModel
 import com.mredrock.cyxbs.common.ui.IView
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import java.lang.ref.WeakReference
 
 /**
@@ -13,19 +11,24 @@ import java.lang.ref.WeakReference
  *@time 2021/8/7  11:51
  *@signature 我们不明前路，却已在路上
  */
-abstract class BasePresenter<V : IView, M : IModel> : LifecycleObserver {
-    protected var view: WeakReference<V>? = null
-    protected var model: M? = null
+abstract class BasePresenter</*V : IView,*/ VM : BaseViewModel> : LifecycleObserver {
+    protected var vm: VM? = null
 
+    /*protected var view: WeakReference<V>? = null
     fun onAttachView(view: IView) {
         this.view = WeakReference(view as V)
     }
-
     fun detachView() {
         this.view?.clear()
+    }*/
+
+    fun onAttachVM(vm:BaseViewModel){
+        this.vm = vm as VM
     }
 
-    abstract fun createModel(): M
+    fun detachVM(){
+        vm = null
+    }
 
     //生命周期方法
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
