@@ -48,6 +48,7 @@ class GoodsPagerActivity : AppCompatActivity() {
 //                }
                 override fun onPageClick(position: Int, v: View) {
                         setResult(position)
+                        v.transitionName = ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
                         onBackPressed()
                 }
             })

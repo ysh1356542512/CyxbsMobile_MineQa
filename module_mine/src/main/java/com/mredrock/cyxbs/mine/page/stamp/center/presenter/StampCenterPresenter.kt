@@ -45,7 +45,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     }
 
     override fun onTabUnselected(tab: TabLayout.Tab?) {
-
+        tab?.view?.alpha = 0.5f
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -61,14 +61,17 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
                         //所以在这里调用两次 setCustomView 一次用来解除布局绑定 第二次来重新绑定来实现切换布局
                         tab.setCustomView(R.layout.mine_item_tab_click)
                         tab.setCustomView(R.layout.mine_item_tab_click)
+                        tab.view.alpha = 1.0f
+                        vm?.isClickToday = true
                         //在这里POST数据 并将isClickToday为true表示已经点击
                     }
                     else -> {
-
+                        tab?.view?.alpha = 1.0f
                     }
                 }
             }
             else -> {
+                tab?.view?.alpha = 1.0f
             }
         }
     }

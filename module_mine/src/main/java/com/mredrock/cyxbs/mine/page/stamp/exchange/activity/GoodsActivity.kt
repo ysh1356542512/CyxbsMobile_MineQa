@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.common.utils.extensions.startActivityForResult
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
+import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
@@ -59,9 +60,12 @@ class GoodsActivity :
 
                 override fun onPageClick(position: Int, v: View) {
                     //传入 position 和 List<Photo>
-
-                    this@GoodsActivity.startActivityForResult<GoodsPagerActivity>(ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
-                            kotlin.Pair(ExchangeConfig.GOODS_PHOTO_ITEM_KEY,position))
+                    val intent = Intent(this@GoodsActivity,GoodsPagerActivity::class.java)
+                    intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY,position)
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v.findViewById(R.id.iv_banner), GOODS_SHARE_PHOTO_VALUE).toBundle()
+                    this@GoodsActivity.startActivityForResult(intent,
+                            ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
+                            options)
                 }
             })
         }.create(
