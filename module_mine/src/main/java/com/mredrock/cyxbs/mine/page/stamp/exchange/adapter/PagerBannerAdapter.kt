@@ -1,6 +1,5 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.adapter
 
-import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -8,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 
-class BannerAdapter : BaseBannerAdapter<Int, BannerAdapter.ViewHolder>() {
+class PagerBannerAdapter : BaseBannerAdapter<Int, PagerBannerAdapter.ViewHolder>() {
 
-    override fun getLayoutId(viewType: Int) = R.layout.mine_item_bvp_samll
+    override fun getLayoutId(viewType: Int) = R.layout.mine_item_bvp_small_pager
 
     override fun onBind(holder: ViewHolder, data: Int, position: Int, pageSize: Int) {
 
@@ -25,5 +24,6 @@ class BannerAdapter : BaseBannerAdapter<Int, BannerAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imageView: ImageView = itemView.findViewById(R.id.iv_banner)
     }
+
 
 }

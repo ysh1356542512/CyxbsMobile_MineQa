@@ -1,15 +1,19 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Pair
 import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
+import com.mredrock.cyxbs.common.utils.extensions.startActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
+import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.NoneProductDialog
@@ -45,6 +49,14 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
             setCanShowIndicator(true)
             //设置适配器
             setAdapter(bannerViewPager)
+            setOnPageClickListener(object : BaseBannerAdapter.OnPageClickListener {
+                override fun onPageClick(position: Int) {
+                    //传入 position 和 List<Photo>
+                    val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
+                    intent.putExtra("photo_item",2)
+                    startActivity(intent)
+                }
+            })
         }.create(
                 listOf(
                         R.drawable.mine_ic_banner_pic,
