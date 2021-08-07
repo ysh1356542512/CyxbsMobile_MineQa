@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.detail.adapter
+package com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -9,7 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
  *@time 2021/8/6  12:35
  *@signature 我们不明前路，却已在路上
  */
-class DetailPagerAdapter(
+class PagerAdapter(
     private val fragmentList: List<Fragment>,
     fragmentActivity: FragmentActivity
 ) :

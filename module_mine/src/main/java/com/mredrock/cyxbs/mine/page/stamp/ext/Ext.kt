@@ -6,19 +6,22 @@ import com.mredrock.cyxbs.common.utils.extensions.editor
 import com.mredrock.cyxbs.common.utils.extensions.sharedPreferences
 import java.text.SimpleDateFormat
 import java.util.*
+
 //SharedPreference
 private var dateSp: SharedPreferences? = null
+
 //SP数据库的名称
 private const val SP_NAME: String = "DATE_SP_NAME"
+
 //存入Date(时间)的key值
 private const val DATE_KEY_NAME = "DATA_KEY_NAME"
-
 
 /**
  *@author ZhiQiang Tu
  *@time 2021/8/7  8:20
  *@signature 我们不明前路，却已在路上
  */
+
 
 //获取是否是第一次进入
 fun Context.isFirstTimeComeIn(): Boolean {
@@ -31,13 +34,13 @@ fun Context.isFirstTimeComeIn(): Boolean {
         false
     } else {
         //如果是第一次进入
-        if (compareDate(getCurrentDate(), date)){
+        if (compareDate(getCurrentDate(), date)) {
             //存入当前时间
             putDate()
             true
         }
         //如果不是第一次进入
-        else{
+        else {
             false
         }
     }

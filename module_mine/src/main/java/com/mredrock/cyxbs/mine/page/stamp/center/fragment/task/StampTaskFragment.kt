@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
+import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentStampTaskBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.MultiTaskBinder
@@ -17,7 +17,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 
 class StampTaskFragment :
-    BaseBindingSharedVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding>() {
+    BaseMVPVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
 
     private val mAdapter by lazy {
         binding?.rvTask?.let {
@@ -51,6 +51,7 @@ class StampTaskFragment :
         )
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,6 +63,8 @@ class StampTaskFragment :
     override fun getLayoutId(): Int = R.layout.mine_fragment_stamp_task
 
     override fun getActivityVMClass(): Class<StampTaskViewModel> = StampTaskViewModel::class.java
+
+    override fun createPresenter(): TaskPresenter = TaskPresenter()
 
     inner class ClickEventHandler() {
         fun onClicked(v: View, any: Any?) {

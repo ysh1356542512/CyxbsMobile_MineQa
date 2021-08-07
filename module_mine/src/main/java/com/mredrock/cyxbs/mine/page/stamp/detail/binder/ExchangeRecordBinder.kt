@@ -12,7 +12,10 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
  *@time 2021/8/6  15:03
  *@signature 我们不明前路，却已在路上
  */
-class ExchangeRecordBinder(val data: DetailItemData,val handler: ExchangeRecordFragment.ClickHandler) : MultiTypeBinder<MineRecycleItemDetailBinding> (){
+class ExchangeRecordBinder(
+    val data: DetailItemData,
+    val handler: ExchangeRecordFragment.ClickHandler
+) : MultiTypeBinder<MineRecycleItemDetailBinding>() {
 
     override fun onBindViewHolder(binding: MineRecycleItemDetailBinding) {
         binding.apply {
@@ -26,6 +29,7 @@ class ExchangeRecordBinder(val data: DetailItemData,val handler: ExchangeRecordF
 
     override fun layoutId(): Int = R.layout.mine_recycle_item_detail
 
-    override fun areContentsTheSame(other: Any): Boolean =other is ExchangeRecordBinder && other.data == data
+    override fun areContentsTheSame(other: Any): Boolean =
+        other is ExchangeRecordBinder && other.data == data
 
 }

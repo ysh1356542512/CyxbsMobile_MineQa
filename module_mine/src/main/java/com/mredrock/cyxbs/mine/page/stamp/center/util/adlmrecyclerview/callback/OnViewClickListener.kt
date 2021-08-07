@@ -3,11 +3,11 @@ package com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback
 import android.view.View
 
 /**
-* @Date : 2021/8/5
-* @By : ysh
-* @Usage : 可传参的onClickListener
-* @Request : God bless my code
-*/
+ * @Date : 2021/8/5
+ * @By : ysh
+ * @Usage : 可传参的onClickListener
+ * @Request : God bless my code
+ */
 interface OnViewClickListener {
 
     //若无参数 传null

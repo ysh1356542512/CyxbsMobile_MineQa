@@ -1,6 +1,5 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentGainRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
-import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.GainRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
@@ -34,7 +32,7 @@ class GainRecordFragment :
     override fun initView() {
         binding?.apply {
             rvGain.apply {
-                setVariable(BR.viewModel,this)
+                setVariable(BR.viewModel, this)
                 executePendingBindings()
             }
             setRecyclerContent()
@@ -42,9 +40,9 @@ class GainRecordFragment :
     }
 
     private fun setRecyclerContent() {
-        val list:List<DetailItemData> = listOf(
-            DetailItemData("游览任务","2030-1-1",40,false),
-            DetailItemData("游览任务","2030-1-1",40,false)
+        val list: List<DetailItemData> = listOf(
+            DetailItemData("游览任务", "2030-1-1", 40, false),
+            DetailItemData("游览任务", "2030-1-1", 40, false)
         )
         mAdapter?.notifyAdapterChanged(
             (0..1).map {

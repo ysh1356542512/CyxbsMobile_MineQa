@@ -6,32 +6,43 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.LifecycleObserver
+import com.mredrock.cyxbs.common.presenter.BasePresenter
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 
 /**
  *@author ZhiQiang Tu
- *@time 2021/8/6  14:21
+ *@time 2021/8/7  13:11
  *@signature 我们不明前路，却已在路上
  */
-abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> : BaseFragment() {
-    var binding: T? = null
-    var shardViewModel: VM? = null
+abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : BasePresenter<*>> :
+    BaseViewModelFragment<VM>(), IView {
+    protected var presenter: P? = null
+    protected var binding: T? = null
+    protected var shardViewModel: VM? = null
+
 
     abstract fun getLayoutId(): Int
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         binding?.lifecycleOwner = this
-        shardViewModel = ViewModelProvider(requireActivity()).get(getActivityVMClass())
+
+        presenter = createPresenter()
+        //presenter?.onAttachView(this)
+
+        lifecycle.addObserver(presenter as LifecycleObserver)
+
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         //初始化配置
         initConfiguration()
 
@@ -45,15 +56,25 @@ abstract class BaseBindingSharedVMFragment<VM : ViewModel, T : ViewDataBinding> 
         observeData()
     }
 
+
+    abstract fun createPresenter(): P
+
     abstract fun getActivityVMClass(): Class<VM>
 
-    open fun initConfiguration() {}
+    //abstract fun createView():V
 
-    open fun initData() {}
+    override fun onDestroy() {
+        super.onDestroy()
+        //presenter?.detachView()
+        presenter = null
+    }
 
     open fun initView() {}
 
     open fun initListener() {}
 
     open fun observeData() {}
+
+    open fun initConfiguration() {}
+
 }

@@ -80,11 +80,11 @@ class DoubleCheckDialog : DialogFragment() {
     //传入事件和更改View的属性
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //事件
-        binding?.btConfirm?.setOnClickListener{
+        binding?.btConfirm?.setOnClickListener {
             positiveButtonClick?.invoke(it)
             dismiss()
         }
-        binding?.btConfuse?.setOnClickListener{
+        binding?.btConfuse?.setOnClickListener {
             negativeButtonClick?.invoke(it)
             dismiss()
         }

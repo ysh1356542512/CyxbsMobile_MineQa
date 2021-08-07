@@ -36,9 +36,10 @@ abstract class BaseBindingViewModelActivity<VM : BaseViewModel,T : ViewDataBindi
         observeData()
     }
 
-    open fun initView(){}
+    open fun observeData() {}
 
     open fun initListener() {}
 
-    open fun observeData(){}
+    open fun initView() {}
+
 }

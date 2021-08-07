@@ -19,7 +19,8 @@ import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.NoneProductDialog
 
 
-class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding>() {
+class GoodsActivity :
+    BaseBindingViewModelActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding>() {
     private lateinit var bvpViewPager: BannerViewPager<Int>
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
@@ -27,9 +28,11 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.mine_activity_stamp_goods_detail_real)
-        binding?.vm =viewModel
+        binding?.vm = viewModel
 
-        Log.e(TAG, "$viewModel $binding" )
+        Log.e(TAG, "$viewModel $binding")
+        initListener()
+        observeData()
     }
 
     override fun initView() {
@@ -58,11 +61,11 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
                 }
             })
         }.create(
-                listOf(
-                        R.drawable.mine_ic_banner_pic,
-                        R.drawable.mine_ic_banner_pic,
-                        R.drawable.mine_ic_banner_pic
-                )
+            listOf(
+                R.drawable.mine_ic_banner_pic,
+                R.drawable.mine_ic_banner_pic,
+                R.drawable.mine_ic_banner_pic
+            )
         )
     }
 
@@ -100,7 +103,6 @@ class GoodsActivity :  BaseBindingViewModelActivity<GoodsViewModel, MineActivity
     override fun observeData() {
 
     }
-
 
 
 }

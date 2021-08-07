@@ -18,7 +18,7 @@ abstract class BaseBannerAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val inflate =
-                LayoutInflater.from(parent.context).inflate(getLayoutId(viewType), parent, false)
+            LayoutInflater.from(parent.context).inflate(getLayoutId(viewType), parent, false)
         return createViewHolder(parent, inflate, viewType)
     }
 

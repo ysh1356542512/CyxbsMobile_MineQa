@@ -8,12 +8,12 @@ import com.mredrock.cyxbs.common.ui.BaseBindingViewModelFragment
 import com.mredrock.cyxbs.common.utils.extensions.startActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentCenterShopBinding
-import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealContainerBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 import kotlinx.android.synthetic.main.mine_item_stamp_goods.*
 
