@@ -1,7 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.utils.extensions.setFullScreen
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
@@ -10,11 +10,11 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.GalleryTransformer
 
 /**
-* @Date : 2021/8/7
-* @By : ysh
-* @Usage : 图片具体页
-* @Request : God bless my code
-*/
+ * @Date : 2021/8/7
+ * @By : ysh
+ * @Usage : 图片具体页
+ * @Request : God bless my code
+ */
 class GoodsPagerActivity : AppCompatActivity() {
 
     private lateinit var viewPager2: BannerViewPager<Int>
@@ -24,7 +24,6 @@ class GoodsPagerActivity : AppCompatActivity() {
         setContentView(R.layout.mine_activity_goods_pager)
         setFullScreen()
         viewPager2 = findViewById(R.id.vp_goods_pager)
-
 
         val adapter = BannerAdapter()
         viewPager2.apply {
@@ -55,6 +54,7 @@ class GoodsPagerActivity : AppCompatActivity() {
                         R.drawable.mine_ic_banner_pic
                 )
         )
-        viewPager2.setCurrentItem(intent.getIntExtra("photo_item",0),false)
+
+        viewPager2.setCurrentItem(intent.getIntExtra("photo_item", 0), false)
     }
 }
