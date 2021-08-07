@@ -3,20 +3,20 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.util.Pair
+import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.app.ActivityOptionsCompat
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
-import com.mredrock.cyxbs.common.utils.extensions.startActivity
+import com.mredrock.cyxbs.common.utils.extensions.startActivityForResult
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
+import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
-import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.NoneProductDialog
 
 
 class GoodsActivity :
@@ -53,11 +53,15 @@ class GoodsActivity :
             //设置适配器
             setAdapter(bannerViewPager)
             setOnPageClickListener(object : BaseBannerAdapter.OnPageClickListener {
-                override fun onPageClick(position: Int) {
+//                override fun onPageClick(position: Int) {
+//
+//                }
+
+                override fun onPageClick(position: Int, v: View) {
                     //传入 position 和 List<Photo>
-                    val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
-                    intent.putExtra("photo_item",2)
-                    startActivity(intent)
+
+                    this@GoodsActivity.startActivityForResult<GoodsPagerActivity>(ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
+                            kotlin.Pair(ExchangeConfig.GOODS_PHOTO_ITEM_KEY,position))
                 }
             })
         }.create(
@@ -67,6 +71,15 @@ class GoodsActivity :
                 R.drawable.mine_ic_banner_pic
             )
         )
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND->{
+                bvpViewPager.setCurrentItem(resultCode,false)
+            }
+        }
     }
 
     override fun initListener() {

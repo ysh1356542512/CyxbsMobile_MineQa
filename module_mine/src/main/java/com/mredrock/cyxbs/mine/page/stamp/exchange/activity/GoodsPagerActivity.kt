@@ -1,9 +1,11 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.utils.extensions.setFullScreen
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
@@ -41,20 +43,24 @@ class GoodsPagerActivity : AppCompatActivity() {
             setAdapter(adapter)
             //设置监听
             setOnPageClickListener(object : BaseBannerAdapter.OnPageClickListener {
-                override fun onPageClick(position: Int) {
-                    onBackPressed()
+//                override fun onPageClick(position: Int) {
+//
+//                }
+                override fun onPageClick(position: Int, v: View) {
+                        setResult(position)
+                        onBackPressed()
                 }
             })
         }.create(
                 listOf(
                         R.drawable.mine_ic_banner_pic,
                         R.drawable.mine_ic_banner_pic,
-                        R.drawable.mine_ic_banner_pic,
-                        R.drawable.mine_ic_banner_pic,
                         R.drawable.mine_ic_banner_pic
                 )
         )
 
-        viewPager2.setCurrentItem(intent.getIntExtra("photo_item", 0), false)
+
+
+        viewPager2.setCurrentItem(intent.getIntExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, 0), false)
     }
 }
