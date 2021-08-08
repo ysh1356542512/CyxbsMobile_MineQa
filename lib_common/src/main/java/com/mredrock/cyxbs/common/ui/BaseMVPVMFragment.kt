@@ -23,7 +23,7 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
 
 
     abstract fun getLayoutId(): Int
-
+    //abstract fun createView():V
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +36,7 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
         presenter = createPresenter()
         //presenter?.onAttachView(this)
 
+        presenter?.onAttachVM(viewModel)
         lifecycle.addObserver(presenter as LifecycleObserver)
 
         return binding?.root
@@ -61,12 +62,14 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
 
     abstract fun getActivityVMClass(): Class<VM>
 
-    //abstract fun createView():V
-
     override fun onDestroy() {
+        presenter?.let { lifecycle.removeObserver(it) }
+        presenter?.onDetachVM()
+
+        presenter?.clear()
+        presenter = null
         super.onDestroy()
         //presenter?.detachView()
-        presenter = null
     }
 
     open fun initView() {}

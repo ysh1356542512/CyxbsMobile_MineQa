@@ -3,42 +3,42 @@ package com.mredrock.cyxbs.common.ui
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.LifecycleObserver
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
-import java.lang.ref.WeakReference
 
 /**
  *@author ZhiQiang Tu
  *@time 2021/8/7  11:38
  *@signature 我们不明前路，却已在路上
  */
-abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : BasePresenter<*>> :
-    BaseViewModelActivity<VM>() , IView {
+abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding, P : BasePresenter<*>> :
+    BaseViewModelActivity<VM>(), IView {
 
     protected var presenter: P? = null
 
     abstract fun createPresenter(): P
 
-    protected var binding:T? = null
+    protected var binding: T? = null
 
-    abstract fun getLayoutId():Int
+    abstract fun getLayoutId(): Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this,getLayoutId())
+        binding = DataBindingUtil.setContentView(this, getLayoutId())
         binding?.lifecycleOwner = this
 
         //创建一个弱引用的Presenter
+        //考虑到可能在创建过程中可能会在构造函数上加东西，所以就交由Activity完成
         presenter = createPresenter()
         //建立联系
+        //LiveData+Lifecycle的作用下已经不需要view了
 //        presenter?.onAttachView(this)
-
         presenter?.onAttachVM(viewModel)
         //双向关联成功
 
-        lifecycle.addObserver(presenter as LifecycleObserver)
+        //添加生命周期的监听
+        presenter?.let { lifecycle.addObserver(it) }
 
         //初始化view
         initView()
@@ -49,20 +49,28 @@ abstract class BaseMVPVMActivity<VM : BaseViewModel, T : ViewDataBinding,P : Bas
     }
 
     override fun onDestroy() {
-        super.onDestroy()
-        //presenter中的引用
-        /*presenter?.detachView()
-        presenter?.detachVM()*/
-        //解除自己对presenter的引用
+        //移除生命周期的监听
+        presenter?.let { lifecycle.removeObserver(it) }
+        //接触与VM的引用联系
+        presenter?.onDetachVM()
+
+
+        //置空
+        presenter?.clear()
         presenter = null
+
         //activity凉了
+        super.onDestroy()
+
+        //接触presenter中的引用
+        //presenter?.detachView()
     }
 
-    open fun initView(){
+    open fun initView() {
     }
 
     open fun initListener() {}
 
-    open fun observeData(){}
+    open fun observeData() {}
 
 }

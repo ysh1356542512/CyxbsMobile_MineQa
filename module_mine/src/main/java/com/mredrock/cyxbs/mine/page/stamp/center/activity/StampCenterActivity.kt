@@ -9,7 +9,6 @@ import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.ITaskView
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.presenter.StampCenterPresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
@@ -27,8 +26,7 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
  */
 
 class StampCenterActivity :
-    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>(),
-    ITaskView {
+    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>(){
 
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
@@ -60,6 +58,7 @@ class StampCenterActivity :
                     ).attach()
                 }
             }
+
             presenter?.let { tlCenter.addOnTabSelectedListener(it) }
         }
     }
