@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="@dimen/mine_activity_exchange_detail_round_radius"/>
-    <solid android:color="@color/mine_activity_exchange_banner_background_color"/>
-</shape>

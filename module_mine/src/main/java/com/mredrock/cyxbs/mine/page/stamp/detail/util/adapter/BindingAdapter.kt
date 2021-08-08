@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter
 
 import android.graphics.drawable.Drawable
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
@@ -24,4 +25,35 @@ object BindingAdapter {
             imageView.setImageDrawable(finished)
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("imageState", "drawableFalse", "drawableTrue", requireAll = true)
+    fun imageState(
+        imageView: ImageView,
+        state: Boolean,
+        drawableFalse: Drawable,
+        drawableTrue: Drawable
+    ) {
+        if (state) {
+            imageView.setImageDrawable(drawableTrue)
+        } else {
+            imageView.setImageDrawable(drawableFalse)
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("viewState", "backgroundFalse", "backgroundTrue", requireAll = true)
+    fun stateView(
+        view: View,
+        state: Boolean,
+        backgroundFalse: Drawable,
+        backgroundTrue: Drawable
+    ) {
+        if (state) {
+            view.background = backgroundTrue
+        } else {
+            view.background = backgroundFalse
+        }
+    }
+
 }

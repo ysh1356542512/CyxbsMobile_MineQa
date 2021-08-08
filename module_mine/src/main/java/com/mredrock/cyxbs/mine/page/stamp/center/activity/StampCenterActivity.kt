@@ -66,7 +66,7 @@ class StampCenterActivity :
 
     override fun initListener() {
         binding?.apply {
-            ivCenterBack.setOnSingleClickListener {
+            fabCenterBack.setOnSingleClickListener {
                 onBackPressed()
             }
             includeCenterPart2.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }

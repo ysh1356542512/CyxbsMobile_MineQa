@@ -55,7 +55,7 @@ class GoodsActivity :
 
     override fun initListener() {
         binding?.apply {
-            ivCenterBack.setOnSingleClickListener {
+            fabCenterBack.setOnSingleClickListener {
                 onBackPressed()
             }
             //之后可能会对照片进行点击看大图的转换 到时候再说

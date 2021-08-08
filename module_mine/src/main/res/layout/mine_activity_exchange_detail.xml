@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="data"
+            type="com.mredrock.cyxbs.mine.page.stamp.center.model.ExchangeDetail" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,26 +32,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_back_arrow"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_back_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/mine_activity_exchange_background_color"
+                android:backgroundTint="@color/mine_activity_exchange_background_color"
+                app:borderWidth="0dp"
+                app:elevation="0dp"
+                app:fabSize="mini"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/mine_ic_stamp_back_arrow"
-                android:paddingStart="17dp"/>
+                app:pressedTranslationZ="13dp"
+                app:srcCompat="@drawable/mine_ic_stamp_back_arrow" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="13dp"
+                android:text="@string/mine_exchange_tool_bar_title"
                 android:textColor="#15315B"
                 android:textSize="22sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/iv_back_arrow"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="@string/mine_exchange_tool_bar_title" />
+                app:layout_constraintLeft_toRightOf="@id/fab_back_arrow"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -60,18 +69,24 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/mine_shape_round_cornor_shape"
+            app:backgroundFalse="@{@drawable/mine_shape_round_corner_banner_shape_dark}"
+            app:backgroundTrue="@{@drawable/mine_shape_round_corner_banner_shape_light}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/include_tool_bar">
+            app:layout_constraintTop_toBottomOf="@id/include_tool_bar"
+            app:viewState="@{data.status ==`待领取`? true:false }"
+            tools:background="@drawable/mine_shape_round_corner_banner_shape_light">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_half_magioke_pg"
                 android:layout_width="180dp"
                 android:layout_height="82dp"
+                app:drawableFalse="@{@drawable/mine_show_ic_half_magipoke_dark}"
+                app:drawableTrue="@{@drawable/mine_show_ic_half_magipoke_light}"
+                app:imageState="@{data.status ==`待领取`? true:false }"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/mine_show_ic_half_magipoke_light" />
+                tools:srcCompat="@drawable/mine_show_ic_half_magipoke_light" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_exchange_detail_title"
@@ -90,6 +105,7 @@
                 android:id="@+id/tv_exchange_detail_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{String.valueOf(data.id)}"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
                 android:textSize="23sp"
                 app:layout_constraintStart_toStartOf="@id/tv_exchange_detail_title"
@@ -101,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:paddingRight="16dp"
+                android:paddingEnd="16dp"
                 android:paddingBottom="18dp"
                 android:text="@string/mine_activity_exchange_banner_content"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
@@ -112,16 +128,28 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mine_appcompattextview9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:text="商品详细"
+            android:textColor="#15315B"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_exchange_detail" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/mine_appcompattextview2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="@string/mine_activity_exchange_product_detail_text"
             android:textColor="@color/mine_activity_exchange_text_color"
             app:layout_constraintStart_toStartOf="@+id/ll_exchange_detail"
-            app:layout_constraintTop_toBottomOf="@+id/ll_exchange_detail" />
+            app:layout_constraintTop_toBottomOf="@+id/mine_appcompattextview9" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/mine_appcompattextview3"
@@ -139,6 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
+            android:text="@{data.name}"
             android:textColor="@color/mine_activity_exchange_text_color"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview2"
@@ -150,12 +179,13 @@
             android:id="@+id/mine_appcompattextview4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/mine_exchange_price_text(data.price)}"
             android:textColor="@color/mine_activity_exchange_text_color"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview3"
             app:layout_constraintStart_toStartOf="@+id/tv_product_name_context"
             app:layout_constraintTop_toTopOf="@+id/mine_appcompattextview3"
-            tools:text="1000邮豆" />
+            tools:text="1000邮票" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/mine_appcompattextview5"
@@ -172,6 +202,7 @@
             android:id="@+id/mine_appcompattextview6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{data.date}"
             android:textColor="@color/mine_activity_exchange_text_color"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview5"
@@ -193,6 +224,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{data.status}"
             android:textColor="@color/mine_activity_exchange_text_color"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/mine_appcompattextview7"
