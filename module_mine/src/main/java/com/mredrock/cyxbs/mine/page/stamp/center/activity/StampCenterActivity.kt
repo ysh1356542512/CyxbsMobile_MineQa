@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
+import android.transition.Slide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
@@ -21,12 +22,13 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
  */
 
 class StampCenterActivity :
-    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>(){
+    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>() {
 
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.enterTransition =Slide()
         super.onCreate(savedInstanceState)
         binding?.vm = viewModel
     }
@@ -37,12 +39,13 @@ class StampCenterActivity :
         binding?.apply {
             presenter?.let {
                 it.initVP2(
-                        this@StampCenterActivity,
-                        vpCenter){
+                    this@StampCenterActivity,
+                    vpCenter
+                ) {
                     TabLayoutMediator(
-                            tlCenter,
-                            vpCenter,
-                            it
+                        tlCenter,
+                        vpCenter,
+                        it
                     ).attach()
                 }
             }

@@ -51,13 +51,14 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_exchange_detail.xml" value="0.2903645833333333" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_find_password.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_forget_password.xml" value="0.26614583333333336" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_goods_pager.xml" value="0.1453125" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_main.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_security.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_set_password_protect.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_setting.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_center.xml" value="0.171875" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_detail.xml" value="0.4" />
-        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_goods_detail_real.xml" value="0.72" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_goods_detail_real.xml" value="0.264" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_tablayout_common.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_tablayout_my_product.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_dialog_buy_product_double_choose.xml" value="0.4" />
