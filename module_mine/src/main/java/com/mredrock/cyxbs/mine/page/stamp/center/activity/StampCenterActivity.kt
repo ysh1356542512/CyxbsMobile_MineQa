@@ -1,24 +1,16 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
+import android.transition.Slide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
-import com.mredrock.cyxbs.mine.page.stamp.center.animation.DepthPageTransformer
-import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.ITaskView
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.presenter.StampCenterPresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
-import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 
@@ -30,13 +22,13 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
  */
 
 class StampCenterActivity :
-    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>(),
-    ITaskView {
+    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>() {
 
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.enterTransition =Slide()
         super.onCreate(savedInstanceState)
         binding?.vm = viewModel
     }
@@ -47,15 +39,17 @@ class StampCenterActivity :
         binding?.apply {
             presenter?.let {
                 it.initVP2(
-                        this@StampCenterActivity,
-                        vpCenter){
+                    this@StampCenterActivity,
+                    vpCenter
+                ) {
                     TabLayoutMediator(
-                            tlCenter,
-                            vpCenter,
-                            it
+                        tlCenter,
+                        vpCenter,
+                        it
                     ).attach()
                 }
             }
+
             presenter?.let { tlCenter.addOnTabSelectedListener(it) }
 //            context = this@StampCenterActivity
 
@@ -89,7 +83,9 @@ class StampCenterActivity :
 
     override fun initListener() {
         binding?.apply {
-            ivCenterBack.setOnSingleClickListener { onBackPressed()}
+            fabCenterBack.setOnSingleClickListener {
+                onBackPressed()
+            }
             includeCenterPart2.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
             includeCenterPart2.mineCenterPartThree.tvCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
             //这个到时候可能会跳转至订单详情页 需要在 ExchangeDetailActivity中再加一个方法来跳转到详情页

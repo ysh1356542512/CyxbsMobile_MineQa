@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleObserver
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+import java.lang.reflect.ParameterizedType
 
 /**
  *@author ZhiQiang Tu
@@ -23,7 +24,7 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
 
 
     abstract fun getLayoutId(): Int
-
+    //abstract fun createView():V
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +37,7 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
         presenter = createPresenter()
         //presenter?.onAttachView(this)
 
+        presenter?.onAttachVM(viewModel)
         lifecycle.addObserver(presenter as LifecycleObserver)
 
         return binding?.root
@@ -54,19 +56,28 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
 
         //初始化数据监听
         observeData()
+
+        //丢锅啦--Presenter
+        fetch()
+    }
+
+    open fun fetch(){
+
     }
 
 
     abstract fun createPresenter(): P
 
-    abstract fun getActivityVMClass(): Class<VM>
-
-    //abstract fun createView():V
+    fun getActivityVMClass() = (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>
 
     override fun onDestroy() {
+        presenter?.let { lifecycle.removeObserver(it) }
+        presenter?.onDetachVM()
+
+        presenter?.clear()
+        presenter = null
         super.onDestroy()
         //presenter?.detachView()
-        presenter = null
     }
 
     open fun initView() {}

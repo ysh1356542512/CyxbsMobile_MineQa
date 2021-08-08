@@ -23,21 +23,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="#F2F3F8"
-            android:paddingStart="17dp"
-            android:paddingEnd="17dp">
+            android:background="#F2F3F8">
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/iv_back_arrow"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:tintMode="add"
-                android:onClick="@{(v)->eventHandler.backArrowClick(v)}"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_back_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#F2F3F8"
+                android:backgroundTint="#F2F3F8"
+                android:onClick="@{(v)->eventHandler.backArrowClick(v)}"
+                app:borderWidth="0dp"
+                app:elevation="0dp"
+                app:fabSize="mini"
+                android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/mine_ic_stamp_back_arrow" />
+                app:pressedTranslationZ="13dp"
+                app:srcCompat="@drawable/mine_ic_stamp_back_arrow"
+                android:contentDescription="@string/mine_exchange_back_arrow_content_description" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -45,12 +49,10 @@
                 android:text="@string/mine_stamp_detail_title"
                 android:textColor="#15315B"
                 android:textSize="22sp"
-                android:textStyle="bold"
-                android:paddingStart="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/iv_back_arrow"
+                app:layout_constraintLeft_toRightOf="@id/fab_back_arrow"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry" />
+                android:textStyle="bold"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

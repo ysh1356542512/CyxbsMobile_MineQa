@@ -4,6 +4,8 @@ import androidx.lifecycle.*
 import com.mredrock.cyxbs.common.model.IModel
 import com.mredrock.cyxbs.common.ui.IView
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+import com.mredrock.cyxbs.common.viewmodel.IVM
+import com.taobao.agoo.IRegister
 import java.lang.ref.WeakReference
 
 /**
@@ -11,7 +13,11 @@ import java.lang.ref.WeakReference
  *@time 2021/8/7  11:51
  *@signature 我们不明前路，却已在路上
  */
-abstract class BasePresenter</*V : IView,*/ VM : BaseViewModel> : LifecycleObserver {
+
+/**
+ *  Presenter的基类，内部自动获取了ViewModel的实例
+ */
+abstract class BasePresenter</*V : IView,*/ VM : IVM> : LifecycleObserver,IPresenter<VM>{
     protected var vm: VM? = null
 
     /*protected var view: WeakReference<V>? = null
@@ -22,42 +28,62 @@ abstract class BasePresenter</*V : IView,*/ VM : BaseViewModel> : LifecycleObser
         this.view?.clear()
     }*/
 
-    fun onAttachVM(vm:BaseViewModel){
+
+    /**
+     *  在Activity或者Fragment创建的时候传入
+     *
+     * @see com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
+     * @see com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
+     */
+    override fun onAttachVM(vm: IVM) {
         this.vm = vm as VM
     }
 
-    fun detachVM(){
+    /**
+     *  在Activity或者Fragment销毁的时候销毁
+     *
+     * @see com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
+     * @see com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
+     */
+    override fun onDetachVM(){
         vm = null
     }
 
-    //生命周期方法
+    /**
+     *  1.在Activity被Destroy掉的时候调用
+     *  2.改方法是用以清楚Presenter中一些可能会存在内存泄漏的变量
+     */
+    open fun clear(){}
+
+
+    /**
+     * 生命周期相关的回调
+     */
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    protected fun onCreate(lifecycleOwner: LifecycleOwner) {
+    open fun onCreate(lifecycleOwner: LifecycleOwner) {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    protected fun onResume(lifecycleOwner: LifecycleOwner) {
+    open fun onResume(lifecycleOwner: LifecycleOwner) {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    protected fun onStart(lifecycleOwner: LifecycleOwner) {
+    open fun onStart(lifecycleOwner: LifecycleOwner) {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    protected fun onPause(lifecycleOwner: LifecycleOwner) {
+    open fun onPause(lifecycleOwner: LifecycleOwner) {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    protected fun onStop(lifecycleOwner: LifecycleOwner) {
+    open fun onStop(lifecycleOwner: LifecycleOwner) {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    protected fun onDestroy(lifecycleOwner: LifecycleOwner) {
+    open fun onDestroy(lifecycleOwner: LifecycleOwner) {
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-    protected fun onAny(lifecycleOwner: LifecycleOwner) {
+    open fun onAny(lifecycleOwner: LifecycleOwner) {
     }
-
-
 }

@@ -87,7 +87,6 @@ class CenterShopFragment : BaseMVPVMFragment<StampCenterViewModel, MineFragmentC
 
     override fun createPresenter(): CenterShopPresenter = CenterShopPresenter()
 
-    override fun getActivityVMClass(): Class<StampCenterViewModel> = StampCenterViewModel::class.java
 
 }
 

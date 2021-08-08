@@ -11,7 +11,7 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentGainRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.GainRecordBinder
-import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
+import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
 class GainRecordFragment :
@@ -40,9 +40,9 @@ class GainRecordFragment :
     }
 
     private fun setRecyclerContent() {
-        val list: List<DetailItemData> = listOf(
-            DetailItemData("游览任务", "2030-1-1", 40, false),
-            DetailItemData("游览任务", "2030-1-1", 40, false)
+        val list: List<ExchangeItemData> = listOf(
+            ExchangeItemData("游览任务", "2030-1-1", 40, false),
+            ExchangeItemData("游览任务", "2030-1-1", 40, false)
         )
         mAdapter?.notifyAdapterChanged(
             (0..1).map {

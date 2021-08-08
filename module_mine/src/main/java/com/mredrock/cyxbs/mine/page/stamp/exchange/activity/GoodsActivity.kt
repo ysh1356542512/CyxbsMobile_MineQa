@@ -103,8 +103,8 @@ class GoodsActivity :
 
     override fun initListener() {
         binding?.apply {
-            ivCenterBack.setOnSingleClickListener {
-                btnStampBuy.transitionName = SHOP_SHARE_PHOTO_VALUE
+
+            fabCenterBack.setOnSingleClickListener {
                 onBackPressed()
             }
             btnStampBuy.transitionName = SHOP_SHARE_PHOTO_VALUE
