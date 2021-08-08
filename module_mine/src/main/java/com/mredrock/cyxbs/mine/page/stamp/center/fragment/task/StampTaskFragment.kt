@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mredrock.cyxbs.common.presenter.IPresenter
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentStampTaskBinding
@@ -17,16 +18,20 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 
 class StampTaskFragment :
-    BaseMVPVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
+    BaseMVPVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding, TaskPresenter>(){
 
     private val mAdapter by lazy {
         binding?.rvTask?.let {
             createMultiTypeAdapter(it, LinearLayoutManager(context))
         }
+
     }
 
     override fun initView() {
         val handler: ClickEventHandler = ClickEventHandler()
+
+        presenter?.setAdapter(mAdapter)
+
         mAdapter?.notifyAdapterChanged(
             mutableListOf<MultiTypeBinder<*>>().apply {
                 add(
