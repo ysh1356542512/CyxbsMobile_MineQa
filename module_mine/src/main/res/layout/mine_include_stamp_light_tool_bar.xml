@@ -23,7 +23,7 @@
             android:layout_marginBottom="1dp">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_back_arrow"
+                android:id="@+id/fab_back_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +38,7 @@
                 android:textColor="#15315B"
                 android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/iv_back_arrow"
+                app:layout_constraintLeft_toRightOf="@id/fab_back_arrow"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="兑换详细" />
 

@@ -4,14 +4,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
-import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
+
 
 /**
  *@author ZhiQiang Tu
@@ -20,9 +19,8 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
  */
 private const val TAG = "StampCenterPresenter"
 
-class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
-        TabLayoutMediator.TabConfigurationStrategy,
-        TabLayout.OnTabSelectedListener {
+class StampCenterPresenter : BasePresenter<CenterContract.CenterVM>(),
+    CenterContract.CenterPresenter {
     //ViewPager与TabLayout的联动部分
     //TabLayoutMediator.TabConfigurationStrategy
     override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
@@ -52,7 +50,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
-        val isClickToday = vm?.isClickToday ?: false
+        val isClickToday = vm?.getIsClickToday() ?: false
         //先判断isClickToday是否为true 若为true 只切换 为false 则Post提交数据 表示今日第一次点击 并将小红点GONE或者重新换布局
         when (!isClickToday) {
             true -> {
@@ -64,7 +62,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
                         tab.setCustomView(R.layout.mine_item_tab_click)
                         tab.setCustomView(R.layout.mine_item_tab_click)
                         tab.view.alpha = 1.0f
-                        vm?.isClickToday = true
+                        vm?.setIsClickToday(true)
                         //在这里POST数据 并将isClickToday为true表示已经点击
                     }
                     else -> {
@@ -78,7 +76,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
         }
     }
 
-    fun initVP2(fgActivity: FragmentActivity, vpCenter: ViewPager2, func: () -> Unit) {
+    override fun initVP2(fgActivity: FragmentActivity, vpCenter: ViewPager2, func: () -> Unit) {
         vpCenter.apply {
             setPageTransformer(ZoomOutPageTransformer())
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -87,7 +85,6 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
             func()
         }
     }
-
 
 
 }
