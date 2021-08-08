@@ -9,4 +9,6 @@ object ExchangeConfig {
 
     const val GOODS_PHOTO_ITEM_KEY = "photoItemKey"
     const val GOODS_PHOTO_ITEM_RESPOND = 2
+
+    const val SHOP_SHARE_PHOTO_VALUE = "shareShopPhoto"
 }

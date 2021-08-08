@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
@@ -44,34 +45,51 @@ class StampCenterActivity :
     override fun initView() {
         //先进行 viewPager2 和 TabLayout 的绑定
         binding?.apply {
-//            context = this@StampCenterActivity
-            vpCenter.setPageTransformer(ZoomOutPageTransformer())
-            vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-            val fragments = arrayListOf<Fragment>(CenterShopFragment(), StampTaskFragment())
-            //设置Adapter
-            vpCenter.adapter = PagerAdapter(fragments, this@StampCenterActivity)
-
-            vpCenter.apply {
-                offscreenPageLimit = 2
-                //此处可动态设置tabItem布局
-                //关于tablayout代码的设计 这样能够尽可能的减少网络请求的次数
-                presenter?.let {
+            presenter?.let {
+                it.initVP2(
+                        this@StampCenterActivity,
+                        vpCenter){
                     TabLayoutMediator(
-                        tlCenter,
-                        vpCenter,
-                        it
+                            tlCenter,
+                            vpCenter,
+                            it
                     ).attach()
                 }
             }
             presenter?.let { tlCenter.addOnTabSelectedListener(it) }
+//            context = this@StampCenterActivity
+
+//            vpCenter.initViewPager2 {
+//                it.apply {
+//
+//                }
+//            }
+//
+//            vpCenter.setPageTransformer(ZoomOutPageTransformer())
+//            vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+//            val fragments = arrayListOf<Fragment>(CenterShopFragment(), StampTaskFragment())
+//            //设置Adapter
+//            vpCenter.adapter = PagerAdapter(fragments, this@StampCenterActivity)
+//
+//            vpCenter.apply {
+//                offscreenPageLimit = 2
+//                //此处可动态设置tabItem布局
+//                //关于tablayout代码的设计 这样能够尽可能的减少网络请求的次数
+//                presenter?.let {
+//                    TabLayoutMediator(
+//                        tlCenter,
+//                        vpCenter,
+//                        it
+//                    ).attach()
+//                }
+//            }
+
         }
     }
 
     override fun initListener() {
         binding?.apply {
-            ivCenterBack.setOnSingleClickListener {
-                onBackPressed()
-            }
+            ivCenterBack.setOnSingleClickListener { onBackPressed()}
             includeCenterPart2.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
             includeCenterPart2.mineCenterPartThree.tvCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
             //这个到时候可能会跳转至订单详情页 需要在 ExchangeDetailActivity中再加一个方法来跳转到详情页

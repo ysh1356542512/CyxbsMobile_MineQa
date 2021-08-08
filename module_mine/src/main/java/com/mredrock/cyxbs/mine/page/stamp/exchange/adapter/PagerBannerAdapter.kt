@@ -22,7 +22,7 @@ class PagerBannerAdapter : BaseBannerAdapter<Int, PagerBannerAdapter.ViewHolder>
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var imageView: ImageView = itemView.findViewById(R.id.iv_banner)
+        var imageView: ImageView = itemView.findViewById(R.id.iv_banner_pager)
     }
 
 

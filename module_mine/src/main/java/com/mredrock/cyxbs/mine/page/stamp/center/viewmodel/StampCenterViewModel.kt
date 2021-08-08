@@ -12,4 +12,12 @@ class StampCenterViewModel() : BaseViewModel() {
 
     //我们要得到的bean类
     private val _userAccount = MutableLiveData<Int>()
+
+
+    //获得用户余额
+    fun getUserAmount(){
+
+    }
+
+
 }
