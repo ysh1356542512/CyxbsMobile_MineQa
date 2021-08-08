@@ -22,7 +22,7 @@ class ExchangeDetailActivity :
             }
         }
         binding?.data = ExchangeDetail(
-            1000000,"卷卷鼠标垫",1000,"2021-2-25 14:32","已近领取"
+            1000000,"卷卷鼠标垫",1000,"2021-2-25 14:32","待领取"
         )
     }
 
