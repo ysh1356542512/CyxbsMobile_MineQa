@@ -1,5 +1,7 @@
-package com.mredrock.cyxbs.mine.page.stamp.center.fragment
+package com.mredrock.cyxbs.mine.page.stamp.center.fragment.task
 
+import android.view.View
+import com.mredrock.cyxbs.mine.page.stamp.center.model.StampTaskData
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.MultiTypeAdapter
 
 /**
@@ -10,10 +12,11 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.MultiType
 interface TaskContract  {
     interface TaskIPresenter{
         fun fetch()
-        fun setAdapter(mAdapter: MultiTypeAdapter?)
+        fun onClicked(view: View, any: Any?)
     }
 
     interface TaskIVM{
 
+        fun setTasksValue(value: StampTaskData)
     }
 }

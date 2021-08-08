@@ -5,7 +5,7 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineRecycleItemDetailBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
-import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
+import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
 
 /**
  *@author ZhiQiang Tu
@@ -13,7 +13,7 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
  *@signature 我们不明前路，却已在路上
  */
 class ExchangeRecordBinder(
-    val data: DetailItemData,
+    val data: ExchangeItemData,
     val handler: ExchangeRecordFragment.ClickHandler
 ) : MultiTypeBinder<MineRecycleItemDetailBinding>() {
 

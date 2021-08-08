@@ -14,7 +14,7 @@ import com.mredrock.cyxbs.mine.databinding.MineFragmentExchangeRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.ExchangeRecordBinder
-import com.mredrock.cyxbs.mine.page.stamp.detail.model.DetailItemData
+import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
 class ExchangeRecordFragment :
@@ -43,11 +43,11 @@ class ExchangeRecordFragment :
 
     private fun setRecyclerViewContent() {
         val handler: ClickHandler = ClickHandler()
-        val list: MutableList<DetailItemData> = mutableListOf()
+        val list: MutableList<ExchangeItemData> = mutableListOf()
         list.apply {
-            add(DetailItemData("卷卷鼠标垫", "2030-1-1", 4000, true))
-            add(DetailItemData("卷卷鼠标垫", "2030-1-1", 4000, true))
-            add(DetailItemData("卷卷鼠标垫", "2030-1-1", 4000, false))
+            add(ExchangeItemData("卷卷鼠标垫", "2030-1-1", 4000, true))
+            add(ExchangeItemData("卷卷鼠标垫", "2030-1-1", 4000, true))
+            add(ExchangeItemData("卷卷鼠标垫", "2030-1-1", 4000, false))
         }
         mAdapter?.notifyAdapterChanged(
             (0..2).map { it ->
