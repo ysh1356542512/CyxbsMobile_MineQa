@@ -7,6 +7,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampDetailBinding
+import com.mredrock.cyxbs.mine.page.stamp.center.animation.DepthPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.GainRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
@@ -24,6 +25,7 @@ class StampDetailActivity :
         binding?.eventHandler = EventHandler()
         binding?.apply {
             //配置ViewPager的Adapter
+            vpDetail.setPageTransformer(DepthPageTransformer())
             vpDetail.adapter =
                 PagerAdapter(
                     listOf(ExchangeRecordFragment(), GainRecordFragment()),

@@ -37,18 +37,21 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/mine_ic_stamp_back_arrow"
-                android:paddingStart="17dp"/>
+                android:paddingStart="17dp"
+                tools:ignore="RtlSymmetry" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="13dp"
+                android:text="@string/mine_exchange_tool_bar_title"
                 android:textColor="#15315B"
                 android:textSize="22sp"
+                android:textStyle="bold"
+                android:paddingStart="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/iv_back_arrow"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@string/mine_exchange_tool_bar_title" />
+                tools:ignore="RtlSymmetry" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -101,14 +104,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:paddingRight="16dp"
+                android:paddingEnd="16dp"
                 android:paddingBottom="18dp"
                 android:text="@string/mine_activity_exchange_banner_content"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
                 android:textSize="11sp"
                 app:layout_constraintStart_toStartOf="@id/tv_exchange_detail_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_exchange_detail_id"
-                tools:paddingBottom="18dp" />
+                tools:paddingBottom="18dp"
+                tools:ignore="RtlSymmetry,SmallSp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

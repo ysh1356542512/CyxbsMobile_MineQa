@@ -42,14 +42,15 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="13dp"
+                android:text="@string/mine_stamp_detail_title"
                 android:textColor="#15315B"
                 android:textSize="22sp"
-                android:text="@string/mine_stamp_detail_title"
+                android:textStyle="bold"
+                android:paddingStart="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/iv_back_arrow"
                 app:layout_constraintTop_toTopOf="parent"
-                />
+                tools:ignore="RtlSymmetry" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -92,15 +93,13 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="1dp"
-            android:background="@drawable/mine_activity_rv_round_corner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tl_detail"
             app:layout_constraintVertical_bias="0.0"
-            android:paddingEnd="15dp"
-            android:paddingStart="15dp"/>
+         />
 
         <!--<androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_detail"
