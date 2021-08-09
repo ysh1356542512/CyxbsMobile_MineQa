@@ -125,7 +125,8 @@
                 android:textSize="11sp"
                 app:layout_constraintStart_toStartOf="@id/tv_exchange_detail_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_exchange_detail_id"
-                tools:paddingBottom="18dp" />
+                tools:paddingBottom="18dp"
+                tools:ignore="RtlSymmetry,SmallSp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
