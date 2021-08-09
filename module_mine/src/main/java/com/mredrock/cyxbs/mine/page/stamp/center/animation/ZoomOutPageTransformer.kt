@@ -19,9 +19,9 @@ class ZoomOutPageTransformer : ViewPager2.PageTransformer {
                 }
                 position <= 1 -> { // [-1,1]
                     // Modify the default slide transition to shrink the page as well
-                    val scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position))
-                    val vertMargin = pageHeight * (1 - scaleFactor) / 2
-                    val horzMargin = pageWidth * (1 - scaleFactor) / 2
+                    val scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position)/5)
+                    val vertMargin = pageHeight * (1 - scaleFactor) / 4
+                    val horzMargin = pageWidth * (1 - scaleFactor) / 4
                     translationX = if (position < 0) {
                         horzMargin - vertMargin / 2
                     } else {
