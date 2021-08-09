@@ -53,11 +53,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="9dp"
             android:max="5"
-            android:progress="@{data.progress}"
             android:progressDrawable="@drawable/mine_task_round_progress_bar_layer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_task_content" />
-
+<!--        android:progress="@{data.progress}"-->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_current_progress"
             android:layout_width="wrap_content"

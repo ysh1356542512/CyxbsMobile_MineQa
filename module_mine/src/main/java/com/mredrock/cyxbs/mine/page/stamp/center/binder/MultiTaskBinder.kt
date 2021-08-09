@@ -1,5 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.binder
 
+import android.animation.ObjectAnimator
+import android.util.Log
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineTaskRecycleItemMultiProgressBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.model.MoreTask
@@ -18,5 +20,14 @@ class MultiTaskBinder(val moreTask: MoreTask) :
 
     override fun onBindViewHolder(binding: MineTaskRecycleItemMultiProgressBinding) {
         binding?.data = moreTask
+//        val animator = ObjectAnimator.ofInt(binding.mineSpace,"progress",0,moreTask.progress)
+//        animator.duration = 1000
+//        animator.start()
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            Log.d("sss", "onBindViewHolder:... ")
+            binding.mineSpace.post {
+                binding.mineSpace.setProgress(moreTask.progress,true)
+            }
+        }
     }
 }

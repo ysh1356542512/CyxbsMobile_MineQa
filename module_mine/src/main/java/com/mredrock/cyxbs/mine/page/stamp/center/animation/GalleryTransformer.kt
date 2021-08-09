@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.exchange.util
+package com.mredrock.cyxbs.mine.page.stamp.center.animation
 
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2

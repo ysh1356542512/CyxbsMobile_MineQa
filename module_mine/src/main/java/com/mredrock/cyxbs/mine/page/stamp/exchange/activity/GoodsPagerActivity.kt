@@ -2,16 +2,14 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.utils.extensions.setFullScreen
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
-import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.PagerBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
-import com.mredrock.cyxbs.mine.page.stamp.exchange.util.GalleryTransformer
+import com.mredrock.cyxbs.mine.page.stamp.center.animation.GalleryTransformer
 
 /**
  * @Date : 2021/8/7
