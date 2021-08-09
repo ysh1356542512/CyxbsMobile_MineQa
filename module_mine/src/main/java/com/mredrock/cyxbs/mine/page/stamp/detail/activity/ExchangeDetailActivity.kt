@@ -1,31 +1,53 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.activity
 
-import android.os.Bundle
-import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
+import android.view.View
+import androidx.lifecycle.LiveData
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityExchangeDetailBinding
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeDetailData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.ExchangeDetailViewModel
 
 class ExchangeDetailActivity :
-    BaseBindingViewModelActivity<ExchangeDetailViewModel, MineActivityExchangeDetailBinding>() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    BaseMVPVMActivity<ExchangeDetailViewModel,
+            MineActivityExchangeDetailBinding,
+            ExchangeDetailPresenter>() {
 
 
     override fun initListener() {
         super.initListener()
+        val eventHandler = EventHandler()
         binding?.apply {
-            fabBackArrow.setOnClickListener {
-                finish()
-            }
+            fabBackArrow.setOnClickListener(eventHandler::backArrowClicked)
         }
-        binding?.data = ExchangeDetailData(
-            10000020, "待领取", "卷卷鼠标垫", 1000, "2021-2-25 14:32"
-        )
+    }
+
+    override fun observeData() {
+        super.observeData()
+        viewModel?.apply {
+            observeContent(content)
+        }
+    }
+
+    private fun observeContent(content: LiveData<ExchangeDetailData>) {
+        content?.observe(this) {
+            binding?.data = it
+        }
+    }
+
+    override fun fetch() {
+        super.fetch()
+        presenter?.fetch()
     }
 
     override fun getLayoutId(): Int = R.layout.mine_activity_exchange_detail
+    override fun createPresenter(): ExchangeDetailPresenter = ExchangeDetailPresenter()
+
+    inner class EventHandler{
+        //返回键被点击
+        fun backArrowClicked(view: View) {
+            finish()
+        }
+    }
 }
