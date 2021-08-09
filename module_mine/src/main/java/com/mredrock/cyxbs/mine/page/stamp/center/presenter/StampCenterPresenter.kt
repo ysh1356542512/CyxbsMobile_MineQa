@@ -9,7 +9,13 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductOne
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopTitle
+import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
+import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
+import kotlin.random.Random
 
 
 /**
@@ -19,8 +25,10 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
  */
 private const val TAG = "StampCenterPresenter"
 
-class StampCenterPresenter : BasePresenter<CenterContract.CenterVM>(),
+class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     CenterContract.CenterPresenter {
+
+
     //ViewPager与TabLayout的联动部分
     //TabLayoutMediator.TabConfigurationStrategy
     override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
@@ -87,7 +95,35 @@ class StampCenterPresenter : BasePresenter<CenterContract.CenterVM>(),
     }
 
     override fun fetch() {
+        val shopPageData = getShopPageData()
+        vm?.setShopPageDataValue(shopPageData)
+    }
 
+    private fun getShopPageData(): ShopPageData {
+        val title1 = getShopTitle1()
+        val decorator = getShopList()
+        val title2 = getShopTitle2()
+        val entity = getShopList()
+        return ShopPageData(
+            title1,decorator,title2,entity
+        )
+    }
+
+    private fun getShopTitle2(): ShopTitle = ShopTitle("邮物","请在个人资料中查看")
+
+    private fun getShopTitle1(): ShopTitle = ShopTitle("装扮","请在个人资料中查看")
+
+    private fun getShopList(): List<ShopProductOne> {
+        return (1..11).map {
+            val randomInt = (CenterConfig.TEST_UNSPLASH_PIC_URL.indices).random()
+
+            ShopProductOne(
+                CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt],
+                (0..1000).random() * 100,
+                (0..100).random(),
+                "卷卷"
+            )
+        }
     }
 
 

@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
  *@signature 我们不明前路，却已在路上
  */
 class GoodsTitleBinder(val title: ShopTitle) : MultiTypeBinder<MineShopRecyleItemTitleBinding>() {
-    override fun layoutId(): Int = R.layout.mine_item_stamp_goods
+    override fun layoutId(): Int = R.layout.mine_shop_recyle_item_title
 
     override fun areContentsTheSame(other: Any): Boolean =
         other is GoodsTitleBinder && other.title == title

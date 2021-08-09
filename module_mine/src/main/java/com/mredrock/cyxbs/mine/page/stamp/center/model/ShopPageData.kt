@@ -20,18 +20,18 @@ data class ShopTitle(
 
 data class ShopProductOne(
     val image: String,
-    val price: String,
+    val price: Int,
     val restCount: Int,
     val name: String
 )
 
 data class ShopProductTwo(
     val image: String,
-    val price: String,
+    val price: Int,
     val restCount: Int,
     val name: String,
     val image2: String,
-    val price2: String,
+    val price2: Int,
     val restCount2: Int,
     val name2: String
 )

@@ -7,6 +7,7 @@ import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
+import com.mredrock.cyxbs.mine.page.stamp.center.presenter.CenterContract
 import com.mredrock.cyxbs.mine.page.stamp.center.presenter.StampCenterPresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
@@ -79,6 +80,11 @@ class StampCenterActivity :
 //            }
 
         }
+    }
+
+
+    override fun fetch() {
+        presenter?.fetch()
     }
 
     override fun initListener() {
