@@ -58,9 +58,6 @@ class GainRecordFragment :
     //设置布局
     override fun getLayoutId(): Int = R.layout.mine_fragment_gain_record
 
-    //设置ViewModel
-    override fun getActivityVMClass(): Class<StampDetailViewModel> =
-        StampDetailViewModel::class.java
 
 
 }

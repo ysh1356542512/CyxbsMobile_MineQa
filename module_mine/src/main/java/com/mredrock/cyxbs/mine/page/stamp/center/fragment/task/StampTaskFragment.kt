@@ -23,7 +23,6 @@ class StampTaskFragment :
         binding?.rvTask?.let {
             createMultiTypeAdapter(it, LinearLayoutManager(context))
         }
-
     }
 
     //初始化视图。好像有些多🐟了
@@ -50,7 +49,7 @@ class StampTaskFragment :
      * @data viewModel.tasks
      */
     private fun observeTasks() {
-        viewModel.tasks.observe(this) {
+        shardViewModel?.tasks?.observe(this) {
             val binders = mutableListOf<MultiTypeBinder<*>>().apply {
                 //获取并添加第一类数据
                 it.task1.forEach {

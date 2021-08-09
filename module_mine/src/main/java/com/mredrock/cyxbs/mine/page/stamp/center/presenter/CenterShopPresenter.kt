@@ -42,4 +42,8 @@ class CenterShopPresenter: BasePresenter<StampCenterViewModel>() {
         })
     }
 
+    override fun fetch() {
+
+    }
+
 }

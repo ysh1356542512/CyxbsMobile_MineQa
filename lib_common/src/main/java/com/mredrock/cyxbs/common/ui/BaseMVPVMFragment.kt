@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.ViewModelProvider
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import java.lang.reflect.ParameterizedType
@@ -16,14 +17,15 @@ import java.lang.reflect.ParameterizedType
  *@time 2021/8/7  13:11
  *@signature 我们不明前路，却已在路上
  */
+
+/**
+ * 注意这个ViewModel获取的是Activity的Context，其使用情况是创建共享activity内的ViewModel
+ */
 abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : BasePresenter<*>> :
-    BaseViewModelFragment<VM>(), IView {
+    BaseBindingSharedVMFragment<VM,T>(), IView {
     protected var presenter: P? = null
-    protected var binding: T? = null
-    protected var shardViewModel: VM? = null
 
 
-    abstract fun getLayoutId(): Int
     //abstract fun createView():V
 
     override fun onCreateView(
@@ -31,13 +33,13 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
         binding?.lifecycleOwner = this
 
         presenter = createPresenter()
         //presenter?.onAttachView(this)
-
-        presenter?.onAttachVM(viewModel)
+        shardViewModel?.let { presenter?.onAttachVM(it) }
         lifecycle.addObserver(presenter as LifecycleObserver)
 
         return binding?.root
@@ -45,30 +47,17 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //初始化配置
-        initConfiguration()
-
-        //初始化view
-        initView()
-
-        //初始化监听器
-        initListener()
-
-        //初始化数据监听
-        observeData()
-
         //丢锅啦--Presenter
         fetch()
     }
 
-    open fun fetch(){
+    open fun fetch() {
 
     }
 
 
     abstract fun createPresenter(): P
 
-    fun getActivityVMClass() = (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>
 
     override fun onDestroy() {
         presenter?.let { lifecycle.removeObserver(it) }
@@ -79,13 +68,5 @@ abstract class BaseMVPVMFragment<VM : BaseViewModel, T : ViewDataBinding, P : Ba
         super.onDestroy()
         //presenter?.detachView()
     }
-
-    open fun initView() {}
-
-    open fun initListener() {}
-
-    open fun observeData() {}
-
-    open fun initConfiguration() {}
 
 }

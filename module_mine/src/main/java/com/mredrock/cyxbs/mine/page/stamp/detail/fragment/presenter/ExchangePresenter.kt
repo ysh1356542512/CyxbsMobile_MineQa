@@ -1,21 +1,19 @@
-package com.mredrock.cyxbs.mine.page.stamp.detail.activity
+package com.mredrock.cyxbs.mine.page.stamp.detail.fragment.presenter
 
 import com.mredrock.cyxbs.common.presenter.BasePresenter
+import com.mredrock.cyxbs.common.presenter.IPresenter
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeListData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
 /**
  *@author ZhiQiang Tu
- *@time 2021/8/8  22:29
+ *@time 2021/8/8  23:09
  *@signature 我们不明前路，却已在路上
  */
-class DetailPresenter : BasePresenter<StampDetailViewModel>() ,StampDetailActivityContract.IPresenter{
+class ExchangePresenter : BasePresenter<StampDetailViewModel>() {
     override fun fetch() {
-        //获取数据
-        val exchangeData = getExchangeData()
-        //更新
-        vm?.setExchangeListDataValue(exchangeData)
+
     }
 
     private fun getExchangeData(): ExchangeListData {
@@ -27,5 +25,4 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>() ,StampDetailActivi
             )
         )
     }
-
 }
