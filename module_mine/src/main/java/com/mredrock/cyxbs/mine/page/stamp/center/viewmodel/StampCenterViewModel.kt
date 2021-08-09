@@ -1,7 +1,10 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.presenter.CenterContract
 
 
@@ -13,6 +16,14 @@ class StampCenterViewModel() : BaseViewModel(), CenterContract.CenterVM {
 
     //我们要得到的bean类
     private val _userAccount = MutableLiveData<Int>()
+
+
+    private val _shopPageData: MutableLiveData<ShopPageData> = MutableLiveData()
+    val shopPageData: LiveData<ShopPageData> = _shopPageData
+
+    fun setShopPageDataValue(value: ShopPageData) {
+        _shopPageData.value = value
+    }
 
     //获得用户余额
     fun getUserAmount() {

@@ -31,7 +31,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/mine_ic_center_goods" />
+                app:srcCompat="@drawable/mine_ic_center_goods"
+                />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_goods_title"

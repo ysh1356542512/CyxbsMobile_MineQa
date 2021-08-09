@@ -1,9 +1,11 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.view.View
 import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.library.baseAdapters.BR
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
@@ -16,8 +18,10 @@ import com.mredrock.cyxbs.mine.databinding.MineFragmentCenterShopBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealContainerBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.presenter.CenterShopPresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.presenter.StampCenterPresenter
+import com.mredrock.cyxbs.mine.page.stamp.center.util.RecyclerviewAtVP2
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
@@ -48,6 +52,19 @@ class CenterShopFragment : BaseMVPVMFragment<StampCenterViewModel, MineFragmentC
         //设置内容
         binding?.rvShopReal?.let { context?.let { it1 -> presenter?.setRecyclerViewContent(it, it1,this) } }
 //        setRecyclerViewContent()
+    }
+
+    override fun observeData() {
+        super.observeData()
+        shardViewModel?.apply {
+            observeShopData(shopPageData)
+        }
+    }
+
+    private fun observeShopData(shopPageData: LiveData<ShopPageData>) {
+        shopPageData.observe(this){
+
+        }
     }
 
 //    private fun setRecyclerViewContent(){
@@ -87,6 +104,25 @@ class CenterShopFragment : BaseMVPVMFragment<StampCenterViewModel, MineFragmentC
 
     override fun createPresenter(): CenterShopPresenter = CenterShopPresenter()
 
+    fun setRecyclerViewContent(recyclerView: RecyclerviewAtVP2, context: Context, fragment: CenterShopFragment){
+        val mAdapter = createMultiTypeAdapter(recyclerView,LinearLayoutManager(context))
+        mAdapter.notifyAdapterChanged(mutableListOf<MultiTypeBinder<*>>().apply {
+            //用map函数给每一个Binder设置监听事件 具体事件在这个类里的onClick函数定义 根据id来判断binder
+            add(GoodsRealContainerBinder((1..20)
+                .filter {
+                    it>0
+                }.map{
+                    GoodsRealBinder(it).apply {
+                        setOnClickListener(fragment::onClick)
+                    }
+                },"装扮"))
+            add(GoodsRealContainerBinder((1..20).map{
+                GoodsRealBinder(it).apply {
+                    setOnClickListener(fragment::onClick)
+                }
+            },"邮物"))
+        })
+    }
 
 }
 

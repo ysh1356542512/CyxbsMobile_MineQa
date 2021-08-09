@@ -34,6 +34,7 @@ class CenterShopPresenter: BasePresenter<StampCenterViewModel>() {
                             setOnClickListener(fragment::onClick)
                         }
                     },"装扮"))
+
             add(GoodsRealContainerBinder((1..20).map{
                 GoodsRealBinder(it).apply {
                     setOnClickListener(fragment::onClick)
