@@ -37,6 +37,11 @@ class StampCenterActivity :
     override fun initView() {
         //先进行 viewPager2 和 TabLayout 的绑定
         binding?.apply {
+            includeCenterPart2.mineCenterPartThree.tvCenterCommend.setTextArray(arrayOf(
+                    "你还有待领取的商品，请尽快领取",
+                    "每日任务记得要完成哦",
+                    "小店里有很多商品快去兑换吧"
+            ))
             presenter?.let {
                 it.initVP2(
                     this@StampCenterActivity,

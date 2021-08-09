@@ -122,21 +122,22 @@
             app:layout_constraintTop_toTopOf="@+id/guideline5"
             app:layout_constraintVertical_bias="0.36" />
 
-        <TextView
+        <com.mredrock.cyxbs.mine.page.stamp.view.MarqueeViewVertical
             android:id="@+id/tv_center_commend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0.9"
-            android:fontFamily="@font/bauhaus_93"
-            android:text="@string/mine_stamp_center_wait_get_tv"
-            android:textColor="#ffffff"
-            android:textSize="12sp"
+            android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toTopOf="@+id/guideline9"
             app:layout_constraintVertical_bias="0.0" />
+<!--        android:alpha="0.9"-->
+<!--        android:fontFamily="@font/bauhaus_93"-->
+<!--        android:text="@string/mine_stamp_center_wait_get_tv"-->
+<!--        android:textColor="#ffffff"-->
+<!--        android:textSize="12sp"-->
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

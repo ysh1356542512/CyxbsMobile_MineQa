@@ -26,7 +26,6 @@ class StampDetailActivity :
     private fun initViewPagerAndTabs() {
         binding?.apply {
             //配置ViewPager的Adapter
-<<<<<<< HEAD
             vpDetail.setPageTransformer(DepthPageTransformer())
             vpDetail.adapter =
                 PagerAdapter(
@@ -34,12 +33,7 @@ class StampDetailActivity :
                     this@StampDetailActivity
                 )
 
-=======
-            vpDetail.adapter = PagerAdapter(
-                listOf(ExchangeRecordFragment(), GainRecordFragment()),
-                this@StampDetailActivity
-            )
->>>>>>> 346ce4723a952e4f93512c6f53d6a4c8c42b85c1
+
             //ViewPager和TabLayout联动
             TabLayoutMediator(tlDetail, vpDetail) { tb, position ->
                 when (position) {
