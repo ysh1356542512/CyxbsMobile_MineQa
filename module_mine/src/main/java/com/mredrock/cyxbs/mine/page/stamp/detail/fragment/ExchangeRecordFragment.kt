@@ -4,7 +4,7 @@ import android.util.Log
 import android.view.View
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
+import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
 import com.mredrock.cyxbs.common.utils.extensions.startActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentExchangeRecordBinding
@@ -12,11 +12,10 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.ExchangeRecordBinder
-import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.presenter.ExchangePresenter
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
 class ExchangeRecordFragment :
-    BaseMVPVMFragment<StampDetailViewModel, MineFragmentExchangeRecordBinding, ExchangePresenter>() {
+    BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentExchangeRecordBinding>() {
 
     private val mAdapter by lazy {
         binding?.rvExchange?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
@@ -50,11 +49,6 @@ class ExchangeRecordFragment :
         }
     }
 
-    override fun fetch() {
-        super.fetch()
-        presenter?.fetch()
-    }
-
 
     override fun getLayoutId(): Int = R.layout.mine_fragment_exchange_record
 
@@ -71,6 +65,4 @@ class ExchangeRecordFragment :
             this@ExchangeRecordFragment.requireContext().startActivity<ExchangeDetailActivity>()
         }
     }
-
-    override fun createPresenter(): ExchangePresenter = ExchangePresenter()
 }

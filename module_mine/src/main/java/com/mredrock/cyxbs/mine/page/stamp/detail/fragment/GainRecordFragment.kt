@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
 import com.mredrock.cyxbs.mine.R
@@ -12,6 +13,7 @@ import com.mredrock.cyxbs.mine.databinding.MineFragmentGainRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.GainRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
+import com.mredrock.cyxbs.mine.page.stamp.detail.model.GainListData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
 class GainRecordFragment :
@@ -20,6 +22,9 @@ class GainRecordFragment :
     private val mAdapter by lazy {
         binding?.rvGain?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
     }
+
+    //设置布局
+    override fun getLayoutId(): Int = R.layout.mine_fragment_gain_record
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,29 +40,24 @@ class GainRecordFragment :
                 setVariable(BR.viewModel, this)
                 executePendingBindings()
             }
-            setRecyclerContent()
         }
     }
 
-    private fun setRecyclerContent() {
-        val list: List<ExchangeItemData> = listOf(
-            ExchangeItemData("游览任务", "2030-1-1", 40, false),
-            ExchangeItemData("游览任务", "2030-1-1", 40, false)
-        )
-        mAdapter?.notifyAdapterChanged(
-            (0..1).map {
-                GainRecordBinder(list[it])
+    override fun observeData() {
+        super.observeData()
+        shardViewModel?.apply {
+            observeGainList(gainListData)
+        }
+    }
+
+    private fun observeGainList(gainListData: LiveData<GainListData>) {
+        gainListData.observe(this){
+            //映射数据
+            val binders = it.data.map {
+                GainRecordBinder(it)
             }
-        )
+            //设置Adapter
+            mAdapter?.notifyAdapterChanged(binders)
+        }
     }
-
-    override fun initConfiguration() {
-
-    }
-
-    //设置布局
-    override fun getLayoutId(): Int = R.layout.mine_fragment_gain_record
-
-
-
 }
