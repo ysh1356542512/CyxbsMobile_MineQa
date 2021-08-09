@@ -1,8 +1,12 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.activity
 
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
@@ -13,6 +17,7 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.GainRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
+import kotlinx.android.synthetic.main.mine_activity_stamp_detail.*
 
 class StampDetailActivity :
     BaseMVPVMActivity<StampDetailViewModel, MineActivityStampDetailBinding,DetailPresenter>() {
@@ -39,12 +44,41 @@ class StampDetailActivity :
                 when (position) {
                     0 -> {
                         tb.text = "兑换记录"
+                        tb.view.scaleX = 1.12f
+                        tb.view.scaleY = 1.12f
                     }
                     1 -> {
                         tb.text = "获取记录"
+
                     }
                 }
             }.attach()
+            tlDetail.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                @SuppressLint("ObjectAnimatorBinding")
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    val animatorX = ObjectAnimator.ofFloat(tab?.view, "scaleX", 1f, 1.12f)
+                    val animatorY = ObjectAnimator.ofFloat(tab?.view, "scaleY", 1f, 1.12f)
+                    animatorX.duration = 800
+                    animatorY.duration = 800
+                    animatorX.start()
+                    animatorY.start()
+                }
+
+                @SuppressLint("ObjectAnimatorBinding")
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+                    val animatorX = ObjectAnimator.ofFloat(tab?.view, "scaleX", 1.12f, 1f)
+                    val animatorY = ObjectAnimator.ofFloat(tab?.view, "scaleY", 1.12f, 1f)
+                    animatorX.duration = 800
+                    animatorY.duration = 800
+                    animatorX.start()
+                    animatorY.start()
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+
+                }
+
+            })
         }
     }
 
