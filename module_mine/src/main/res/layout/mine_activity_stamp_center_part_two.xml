@@ -16,7 +16,7 @@
         android:background="@color/common_transparent_background"
         android:minHeight="30dp"
         app:layoutDescription="@xml/mine_activity_stamp_center_part_two_scene"
-        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
 
         <include

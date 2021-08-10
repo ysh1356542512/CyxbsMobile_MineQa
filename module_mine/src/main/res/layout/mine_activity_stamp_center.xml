@@ -73,7 +73,7 @@
                 android:layout_height="190dp"
                 android:background="#00000000"
                 app:elevation="0dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                app:layout_scrollFlags="scroll|snap">
 
                 <include
                     android:id="@+id/include_center_part_2"
