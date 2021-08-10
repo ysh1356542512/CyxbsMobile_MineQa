@@ -4,30 +4,19 @@ import android.content.Intent
 import android.view.View
 import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.library.baseAdapters.BR
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.mredrock.cyxbs.common.BaseApp.Companion.context
-import com.mredrock.cyxbs.common.ui.BaseBindingViewModelFragment
-import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
-import com.mredrock.cyxbs.common.utils.extensions.startActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentCenterShopBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealBinder
-import com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsRealContainerBinder
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.presenter.CenterShopPresenter
-import com.mredrock.cyxbs.mine.page.stamp.center.presenter.StampCenterPresenter
-import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
-import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
-import kotlinx.android.synthetic.main.mine_item_stamp_goods.*
 
 
-class CenterShopFragment : BaseMVPVMFragment<StampCenterViewModel, MineFragmentCenterShopBinding, CenterShopPresenter>(),OnViewClickListener {
+class CenterShopFragment : BaseMVPVMFragment<StampCenterViewModel, MineFragmentCenterShopBinding, CenterShopPresenter>(), OnViewClickListener {
 
 //    初始化adapter
 //    private val mAdapter by lazy {
@@ -46,7 +35,7 @@ class CenterShopFragment : BaseMVPVMFragment<StampCenterViewModel, MineFragmentC
             executePendingBindings()
         }
         //设置内容
-        binding?.rvShopReal?.let { context?.let { it1 -> presenter?.setRecyclerViewContent(it, it1,this) } }
+        binding?.rvShopReal?.let { context?.let { it1 -> presenter?.setRecyclerViewContent(it, it1, this) } }
 //        setRecyclerViewContent()
     }
 
@@ -71,16 +60,16 @@ class CenterShopFragment : BaseMVPVMFragment<StampCenterViewModel, MineFragmentC
 //    }
 
     override fun onClick(view: View, any: Any?) {
-        when(view.id){
-            R.id.goods_container->{
+        when (view.id) {
+            R.id.goods_container -> {
                 any as GoodsRealBinder
-                toast(view,"点击${any.index}")
+                toast(view, "点击${any.index}")
             }
-            R.id.btn_goods_buy->{
+            R.id.btn_goods_buy -> {
                 any as GoodsRealBinder
-                val intent = Intent(requireActivity(),GoodsActivity::class.java)
+                val intent = Intent(requireActivity(), GoodsActivity::class.java)
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view, ExchangeConfig.SHOP_SHARE_PHOTO_VALUE).toBundle()
-                context?.startActivity(intent,options)
+                context?.startActivity(intent, options)
             }
         }
     }

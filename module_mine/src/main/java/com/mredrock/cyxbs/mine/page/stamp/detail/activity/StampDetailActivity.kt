@@ -1,14 +1,12 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.activity
 
+
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
-import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.TextView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mredrock.cyxbs.common.ui.BaseBindingViewModelActivity
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampDetailBinding
@@ -20,7 +18,7 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 import kotlinx.android.synthetic.main.mine_activity_stamp_detail.*
 
 class StampDetailActivity :
-    BaseMVPVMActivity<StampDetailViewModel, MineActivityStampDetailBinding,DetailPresenter>() {
+        BaseMVPVMActivity<StampDetailViewModel, MineActivityStampDetailBinding, DetailPresenter>() {
 
     override fun initView() {
         binding?.eventHandler = EventHandler()
@@ -33,11 +31,10 @@ class StampDetailActivity :
             //配置ViewPager的Adapter
             vpDetail.setPageTransformer(DepthPageTransformer())
             vpDetail.adapter =
-                PagerAdapter(
-                    listOf(ExchangeRecordFragment(), GainRecordFragment()),
-                    this@StampDetailActivity
-                )
-
+                    PagerAdapter(
+                            listOf(ExchangeRecordFragment(), GainRecordFragment()),
+                            this@StampDetailActivity
+                    )
 
             //ViewPager和TabLayout联动
             TabLayoutMediator(tlDetail, vpDetail) { tb, position ->
@@ -80,15 +77,13 @@ class StampDetailActivity :
 
             })
         }
-    }
 
-    override fun observeData() {
-        super.observeData()
+        Log.e(TAG, "$viewModel")
     }
 
     override fun fetch() {
         super.fetch()
-
+        presenter?.fetch()
     }
 
     //设置布局

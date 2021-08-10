@@ -86,5 +86,9 @@ class StampCenterPresenter : BasePresenter<CenterContract.CenterVM>(),
         }
     }
 
+    override fun fetch() {
+
+    }
+
 
 }

@@ -16,13 +16,13 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.holder.Mu
  */
 // 这里将LayoutManager向外扩展，方便操作RecyclerView滚动平移等操作
 class MultiTypeAdapter constructor(val layoutManager: RecyclerView.LayoutManager) :
-    RecyclerView.Adapter<MultiTypeViewHolder>() {
+        RecyclerView.Adapter<MultiTypeViewHolder>() {
 
     // 使用后台线程通过差异性计算来更新列表
     private val mAsyncListChange by lazy {
         AsyncListDiffer(
-            this,
-            DiffItemCallback<MultiTypeBinder<*>>()
+                this,
+                DiffItemCallback<MultiTypeBinder<*>>()
         )
     }
 
@@ -72,7 +72,7 @@ class MultiTypeAdapter constructor(val layoutManager: RecyclerView.LayoutManager
     @Suppress("UNCHECKED_CAST")
     override fun onBindViewHolder(holder: MultiTypeViewHolder, position: Int) {
         val mCurrentBinder =
-            mAsyncListChange.currentList[position] as MultiTypeBinder<ViewDataBinding>
+                mAsyncListChange.currentList[position] as MultiTypeBinder<ViewDataBinding>
         holder.itemView.tag = mCurrentBinder.layoutId()
         holder.onBindViewHolder(mCurrentBinder)
     }
