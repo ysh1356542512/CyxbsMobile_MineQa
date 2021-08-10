@@ -38,6 +38,8 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_switch_track.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_show_ic_half_magipoke_dark.xml" value="0.22395833333333334" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_show_ic_half_magipoke_light.xml" value="0.28229166666666666" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_task_btn_bg_doing.xml" value="0.11546052631578947" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_task_btn_bg_finished.xml" value="0.11546052631578947" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_task_ic_task_state_doing.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_task_ic_task_state_finished.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_task_round_progress_bar_layer.xml" value="0.28229166666666666" />
@@ -91,8 +93,8 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_shop_recycle_item_product_one.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_shop_recycle_item_product_two.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_shop_recyle_item_title.xml" value="0.25052083333333336" />
-        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_task_recycle_item_multi_progress.xml" value="0.4" />
-        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_task_recycle_item_one_pregress.xml" value="0.264" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_task_recycle_item_multi_progress.xml" value="0.176" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_task_recycle_item_one_pregress.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_qa/src/main/res/drawable-night/qa_ic_toolbar_back.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_qa/src/main/res/drawable/qa_shape_tab_shape.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_qa/src/main/res/layout/qa_activity_circle_detail.xml" value="0.264" />

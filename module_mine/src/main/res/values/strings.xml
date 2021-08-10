@@ -190,5 +190,6 @@
     <string name="mine_exchange_price_text">%d邮票</string>
     <string name="mine_exchange_back_arrow_content_description">返回键</string>
     <string name="mine_exchange_detail_title">商品详细</string>
+    <string name="mine_recycle_item_progress_text">%d/5</string>
 
 </resources>

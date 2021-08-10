@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter
 
 import android.graphics.drawable.Drawable
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -15,16 +16,18 @@ object BindingAdapter {
     @BindingAdapter("doing", "isFinished", "finished", requireAll = true)
     @JvmStatic
     fun finishOrNot(
-        imageView: ImageView?,
+        btn: Button?,
         doing: Drawable?,
         isFinished: Boolean?,
         finished: Drawable?
     ) {
         isFinished ?: return
         if (isFinished) {
-            imageView?.setImageDrawable(finished)
+            btn?.text = "已完成"
+            btn?.background = finished
         } else {
-            imageView?.setImageDrawable(finished)
+            btn?.text = "去完成"
+            btn?.background = doing
         }
     }
 
