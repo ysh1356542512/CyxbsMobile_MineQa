@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.mine.page.stamp.center.fragment
 
 import android.content.Intent
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.LiveData
@@ -25,7 +26,13 @@ class CenterShopFragment :
     OnViewClickListener {
     //初始化adapter
     private val mAdapter by lazy {
-        binding?.rvShopReal?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
+        binding?.rvShopReal?.let {
+            it.layoutAnimation = AnimationUtils
+                .loadLayoutAnimation(requireContext(),
+                    R.anim.mine_shop_rv_layout_animation)
+
+            createMultiTypeAdapter(it, LinearLayoutManager(context))
+        }
     }
 
     //基础配置

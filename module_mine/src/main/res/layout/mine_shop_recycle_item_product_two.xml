@@ -32,9 +32,9 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/goods_container_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/goods_container_1"
                 android:onClick="@{(view)->eventHandler.onClick(view,data.id1)}">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:alpha="0.7"
-                    android:text="@{@string/mine_stamp_goods_amount(data.price)}"
+                    android:text="@{@string/mine_stamp_goods_amount(data.restCount)}"
                     android:textColor="#15315B"
                     android:textSize="11sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_goods_title_1"
@@ -130,9 +130,9 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/goods_container_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/goods_container_2"
                 android:onClick="@{(view)->eventHandler.onClick(view,data.id2)}">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -165,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:alpha="0.7"
-                    android:text="@{@string/mine_stamp_goods_amount(data.price2)}"
+                    android:text="@{@string/mine_stamp_goods_amount(data.restCount2)}"
                     android:textColor="#15315B"
                     android:textSize="11sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_goods_title_2"
@@ -201,10 +201,10 @@
                     android:layout_height="27dp"
                     android:layout_marginEnd="12dp"
                     android:background="@drawable/mine_shape_goods_buy_btn"
+                    android:onClick="@{(view)->eventHandler.onClick(view,data.id2)}"
                     android:text="@string/mine_stamp_goods_detail_btn"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
-                    android:onClick="@{(view)->eventHandler.onClick(view,data.id2)}"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num_2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_stamp_num_2" />

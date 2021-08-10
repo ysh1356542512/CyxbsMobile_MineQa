@@ -37,16 +37,18 @@ fun Context.isFirstTimeComeIn(): Boolean {
     //如果当前值没有传入
     return if (date == "NULL") {
         putDate()
-        false
+        true
     } else {
         //如果是第一次进入
         if (compareDate(getCurrentDate(), date)) {
+            log("当天第一次进入邮票任务")
             //存入当前时间
             putDate()
             true
         }
         //如果不是第一次进入
         else {
+            log("你之前已经进入了")
             false
         }
     }

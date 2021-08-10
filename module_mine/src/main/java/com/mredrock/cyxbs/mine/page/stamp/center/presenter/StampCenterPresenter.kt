@@ -14,6 +14,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.*
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
+import kotlin.concurrent.thread
 
 
 /**
@@ -23,13 +24,14 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
  */
 private const val TAG = "StampCenterPresenter"
 
-class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
+class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresenter<StampCenterViewModel>(),
     CenterContract.CenterPresenter {
 
 
     //ViewPager与TabLayout的联动部分
     //TabLayoutMediator.TabConfigurationStrategy
     override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
+        vm?.isClickedToday = isFirstTimeComeIn
         when (position) {
             0 -> {
                 //此处setCustomView来设置布局 tab.setCustomView(R.layout.xxx)
@@ -41,7 +43,11 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
                 //因为每次加载该Activity的时候都要经过此代码 为了减少onTabSelected处网络申请的次数
                 //定义一个boolean类型的成员变量isClickToday来供判断 若此处返回的结果表示用户今日已点击过 则为true
                 //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
-                tab.setCustomView(R.layout.mine_item_tab_task_no_click)
+                if (vm?.isClickedToday ?: true){
+                    tab.setCustomView(R.layout.mine_item_tab_task_no_click)
+                }else{
+                    tab.setCustomView(R.layout.mine_item_tab_click)
+                }
             }
         }
     }
@@ -56,7 +62,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
-        val isClickToday = vm?.getIsClickToday() ?: false
+        val isClickToday = vm?.isClickedToday ?: true
         //先判断isClickToday是否为true 若为true 只切换 为false 则Post提交数据 表示今日第一次点击 并将小红点GONE或者重新换布局
         when (!isClickToday) {
             true -> {
@@ -68,7 +74,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
                         tab.setCustomView(R.layout.mine_item_tab_click)
                         tab.setCustomView(R.layout.mine_item_tab_click)
                         tab.view.alpha = 1.0f
-                        vm?.setIsClickToday(true)
+                        vm?.isClickedToday = false
                         //在这里POST数据 并将isClickToday为true表示已经点击
                     }
                     else -> {
@@ -94,11 +100,24 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
 
     override fun fetch() {
         val shopPageData = getShopPageData()
+        //设置数据
         vm?.setShopPageDataValue(shopPageData)
 
         val taskPageData = getTaskPageData()
-        //设置数据
+        /*thread {
+            taskPageData.apply {
+                while (true){
+                    title = System.currentTimeMillis().toString()
+                    task1.add(
+                        FirstLevelTask("摸鱼","摸鱼 -1邮票",true)
+                    )
+                    Thread.sleep(3000)
+                    vm?.setTasksValue(taskPageData)
+                }
+            }
+        }*/
         vm?.setTasksValue(taskPageData)
+        //设置数据
     }
 
     private fun getTaskPageData(): StampTaskData {
@@ -140,21 +159,21 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     }
 
     //获取邮票任务
-    private fun getTask2(): List<MoreTask> {
-        return listOf(
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 1, false),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 2, false),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 3, false),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 4, false),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 5, false)
+    private fun getTask2(): MutableList<MoreTask> {
+        return mutableListOf(
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 1, 5),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 2, 5),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 3, 5),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 4, 5),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 5, 5)
         )
     }
 
     private fun getTitle(): String = "更多任务"
 
-    private fun getTask1(): List<FirstLevelTask> {
-        return listOf(
-            FirstLevelTask("每日打卡1", "每日签到 +10", false),
+    private fun getTask1(): MutableList<FirstLevelTask> {
+        return mutableListOf(
+            FirstLevelTask("每日打卡1", "每日签到 +10", true),
             FirstLevelTask("每日打卡2", "每日签到 +10", false),
             FirstLevelTask("每日打卡3", "每日签到 +10", false)
         )

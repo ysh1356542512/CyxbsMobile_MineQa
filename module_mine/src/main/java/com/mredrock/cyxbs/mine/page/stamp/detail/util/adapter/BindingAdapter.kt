@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -13,27 +14,29 @@ import com.bumptech.glide.Glide
  *@signature 我们不明前路，却已在路上
  */
 object BindingAdapter {
-    @BindingAdapter("doing", "isFinished", "finished", requireAll = true)
+    @BindingAdapter("drawableFalse","textFalse", "textState", "drawableTrue","textTrue", requireAll = true)
     @JvmStatic
-    fun finishOrNot(
-        btn: Button?,
-        doing: Drawable?,
-        isFinished: Boolean?,
-        finished: Drawable?
+    fun statedTextView(
+        btn: TextView?,
+        drawableFalse: Drawable?,
+        textFalse:String?,
+        textState: Boolean?,
+        drawableTrue: Drawable?,
+        textTrue: String?
     ) {
-        isFinished ?: return
-        if (isFinished) {
-            btn?.text = "已完成"
-            btn?.background = finished
+        textState ?: return
+        if (textState) {
+            btn?.text = textTrue
+            btn?.background = drawableTrue
         } else {
-            btn?.text = "去完成"
-            btn?.background = doing
+            btn?.text = textFalse
+            btn?.background = drawableFalse
         }
     }
 
     @JvmStatic
     @BindingAdapter("imageState", "drawableFalse", "drawableTrue", requireAll = true)
-    fun imageState(
+    fun statedImageView(
         imageView: ImageView?,
         state: Boolean?,
         drawableFalse: Drawable?,
