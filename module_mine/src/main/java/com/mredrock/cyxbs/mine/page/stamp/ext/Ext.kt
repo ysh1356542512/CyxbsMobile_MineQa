@@ -2,8 +2,14 @@ package com.mredrock.cyxbs.mine.page.stamp.ext
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
+import android.widget.GridLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import com.mredrock.cyxbs.common.utils.extensions.editor
 import com.mredrock.cyxbs.common.utils.extensions.sharedPreferences
+import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.MultiTypeAdapter
+import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
+import com.mredrock.cyxbs.mine.util.extension.log
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -86,4 +92,18 @@ private fun getCurrentDate(): String {
     val date = Date(timePills)
     val format = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.CHINA)
     return format.format(date) ?: "NULL"
+}
+
+
+
+fun MultiTypeAdapter.setSpanCount(layoutManager: GridLayoutManager){
+        layoutManager?.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                when(getItemViewType(position)){
+                    else->log(getItemViewType(position).toString())
+                }
+                return 2
+            }
+
+        }
 }

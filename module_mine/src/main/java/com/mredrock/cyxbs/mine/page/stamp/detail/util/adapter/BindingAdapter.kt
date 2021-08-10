@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 
 /**
  *@author ZhiQiang Tu
@@ -14,46 +15,56 @@ object BindingAdapter {
     @BindingAdapter("doing", "isFinished", "finished", requireAll = true)
     @JvmStatic
     fun finishOrNot(
-        imageView: ImageView,
-        doing: Drawable,
-        isFinished: Boolean,
-        finished: Drawable
+        imageView: ImageView?,
+        doing: Drawable?,
+        isFinished: Boolean?,
+        finished: Drawable?
     ) {
+        isFinished ?: return
         if (isFinished) {
-            imageView.setImageDrawable(finished)
+            imageView?.setImageDrawable(finished)
         } else {
-            imageView.setImageDrawable(finished)
+            imageView?.setImageDrawable(finished)
         }
     }
 
     @JvmStatic
     @BindingAdapter("imageState", "drawableFalse", "drawableTrue", requireAll = true)
     fun imageState(
-        imageView: ImageView,
-        state: Boolean,
-        drawableFalse: Drawable,
-        drawableTrue: Drawable
+        imageView: ImageView?,
+        state: Boolean?,
+        drawableFalse: Drawable?,
+        drawableTrue: Drawable?
     ) {
+        state ?: return
         if (state) {
-            imageView.setImageDrawable(drawableTrue)
+            imageView?.setImageDrawable(drawableTrue)
         } else {
-            imageView.setImageDrawable(drawableFalse)
+            imageView?.setImageDrawable(drawableFalse)
         }
     }
 
     @JvmStatic
     @BindingAdapter("viewState", "backgroundFalse", "backgroundTrue", requireAll = true)
     fun stateView(
-        view: View,
-        state: Boolean,
-        backgroundFalse: Drawable,
-        backgroundTrue: Drawable
+        view: View?,
+        state: Boolean?,
+        backgroundFalse: Drawable?,
+        backgroundTrue: Drawable?
     ) {
+        if (state == null) return
         if (state) {
-            view.background = backgroundTrue
+            view?.background = backgroundTrue
         } else {
-            view.background = backgroundFalse
+            view?.background = backgroundFalse
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("netImage")
+    fun netImage(imageView: ImageView, url: String?) {
+        url ?: return
+        Glide.with(imageView).load(url).into(imageView)
     }
 
 }

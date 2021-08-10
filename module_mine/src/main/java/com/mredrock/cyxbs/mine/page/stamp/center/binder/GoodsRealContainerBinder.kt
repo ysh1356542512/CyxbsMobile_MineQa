@@ -19,6 +19,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.invoke
 //传入了GoodsRealBinder的集合  这个container有两种类型
 //1.存放一种类型所有item的集合 布局是一个rv PS：外面不能包含其他布局 否则滑不动
 //2.存放标题类Binder 即装饰和邮物两个标题
+@Deprecated("由于嵌套RecyclerView的性能问题暂时淘汰，现已使用GoodsPageBinder替代")
 class GoodsRealContainerBinder(val goods: List<GoodsRealBinder>, val type: String) :
     MultiTypeBinder<MineItemStampGoodsRealContainerBinding>() {
     override fun layoutId(): Int {
