@@ -55,12 +55,13 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="12dp"
-                    android:text="@string/mine_stamp_goods_title"
+                    android:text="@{data.name}"
                     android:textColor="#15315B"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_goods_pic" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_goods_pic"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="@string/mine_stamp_goods_title" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_goods_remain"
@@ -91,13 +92,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:fontFamily="@font/din_medium"
-                    android:text="@string/mine_stamp_user_amount"
+                    android:text="@{String.valueOf(data.price)}"
                     android:textColor="#5177FF"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_stamp_icon"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/iv_stamp_icon"
-                    app:layout_constraintTop_toTopOf="@+id/iv_stamp_icon" />
+                    app:layout_constraintTop_toTopOf="@+id/iv_stamp_icon"
+                    tools:text="@string/mine_stamp_user_amount" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_goods_buy"

@@ -1,6 +1,8 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.task
 
 import android.view.View
+import android.view.animation.AnimationUtils
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
 import com.mredrock.cyxbs.mine.R
@@ -21,7 +23,22 @@ class StampTaskFragment :
     override fun getLayoutId(): Int = R.layout.mine_fragment_stamp_task
 
     private val mAdapter by lazy {
-        binding?.rvTask?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
+        binding?.rvTask?.let {
+            it.itemAnimator = DefaultItemAnimator().apply {
+                addDuration = 1000
+            }
+            it.layoutAnimation = AnimationUtils.loadLayoutAnimation(
+                requireContext(),
+                R.anim.mine_task_rv_layout_animation
+            )
+            /*LayoutAnimationController(
+        AnimationUtils.loadAnimation(
+            requireContext(),
+            R.anim.mine_task_rv_load_animation
+        )
+    )*/
+            createMultiTypeAdapter(it, LinearLayoutManager(context))
+        }
     }
 
     //初始化视图。好像有些多🐟了
@@ -39,8 +56,6 @@ class StampTaskFragment :
         super.fetch()
         presenter?.fetch()
     }
-
-
 
 
     /**

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/mine_shop_rv_load_animation"
+    android:animationOrder="normal"
+    android:delay="10%"
+    android:interpolator="@anim/mine_task_rv_load_interpolator">
+
+</layoutAnimation>

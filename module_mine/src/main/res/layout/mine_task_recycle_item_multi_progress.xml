@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:my="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -62,7 +61,7 @@
             android:id="@+id/tv_current_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:text="@{@string/mine_recycle_item_progress_text(data.progress)}"
             android:textColor="@color/mine_task_recycle_item_multi_progress_color"
             android:textSize="12sp"
@@ -71,20 +70,24 @@
             app:layout_constraintTop_toTopOf="@+id/mine_space"
             tools:text="@string/mine_recycle_item_progress_text" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/mine_appcompatimageview"
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="66dp"
-            android:layout_height="28dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:textColor="#FFFFFFFF"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFF"
             android:textSize="14sp"
+            android:textStyle="bold"
+            app:drawableFalse="@{@drawable/mine_task_btn_bg_doing}"
+            app:drawableTrue="@{@drawable/mine_task_btn_bg_finished}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/mine_task_ic_task_state_finished"
-            my:doing="@{@drawable/mine_task_btn_bg_doing}"
-            my:finished="@{@drawable/mine_task_btn_bg_finished}"
-            my:isFinished="@{data.isFinished}"
+            app:textFalse="@{`去完成`}"
+            app:textState="@{data.progress == data.max}"
+            app:textTrue="@{`已完成`}"
             tools:background="@drawable/mine_task_btn_bg_doing"
             tools:text="去完成" />
     </androidx.constraintlayout.widget.ConstraintLayout>

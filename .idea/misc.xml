@@ -29,6 +29,7 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_dialog_backgroud_light.xml" value="0.20885416666666667" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_dialog_negative_button_bg_dark.xml" value="0.20885416666666667" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_dialog_positive_button_bg_light.xml" value="0.20885416666666667" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_goods_buy_btn.xml" value="0.17828947368421053" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_round_corner_banner_shape_dark.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_round_corner_banner_shape_light.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/drawable/mine_shape_round_cornor_purple_blue.xml" value="0.28229166666666666" />
@@ -51,7 +52,7 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_change_password.xml" value="0.264" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_daily_sign.xml" value="0.264" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_edit_info.xml" value="0.26614583333333336" />
-        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_exchange_detail.xml" value="0.2903645833333333" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_exchange_detail.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_find_password.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_forget_password.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_goods_pager.xml" value="0.1453125" />
@@ -60,7 +61,7 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_set_password_protect.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_setting.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_center.xml" value="0.2" />
-        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_detail.xml" value="0.4" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_detail.xml" value="0.152" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_stamp_goods_detail_real.xml" value="0.264" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_tablayout_common.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_activity_tablayout_my_product.xml" value="0.26614583333333336" />
@@ -79,6 +80,9 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_include_stamp_tool_bar.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_item_stamp_goods.xml" value="0.136" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_item_stamp_goods_real_container.xml" value="0.21614583333333334" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_item_tab_click.xml" value="0.14375" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_item_tab_shop.xml" value="0.4" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_item_tab_task_no_click.xml" value="0.16" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_layout_dialog_exchange.xml" value="0.2175925925925926" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_layout_dialog_recyclerview_dynamic.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_layout_dialog_with_title_and_content.xml" value="0.26614583333333336" />
@@ -93,7 +97,7 @@
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_shop_recycle_item_product_one.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_shop_recycle_item_product_two.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_shop_recyle_item_title.xml" value="0.25052083333333336" />
-        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_task_recycle_item_multi_progress.xml" value="0.176" />
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_task_recycle_item_multi_progress.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_mine/src/main/res/layout/mine_task_recycle_item_one_pregress.xml" value="0.2" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_qa/src/main/res/drawable-night/qa_ic_toolbar_back.xml" value="0.28229166666666666" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/module_qa/src/main/res/drawable/qa_shape_tab_shape.xml" value="0.28229166666666666" />
