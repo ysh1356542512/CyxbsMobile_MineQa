@@ -51,42 +51,29 @@ class CenterShopFragment :
         shopPageData.observe(this) {
             val list = mutableListOf<MultiTypeBinder<*>>().apply {
                 //添加第一个title
-                add(GoodsTitleBinder(it.title1).apply {
-                    //设置点击监听
-                    setOnClickListener(this@CenterShopFragment::onClick)
-                })
+                add(GoodsTitleBinder(it.title1).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick)})
                 //添加对应内容
                 presenter?.mapDoubleCardToOne(it.decorator.indices, it.decorator)?.filter {
-                    if (it.restCount!=-1 && it.restCount2!=-1) {
+                    if (it.restCount != -1 && it.restCount2 != -1) {
                         add(GoodsProductTwoBinder(it).apply { /*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                         true
-                    }
-                    else{
+                    } else {
                         add(GoodsProductOneBinder(it).apply {  /*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                         false
                     }
                 }
-                    /*.forEach {
-                        add(GoodsProductTwoBinder(it).apply {
-                            //设置点击监听
-                            setOnClickListener(this@CenterShopFragment::onClick)
-                        })
-                    }*/
                 //添加第二个title
-                add(GoodsTitleBinder(it.title2).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick)})
+                add(GoodsTitleBinder(it.title2).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                 //添加对应内容
                 presenter?.mapDoubleCardToOne(it.entity.indices, it.entity)?.filter {
-                    if (it.restCount!=-1 && it.restCount2!=-1){
-                        add(GoodsProductTwoBinder(it).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick)})
+                    if (it.restCount != -1 && it.restCount2 != -1) {
+                        add(GoodsProductTwoBinder(it).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                         true
-                    }else{
-                        add(GoodsProductOneBinder(it).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick)})
+                    } else {
+                        add(GoodsProductOneBinder(it).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                         false
                     }
                 }
-                /*forEach {
-                    add(GoodsProductTwoBinder(it).apply {*//*设置点击监听*//*setOnClickListener(this@CenterShopFragment::onClick)})
-                }*/
             }
             //设置adapter
             mAdapter?.notifyAdapterChanged(list)
@@ -113,7 +100,6 @@ class CenterShopFragment :
             }
         }
     }
-
 }
 
 fun toast(view: View, message: String) {

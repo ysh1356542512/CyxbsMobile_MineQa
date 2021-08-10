@@ -10,9 +10,10 @@ import com.mredrock.cyxbs.mine.page.stamp.center.binder.OneTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.TitleBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 
 class StampTaskFragment :
-    BaseMVPVMFragment<StampTaskViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
+    BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
 
     /**
      * 布局文件
@@ -20,9 +21,7 @@ class StampTaskFragment :
     override fun getLayoutId(): Int = R.layout.mine_fragment_stamp_task
 
     private val mAdapter by lazy {
-        binding?.rvTask?.let {
-            createMultiTypeAdapter(it, LinearLayoutManager(context))
-        }
+        binding?.rvTask?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
     }
 
     //初始化视图。好像有些多🐟了

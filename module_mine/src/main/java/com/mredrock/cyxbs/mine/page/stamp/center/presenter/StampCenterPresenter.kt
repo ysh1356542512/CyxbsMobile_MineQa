@@ -10,13 +10,10 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
-import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
-import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductOne
-import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopTitle
+import com.mredrock.cyxbs.mine.page.stamp.center.model.*
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
-import kotlin.random.Random
 
 
 /**
@@ -98,21 +95,36 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     override fun fetch() {
         val shopPageData = getShopPageData()
         vm?.setShopPageDataValue(shopPageData)
+
+        val taskPageData = getTaskPageData()
+        //设置数据
+        vm?.setTasksValue(taskPageData)
     }
 
+    private fun getTaskPageData(): StampTaskData {
+        //获取Task1
+        val task1 = getTask1()
+        //获取Title
+        val title = getTitle()
+        //获取Task2
+        val task2 = getTask2()
+        return StampTaskData(task1, title, task2)
+    }
+
+    //获取邮票小店
     private fun getShopPageData(): ShopPageData {
         val title1 = getShopTitle1()
         val decorator = getShopList()
         val title2 = getShopTitle2()
         val entity = getShopList()
         return ShopPageData(
-            title1,decorator,title2,entity
+            title1, decorator, title2, entity
         )
     }
 
-    private fun getShopTitle2(): ShopTitle = ShopTitle("邮物","请在个人资料中查看")
+    private fun getShopTitle2(): ShopTitle = ShopTitle("邮物", "请在个人资料中查看")
 
-    private fun getShopTitle1(): ShopTitle = ShopTitle("装扮","请在个人资料中查看")
+    private fun getShopTitle1(): ShopTitle = ShopTitle("装扮", "请在个人资料中查看")
 
     private fun getShopList(): List<ShopProductOne> {
         return (0..10).map {
@@ -125,6 +137,27 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
                 "卷卷"
             )
         }
+    }
+
+    //获取邮票任务
+    private fun getTask2(): List<MoreTask> {
+        return listOf(
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 1, false),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 2, false),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 3, false),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 4, false),
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 5, false)
+        )
+    }
+
+    private fun getTitle(): String = "更多任务"
+
+    private fun getTask1(): List<FirstLevelTask> {
+        return listOf(
+            FirstLevelTask("每日打卡1", "每日签到 +10", false),
+            FirstLevelTask("每日打卡2", "每日签到 +10", false),
+            FirstLevelTask("每日打卡3", "每日签到 +10", false)
+        )
     }
 
 
