@@ -20,10 +20,10 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/mine_cardview4"
-            android:layout_width="167dp"
-            android:layout_height="237dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="13dp"
+            android:layout_width="162dp"
+            android:layout_height="230dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/mine_cardview3"
@@ -38,9 +38,10 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_goods_pic"
-                    android:layout_width="match_parent"
-                    android:layout_height="145dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:contentDescription="@string/mine_stamp_goods_iv"
+                    app:layout_constraintDimensionRatio="w,145:167"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -67,12 +68,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:alpha="0.7"
-                    tools:text="@string/mine_stamp_goods_amount"
                     android:text="@{@string/mine_stamp_goods_amount(data.restCount)}"
                     android:textColor="#15315B"
                     android:textSize="11sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_goods_title"
-                    app:layout_constraintTop_toBottomOf="@id/tv_goods_title" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_goods_title"
+                    tools:text="@string/mine_stamp_goods_amount" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_stamp_icon"
@@ -110,6 +111,8 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/tv_stamp_num"
                     app:layout_constraintTop_toTopOf="@+id/tv_stamp_num" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -117,10 +120,12 @@
 
 
         <Space
-            android:background="@null"
             android:id="@+id/mine_cardview3"
-            android:layout_width="167dp"
-            android:layout_height="237dp"
+            android:layout_width="162dp"
+            android:layout_height="230dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@null"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/mine_cardview4"
             app:layout_constraintEnd_toEndOf="parent"

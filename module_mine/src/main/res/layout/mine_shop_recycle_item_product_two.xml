@@ -21,10 +21,10 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/mine_cardview"
-            android:layout_width="167dp"
-            android:layout_height="237dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="13dp"
+            android:layout_width="162dp"
+            android:layout_height="230dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/mine_cardview2"
@@ -32,9 +32,9 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/goods_container_1"
+                android:layout_width="162dp"
+                android:layout_height="230dp"
                 android:onClick="@{(view)->eventHandler.onClick(view,data.id1)}">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -111,6 +111,8 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num_1"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/tv_stamp_num_1"
                     app:layout_constraintTop_toTopOf="@+id/tv_stamp_num_1" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -118,11 +120,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/mine_cardview2"
-            android:layout_width="167dp"
-            android:layout_height="237dp"
+            android:layout_width="162dp"
+            android:layout_height="230dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="13dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,9 +132,9 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/goods_container_2"
+                android:layout_width="162dp"
+                android:layout_height="230dp"
                 android:onClick="@{(view)->eventHandler.onClick(view,data.id2)}">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -201,12 +203,14 @@
                     android:layout_height="27dp"
                     android:layout_marginEnd="12dp"
                     android:background="@drawable/mine_shape_goods_buy_btn"
+                    android:onClick="@{(view)->eventHandler.onClick(view,data.id2)}"
                     android:text="@string/mine_stamp_goods_detail_btn"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
-                    android:onClick="@{(view)->eventHandler.onClick(view,data.id2)}"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num_2"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/tv_stamp_num_2"
                     app:layout_constraintTop_toTopOf="@+id/tv_stamp_num_2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
