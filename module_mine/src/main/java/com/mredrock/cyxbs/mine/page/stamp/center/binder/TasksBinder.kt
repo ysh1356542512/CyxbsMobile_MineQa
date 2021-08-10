@@ -1,5 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.binder
 
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineLayoutTaskTitleBinding
 import com.mredrock.cyxbs.mine.databinding.MineTaskRecycleItemMultiProgressBinding
@@ -19,8 +21,14 @@ class MultiTaskBinder(val moreTask: MoreTask) :
 
     override fun areContentsTheSame(other: Any): Boolean = false
 
+    @SuppressLint("ObjectAnimatorBinding")
     override fun onBindViewHolder(binding: MineTaskRecycleItemMultiProgressBinding) {
         binding?.data = moreTask
+        binding.mineSpace.setMaxProgress(5f)
+        val animator = ObjectAnimator.ofFloat(binding.mineSpace, "currentProgress", 0f, moreTask.progress.toFloat())
+        animator.duration = 2000
+        animator.start()
+
     }
 }
 
