@@ -42,6 +42,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
                 //定义一个boolean类型的成员变量isClickToday来供判断 若此处返回的结果表示用户今日已点击过 则为true
                 //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
                 tab.setCustomView(R.layout.mine_item_tab_task_no_click)
+                tab.view.alpha = 0.6f
             }
         }
     }
@@ -52,7 +53,7 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     }
 
     override fun onTabUnselected(tab: TabLayout.Tab?) {
-        tab?.view?.alpha = 0.5f
+        tab?.view?.alpha = 0.6f
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {

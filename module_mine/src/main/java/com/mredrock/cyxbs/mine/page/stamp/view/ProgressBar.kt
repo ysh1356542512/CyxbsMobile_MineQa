@@ -64,5 +64,4 @@ class ProgressBar(context: Context?,attrs: AttributeSet?) : View(context,attrs) 
         currentProgress = cProgress
         postInvalidate()
     }
-
 }

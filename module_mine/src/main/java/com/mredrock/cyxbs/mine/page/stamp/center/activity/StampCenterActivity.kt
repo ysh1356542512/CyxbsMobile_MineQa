@@ -15,13 +15,12 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
 
 
-/*
+/**
  * @Date : 2021/8/4
  * @By : ysh
  * @Usage : 邮票中心主界面
  * @Request : God bless my code
  */
-
 class StampCenterActivity :
         BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>() {
 
