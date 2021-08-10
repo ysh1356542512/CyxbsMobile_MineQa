@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="data"
-            type="com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductOne" />
+            type="com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductTwo" />
+
+        <variable
+            name="eventHandler"
+            type="com.mredrock.cyxbs.mine.page.stamp.center.binder.GoodsProductOneBinder" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,8 +31,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/goods_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:onClick="@{(view)->eventHandler.onClick(view,data.id1)}">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_goods_pic"
@@ -37,6 +44,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:netImage="@{data.image}"
                     app:srcCompat="@drawable/mine_ic_center_goods" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -59,7 +67,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:alpha="0.7"
-                    android:text="@string/mine_stamp_goods_amount"
+                    tools:text="@string/mine_stamp_goods_amount"
+                    android:text="@{@string/mine_stamp_goods_amount(data.restCount)}"
                     android:textColor="#15315B"
                     android:textSize="11sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_goods_title"
@@ -93,19 +102,22 @@
                     android:id="@+id/btn_goods_buy"
                     android:layout_width="53dp"
                     android:layout_height="27dp"
+                    android:layout_marginEnd="12dp"
                     android:background="@drawable/mine_shape_goods_buy_btn"
+                    android:onClick="@{(view)->eventHandler.onClick(view,data.id1)}"
                     android:text="@string/mine_stamp_goods_detail_btn"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_stamp_num"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_goods_title"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_stamp_num" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
 
-        <androidx.cardview.widget.CardView
+        <Space
+            android:background="@null"
             android:id="@+id/mine_cardview3"
             android:layout_width="167dp"
             android:layout_height="237dp"

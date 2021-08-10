@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.presenter
 
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -114,9 +115,9 @@ class StampCenterPresenter : BasePresenter<StampCenterViewModel>(),
     private fun getShopTitle1(): ShopTitle = ShopTitle("装扮","请在个人资料中查看")
 
     private fun getShopList(): List<ShopProductOne> {
-        return (1..11).map {
+        return (0..10).map {
             val randomInt = (CenterConfig.TEST_UNSPLASH_PIC_URL.indices).random()
-
+            Log.e(TAG, CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt])
             ShopProductOne(
                 CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt],
                 (0..1000).random() * 100,

@@ -25,24 +25,26 @@ class GoodsTitleBinder(val title: ShopTitle) : MultiTypeBinder<MineShopRecyleIte
     }
 }
 
-class GoodsProductBinder(val data: ShopProductOne) :
+class GoodsProductOneBinder(val data: ShopProductTwo) :
     MultiTypeBinder<MineShopRecycleItemProductOneBinding>() {
     override fun layoutId(): Int = R.layout.mine_shop_recycle_item_product_one
 
-    override fun areContentsTheSame(other: Any): Boolean = other is GoodsProductBinder && other.data == data
+    override fun areContentsTheSame(other: Any): Boolean = other is GoodsProductOneBinder && other.data == data
 
     override fun onBindViewHolder(binding: MineShopRecycleItemProductOneBinding) {
         binding.data = data
+        binding.eventHandler = this
     }
 }
 
-class GoodsProductTwoBinder(val data: ShopProductTwo):MultiTypeBinder<MineShopRecycleItemProductTwoBinding>(){
+class GoodsProductTwoBinder(val data: ShopProductTwo):MultiTypeBinder<MineShopRecycleItemProductTwoBinding>() {
     override fun layoutId(): Int = R.layout.mine_shop_recycle_item_product_two
 
-    override fun areContentsTheSame(other: Any): Boolean = other is GoodsProductTwoBinder && other.data == data
+    override fun areContentsTheSame(other: Any): Boolean =
+        other is GoodsProductTwoBinder && other.data == data
 
     override fun onBindViewHolder(binding: MineShopRecycleItemProductTwoBinding) {
         binding.data = data
+        binding.eventHandler = this
     }
 }
-

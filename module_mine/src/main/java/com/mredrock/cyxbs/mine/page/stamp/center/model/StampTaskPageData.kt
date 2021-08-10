@@ -1,7 +1,5 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.model
 
-import android.service.quicksettings.Tile
-
 /**
  *@author ZhiQiang Tu
  *@time 2021/8/8  21:34
@@ -9,8 +7,8 @@ import android.service.quicksettings.Tile
  */
 data class StampTaskData(
     val task1: List<FirstLevelTask>,
-    val title:String,
-    val task2:List<MoreTask>
+    val title: String,
+    val task2: List<MoreTask>
 )
 
 //基础任务
