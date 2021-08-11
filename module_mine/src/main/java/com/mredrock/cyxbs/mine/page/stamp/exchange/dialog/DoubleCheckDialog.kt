@@ -5,7 +5,10 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
+import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.mine.databinding.MineDialogBuyProductDoubleChooseBinding
 
 
@@ -40,6 +43,23 @@ class DoubleCheckDialog : DialogFragment() {
     private var negativeButtonClick: ((View) -> Unit)? = null
 
     private var binding: MineDialogBuyProductDoubleChooseBinding? = null
+
+    companion object{
+        fun showDialog(supportFragment: FragmentManager,func:()->Unit){
+            val dialog = DoubleCheckDialog()
+                    .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
+                    .setNegativeButtonText("再想想")
+                    .setPositiveButtonText("好的")
+                    .setNegativeButtonClick {
+                        Toast.makeText(context, "我还没悟透", Toast.LENGTH_SHORT).show()
+                    }
+                    .setPositiveButtonClick {
+//                        Toast.makeText(requireContext(), "我想通了", Toast.LENGTH_SHORT).show()
+                        func()
+                    }
+            dialog.show(supportFragment,"dialog")
+        }
+    }
 
     //配置布局并返回view
     override fun onCreateView(

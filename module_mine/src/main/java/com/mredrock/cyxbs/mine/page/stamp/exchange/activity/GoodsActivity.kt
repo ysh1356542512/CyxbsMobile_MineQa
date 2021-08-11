@@ -3,7 +3,6 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
@@ -17,6 +16,7 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsPresenter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
+import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.NoneProductDialog
 
 
 class GoodsActivity :
@@ -111,17 +111,25 @@ class GoodsActivity :
 //                            Toast.makeText(this@GoodsActivity, "确认", Toast.LENGTH_SHORT).show()
 //                        }
 //                dialog.show(supportFragmentManager,"dialog")
-                val dialog = DoubleCheckDialog()
-                        .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
-                        .setNegativeButtonText("再想想")
-                        .setPositiveButtonText("好的")
-                        .setNegativeButtonClick {
-                            Toast.makeText(this@GoodsActivity, "我还没悟透", Toast.LENGTH_SHORT).show()
-                        }
-                        .setPositiveButtonClick {
-                            Toast.makeText(this@GoodsActivity, "我想通了", Toast.LENGTH_SHORT).show()
-                        }
-                dialog.show(supportFragmentManager, "dialog")
+//                NoneProductDialog.showDialog {
+//                    Toast.makeText(StampApplication.context, "确认", Toast.LENGTH_SHORT).show()
+//                }
+//                val dialog = DoubleCheckDialog()
+//                        .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
+//                        .setNegativeButtonText("再想想")
+//                        .setPositiveButtonText("好的")
+//                        .setNegativeButtonClick {
+//                            Toast.makeText(this@GoodsActivity, "我还没悟透", Toast.LENGTH_SHORT).show()
+//                        }
+//                        .setPositiveButtonClick {
+//                            Toast.makeText(this@GoodsActivity, "我想通了", Toast.LENGTH_SHORT).show()
+//                        }
+//                dialog.show(supportFragmentManager, "dialog")
+
+                DoubleCheckDialog.showDialog(supportFragmentManager){
+                    NoneProductDialog.showDialog(supportFragmentManager){
+                    }
+                }
             }
         }
     }

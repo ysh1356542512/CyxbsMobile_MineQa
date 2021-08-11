@@ -5,7 +5,10 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
+import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.mine.databinding.MineDialogBuyProductNoneBinding
 
 /**
@@ -32,6 +35,18 @@ class NoneProductDialog : DialogFragment() {
 
     //点击监听
     private var binding: MineDialogBuyProductNoneBinding? = null
+
+    companion object{
+        fun showDialog(supportFragment: FragmentManager,func:()->Unit){
+            val dialog = NoneProductDialog()
+                    .setContent("啊哦！手慢了！下次再来吧！")
+                    .setPositiveButtonText("2")
+                    .setPositiveButtonClick {
+                        Toast.makeText(context,"可恶居然没货了",Toast.LENGTH_SHORT).show()
+                    }
+            dialog.show(supportFragment,"noneDialog")
+        }
+    }
 
     //创建了Dialog并设置了一些布局属性
     override fun onCreateView(
