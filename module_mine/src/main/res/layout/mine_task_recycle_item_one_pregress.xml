@@ -54,6 +54,8 @@
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:clickable="true"
+            android:stateListAnimator="@animator/mine_scale_state_list_animator"
             app:drawableFalse="@{@drawable/mine_task_btn_bg_doing}"
             app:drawableTrue="@{@drawable/mine_task_btn_bg_finished}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +65,8 @@
             app:textState="@{data.isFinished}"
             app:textTrue="@{`已完成`}"
             tools:background="@drawable/mine_task_shape_do_it_btn_light"
-            tools:text="@string/mine_task_do_it_btn_text" />
+            tools:text="@string/mine_task_do_it_btn_text"
+            android:focusable="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
