@@ -6,9 +6,9 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.model
  *@signature 我们不明前路，却已在路上
  */
 data class ExchangeDetailData(
-    val id: Long,
-    val status: String,
-    val name: String,
-    val price: Int,
-    val date: String
+        val id: Long,
+        val status: String,
+        val name: String,
+        val price: Int,
+        val date: String
 )

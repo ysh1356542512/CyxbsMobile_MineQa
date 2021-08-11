@@ -7,35 +7,35 @@ import com.mredrock.cyxbs.mine.network.bean.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsContract
 
 /**
-* @Date : 2021/8/11
-* @By : ysh
-* @Usage :
-* @Request : God bless my code
-*/
-class GoodsViewModel : BaseViewModel(),GoodsContract.GoodsVM {
-    private val _goodsInfo : MutableLiveData<GoodsInfo> = MutableLiveData()
+ * @Date : 2021/8/11
+ * @By : ysh
+ * @Usage :
+ * @Request : God bless my code
+ */
+class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
+    private val _goodsInfo: MutableLiveData<GoodsInfo> = MutableLiveData()
 
-    val goodsInfo : LiveData<GoodsInfo>
-    get() = _goodsInfo
+    val goodsInfo: LiveData<GoodsInfo>
+        get() = _goodsInfo
 
     private val _goodsDate: MutableLiveData<String> = MutableLiveData()
 
-    val goodsDate : LiveData<String>
-    get() = _goodsDate
+    val goodsDate: LiveData<String>
+        get() = _goodsDate
 
-    private val _goodsType:MutableLiveData<String> = MutableLiveData()
+    private val _goodsType: MutableLiveData<String> = MutableLiveData()
 
-    val goodsType :LiveData<String>
+    val goodsType: LiveData<String>
         get() = _goodsType
 
-    private val _goodsDescription1 :MutableLiveData<String> = MutableLiveData()
+    private val _goodsDescription1: MutableLiveData<String> = MutableLiveData()
 
-    val goodsDescription1:LiveData<String>
-    get() = _goodsDescription1
+    val goodsDescription1: LiveData<String>
+        get() = _goodsDescription1
 
     private val _goodsDescription2: MutableLiveData<String> = MutableLiveData()
 
-    val goodsDescription2:LiveData<String>
+    val goodsDescription2: LiveData<String>
         get() = _goodsDescription2
 
     override fun setGoodsValue(value: GoodsInfo) {

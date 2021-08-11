@@ -30,7 +30,6 @@ abstract class MultiTypeBinder<V : ViewDataBinding> : ClickBinder() {
     abstract fun areContentsTheSame(other: Any): Boolean
 
 
-
     fun bindViewDataBinding(binding: V) {
         //若已经绑定 则返回不绑定
         if (this.binding == binding && binding.root.getTag(R.id.mine_bindingVersion) == bindingViewVersion) return

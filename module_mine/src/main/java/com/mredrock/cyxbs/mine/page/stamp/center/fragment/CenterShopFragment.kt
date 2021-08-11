@@ -23,14 +23,14 @@ import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 
 class CenterShopFragment :
-    BaseMVPVMFragment<StampCenterViewModel, MineFragmentCenterShopBinding, CenterShopPresenter>(),
-    OnViewClickListener {
+        BaseMVPVMFragment<StampCenterViewModel, MineFragmentCenterShopBinding, CenterShopPresenter>(),
+        OnViewClickListener {
     //初始化adapter
     private val mAdapter by lazy {
         binding?.rvShopReal?.let {
             it.layoutAnimation = AnimationUtils
-                .loadLayoutAnimation(requireContext(),
-                    R.anim.mine_shop_rv_layout_animation)
+                    .loadLayoutAnimation(requireContext(),
+                            R.anim.mine_shop_rv_layout_animation)
 
             createMultiTypeAdapter(it, LinearLayoutManager(context))
         }
@@ -105,16 +105,16 @@ class CenterShopFragment :
                 any as String
                 val intent = Intent(requireActivity(), GoodsActivity::class.java)
                 val randoms = (0..1).random()
-                if(randoms == 0){
-                    intent.putExtra(SHOP_TO_GOODS_KEY,0)
-                }else{
-                    intent.putExtra(SHOP_TO_GOODS_KEY,1)
+                if (randoms == 0) {
+                    intent.putExtra(SHOP_TO_GOODS_KEY, 0)
+                } else {
+                    intent.putExtra(SHOP_TO_GOODS_KEY, 1)
                 }
 
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                    requireActivity(),
-                    view,
-                    ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
+                        requireActivity(),
+                        view,
+                        ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
                 ).toBundle()
                 context?.startActivity(intent, options)
             }

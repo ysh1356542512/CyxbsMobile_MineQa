@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
  * @Request : God bless my code
  */
 fun createMultiTypeAdapter(
-    recyclerView: RecyclerView,
-    layoutManager: RecyclerView.LayoutManager
+        recyclerView: RecyclerView,
+        layoutManager: RecyclerView.LayoutManager
 ): MultiTypeAdapter {
     recyclerView.layoutManager = layoutManager
     val mMultiTypeAdapter = MultiTypeAdapter(layoutManager)
@@ -39,4 +39,4 @@ inline operator fun MultiTypeAdapter.invoke(block: MultiTypeAdapter.() -> Unit):
 
 
 fun <T : ViewDataBinding> ViewGroup.inflateDataBinding(layoutId: Int): T =
-    DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, this, false)
+        DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, this, false)

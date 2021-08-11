@@ -43,9 +43,9 @@ class DoubleCheckDialog : DialogFragment() {
 
     //配置布局并返回view
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val params = dialog?.window?.attributes
         params?.gravity = Gravity.CENTER
@@ -67,12 +67,12 @@ class DoubleCheckDialog : DialogFragment() {
     override fun onResume() {
         super.onResume()
         val width = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, 255f,
-            resources.displayMetrics
+                TypedValue.COMPLEX_UNIT_DIP, 255f,
+                resources.displayMetrics
         )
         val height = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, 178F,
-            resources.displayMetrics
+                TypedValue.COMPLEX_UNIT_DIP, 178F,
+                resources.displayMetrics
         )
         dialog?.window?.setLayout(width.toInt(), height.toInt())
     }

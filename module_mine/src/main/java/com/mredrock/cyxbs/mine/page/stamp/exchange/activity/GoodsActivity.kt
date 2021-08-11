@@ -125,6 +125,7 @@ class GoodsActivity :
             }
         }
     }
+
     override fun fetch() {
         presenter?.fetch()
     }
@@ -134,7 +135,7 @@ class GoodsActivity :
 
     }
 
-    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getIntExtra(SHOP_TO_GOODS_KEY,-1))
+    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getIntExtra(SHOP_TO_GOODS_KEY, -1))
 
 
 }

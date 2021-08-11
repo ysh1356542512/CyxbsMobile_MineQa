@@ -1,9 +1,5 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
-
 /**
  * @Date : 2021/8/5
  * @By : ysh

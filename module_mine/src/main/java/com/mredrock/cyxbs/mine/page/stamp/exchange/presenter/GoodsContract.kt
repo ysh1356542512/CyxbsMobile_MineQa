@@ -18,8 +18,8 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 interface GoodsContract {
     interface GoodsVM : IVM {
         fun setGoodsValue(value: GoodsInfo)
-        fun setGoodsType(value:String)
-        fun setDescription(value: String,value2: String)
+        fun setGoodsType(value: String)
+        fun setDescription(value: String, value2: String)
         fun setGoodsDate(value: String)
     }
 

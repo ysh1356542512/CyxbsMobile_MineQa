@@ -18,14 +18,14 @@ abstract class BaseBannerAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val inflate =
-            LayoutInflater.from(parent.context).inflate(getLayoutId(viewType), parent, false)
+                LayoutInflater.from(parent.context).inflate(getLayoutId(viewType), parent, false)
         return createViewHolder(parent, inflate, viewType)
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val realPosition: Int = getRealPosition(position)
         holder.itemView.setOnClickListener {
-            pageClickListener?.onPageClick(realPosition,it)
+            pageClickListener?.onPageClick(realPosition, it)
         }
         onBind(holder, mList[realPosition], realPosition, mList.size)
     }
@@ -60,7 +60,7 @@ abstract class BaseBannerAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView
     }
 
     interface OnPageClickListener {
-        fun onPageClick(position: Int,v:View)
+        fun onPageClick(position: Int, v: View)
     }
 
 

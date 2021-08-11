@@ -35,9 +35,9 @@ class NoneProductDialog : DialogFragment() {
 
     //创建了Dialog并设置了一些布局属性
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         val params = dialog?.window?.attributes
         //居中
@@ -63,12 +63,12 @@ class NoneProductDialog : DialogFragment() {
     override fun onResume() {
         super.onResume()
         val width = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, 255f,
-            resources.displayMetrics
+                TypedValue.COMPLEX_UNIT_DIP, 255f,
+                resources.displayMetrics
         )
         val height = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, 178F,
-            resources.displayMetrics
+                TypedValue.COMPLEX_UNIT_DIP, 178F,
+                resources.displayMetrics
         )
         dialog?.window?.setLayout(width.toInt(), height.toInt())
     }

@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMul
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 
 class StampTaskFragment :
-    BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
+        BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
 
     /**
      * 布局文件
@@ -28,8 +28,8 @@ class StampTaskFragment :
                 addDuration = 1000
             }
             it.layoutAnimation = AnimationUtils.loadLayoutAnimation(
-                requireContext(),
-                R.anim.mine_task_rv_layout_animation
+                    requireContext(),
+                    R.anim.mine_task_rv_layout_animation
             )
             /*LayoutAnimationController(
         AnimationUtils.loadAnimation(
@@ -72,7 +72,7 @@ class StampTaskFragment :
 
                 //获取并添加第二类数据
                 add(
-                    TitleBinder(it.title).also { it.setOnClickListener(::onClicked) }
+                        TitleBinder(it.title).also { it.setOnClickListener(::onClicked) }
                 )
 
                 //获取并添加第三类数据

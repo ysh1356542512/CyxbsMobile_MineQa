@@ -1,7 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.animation
 
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.RecyclerView
 
 /**
  *@author ZhiQiang Tu

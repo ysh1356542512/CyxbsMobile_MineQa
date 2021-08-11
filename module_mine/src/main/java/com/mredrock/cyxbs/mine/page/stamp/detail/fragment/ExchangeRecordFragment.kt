@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.binder.ExchangeRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
 class ExchangeRecordFragment :
-    BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentExchangeRecordBinding>() {
+        BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentExchangeRecordBinding>() {
 
     private val mAdapter by lazy {
         binding?.rvExchange?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
@@ -38,10 +38,10 @@ class ExchangeRecordFragment :
      * @
      */
     private fun observeExchangeListData() {
-        Log.e(TAG, "$shardViewModel" )
+        Log.e(TAG, "$shardViewModel")
         val clickHandler = ClickHandler()
         shardViewModel?.exchangeListData?.observe(this) {
-            val binders:MutableList<MultiTypeBinder<*>> = mutableListOf()
+            val binders: MutableList<MultiTypeBinder<*>> = mutableListOf()
             it.data.forEach {
                 binders.add(ExchangeRecordBinder(it, clickHandler))
             }

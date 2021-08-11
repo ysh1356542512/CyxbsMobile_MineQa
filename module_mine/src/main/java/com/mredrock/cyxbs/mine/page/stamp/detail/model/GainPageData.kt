@@ -6,11 +6,11 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.model
  *@signature 我们不明前路，却已在路上
  */
 data class GainListData(
-    val data: List<GainItemData>
+        val data: List<GainItemData>
 )
 
 data class GainItemData(
-    val name: String,
-    val date: String,
-    val price: Int
+        val name: String,
+        val date: String,
+        val price: Int
 )

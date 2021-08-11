@@ -25,5 +25,4 @@ class PagerBannerAdapter : BaseBannerAdapter<Int, PagerBannerAdapter.ViewHolder>
         var imageView: ImageView = itemView.findViewById(R.id.iv_banner_pager)
     }
 
-
 }

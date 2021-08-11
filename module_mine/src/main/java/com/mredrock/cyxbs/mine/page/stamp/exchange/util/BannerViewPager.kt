@@ -114,42 +114,42 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
 
 
     private val mOnPageChangeCallback: ViewPager2.OnPageChangeCallback =
-        object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                val realPosition: Int = mBannerPagerAdapter!!.getRealPosition(position)
-                onPageChangeCallback?.onPageScrolled(
-                    realPosition,
-                    positionOffset,
-                    positionOffsetPixels
-                )
-            }
+            object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageScrolled(
+                        position: Int,
+                        positionOffset: Float,
+                        positionOffsetPixels: Int
+                ) {
+                    super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                    val realPosition: Int = mBannerPagerAdapter!!.getRealPosition(position)
+                    onPageChangeCallback?.onPageScrolled(
+                            realPosition,
+                            positionOffset,
+                            positionOffsetPixels
+                    )
+                }
 
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                val realPosition: Int = mBannerPagerAdapter!!.getRealPosition(position)
-                onPageChangeCallback?.onPageSelected(realPosition)
-                setIndicatorDots(position)
-            }
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    val realPosition: Int = mBannerPagerAdapter!!.getRealPosition(position)
+                    onPageChangeCallback?.onPageSelected(realPosition)
+                    setIndicatorDots(position)
+                }
 
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-                onPageChangeCallback?.onPageScrollStateChanged(state)
+                override fun onPageScrollStateChanged(state: Int) {
+                    super.onPageScrollStateChanged(state)
+                    onPageChangeCallback?.onPageScrollStateChanged(state)
+                }
             }
-        }
 
     constructor(context: Context) : this(context, null)
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
+            context,
+            attrs,
+            defStyleAttr
     ) {
         initView()
         mCompositePageTransformer = CompositePageTransformer()
@@ -184,14 +184,14 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
                 else imageView.setBackgroundResource(normalImage)
                 //为指示点添加间距
                 val layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
                 )
                 layoutParams.setMargins(
-                    indicatorMargin,
-                    indicatorMargin,
-                    indicatorMargin,
-                    indicatorMargin
+                        indicatorMargin,
+                        indicatorMargin,
+                        indicatorMargin,
+                        indicatorMargin
                 )
                 imageView.layoutParams = layoutParams
                 //将指示点添加进容器
@@ -423,8 +423,8 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
      *
      */
     fun setIndicatorSliderColor(
-        @DrawableRes normal: Int,
-        @DrawableRes checked: Int
+            @DrawableRes normal: Int,
+            @DrawableRes checked: Int
     ): BannerViewPager<T> {
         normalImage = normal
         checkedImage = checked

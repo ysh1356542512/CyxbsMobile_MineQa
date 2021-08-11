@@ -4,7 +4,6 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
@@ -14,11 +13,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 /**
-* @Date : 2021/8/9
-* @By : ysh
-* @Usage : 
-* @Request : God bless my code
-*/
+ * @Date : 2021/8/9
+ * @By : ysh
+ * @Usage :
+ * @Request : God bless my code
+ */
 class MarqueeViewVertical @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ViewGroup(context, attrs, defStyleAttr) {
@@ -29,13 +28,13 @@ class MarqueeViewVertical @JvmOverloads constructor(
 
     init {
         firstView.setTextColor(Color.WHITE)
-        firstView.setPadding(10,0,0,0)
-        secondView.setPadding(10,0,0,0)
+        firstView.setPadding(10, 0, 0, 0)
+        secondView.setPadding(10, 0, 0, 0)
         secondView.setTextColor(Color.WHITE)
         firstView.alpha = 0.9f
         secondView.alpha = 0.9f
-        firstView.setTextSize(TypedValue.COMPLEX_UNIT_SP,12f)
-        secondView.setTextSize(TypedValue.COMPLEX_UNIT_SP,12f)
+        firstView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
+        secondView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
         firstView.typeface = Typeface.create("Bauhaus 93", Typeface.NORMAL)
         secondView.typeface = Typeface.create("font/bauhaus_93.ttf", Typeface.NORMAL)
         addView(firstView)
@@ -96,7 +95,7 @@ class MarqueeViewVertical @JvmOverloads constructor(
                 addListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator?) {
                         removeCallbacks(runTask)
-                        postDelayed(runTask,2000)
+                        postDelayed(runTask, 2000)
                     }
                 })
                 start()
@@ -111,7 +110,7 @@ class MarqueeViewVertical @JvmOverloads constructor(
         val firstText = mTextArray[currentTextIndex]
         firstView.text = firstText
         currentTextIndex++
-        if(currentTextIndex>=mTextArray.size){
+        if (currentTextIndex >= mTextArray.size) {
             currentTextIndex = 0
         }
         val secondText = mTextArray[currentTextIndex]

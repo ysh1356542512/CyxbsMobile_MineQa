@@ -6,10 +6,10 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.activity
  *@signature 好在键盘没坏。ha
  */
 interface StampDetailActivityContract {
-    interface IPresenter{
+    interface IPresenter {
     }
 
-    interface IVM{
+    interface IVM {
 
     }
 }

@@ -21,28 +21,28 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.invoke
 //2.存放标题类Binder 即装饰和邮物两个标题
 @Deprecated("由于嵌套RecyclerView的性能问题暂时淘汰，现已使用GoodsPageBinder替代")
 class GoodsRealContainerBinder(val goods: List<GoodsRealBinder>, val type: String) :
-    MultiTypeBinder<MineItemStampGoodsRealContainerBinding>() {
+        MultiTypeBinder<MineItemStampGoodsRealContainerBinding>() {
     override fun layoutId(): Int {
         return R.layout.mine_item_stamp_goods_real_container
     }
 
     //判断是否重复
     override fun areContentsTheSame(other: Any): Boolean =
-        other is GoodsRealContainerBinder && other.goods == goods
+            other is GoodsRealContainerBinder && other.goods == goods
 
     //对布局进行处理 比如标题：装饰/邮物
     override fun onBindViewHolder(binding: MineItemStampGoodsRealContainerBinding) {
         binding.rvGoodsContainer.addItemDecoration(
-            GridLayoutDecorationDivider(
-                binding.root.context,
-                2,
-                10
-            )
+                GridLayoutDecorationDivider(
+                        binding.root.context,
+                        2,
+                        10
+                )
         )
         binding.tvTypeReal.text = type
         (createMultiTypeAdapter(
-            binding.rvGoodsContainer,
-            GridLayoutManager(binding.root.context, 2)
+                binding.rvGoodsContainer,
+                GridLayoutManager(binding.root.context, 2)
         )) {
             notifyAdapterChanged(goods)
         }
@@ -58,7 +58,7 @@ class GoodsRealBinder(val index: Int) : MultiTypeBinder<MineItemStampGoodsBindin
     }
 
     override fun areContentsTheSame(other: Any): Boolean =
-        other is GoodsRealBinder && other.index == index
+            other is GoodsRealBinder && other.index == index
 
     override fun onBindViewHolder(binding: MineItemStampGoodsBinding) {
         //在这里对把信息传给binding

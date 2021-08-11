@@ -16,7 +16,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
  *@signature 我们不明前路，却已在路上
  */
 class MultiTaskBinder(val moreTask: MoreTask) :
-    MultiTypeBinder<MineTaskRecycleItemMultiProgressBinding>() {
+        MultiTypeBinder<MineTaskRecycleItemMultiProgressBinding>() {
     override fun layoutId(): Int = R.layout.mine_task_recycle_item_multi_progress
 
     override fun areContentsTheSame(other: Any): Boolean = false
@@ -33,7 +33,7 @@ class MultiTaskBinder(val moreTask: MoreTask) :
 }
 
 class OneTaskBinder(val firstLevelTask: FirstLevelTask) :
-    MultiTypeBinder<MineTaskRecycleItemOnePregressBinding>() {
+        MultiTypeBinder<MineTaskRecycleItemOnePregressBinding>() {
     override fun layoutId(): Int = R.layout.mine_task_recycle_item_one_pregress
 
     override fun areContentsTheSame(other: Any): Boolean = false
@@ -47,7 +47,7 @@ class TitleBinder(val title: String) : MultiTypeBinder<MineLayoutTaskTitleBindin
     override fun layoutId(): Int = R.layout.mine_layout_task_title
 
     override fun areContentsTheSame(other: Any): Boolean =
-        other is TitleBinder && other.title == title
+            other is TitleBinder && other.title == title
 
     override fun onBindViewHolder(binding: MineLayoutTaskTitleBinding) {
         binding?.title = title

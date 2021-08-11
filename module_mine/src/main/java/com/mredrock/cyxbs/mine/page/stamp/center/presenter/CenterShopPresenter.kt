@@ -16,36 +16,36 @@ class CenterShopPresenter : BasePresenter<StampCenterViewModel>() {
 
     //将两个Card Map成一个Card
     fun mapDoubleCardToOne(
-        indices: IntRange,
-        decorator: List<ShopProductOne>
+            indices: IntRange,
+            decorator: List<ShopProductOne>
     ): List<ShopProductTwo> {
         val list = (indices step 2).filter {
             it < indices.last
         }.map {
             ShopProductTwo(
-                decorator[it].image,
-                decorator[it].price,
-                decorator[it].restCount,
-                decorator[it].name,
-                decorator[it + 1].image,
-                decorator[it + 1].price,
-                decorator[it + 1].restCount,
-                decorator[it + 1].name
+                    decorator[it].image,
+                    decorator[it].price,
+                    decorator[it].restCount,
+                    decorator[it].name,
+                    decorator[it + 1].image,
+                    decorator[it + 1].price,
+                    decorator[it + 1].restCount,
+                    decorator[it + 1].name
             )
         }.toMutableList()
         val maxValue = indices.last
         if ((indices.last + 1) % 2 != 0) {
             list.add(
-                ShopProductTwo(
-                    decorator[maxValue].image,
-                    decorator[maxValue].price,
-                    decorator[maxValue].restCount,
-                    decorator[maxValue].name,
-                    "",
-                    -1,
-                    -1,
-                    ""
-                )
+                    ShopProductTwo(
+                            decorator[maxValue].image,
+                            decorator[maxValue].price,
+                            decorator[maxValue].restCount,
+                            decorator[maxValue].name,
+                            "",
+                            -1,
+                            -1,
+                            ""
+                    )
             )
         }
         return list

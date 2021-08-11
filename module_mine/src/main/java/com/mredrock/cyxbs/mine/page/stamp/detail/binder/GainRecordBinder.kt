@@ -23,5 +23,5 @@ class GainRecordBinder(val data: GainItemData) : MultiTypeBinder<MineRecycleItem
     override fun layoutId(): Int = R.layout.mine_recycle_item_gain
 
     override fun areContentsTheSame(other: Any): Boolean =
-        other is GainRecordBinder && other.data == data
+            other is GainRecordBinder && other.data == data
 }

@@ -2,7 +2,6 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter
 
 import android.graphics.drawable.Drawable
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -14,15 +13,15 @@ import com.bumptech.glide.Glide
  *@signature 我们不明前路，却已在路上
  */
 object BindingAdapter {
-    @BindingAdapter("drawableFalse","textFalse", "textState", "drawableTrue","textTrue", requireAll = true)
+    @BindingAdapter("drawableFalse", "textFalse", "textState", "drawableTrue", "textTrue", requireAll = true)
     @JvmStatic
     fun statedTextView(
-        btn: TextView?,
-        drawableFalse: Drawable?,
-        textFalse:String?,
-        textState: Boolean?,
-        drawableTrue: Drawable?,
-        textTrue: String?
+            btn: TextView?,
+            drawableFalse: Drawable?,
+            textFalse: String?,
+            textState: Boolean?,
+            drawableTrue: Drawable?,
+            textTrue: String?
     ) {
         textState ?: return
         if (textState) {
@@ -37,10 +36,10 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("imageState", "drawableFalse", "drawableTrue", requireAll = true)
     fun statedImageView(
-        imageView: ImageView?,
-        state: Boolean?,
-        drawableFalse: Drawable?,
-        drawableTrue: Drawable?
+            imageView: ImageView?,
+            state: Boolean?,
+            drawableFalse: Drawable?,
+            drawableTrue: Drawable?
     ) {
         state ?: return
         if (state) {
@@ -53,10 +52,10 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("viewState", "backgroundFalse", "backgroundTrue", requireAll = true)
     fun stateView(
-        view: View?,
-        state: Boolean?,
-        backgroundFalse: Drawable?,
-        backgroundTrue: Drawable?
+            view: View?,
+            state: Boolean?,
+            backgroundFalse: Drawable?,
+            backgroundTrue: Drawable?
     ) {
         if (state == null) return
         if (state) {

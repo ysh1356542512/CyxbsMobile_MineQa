@@ -14,7 +14,6 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.*
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
-import kotlin.concurrent.thread
 
 
 /**
@@ -25,7 +24,7 @@ import kotlin.concurrent.thread
 private const val TAG = "StampCenterPresenter"
 
 class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresenter<StampCenterViewModel>(),
-    CenterContract.CenterPresenter {
+        CenterContract.CenterPresenter {
 
 
     //ViewPager与TabLayout的联动部分
@@ -43,10 +42,10 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
                 //因为每次加载该Activity的时候都要经过此代码 为了减少onTabSelected处网络申请的次数
                 //定义一个boolean类型的成员变量isClickToday来供判断 若此处返回的结果表示用户今日已点击过 则为true
                 //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
-                if (vm?.isClickedToday ?: true){
+                if (vm?.isClickedToday ?: true) {
                     tab.setCustomView(R.layout.mine_item_tab_task_no_click)
                     tab.view.alpha = 0.6f
-                }else{
+                } else {
                     tab.setCustomView(R.layout.mine_item_tab_click)
                     tab.view.alpha = 0.6f
                 }
@@ -137,7 +136,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
         val title2 = getShopTitle2()
         val entity = getShopList()
         return ShopPageData(
-            title1, decorator, title2, entity
+                title1, decorator, title2, entity
         )
     }
 
@@ -150,10 +149,10 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
             val randomInt = (CenterConfig.TEST_UNSPLASH_PIC_URL.indices).random()
             Log.e(TAG, CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt])
             ShopProductOne(
-                CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt],
-                (0..1000).random() * 100,
-                (0..100).random(),
-                "卷卷"
+                    CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt],
+                    (0..1000).random() * 100,
+                    (0..100).random(),
+                    "卷卷"
             )
         }
     }
@@ -161,11 +160,11 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
     //获取邮票任务
     private fun getTask2(): MutableList<MoreTask> {
         return mutableListOf(
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 1, 5),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 2, 5),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 3, 5),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 4, 5),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 5, 5)
+                MoreTask("逛逛邮问", "浏览5条动态 +15", 1, 5),
+                MoreTask("逛逛邮问", "浏览5条动态 +15", 2, 5),
+                MoreTask("逛逛邮问", "浏览5条动态 +15", 3, 5),
+                MoreTask("逛逛邮问", "浏览5条动态 +15", 4, 5),
+                MoreTask("逛逛邮问", "浏览5条动态 +15", 5, 5)
         )
     }
 
@@ -173,9 +172,9 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
 
     private fun getTask1(): MutableList<FirstLevelTask> {
         return mutableListOf(
-            FirstLevelTask("每日打卡1", "每日签到 +10", true),
-            FirstLevelTask("每日打卡2", "每日签到 +10", false),
-            FirstLevelTask("每日打卡3", "每日签到 +10", false)
+                FirstLevelTask("每日打卡1", "每日签到 +10", true),
+                FirstLevelTask("每日打卡2", "每日签到 +10", false),
+                FirstLevelTask("每日打卡3", "每日签到 +10", false)
         )
     }
 

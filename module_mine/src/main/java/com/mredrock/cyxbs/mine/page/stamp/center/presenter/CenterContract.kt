@@ -6,7 +6,6 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.presenter.IPresenter
 import com.mredrock.cyxbs.common.viewmodel.IVM
-import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterActivity
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.model.StampTaskData
 import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
@@ -26,10 +25,10 @@ interface CenterContract {
 
     //内包含StampCenter界面的所有交互操作，也就是Presenter层需要暴露给View层的所有函数
     interface CenterPresenter : IPresenter<StampCenterViewModel>,
-        TabLayoutMediator.TabConfigurationStrategy,
-        TabLayout.OnTabSelectedListener {
+            TabLayoutMediator.TabConfigurationStrategy,
+            TabLayout.OnTabSelectedListener {
         fun initVP2(
-            fgActivity: FragmentActivity, vpCenter: ViewPager2, func: () -> Unit
+                fgActivity: FragmentActivity, vpCenter: ViewPager2, func: () -> Unit
         )
     }
 

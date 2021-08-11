@@ -35,8 +35,8 @@ class CenterShopViewModel : BaseViewModel(), ShopContract.ShopIVM {
             ShopInfo(20, 111, 121, "邮物邮物邮物邮物邮物", 1, "111"),
             ShopInfo(20, 111, 121, "邮物邮物邮物邮物邮物", 1, "111")))
 
-    private val shopInfo:LiveData<List<ShopInfo>>
-    get() = _shopInfo
+    private val shopInfo: LiveData<List<ShopInfo>>
+        get() = _shopInfo
 
     override fun getShopInfoList(): LiveData<List<ShopInfo>> {
         return shopInfo

@@ -5,12 +5,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 
 /**
-* @Date : 2021/8/6
-* @By : ysh
-* @Usage : BaseViewHolder类 实现绑定Binding
-* @Request : God bless my code
-*/
-class MultiTypeViewHolder(private val binding: ViewDataBinding) :RecyclerView.ViewHolder(binding.root),AutoCloseable{
+ * @Date : 2021/8/6
+ * @By : ysh
+ * @Usage : BaseViewHolder类 实现绑定Binding
+ * @Request : God bless my code
+ */
+class MultiTypeViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root), AutoCloseable {
     private var mAlreadyBinding: MultiTypeBinder<ViewDataBinding>? = null
 
 

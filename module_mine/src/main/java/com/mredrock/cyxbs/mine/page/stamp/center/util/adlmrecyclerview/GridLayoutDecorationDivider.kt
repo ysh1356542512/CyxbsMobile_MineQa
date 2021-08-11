@@ -14,19 +14,19 @@ import androidx.recyclerview.widget.RecyclerView
  * @Request : God bless my code
  */
 class GridLayoutDecorationDivider(
-    context: Context,
-    private val spanCount: Int,
-    dividerWidthDp: Int
+        context: Context,
+        private val spanCount: Int,
+        dividerWidthDp: Int
 ) : RecyclerView.ItemDecoration() {
     private val dividerWidth: Int
     private val dividerWidthTop: Int
     private val dividerWidthBot: Int
     private val dividerPaint: Paint = Paint()
     override fun getItemOffsets(
-        outRect: Rect,
-        child: View,
-        parent: RecyclerView,
-        state: RecyclerView.State
+            outRect: Rect,
+            child: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, child, parent, state)
         val pos = parent.getChildAdapterPosition(child)

@@ -2,7 +2,6 @@ package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.os.Bundle
 import android.transition.Slide
-import androidx.lifecycle.LiveData
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
@@ -23,7 +22,7 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
  * @Request : God bless my code
  */
 class StampCenterActivity :
-    BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>() {
+        BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>() {
 
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
@@ -39,28 +38,27 @@ class StampCenterActivity :
         viewModel.apply {
         }
     }
-
-
+    
     override fun initView() {
         viewModel
         //先进行 viewPager2 和 TabLayout 的绑定
         binding?.apply {
             includeCenterPart2.mineCenterPartThree.tvCenterCommend.setTextArray(
-                arrayOf(
-                    "你还有待领取的商品，请尽快领取",
-                    "每日任务记得要完成哦",
-                    "小店里有很多商品快去兑换吧"
-                )
+                    arrayOf(
+                            "你还有待领取的商品，请尽快领取",
+                            "每日任务记得要完成哦",
+                            "小店里有很多商品快去兑换吧"
+                    )
             )
             presenter?.let {
                 it.initVP2(
-                    this@StampCenterActivity,
-                    vpCenter
+                        this@StampCenterActivity,
+                        vpCenter
                 ) {
                     TabLayoutMediator(
-                        tlCenter,
-                        vpCenter,
-                        it
+                            tlCenter,
+                            vpCenter,
+                            it
                     ).attach()
                 }
             }
@@ -95,7 +93,6 @@ class StampCenterActivity :
 
         }
     }
-
 
     override fun fetch() {
         presenter?.fetch()

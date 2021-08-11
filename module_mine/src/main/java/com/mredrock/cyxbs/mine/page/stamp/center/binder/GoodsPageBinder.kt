@@ -4,7 +4,6 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineShopRecycleItemProductOneBinding
 import com.mredrock.cyxbs.mine.databinding.MineShopRecycleItemProductTwoBinding
 import com.mredrock.cyxbs.mine.databinding.MineShopRecyleItemTitleBinding
-import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductOne
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductTwo
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopTitle
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
@@ -18,7 +17,7 @@ class GoodsTitleBinder(val title: ShopTitle) : MultiTypeBinder<MineShopRecyleIte
     override fun layoutId(): Int = R.layout.mine_shop_recyle_item_title
 
     override fun areContentsTheSame(other: Any): Boolean =
-        other is GoodsTitleBinder && other.title == title
+            other is GoodsTitleBinder && other.title == title
 
     override fun onBindViewHolder(binding: MineShopRecyleItemTitleBinding) {
         binding.data = title
@@ -26,7 +25,7 @@ class GoodsTitleBinder(val title: ShopTitle) : MultiTypeBinder<MineShopRecyleIte
 }
 
 class GoodsProductOneBinder(val data: ShopProductTwo) :
-    MultiTypeBinder<MineShopRecycleItemProductOneBinding>() {
+        MultiTypeBinder<MineShopRecycleItemProductOneBinding>() {
     override fun layoutId(): Int = R.layout.mine_shop_recycle_item_product_one
 
     override fun areContentsTheSame(other: Any): Boolean = other is GoodsProductOneBinder && other.data == data
@@ -37,11 +36,11 @@ class GoodsProductOneBinder(val data: ShopProductTwo) :
     }
 }
 
-class GoodsProductTwoBinder(val data: ShopProductTwo):MultiTypeBinder<MineShopRecycleItemProductTwoBinding>() {
+class GoodsProductTwoBinder(val data: ShopProductTwo) : MultiTypeBinder<MineShopRecycleItemProductTwoBinding>() {
     override fun layoutId(): Int = R.layout.mine_shop_recycle_item_product_two
 
     override fun areContentsTheSame(other: Any): Boolean =
-        other is GoodsProductTwoBinder && other.data == data
+            other is GoodsProductTwoBinder && other.data == data
 
     override fun onBindViewHolder(binding: MineShopRecycleItemProductTwoBinding) {
         binding.data = data

@@ -8,11 +8,11 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeDetailData
  *@signature 好在键盘没坏。ha
  */
 interface ExchangeDetailContract {
-    interface IPresenter{
+    interface IPresenter {
 
     }
 
-    interface IVM{
+    interface IVM {
 
         fun setContent(value: ExchangeDetailData)
     }

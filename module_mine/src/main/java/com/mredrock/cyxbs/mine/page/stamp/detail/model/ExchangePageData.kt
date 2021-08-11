@@ -6,12 +6,12 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.model
  *@signature 我们不明前路，却已在路上
  */
 data class ExchangeListData(
-    val data: List<ExchangeItemData>
+        val data: List<ExchangeItemData>
 )
 
 data class ExchangeItemData(
-    val name: String,
-    val date: String,
-    val price: Int,
-    val getOrNot: Boolean
+        val name: String,
+        val date: String,
+        val price: Int,
+        val getOrNot: Boolean
 )

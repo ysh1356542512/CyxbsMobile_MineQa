@@ -12,12 +12,11 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentGainRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.GainRecordBinder
-import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.GainListData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 
 class GainRecordFragment :
-    BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentGainRecordBinding>() {
+        BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentGainRecordBinding>() {
 
     private val mAdapter by lazy {
         binding?.rvGain?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
@@ -27,8 +26,8 @@ class GainRecordFragment :
     override fun getLayoutId(): Int = R.layout.mine_fragment_gain_record
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding?.root
@@ -51,7 +50,7 @@ class GainRecordFragment :
     }
 
     private fun observeGainList(gainListData: LiveData<GainListData>) {
-        gainListData.observe(this){
+        gainListData.observe(this) {
             //映射数据
             val binders = it.data.map {
                 GainRecordBinder(it)

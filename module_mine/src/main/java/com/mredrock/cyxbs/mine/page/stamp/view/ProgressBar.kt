@@ -8,12 +8,12 @@ import android.util.AttributeSet
 import android.view.View
 
 /**
-* @Date : 2021/8/9
-* @By : ysh
-* @Usage : 自定义ProgressBar 第一个自己画的的自定义View 看了一天教程没有白费hhh
-* @Request : God bless my code
-*/
-class ProgressBar(context: Context?,attrs: AttributeSet?) : View(context,attrs) {
+ * @Date : 2021/8/9
+ * @By : ysh
+ * @Usage : 自定义ProgressBar 第一个自己画的的自定义View 看了一天教程没有白费hhh
+ * @Request : God bless my code
+ */
+class ProgressBar(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     private var currentProgress = 0f
     private var maxProgress = 0f
 
@@ -48,19 +48,19 @@ class ProgressBar(context: Context?,attrs: AttributeSet?) : View(context,attrs) 
             //最右侧灰色半圆
             drawCircle(width - radius, height / 2f, radius, mPaint2)
             //蓝色矩形右侧半圆
-            drawCircle(radius+rectWidth,height/2f,radius,mPaint1)
+            drawCircle(radius + rectWidth, height / 2f, radius, mPaint1)
         }
         canvas?.restore()
         super.dispatchDraw(canvas)
     }
 
     //暴露给外部设置最大进度
-    fun setMaxProgress(mProgress: Float){
+    fun setMaxProgress(mProgress: Float) {
         maxProgress = mProgress
     }
 
     //暴露给外部设置当前进度 每次调用这个方法都会 postInvalidate 来重新调用dispatchDraw方法
-    fun setCurrentProgress(cProgress: Float){
+    fun setCurrentProgress(cProgress: Float) {
         currentProgress = cProgress
         postInvalidate()
     }

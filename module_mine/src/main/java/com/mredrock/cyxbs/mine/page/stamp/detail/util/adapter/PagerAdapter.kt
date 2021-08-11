@@ -10,10 +10,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
  *@signature 我们不明前路，却已在路上
  */
 class PagerAdapter(
-    private val fragmentList: List<Fragment>,
-    fragmentActivity: FragmentActivity
+        private val fragmentList: List<Fragment>,
+        fragmentActivity: FragmentActivity
 ) :
-    FragmentStateAdapter(fragmentActivity) {
+        FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int = fragmentList.size
 
     override fun createFragment(position: Int): Fragment = fragmentList[position]

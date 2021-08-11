@@ -5,11 +5,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.utils.extensions.setFullScreen
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.page.stamp.center.animation.GalleryTransformer
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.PagerBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
-import com.mredrock.cyxbs.mine.page.stamp.center.animation.GalleryTransformer
 
 /**
  * @Date : 2021/8/7
@@ -43,13 +43,13 @@ class GoodsPagerActivity : AppCompatActivity() {
             setAdapter(adapter)
             //设置监听
             setOnPageClickListener(object : BaseBannerAdapter.OnPageClickListener {
-//                override fun onPageClick(position: Int) {
+                //                override fun onPageClick(position: Int) {
 //
 //                }
                 override fun onPageClick(position: Int, v: View) {
-                        setResult(position)
-                        v.transitionName = ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
-                        onBackPressed()
+                    setResult(position)
+                    v.transitionName = ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
+                    onBackPressed()
                 }
             })
         }.create(

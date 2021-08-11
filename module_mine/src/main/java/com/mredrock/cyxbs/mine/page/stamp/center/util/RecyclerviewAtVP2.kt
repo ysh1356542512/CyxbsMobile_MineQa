@@ -16,9 +16,9 @@ class RecyclerviewAtVP2 : RecyclerView {
     constructor(context: Context) : super(context) {}
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
+            context,
+            attrs,
+            defStyleAttr
     ) {
     }
 
@@ -52,7 +52,7 @@ class RecyclerviewAtVP2 : RecyclerView {
                     }
                 }
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> parent.requestDisallowInterceptTouchEvent(
-                    false
+                        false
                 )
             }
         }

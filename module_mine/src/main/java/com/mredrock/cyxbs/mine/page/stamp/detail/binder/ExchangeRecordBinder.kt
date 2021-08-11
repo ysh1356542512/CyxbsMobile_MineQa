@@ -13,8 +13,8 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
  *@signature 我们不明前路，却已在路上
  */
 class ExchangeRecordBinder(
-    val data: ExchangeItemData,
-    val handler: ExchangeRecordFragment.ClickHandler
+        val data: ExchangeItemData,
+        val handler: ExchangeRecordFragment.ClickHandler
 ) : MultiTypeBinder<MineRecycleItemDetailBinding>() {
 
     override fun onBindViewHolder(binding: MineRecycleItemDetailBinding) {
@@ -30,6 +30,6 @@ class ExchangeRecordBinder(
     override fun layoutId(): Int = R.layout.mine_recycle_item_detail
 
     override fun areContentsTheSame(other: Any): Boolean =
-        other is ExchangeRecordBinder && other.data == data
+            other is ExchangeRecordBinder && other.data == data
 
 }
