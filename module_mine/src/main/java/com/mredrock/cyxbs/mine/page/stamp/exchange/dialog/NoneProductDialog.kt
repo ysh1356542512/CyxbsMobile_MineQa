@@ -37,14 +37,15 @@ class NoneProductDialog : DialogFragment() {
     private var binding: MineDialogBuyProductNoneBinding? = null
 
     companion object{
-        fun showDialog(supportFragment: FragmentManager,func:()->Unit){
+        fun showDialog(supportFragment: FragmentManager,content:String,btnText:String,
+                       func:()->Unit){
             val dialog = NoneProductDialog()
-                    .setContent("啊哦！手慢了！下次再来吧！")
-                    .setPositiveButtonText("2")
+                    .setContent(content)
+                    .setPositiveButtonText(btnText)
                     .setPositiveButtonClick {
-                        Toast.makeText(context,"可恶居然没货了",Toast.LENGTH_SHORT).show()
+                        func()
                     }
-            dialog.show(supportFragment,"noneDialog")
+            dialog.show(supportFragment,"dialog")
         }
     }
 
@@ -95,6 +96,7 @@ class NoneProductDialog : DialogFragment() {
             dismiss()
         }
         binding?.btConfirm?.text = positiveText
+        binding?.tvContentNone?.text = content
     }
 
     //添加点击按钮的监听

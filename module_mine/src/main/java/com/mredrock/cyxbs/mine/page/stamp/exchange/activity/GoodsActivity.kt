@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
@@ -125,11 +126,43 @@ class GoodsActivity :
 //                            Toast.makeText(this@GoodsActivity, "我想通了", Toast.LENGTH_SHORT).show()
 //                        }
 //                dialog.show(supportFragmentManager, "dialog")
-
-                DoubleCheckDialog.showDialog(supportFragmentManager){
-                    NoneProductDialog.showDialog(supportFragmentManager){
+                vm?.goodsInfo?.value?.apply {
+                    DoubleCheckDialog.showDialog(supportFragmentManager,
+                            "确定要用${price}邮票兑换${title}吗", "取消", "确认") {
+                        val isStampEnough = (0..1).random()
+                        if (isStampEnough == 0) {
+                            //邮票不足
+                            NoneProductDialog.showDialog(supportFragmentManager,
+                                    "诶......邮票不够啊....穷日子真不好过呀QAQ", "确认") {
+                                Toast.makeText(this@GoodsActivity, "要多多赚邮票才能和智蔷哥哥基建哦", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            var isAmountEnough = (0..1).random()
+                            if (isAmountEnough == 0) {
+                                isAmountEnough = (0..1).random()
+                                //邮票足库存不足
+                                NoneProductDialog.showDialog(supportFragmentManager,
+                                        "阿欧，手慢了！下次再来吧= =", "确认") {
+                                    Toast.makeText(this@GoodsActivity, "智蔷哥哥今天太累了 下次再来吧", Toast.LENGTH_SHORT).show()
+                                }
+                            } else {
+                                //足够 商品为邮物
+                                if (intent.getIntExtra(SHOP_TO_GOODS_KEY, -1) == 0) {
+                                    NoneProductDialog.showDialog(supportFragmentManager,
+                                            "兑换成功！请在30天内到红岩网校领取哦", "确认") {
+                                        Toast.makeText(this@GoodsActivity, "尤物智蔷giegie购买成功", Toast.LENGTH_SHORT).show()
+                                    }
+                                } else {
+                                    DoubleCheckDialog.showDialog(supportFragmentManager,
+                                    "兑换成功！现在就换掉原来的名片吧！","再想想","好的"){
+                                        Toast.makeText(this@GoodsActivity, "速来网校与智蔷giegie基建", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
+
             }
         }
     }

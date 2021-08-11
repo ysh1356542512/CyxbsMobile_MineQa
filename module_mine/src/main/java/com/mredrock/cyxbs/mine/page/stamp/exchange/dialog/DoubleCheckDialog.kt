@@ -45,11 +45,12 @@ class DoubleCheckDialog : DialogFragment() {
     private var binding: MineDialogBuyProductDoubleChooseBinding? = null
 
     companion object{
-        fun showDialog(supportFragment: FragmentManager,func:()->Unit){
+        fun showDialog(supportFragment: FragmentManager,content:String,btnText1:String,
+                       btnText2:String, func:()->Unit){
             val dialog = DoubleCheckDialog()
-                    .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
-                    .setNegativeButtonText("再想想")
-                    .setPositiveButtonText("好的")
+                    .setContent(content)
+                    .setNegativeButtonText(btnText1)
+                    .setPositiveButtonText(btnText2)
                     .setNegativeButtonClick {
                         Toast.makeText(context, "我还没悟透", Toast.LENGTH_SHORT).show()
                     }

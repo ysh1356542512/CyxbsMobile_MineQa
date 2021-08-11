@@ -55,7 +55,7 @@ class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>()
         val goodsInfo = getGoodsInfo()
         vm?.setGoodsValue(goodsInfo)
         if (goodsInfo.type == 0) {
-            vm?.setGoodsType("邮物")
+            vm?.setGoodsType("尤物")
             vm?.setDescription("1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。",
                     "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
             vm?.setGoodsDate("永久")
@@ -69,8 +69,8 @@ class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>()
 
     private fun getGoodsInfo(): GoodsInfo {
         when (goodsId) {
-            0 -> return GoodsInfo(99, "规格:10000mAh 放电:5V 2.1A", -1, 121, "小米充电宝", 0, listOf("1"), 1222)
-            1 -> return GoodsInfo(99, "带上这个名片，你就是这条街最亮的仔", 15, 121, "掌游PM名片", 1, listOf("1"), 1222)
+            0 -> return GoodsInfo(1, "精通前后端和移动开发等多项技术", -1, 121, "智蔷哥哥", 0, listOf("1"), 1222)
+            1 -> return GoodsInfo(10, "凭此名片，可来网校找智蔷哥哥基建", 15, 121, "智蔷基建名片", 1, listOf("1"), 1222)
             else -> {
 
             }
