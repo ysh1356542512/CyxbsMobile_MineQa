@@ -32,7 +32,8 @@
             android:layout_width="129dp"
             android:layout_height="34dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="36dp"
             android:background="@drawable/mine_shape_dialog_positive_button_bg_light"
             android:textColor="#FFF"
             tools:text="确定" />

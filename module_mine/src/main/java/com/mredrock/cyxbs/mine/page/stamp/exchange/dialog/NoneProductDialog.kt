@@ -1,14 +1,12 @@
-package com.mredrock.cyxbs.mine.page.stamp.shop.dialog
+package com.mredrock.cyxbs.mine.page.stamp.exchange.dialog
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.mine.databinding.MineDialogBuyProductNoneBinding
 
 /**

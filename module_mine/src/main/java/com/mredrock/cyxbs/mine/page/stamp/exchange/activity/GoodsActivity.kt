@@ -13,16 +13,16 @@ import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_KEY
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
+import com.mredrock.cyxbs.mine.page.stamp.exchange.dialog.NoneProductDialog
 import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsPresenter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
-import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.NoneProductDialog
 
 
 class GoodsActivity :
         BaseMVPVMActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding, GoodsPresenter>() {
-    private lateinit var bvpViewPager: BannerViewPager<Int>
+    private lateinit var bvpViewPager: BannerViewPager<String>
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
 
@@ -105,27 +105,7 @@ class GoodsActivity :
             btnStampBuy.transitionName = SHOP_SHARE_PHOTO_VALUE
             //之后可能会对照片进行点击看大图的转换 到时候再说
             btnStampBuy.setOnSingleClickListener {
-//                val dialog = NoneProductDialog()
-//                        .setContent("啊哦！手慢了！下次再来吧！")
-//                        .setPositiveButtonText("2")
-//                        .setPositiveButtonClick {
-//                            Toast.makeText(this@GoodsActivity, "确认", Toast.LENGTH_SHORT).show()
-//                        }
-//                dialog.show(supportFragmentManager,"dialog")
-//                NoneProductDialog.showDialog {
-//                    Toast.makeText(StampApplication.context, "确认", Toast.LENGTH_SHORT).show()
-//                }
-//                val dialog = DoubleCheckDialog()
-//                        .setContent("确认要用100邮票兑换PM名片吗兑换成功!")
-//                        .setNegativeButtonText("再想想")
-//                        .setPositiveButtonText("好的")
-//                        .setNegativeButtonClick {
-//                            Toast.makeText(this@GoodsActivity, "我还没悟透", Toast.LENGTH_SHORT).show()
-//                        }
-//                        .setPositiveButtonClick {
-//                            Toast.makeText(this@GoodsActivity, "我想通了", Toast.LENGTH_SHORT).show()
-//                        }
-//                dialog.show(supportFragmentManager, "dialog")
+
                 vm?.goodsInfo?.value?.apply {
                     DoubleCheckDialog.showDialog(supportFragmentManager,
                             "确定要用${price}邮票兑换${title}吗", "取消", "确认") {
@@ -154,7 +134,7 @@ class GoodsActivity :
                                     }
                                 } else {
                                     DoubleCheckDialog.showDialog(supportFragmentManager,
-                                    "兑换成功！现在就换掉原来的名片吧！","再想想","好的"){
+                                            "兑换成功！现在就换掉原来的名片吧！", "再想想", "好的") {
                                         Toast.makeText(this@GoodsActivity, "速来网校与智蔷giegie基建", Toast.LENGTH_SHORT).show()
                                     }
                                 }
@@ -177,6 +157,5 @@ class GoodsActivity :
     }
 
     override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getIntExtra(SHOP_TO_GOODS_KEY, -1))
-
 
 }

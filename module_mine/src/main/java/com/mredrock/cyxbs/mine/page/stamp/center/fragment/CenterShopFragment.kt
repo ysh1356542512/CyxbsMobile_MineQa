@@ -98,6 +98,7 @@ class CenterShopFragment :
             R.id.goods_container_2, R.id.goods_container_1, R.id.goods_container -> {
                 //商品的id
                 any as String
+
                 toast(view, "点击${any}")
             }
             R.id.btn_goods_buy_2, R.id.btn_goods_buy_1, R.id.btn_goods_buy -> {

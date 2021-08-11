@@ -14,7 +14,7 @@ class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>()
 
 
     override fun initBVP(
-            bvpViewPager: BannerViewPager<Int>,
+            bvpViewPager: BannerViewPager<String>,
             lifecycle: Lifecycle,
             func: (Int, View) -> Unit
     ) {
@@ -43,9 +43,12 @@ class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>()
                 }
             }).create(
                     listOf(
-                            R.drawable.mine_ic_banner_pic,
-                            R.drawable.mine_ic_banner_pic,
-                            R.drawable.mine_ic_banner_pic
+//                            R.drawable.mine_ic_banner_pic,
+//                            R.drawable.mine_ic_banner_pic,
+//                            R.drawable.mine_ic_banner_pic
+                            "https://images.unsplash.com/photo-1628087237766-a2129e1ab8c7?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMwfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                            "https://images.unsplash.com/photo-1628029799784-50d803e64ea0?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                            "https://images.unsplash.com/photo-1628254747021-59531f59504b?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE2fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
                     )
             )
         }

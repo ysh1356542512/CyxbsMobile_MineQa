@@ -24,6 +24,6 @@ interface GoodsContract {
     }
 
     interface GoodsPresenter : IPresenter<GoodsViewModel> {
-        fun initBVP(bvpViewPager: BannerViewPager<Int>, lifecycle: Lifecycle, func: (Int, View) -> Unit)
+        fun initBVP(bvpViewPager: BannerViewPager<String>, lifecycle: Lifecycle, func: (Int, View) -> Unit)
     }
 }
