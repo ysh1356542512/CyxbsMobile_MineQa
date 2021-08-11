@@ -7,6 +7,8 @@ package com.mredrock.cyxbs.mine.page.stamp.config
  * @Request : God bless my code
  */
 object CenterConfig {
+
+    const val SHOP_TO_GOODS_KEY = "shop_to_goods_info"
     //进行测试的图片地址
     val TEST_UNSPLASH_PIC_URL: Array<String> = arrayOf(
         "https://images.unsplash.com/photo-1628087237766-a2129e1ab8c7?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMwfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",

@@ -36,7 +36,7 @@ class StampCenterActivity :
 
     override fun observeData() {
         super.observeData()
-        viewModel?.apply {
+        viewModel.apply {
         }
     }
 

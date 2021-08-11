@@ -45,8 +45,10 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
                 //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
                 if (vm?.isClickedToday ?: true){
                     tab.setCustomView(R.layout.mine_item_tab_task_no_click)
+                    tab.view.alpha = 0.6f
                 }else{
                     tab.setCustomView(R.layout.mine_item_tab_click)
+                    tab.view.alpha = 0.6f
                 }
             }
         }
@@ -99,11 +101,9 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
     }
 
     override fun fetch() {
-        val shopPageData = getShopPageData()
         //设置数据
-        vm?.setShopPageDataValue(shopPageData)
+        vm?.setShopPageDataValue(getShopPageData())
 
-        val taskPageData = getTaskPageData()
         /*thread {
             taskPageData.apply {
                 while (true){
@@ -116,7 +116,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
                 }
             }
         }*/
-        vm?.setTasksValue(taskPageData)
+        vm?.setTasksValue(getTaskPageData())
         //设置数据
     }
 

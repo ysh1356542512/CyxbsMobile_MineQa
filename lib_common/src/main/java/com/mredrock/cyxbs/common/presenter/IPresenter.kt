@@ -11,5 +11,6 @@ import com.mredrock.cyxbs.common.viewmodel.IVM
 interface IPresenter<VM:IVM> {
     fun onAttachVM(vm:IVM)
     fun onDetachVM()
+    //获得总数据
     fun fetch()
 }
