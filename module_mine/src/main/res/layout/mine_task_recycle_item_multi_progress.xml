@@ -38,11 +38,10 @@
             android:layout_marginTop="2dp"
             android:text="@{data.taskDescription}"
             android:textColor="@color/mine_task_recycle_item_description_color"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_task_name"
-            tools:text="浏览5条动态 +15"
-            tools:textSize="14sp" />
+            tools:text="浏览5条动态 +15" />
 
         <com.mredrock.cyxbs.mine.page.stamp.view.ProgressBar
             android:id="@+id/mine_space"

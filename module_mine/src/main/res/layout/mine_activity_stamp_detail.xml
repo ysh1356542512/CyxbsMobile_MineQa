@@ -31,17 +31,16 @@
                 android:layout_height="wrap_content"
                 android:background="#F2F3F8"
                 android:backgroundTint="#F2F3F8"
+                android:contentDescription="@string/mine_exchange_back_arrow_content_description"
                 android:onClick="@{(v)->eventHandler.backArrowClick(v)}"
                 app:borderWidth="0dp"
                 app:elevation="0dp"
                 app:fabSize="mini"
-                android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:pressedTranslationZ="13dp"
-                app:srcCompat="@drawable/mine_ic_stamp_back_arrow"
-                android:contentDescription="@string/mine_exchange_back_arrow_content_description" />
+                app:srcCompat="@drawable/mine_ic_stamp_back_arrow" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"

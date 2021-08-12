@@ -65,7 +65,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ll_exchange_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="108dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
@@ -80,6 +80,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_half_magioke_pg"
                 android:layout_width="180dp"
+                android:alpha="0.4"
                 android:layout_height="82dp"
                 app:drawableFalse="@{@drawable/mine_show_ic_half_magipoke_dark}"
                 app:drawableTrue="@{@drawable/mine_show_ic_half_magipoke_light}"
@@ -92,7 +93,8 @@
                 android:id="@+id/tv_exchange_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="20dp"
+                android:alpha="0.8"
                 android:layout_marginTop="16dp"
                 android:text="@string/mine_activity_exchange_title"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
@@ -105,6 +107,7 @@
                 android:id="@+id/tv_exchange_detail_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:alpha="0.9"
                 android:text="@{String.valueOf(data.id)}"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
                 android:textSize="23sp"
@@ -116,16 +119,17 @@
                 android:id="@+id/mine_appcompattextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="9dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="18dp"
+                android:alpha="0.6"
                 android:text="@string/mine_activity_exchange_banner_content"
                 android:textColor="@color/mine_activity_exchange_banner_text_color"
                 android:textSize="11sp"
                 app:layout_constraintStart_toStartOf="@id/tv_exchange_detail_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_exchange_detail_id"
-                tools:paddingBottom="18dp"
-                tools:ignore="RtlSymmetry,SmallSp" />
+                tools:ignore="RtlSymmetry,SmallSp"
+                tools:paddingBottom="18dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

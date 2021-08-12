@@ -15,6 +15,16 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.holder.Mu
  * @Request : God bless my code
  */
 // 这里将LayoutManager向外扩展，方便操作RecyclerView滚动平移等操作
+/*
+    在这里对这个封装adapter进行说明
+    外部通过notifyAdapterChanged传入基类Binder的List
+    不管它的具体类型是什么 但每一个binder的hashCode是唯一的 所以把每个binder的hashCode传入成员变量mHashCodeViewType里去
+    这样有什么用？ 可以辨识每个binder且可以储存所有binder
+    覆写getItemViewType 用每个binder的hashCode来代替ViewType
+    这样在onCreateViewHolder中的参数viewType就对应了hashcode 以其为key从哈希表中获得对应的binder
+    而binder是我们自己定义的 其中binder的基类中有getLayoutId的方法 这样我们就能得到每个binder的ViewDataBinding
+    从而实现在一个adapter中获得多个DataBinding
+ */
 class MultiTypeAdapter constructor(val layoutManager: RecyclerView.LayoutManager) :
         RecyclerView.Adapter<MultiTypeViewHolder>() {
 

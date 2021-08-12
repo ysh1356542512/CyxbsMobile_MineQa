@@ -73,12 +73,14 @@
             android:id="@+id/iv_center_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="@+id/guideline2"
             motion:layout_constraintTop_toTopOf="@+id/guideline4"
-            motion:layout_constraintVertical_bias="0.51" />
+            motion:layout_constraintVertical_bias="0.51"
+            android:layout_marginStart="4dp" />
 
         <Constraint
             android:id="@+id/tv_center_detail"
@@ -87,9 +89,10 @@
             android:alpha="0.8"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
-            motion:layout_constraintHorizontal_bias="0.31"
+            motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toEndOf="@+id/iv_center_detail"
-            motion:layout_constraintTop_toTopOf="@+id/guideline4" />
+            motion:layout_constraintTop_toTopOf="@+id/guideline4"
+            android:layout_marginStart="3dp" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -123,7 +126,8 @@
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="@+id/guideline2"
-            motion:layout_constraintTop_toTopOf="@+id/guideline4" />
+            motion:layout_constraintTop_toTopOf="@+id/guideline4"
+            android:layout_marginStart="4dp" />
         <Constraint
             android:id="@+id/tv_center_detail"
             android:layout_width="wrap_content"
@@ -131,9 +135,10 @@
             android:alpha="0.3"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
-            motion:layout_constraintHorizontal_bias="0.31"
+            motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toEndOf="@+id/iv_center_detail"
-            motion:layout_constraintTop_toTopOf="@+id/guideline4" />
+            motion:layout_constraintTop_toTopOf="@+id/guideline4"
+            android:layout_marginStart="3dp" />
         <Constraint
             android:id="@+id/tv_center_stamp_num_before"
             android:layout_width="wrap_content"

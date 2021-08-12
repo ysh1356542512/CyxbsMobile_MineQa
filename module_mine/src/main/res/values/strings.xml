@@ -137,8 +137,8 @@
 
     <!--兑换详细界面的固定字符串-->
     <string name="mine_stamp_detail_title">邮票明细</string>
-    <string name="mine_exchange_tool_bar_title">兑换详细</string>
-    <string name="mine_activity_exchange_title">订单详细</string>
+    <string name="mine_exchange_tool_bar_title">兑换详情</string>
+    <string name="mine_activity_exchange_title">订单编号</string>
     <string name="mine_activity_exchange_banner_content">请凭订单号在30天内到红岩网校领取商品，超时自动失效</string>
     <string name="mine_activity_exchange_product_name_text">商品价格:</string>
     <string name="mine_activity_exchange_product_detail_text">商品名称:</string>
@@ -189,7 +189,7 @@
     <string name="mine_stamp_user_amount">121</string>
     <string name="mine_exchange_price_text">%d邮票</string>
     <string name="mine_exchange_back_arrow_content_description">返回键</string>
-    <string name="mine_exchange_detail_title">商品详细</string>
+    <string name="mine_exchange_detail_title">商品详情</string>
     <string name="mine_recycle_item_progress_text">%d/5</string>
 
 </resources>

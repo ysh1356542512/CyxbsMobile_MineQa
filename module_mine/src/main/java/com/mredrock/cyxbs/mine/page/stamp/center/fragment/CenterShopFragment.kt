@@ -45,6 +45,7 @@ class CenterShopFragment :
         binding?.apply {
             //设置类似key的东西 判断binding是否已经绑定
             setVariable(BR.viewModel, this)
+            //这里更新了数据 所以在这里会调用bindingAdapter这类方法 这类参数需要为可空值且要在内部判空处理
             executePendingBindings()
         }
     }

@@ -17,7 +17,6 @@ class BannerAdapter : BaseBannerAdapter<String, BannerAdapter.ViewHolder>() {
 //        holder.imageView.setImageResource(data)
     }
 
-
     override fun createViewHolder(parent: ViewGroup, itemView: View, viewType: Int): ViewHolder {
         return ViewHolder(itemView)
     }
