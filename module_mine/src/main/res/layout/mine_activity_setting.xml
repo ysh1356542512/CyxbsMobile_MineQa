@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textColor="@color/common_level_three_font_color"
-                android:text="屏蔽的人"
+                android:text="彩蛋"
                 android:layout_marginStart="15dp"
                 android:layout_gravity="center_vertical" />
             <ImageView

@@ -18,6 +18,7 @@ import com.mredrock.cyxbs.mine.page.security.activity.SecurityActivity
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
+import com.mredrock.cyxbs.mine.page.stamp.eggshell.EggShellActivity
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 import com.mredrock.cyxbs.mine.util.apiService
 import com.mredrock.cyxbs.mine.util.ui.WarningDialog
@@ -68,7 +69,7 @@ class SettingActivity : BaseActivity() {
 
         //for test
         mine_setting_fm_shield_test.setOnClickListener {
-            val intent = Intent(this, StampCenterActivity::class.java)
+            val intent = Intent(this, EggShellActivity::class.java)
             startActivity(intent)
         }
     }

@@ -4,6 +4,7 @@
 
     <application android:theme="@style/AppTheme">
         <activity android:name=".page.stamp.exchange.activity.GoodsPagerActivity"></activity>
+        <activity android:name=".page.stamp.eggshell.EggShellActivity"/>
         <activity android:name=".page.stamp.exchange.activity.GoodsActivity" />
         <activity
             android:name=".page.stamp.detail.activity.ExchangeDetailActivity"
@@ -40,6 +41,10 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
