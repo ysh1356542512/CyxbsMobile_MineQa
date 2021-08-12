@@ -34,7 +34,7 @@
                 android:onClick="@{(v)->eventHandler.backArrowClick(v)}"
                 app:borderWidth="0dp"
                 app:elevation="0dp"
-                app:fabSize="mini"
+                app:fabCustomSize="@dimen/mine_fab_back_btn_size"
                 android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

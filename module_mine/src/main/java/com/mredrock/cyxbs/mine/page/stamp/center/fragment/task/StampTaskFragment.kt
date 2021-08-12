@@ -2,20 +2,20 @@ package com.mredrock.cyxbs.mine.page.stamp.center.fragment.task
 
 import android.view.View
 import android.view.animation.AnimationUtils
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentStampTaskBinding
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.MultiTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.OneTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.TitleBinder
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.toast
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
-import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 
 class StampTaskFragment :
-        BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
+    BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
 
     /**
      * 布局文件
@@ -24,12 +24,9 @@ class StampTaskFragment :
 
     private val mAdapter by lazy {
         binding?.rvTask?.let {
-            it.itemAnimator = DefaultItemAnimator().apply {
-                addDuration = 1000
-            }
             it.layoutAnimation = AnimationUtils.loadLayoutAnimation(
-                    requireContext(),
-                    R.anim.mine_task_rv_layout_animation
+                requireContext(),
+                R.anim.mine_task_rv_layout_animation
             )
             /*LayoutAnimationController(
         AnimationUtils.loadAnimation(
@@ -72,7 +69,7 @@ class StampTaskFragment :
 
                 //获取并添加第二类数据
                 add(
-                        TitleBinder(it.title).also { it.setOnClickListener(::onClicked) }
+                    TitleBinder(it.title).also { it.setOnClickListener(::onClicked) }
                 )
 
                 //获取并添加第三类数据
@@ -92,5 +89,6 @@ class StampTaskFragment :
 
     //跳转到任务界面。
     fun onClicked(view: View, any: Any?) {
+        toast(view,"别点我")
     }
 }

@@ -40,7 +40,7 @@
                 android:backgroundTint="@color/mine_activity_exchange_background_color"
                 app:borderWidth="0dp"
                 app:elevation="0dp"
-                app:fabSize="mini"
+                app:fabCustomSize="@dimen/mine_fab_back_btn_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

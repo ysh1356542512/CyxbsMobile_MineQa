@@ -8,7 +8,7 @@
 
         <variable
             name="vm"
-            type="com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel" />
+            type="com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel" />
 
     </data>
 
@@ -33,14 +33,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="8dp"
-                android:layout_marginBottom="3dp"
+                android:layout_marginBottom="6.5dp"
                 android:background="#F2F3F8"
                 android:backgroundTint="#F2F3F8"
                 android:contentDescription="@string/mine_stamp_back_iv"
                 android:gravity="center"
                 app:borderWidth="0dp"
                 app:elevation="0dp"
-                app:fabCustomSize="40dp"
+                app:fabCustomSize="@dimen/mine_fab_back_btn_size"
                 app:pressedTranslationZ="13dp"
                 app:srcCompat="@drawable/mine_ic_center_back" />
 
