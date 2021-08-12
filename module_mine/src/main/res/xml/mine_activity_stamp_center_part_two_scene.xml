@@ -32,11 +32,11 @@
                 motion:framePosition="40"
                 motion:motionTarget="@+id/qa_iv_center_before" />
             <KeyAttribute
-                android:alpha="0"
+                android:alpha="0.2"
                 motion:framePosition="80"
                 motion:motionTarget="@+id/qa_iv_center_before" />
             <KeyAttribute
-                android:alpha="0"
+                android:alpha="0.2"
                 motion:framePosition="100"
                 motion:motionTarget="@+id/qa_iv_center_before" />
             <KeyPosition
@@ -49,8 +49,14 @@
                 motion:framePosition="80"
                 motion:keyPositionType="parentRelative"
                 motion:motionTarget="@+id/qa_iv_center_before"
-                motion:percentX="1.0"
-                motion:percentY="1.0" />
+                motion:percentX="1.4"
+                motion:percentY="1.2" />
+            <KeyPosition
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@+id/qa_iv_center_before"
+                motion:percentX="1.4"
+                motion:percentY="1.2" />
             <KeyAttribute
                 motion:motionTarget="@+id/mine_center_part_three"
                 motion:framePosition="100"
@@ -107,10 +113,10 @@
             android:layout_height="119dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintHorizontal_bias="1.0"
+            motion:layout_constraintHorizontal_bias="1.2"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintVertical_bias="0.805"
+            motion:layout_constraintVertical_bias="1.2"
             motion:transitionEasing="linear" />
         <Constraint
             android:id="@+id/mine_center_part_three"

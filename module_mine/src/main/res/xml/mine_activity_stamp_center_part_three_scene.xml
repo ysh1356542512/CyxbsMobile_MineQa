@@ -35,6 +35,70 @@
                 motion:framePosition="100"
                 android:scaleX="0.2"
                 android:scaleY="0.2" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_stamp_num_before"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.5"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_stamp_num_before"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.5"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_commend"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.8" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_commend"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.8" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_center_commend"
+                motion:framePosition="20"
+                android:alpha="0" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_my_stamp"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.15"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_my_stamp"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.15"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/iv_center_detail"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.75"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/iv_center_detail"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.75"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_detail"
+                motion:framePosition="49"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_detail"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.6" />
         </KeyFrameSet>
     </Transition>
 
@@ -148,6 +212,6 @@
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="@+id/guideline3"
             motion:layout_constraintTop_toTopOf="@+id/guideline5"
-            motion:layout_constraintVertical_bias="0.36" />
+            motion:layout_constraintVertical_bias="0" />
     </ConstraintSet>
 </MotionScene>
