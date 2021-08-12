@@ -17,11 +17,14 @@ class GalleryTransformer : ViewPager2.PageTransformer {
     override fun transformPage(view: View, position: Float) {
 
         val scaleValue = 1 - abs(position) * MIN_SCALE
-        view.scaleX = scaleValue
-        view.scaleY = scaleValue
-        view.alpha = scaleValue
-        view.pivotX = view.width * (1 - position - (if (position > 0) 1 else -1) * 0.75f) * MIN_SCALE
-        view.pivotY = view.height * (1 - scaleValue)
-        view.elevation = if (position > -0.25 && position < 0.25) 1F else 0F
+        view.apply {
+            scaleX = scaleValue
+            scaleY = scaleValue
+            alpha = scaleValue
+            pivotX = view.width * (1 - position - (if (position > 0) 1 else -1) * 0.75f) * MIN_SCALE
+            pivotY = view.height * (1 - scaleValue)
+            elevation = if (position > -0.25 && position < 0.25) 1F else 0F
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop
+package com.mredrock.cyxbs.mine.page.stamp.center.fragment
 
 import android.content.Intent
 import android.view.View
@@ -11,12 +11,13 @@ import com.google.android.material.snackbar.Snackbar
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentCenterShopBinding
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.*
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopPresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
-import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_KEY
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
@@ -44,6 +45,7 @@ class CenterShopFragment :
         binding?.apply {
             //设置类似key的东西 判断binding是否已经绑定
             setVariable(BR.viewModel, this)
+            //这里更新了数据 所以在这里会调用bindingAdapter这类方法 这类参数需要为可空值且要在内部判空处理
             executePendingBindings()
         }
     }
@@ -97,6 +99,7 @@ class CenterShopFragment :
             R.id.goods_container_2, R.id.goods_container_1, R.id.goods_container -> {
                 //商品的id
                 any as String
+
                 toast(view, "点击${any}")
             }
             R.id.btn_goods_buy_2, R.id.btn_goods_buy_1, R.id.btn_goods_buy -> {

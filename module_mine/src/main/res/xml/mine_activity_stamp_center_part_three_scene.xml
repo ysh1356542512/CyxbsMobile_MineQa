@@ -35,6 +35,70 @@
                 motion:framePosition="100"
                 android:scaleX="0.2"
                 android:scaleY="0.2" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_stamp_num_before"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.5"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_stamp_num_before"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.5"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_commend"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.8" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_commend"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.8" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tv_center_commend"
+                motion:framePosition="20"
+                android:alpha="0" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_my_stamp"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.15"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_my_stamp"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.15"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/iv_center_detail"
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.75"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/iv_center_detail"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.75"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_detail"
+                motion:framePosition="49"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.6" />
+            <KeyPosition
+                motion:motionTarget="@+id/tv_center_detail"
+                motion:framePosition="100"
+                motion:keyPositionType="parentRelative"
+                motion:percentX="0.85"
+                motion:percentY="0.6" />
         </KeyFrameSet>
     </Transition>
 
@@ -73,12 +137,14 @@
             android:id="@+id/iv_center_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.8"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="@+id/guideline2"
             motion:layout_constraintTop_toTopOf="@+id/guideline4"
-            motion:layout_constraintVertical_bias="0.51" />
+            motion:layout_constraintVertical_bias="0.51"
+            android:layout_marginStart="4dp" />
 
         <Constraint
             android:id="@+id/tv_center_detail"
@@ -87,9 +153,10 @@
             android:alpha="0.8"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
-            motion:layout_constraintHorizontal_bias="0.31"
+            motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toEndOf="@+id/iv_center_detail"
-            motion:layout_constraintTop_toTopOf="@+id/guideline4" />
+            motion:layout_constraintTop_toTopOf="@+id/guideline4"
+            android:layout_marginStart="3dp" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -123,7 +190,8 @@
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="@+id/guideline2"
-            motion:layout_constraintTop_toTopOf="@+id/guideline4" />
+            motion:layout_constraintTop_toTopOf="@+id/guideline4"
+            android:layout_marginStart="4dp" />
         <Constraint
             android:id="@+id/tv_center_detail"
             android:layout_width="wrap_content"
@@ -131,9 +199,10 @@
             android:alpha="0.3"
             motion:layout_constraintBottom_toTopOf="@+id/guideline5"
             motion:layout_constraintEnd_toStartOf="@+id/guideline7"
-            motion:layout_constraintHorizontal_bias="0.31"
+            motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toEndOf="@+id/iv_center_detail"
-            motion:layout_constraintTop_toTopOf="@+id/guideline4" />
+            motion:layout_constraintTop_toTopOf="@+id/guideline4"
+            android:layout_marginStart="3dp" />
         <Constraint
             android:id="@+id/tv_center_stamp_num_before"
             android:layout_width="wrap_content"
@@ -143,6 +212,6 @@
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintStart_toStartOf="@+id/guideline3"
             motion:layout_constraintTop_toTopOf="@+id/guideline5"
-            motion:layout_constraintVertical_bias="0.36" />
+            motion:layout_constraintVertical_bias="0" />
     </ConstraintSet>
 </MotionScene>

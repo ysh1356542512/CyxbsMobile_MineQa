@@ -10,7 +10,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.MultiTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.OneTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.TitleBinder
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.toast
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.toast
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 

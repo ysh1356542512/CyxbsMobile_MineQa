@@ -9,10 +9,10 @@ import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterContract
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.model.*
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.ext.putDate
