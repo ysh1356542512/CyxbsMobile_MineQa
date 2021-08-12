@@ -50,13 +50,13 @@
                 motion:keyPositionType="parentRelative"
                 motion:motionTarget="@+id/qa_iv_center_before"
                 motion:percentX="1.4"
-                motion:percentY="1.2" />
+                motion:percentY="1.3" />
             <KeyPosition
                 motion:framePosition="100"
                 motion:keyPositionType="parentRelative"
                 motion:motionTarget="@+id/qa_iv_center_before"
                 motion:percentX="1.4"
-                motion:percentY="1.2" />
+                motion:percentY="1.3" />
             <KeyAttribute
                 motion:motionTarget="@+id/mine_center_part_three"
                 motion:framePosition="100"
