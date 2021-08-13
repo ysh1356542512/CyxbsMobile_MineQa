@@ -11,5 +11,5 @@
     <dimen name="mine_activity_stamp_tool_bar_padding_top">53dp</dimen>
     <!--    兑换详细界面的圆角度数-->
     <dimen name="mine_activity_exchange_detail_round_radius">8dp</dimen>
->>>>>>> tzq
+    <dimen name="mine_fab_back_btn_size">33dp</dimen>
 </resources>

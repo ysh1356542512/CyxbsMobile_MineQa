@@ -7,8 +7,6 @@ import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
-import com.mredrock.cyxbs.mine.page.stamp.center.presenter.StampCenterPresenter
-import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.ext.isFirstTimeComeIn

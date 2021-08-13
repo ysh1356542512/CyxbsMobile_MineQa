@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.center.presenter
+package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,13 +7,15 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterContract
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.model.*
-import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
+import com.mredrock.cyxbs.mine.page.stamp.ext.putDate
 
 
 /**
@@ -24,13 +26,13 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
 private const val TAG = "StampCenterPresenter"
 
 class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresenter<StampCenterViewModel>(),
-        CenterContract.CenterPresenter {
+        StampCenterContract.CenterPresenter {
 
 
     //ViewPager与TabLayout的联动部分
     //TabLayoutMediator.TabConfigurationStrategy
     override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
-        vm?.isClickedToday = isFirstTimeComeIn
+        vm?.isClickedToday = !isFirstTimeComeIn
         when (position) {
             0 -> {
                 //此处setCustomView来设置布局 tab.setCustomView(R.layout.xxx)
@@ -42,7 +44,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
                 //因为每次加载该Activity的时候都要经过此代码 为了减少onTabSelected处网络申请的次数
                 //定义一个boolean类型的成员变量isClickToday来供判断 若此处返回的结果表示用户今日已点击过 则为true
                 //得到网络申请 若为今日未点击 加载布局 isClickToday = true 若已点击 加载另一个布局isClickToday = false
-                if (vm?.isClickedToday ?: true) {
+                if (vm?.isClickedToday == false) {
                     tab.setCustomView(R.layout.mine_item_tab_task_no_click)
                     tab.view.alpha = 0.6f
                 } else {
@@ -77,6 +79,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
                         tab.view.alpha = 1.0f
                         vm?.isClickedToday = false
                         //在这里POST数据 并将isClickToday为true表示已经点击
+                        putDate()
                     }
                     else -> {
                         tab?.view?.alpha = 1.0f

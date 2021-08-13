@@ -8,6 +8,9 @@
         <variable
             name="data"
             type="com.mredrock.cyxbs.mine.page.stamp.center.model.FirstLevelTask" />
+        <variable
+            name="handler"
+            type="com.mredrock.cyxbs.mine.page.stamp.center.binder.OneTaskBinder" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,6 +58,7 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:clickable="true"
+            android:onClick="@{(view)->handler.onClick(view,data)}"
             android:stateListAnimator="@animator/mine_scale_state_list_animator"
             app:drawableFalse="@{@drawable/mine_task_btn_bg_doing}"
             app:drawableTrue="@{@drawable/mine_task_btn_bg_finished}"

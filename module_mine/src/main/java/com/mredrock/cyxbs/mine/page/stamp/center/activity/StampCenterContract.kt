@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.center.presenter
+package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -8,14 +8,14 @@ import com.mredrock.cyxbs.common.presenter.IPresenter
 import com.mredrock.cyxbs.common.viewmodel.IVM
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.model.StampTaskData
-import com.mredrock.cyxbs.mine.page.stamp.center.viewmodel.StampCenterViewModel
+import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 
 /**
  *@author ZhiQiang Tu
  *@time 2021/8/8  16:11
  *@signature 好在键盘没坏。ha
  */
-interface CenterContract {
+interface StampCenterContract {
 
     //VM层暴露的接口(也就是VM需要暴露给Presenter的所有数据)
     interface CenterVM : IVM {

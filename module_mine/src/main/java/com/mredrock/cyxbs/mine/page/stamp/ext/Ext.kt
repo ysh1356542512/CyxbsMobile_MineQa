@@ -33,14 +33,12 @@ fun Context.isFirstTimeComeIn(): Boolean {
     val date = dateSp?.getString(DATE_KEY_NAME, "NULL") ?: "NULL"
     //如果当前值没有传入
     return if (date == "NULL") {
-        putDate()
         true
     } else {
         //如果是第一次进入
         if (compareDate(getCurrentDate(), date)) {
             log("当天第一次进入邮票任务")
             //存入当前时间
-            putDate()
             true
         }
         //如果不是第一次进入
@@ -52,7 +50,7 @@ fun Context.isFirstTimeComeIn(): Boolean {
 }
 
 //放入当前的时间信息
-private fun putDate() {
+fun putDate() {
     dateSp?.editor {
         getCurrentDate().let {
             if (it != "NULL") {
@@ -76,8 +74,8 @@ private fun compareDate(current: String, before: String): Boolean {
         it.toInt()
     }
     //如果当前时间的年月日有一项大于sp数据库的时间那么说明当前是最新的进入情况
-    for (i in 0 until 2) {
-        if (currentTimeList[i] > beforeTimeList[i]) {
+    for (i in 0 .. 2) {
+        if (currentTime[i] > beforeTime[i]) {
             return true
         }
     }

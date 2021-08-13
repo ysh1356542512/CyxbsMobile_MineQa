@@ -24,6 +24,7 @@ class MultiTaskBinder(val moreTask: MoreTask) :
     @SuppressLint("ObjectAnimatorBinding")
     override fun onBindViewHolder(binding: MineTaskRecycleItemMultiProgressBinding) {
         binding?.data = moreTask
+        binding?.handler = this
         binding.mineSpace.setMaxProgress(5f)
         val animator = ObjectAnimator.ofFloat(binding.mineSpace, "currentProgress", 0f, moreTask.progress.toFloat())
         animator.duration = 2000
@@ -40,6 +41,7 @@ class OneTaskBinder(val firstLevelTask: FirstLevelTask) :
 
     override fun onBindViewHolder(binding: MineTaskRecycleItemOnePregressBinding) {
         binding?.data = firstLevelTask
+        binding?.handler = this
     }
 }
 
