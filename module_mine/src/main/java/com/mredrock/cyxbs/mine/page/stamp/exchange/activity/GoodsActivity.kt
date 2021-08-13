@@ -106,6 +106,8 @@ class GoodsActivity :
             //之后可能会对照片进行点击看大图的转换 到时候再说
             btnStampBuy.setOnSingleClickListener {
 
+                presenter?.fetch()
+
                 vm?.goodsInfo?.value?.apply {
                     DoubleCheckDialog.showDialog(supportFragmentManager,
                             "确定要用${price}邮票兑换${title}吗", "取消", "确认") {

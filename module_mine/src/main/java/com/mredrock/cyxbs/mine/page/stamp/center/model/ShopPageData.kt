@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.center.model
+ package com.mredrock.cyxbs.mine.page.stamp.center.model
 
 /**
  *@author ZhiQiang Tu

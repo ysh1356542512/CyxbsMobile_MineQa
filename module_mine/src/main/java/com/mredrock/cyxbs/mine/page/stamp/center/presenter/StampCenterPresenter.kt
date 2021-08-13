@@ -179,4 +179,6 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) : BasePresent
     }
 
 
+
+
 }
