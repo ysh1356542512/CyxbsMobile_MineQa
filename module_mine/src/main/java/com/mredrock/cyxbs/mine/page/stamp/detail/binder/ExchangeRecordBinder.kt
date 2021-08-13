@@ -6,6 +6,8 @@ import com.mredrock.cyxbs.mine.databinding.MineRecycleItemDetailBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo
 
 /**
  *@author ZhiQiang Tu
@@ -13,16 +15,14 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
  *@signature 我们不明前路，却已在路上
  */
 class ExchangeRecordBinder(
-        val data: ExchangeItemData,
+        val data: ExchangeItemInfo,
         val handler: ExchangeRecordFragment.ClickHandler
 ) : MultiTypeBinder<MineRecycleItemDetailBinding>() {
 
     override fun onBindViewHolder(binding: MineRecycleItemDetailBinding) {
         binding.apply {
-            tvName.text = data.name
-            tvDate.text = data.date
-            tvPrice.text = data.price.toString()
-            if (data.getOrNot) ivGet.visibility = View.GONE
+            data = data
+            if (data!!.getOrNot) ivGet.visibility = View.GONE
         }
         binding.handler = handler
     }

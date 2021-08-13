@@ -36,7 +36,7 @@ class StampCenterActivity :
         viewModel.apply {
         }
     }
-    
+
     override fun initView() {
         viewModel
         //先进行 viewPager2 和 TabLayout 的绑定

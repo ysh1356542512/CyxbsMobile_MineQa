@@ -5,14 +5,29 @@ import androidx.lifecycle.LiveData
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityExchangeDetailBinding
+import com.mredrock.cyxbs.mine.page.stamp.config.DetailConfig
+import com.mredrock.cyxbs.mine.page.stamp.config.DetailConfig.EXCHANGE_TO_DETAIL_KEY
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeDetailData
+import com.mredrock.cyxbs.mine.page.stamp.detail.presenter.ExchangeDetailPresenter
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.ExchangeDetailViewModel
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo
 
 class ExchangeDetailActivity :
         BaseMVPVMActivity<ExchangeDetailViewModel,
                 MineActivityExchangeDetailBinding,
                 ExchangeDetailPresenter>() {
 
+
+
+    override fun getLayoutId(): Int = R.layout.mine_activity_exchange_detail
+
+    override fun createPresenter(): ExchangeDetailPresenter =
+            ExchangeDetailPresenter(intent.getSerializableExtra(EXCHANGE_TO_DETAIL_KEY) as ExchangeItemInfo)
+
+    override fun fetch() {
+        super.fetch()
+        presenter?.fetch()
+    }
 
     override fun initListener() {
         super.initListener()
@@ -34,14 +49,6 @@ class ExchangeDetailActivity :
             binding?.data = it
         }
     }
-
-    override fun fetch() {
-        super.fetch()
-        presenter?.fetch()
-    }
-
-    override fun getLayoutId(): Int = R.layout.mine_activity_exchange_detail
-    override fun createPresenter(): ExchangeDetailPresenter = ExchangeDetailPresenter()
 
     inner class EventHandler {
         //返回键被点击

@@ -1,8 +1,10 @@
 package com.mredrock.cyxbs.mine.page.stamp.network.bean
 
-import android.database.Observable
+import com.mredrock.cyxbs.common.bean.RedrockApiStatus
+import io.reactivex.Observable
 import com.mredrock.cyxbs.common.bean.RedrockApiWrapper
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 /**
@@ -14,21 +16,27 @@ import retrofit2.http.Query
 interface ApiServiceNew {
 
     @GET("magipoke-intergral/User/info")
-    fun getCenterInfo()
+    fun getCenterInfo():Observable<RedrockApiWrapper<CenterInfo>>
 
 
-    fun getExchangeInfo(userId:Int)
+    @GET("")
+    fun getExchangeInfo(userId:Int):Observable<RedrockApiWrapper<ExchangeInfo>>
 
-    fun getGainInfo(userId: Int)
+    @GET("")
+    fun getGainInfo(userId: Int):Observable<RedrockApiWrapper<GainInfo>>
 
     @GET("")
     fun getGoodsInfo(@Query("goodsId")goodsId: Int):Observable<RedrockApiWrapper<GoodsInfo>>
 
-    fun getExchangedDetail(userId: Int,exchangeId:Int)
+    @GET("")
+    fun getExchangedDetail(userId: Int,exchangeId:Int):Observable<RedrockApiWrapper<ExchangeDetailInfo>>
 
     fun updateProgress(title: String)
 
     fun postOrderInfo(userId: Int, goodsId: Int)
 
+
+    @POST("")
+    fun buyGoodsRep(goodsId: Int):Observable<GoodsBuyRep>
 
 }

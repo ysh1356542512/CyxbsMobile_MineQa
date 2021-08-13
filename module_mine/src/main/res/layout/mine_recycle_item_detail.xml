@@ -7,13 +7,16 @@
         <variable
             name="handler"
             type="com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment.ClickHandler" />
+        <variable
+            name="data"
+            type="com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:id="@+id/cl_item"
-        android:onClick="@{(v)->handler.onClicked(v,null)}">
+        android:onClick="@{(v)->handler.onClicked(v,data)}">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"
@@ -23,6 +26,7 @@
             android:layout_marginTop="4dp"
             android:textColor="#15315B"
             android:textSize="16sp"
+            android:text="@{data.name}"
             app:layout_constraintBottom_toTopOf="@id/tv_date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +42,7 @@
             android:layout_marginBottom="4dp"
             android:textColor="#15315B"
             android:alpha="0.4"
+            android:text="@{data.date}"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +58,7 @@
             android:layout_marginEnd="8dp"
             android:textColor="#4B66F0"
             android:textSize="16sp"
+            android:text="@{String.valueOf(data.price)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/iv_detail"
             app:layout_constraintTop_toTopOf="parent"

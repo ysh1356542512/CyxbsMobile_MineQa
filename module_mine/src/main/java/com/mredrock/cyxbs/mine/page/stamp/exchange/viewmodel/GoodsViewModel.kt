@@ -3,7 +3,8 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
-import com.mredrock.cyxbs.mine.network.bean.GoodsInfo
+//import com.mredrock.cyxbs.mine.network.bean.GoodsInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsContract
 
 /**
@@ -13,9 +14,9 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsContract
  * @Request : God bless my code
  */
 class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
-    private val _goodsInfo: MutableLiveData<GoodsInfo> = MutableLiveData()
+    private val _goodsInfo: MutableLiveData<GoodsInfo.Data> = MutableLiveData()
 
-    val goodsInfo: LiveData<GoodsInfo>
+    val goodsInfo: LiveData<GoodsInfo.Data>
         get() = _goodsInfo
 
     private val _goodsDate: MutableLiveData<String> = MutableLiveData()
@@ -38,7 +39,7 @@ class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
     val goodsDescription2: LiveData<String>
         get() = _goodsDescription2
 
-    override fun setGoodsValue(value: GoodsInfo) {
+    override fun setGoodsValue(value: GoodsInfo.Data) {
         _goodsInfo.value = value
     }
 

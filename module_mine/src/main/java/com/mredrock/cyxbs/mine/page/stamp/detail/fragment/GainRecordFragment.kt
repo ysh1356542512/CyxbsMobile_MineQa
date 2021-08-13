@@ -14,6 +14,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMul
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.GainRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.GainListData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.GainInfo
 
 class GainRecordFragment :
         BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentGainRecordBinding>() {
@@ -49,7 +50,7 @@ class GainRecordFragment :
         }
     }
 
-    private fun observeGainList(gainListData: LiveData<GainListData>) {
+    private fun observeGainList(gainListData: LiveData<GainInfo>) {
         gainListData.observe(this) {
             //映射数据
             val binders = it.data.map {
