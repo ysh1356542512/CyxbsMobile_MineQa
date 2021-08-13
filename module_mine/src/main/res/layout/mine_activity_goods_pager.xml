@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
+    android:background="#9D9D9D"
     tools:context=".page.stamp.exchange.activity.GoodsPagerActivity">
 
     <com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
