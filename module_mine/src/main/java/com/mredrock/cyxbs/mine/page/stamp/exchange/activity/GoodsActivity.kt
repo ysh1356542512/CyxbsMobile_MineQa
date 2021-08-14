@@ -9,7 +9,7 @@ import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
-import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_KEY
+import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_USER_ID
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
@@ -129,7 +129,7 @@ class GoodsActivity :
                                 }
                             } else {
                                 //足够 商品为邮物
-                                if (intent.getIntExtra(SHOP_TO_GOODS_KEY, -1) == 0) {
+                                if (intent.getIntExtra(SHOP_TO_GOODS_USER_ID, -1) == 0) {
                                     NoneProductDialog.showDialog(supportFragmentManager,
                                             "兑换成功！请在30天内到红岩网校领取哦", "确认") {
                                         Toast.makeText(this@GoodsActivity, "尤物智蔷giegie购买成功", Toast.LENGTH_SHORT).show()
@@ -158,6 +158,6 @@ class GoodsActivity :
 
     }
 
-    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getIntExtra(SHOP_TO_GOODS_KEY, -1))
+    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getIntExtra(SHOP_TO_GOODS_USER_ID, -1))
 
 }

@@ -29,6 +29,8 @@ data class CenterInfo(
             val userAmount: Int
     ) : Serializable{
         data class Shop(
+                @SerializedName("id")
+                val id :Int,
                 @SerializedName("amount")
                 val amount: Int,
                 @SerializedName("price")
@@ -51,7 +53,9 @@ data class CenterInfo(
                 @SerializedName("title")
                 val title: String,
                 @SerializedName("type")
-                val type: String
+                val type: String,
+                @SerializedName("gain_stamp")
+                val gainStamp :Int
         ): Serializable
     }
 }

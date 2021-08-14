@@ -18,7 +18,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
-import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_KEY
+import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_USER_ID
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 
@@ -106,13 +106,13 @@ class CenterShopFragment :
                 //商品的id
                 any as String
                 val intent = Intent(requireActivity(), GoodsActivity::class.java)
-                val randoms = (0..1).random()
-                if (randoms == 0) {
-                    intent.putExtra(SHOP_TO_GOODS_KEY, 0)
-                } else {
-                    intent.putExtra(SHOP_TO_GOODS_KEY, 1)
-                }
-
+//                val randoms = (0..1).random()
+//                if (randoms == 0) {
+//                    intent.putExtra(SHOP_TO_GOODS_USER_ID, 0)
+//                } else {
+//                    intent.putExtra(SHOP_TO_GOODS_USER_ID, 1)
+//                }
+                intent.putExtra(SHOP_TO_GOODS_USER_ID,any)
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                         requireActivity(),
                         view,
