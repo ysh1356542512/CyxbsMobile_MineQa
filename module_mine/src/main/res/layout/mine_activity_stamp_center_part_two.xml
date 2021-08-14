@@ -28,7 +28,8 @@
             app:layout_constraintTop_toTopOf="parent"
             binding:vm ="@{vm}" />
         <include layout="@layout/mine_activity_stamp_center_part_four"
-            android:id="@+id/motion_four"/>
+            android:id="@+id/motion_four"
+            binding:vm ="@{vm}" />
 
         <ImageView
             android:id="@+id/qa_iv_center_before"

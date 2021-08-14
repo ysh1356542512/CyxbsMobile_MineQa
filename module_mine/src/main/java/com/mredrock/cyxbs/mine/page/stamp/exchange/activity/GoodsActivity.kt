@@ -11,9 +11,11 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopCardJumpData
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_EXTRA
-import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
-import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
-import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig.GOODS_PHOTO_ITEM_KEY
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig.GOODS_PHOTO_LIST_KEY
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig.GOODS_SHARE_PHOTO_VALUE
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig.SHOP_SHARE_PHOTO_VALUE
 import com.mredrock.cyxbs.mine.page.stamp.exchange.dialog.NoneProductDialog
 import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsPresenter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
@@ -45,14 +47,13 @@ class GoodsActivity :
             viewModel?.goodsUrls?.observe(this) { it1 ->
                 it.initBVP(bvpViewPager, lifecycle, it1) { position, v ->
                     val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
-                    intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, position)
-                    val options =
-                        ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity,
-                            v,
-                            GOODS_SHARE_PHOTO_VALUE).toBundle()
+                    intent.putExtra(GOODS_PHOTO_LIST_KEY,it1.toTypedArray())
+                    intent.putExtra(GOODS_PHOTO_ITEM_KEY, position)
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v, GOODS_SHARE_PHOTO_VALUE).toBundle()
                     this@GoodsActivity.startActivityForResult(intent,
-                        ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
-                        options)
+                            GoodsConfig.GOODS_SHARE_PHOTO_RESPOND,
+                            options)
+
                 }
             }
 //        bvpViewPager.apply {
@@ -97,7 +98,7 @@ class GoodsActivity :
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND -> {
+            GoodsConfig.GOODS_SHARE_PHOTO_RESPOND -> {
                 bvpViewPager.setCurrentItem(resultCode, false)
             }
         }
@@ -175,11 +176,11 @@ class GoodsActivity :
 
     override fun createPresenter(): GoodsPresenter {
         val shop:ShopCardJumpData
-        try {
+        return try {
             shop = intent.getSerializableExtra(SHOP_TO_GOODS_EXTRA) as ShopCardJumpData
-            return GoodsPresenter(shop.id,shop.money)
+            GoodsPresenter(shop.id,shop.money)
         }catch (e:NullPointerException){
-            return GoodsPresenter("Null",Int.MIN_VALUE)
+            GoodsPresenter("Null",Int.MIN_VALUE)
         }
     }
 

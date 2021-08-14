@@ -12,4 +12,5 @@
     <!--    兑换详细界面的圆角度数-->
     <dimen name="mine_activity_exchange_detail_round_radius">8dp</dimen>
     <dimen name="mine_fab_back_btn_size">33dp</dimen>
+    <dimen name="mine_shop_card_elevation">0.5dp</dimen>
 </resources>

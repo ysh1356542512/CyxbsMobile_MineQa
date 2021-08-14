@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="mine_center_stamp_num_bg">#4DF0F0F2</color>
+
+    <color name="mine_task_progress_bg">#33E5E5E5</color>
+
+
+    <!--    主页面颜色-->
+
+    <!--    主页面任务颜色-->
+    <color name="mine_center_tab">#F0F0F2</color>
+    <!--    主界面顶部邮票中心颜色-->
+    <color name="mine_center_toolbar_title">#DFDFE3</color>
+
+
     <!--    邮票小店界面的颜色-->
 
     <!--    vp背景颜色-->
@@ -8,5 +21,92 @@
     <color name="mine_shop_tv">#F0F0F2</color>
     <!--    邮物装饰颜色-->
     <color name="mine_shop_title_tv">#F0F0F2</color>
+    <!--    每个Item的背景颜色-->
+    <color name="mine_shop_item_bg">#2D2D2D</color>
+    <!--    每个Item的库存颜色-->
+    <color name="mine_shop_item_amount">#F0F0F2</color>
+    <!--    每个Item的标题颜色-->
+    <color name="mine_shop_item_title">#F0F0F2</color>
+
+
+    <!--    邮票任务界面颜色-->
+
+    <!--    任务题目颜色-->
+    <color name="mine_task_recycle_item_task_name_color">#F0F0F2</color>
+    <!--    任务奖励颜色-->
+    <color name="mine_task_recycle_item_description_color">#F0F0F2</color>
+
+
+    <!--    商品详情界面颜色-->
+
+    <!--    顶部详情标题颜色-->
+    <color name="mine_goods_toolbar_title_tv">#DFDFE3</color>
+    <!--    商品标题颜色-->
+    <color name="mine_goods_title">#F0F0F2</color>
+    <!--    商品库存颜色-->
+    <color name="mine_goods_amount">#F0F0F2</color>
+    <!--    商品描述颜色-->
+    <color name="mine_goods_description">#F0F0F2</color>
+    <!--    商品权益说明颜色-->
+    <color name="mine_goods_text">#F0F0F2</color>
+    <!--    商品权益内容颜色-->
+    <color name="mine_goods_text_detail">#F0F0F2</color>
+    <!--    商品详情下部的线-->
+    <color name="mine_goods_line_up">#14DBE5F3</color>
+    <color name="mine_goods_line_down">#14DBE5F3</color>
+    <color name="mine_goods_line_middle">#33DBE5F3</color>
+
+
+    <!--    弹窗-->
+    <!--    弹窗背景颜色-->
+    <color name="mine_goods_dialog_bg">#1C1C1C</color>
+    <!--    弹窗字体颜色-->
+    <color name="mine_goods_dialog_tv">#F0F0F2</color>
+    <!--    弹窗取消背景-->
+    <color name="mine_goods_dialog_cancel_bg">#4E4E4E</color>
+    <!--    弹窗取消字体颜色-->
+    <color name="mine_goods_dialog_cancel_tv">#CCF0F0F2</color>
+
+
+    <!--    邮票明细界面的通用颜色-->
+    <color name="mine_activity_stamp_background_color">#00000000</color>
+    <color name="mine_activity_stamp_decoration_color">#00000000</color>
+    <!--    顶部详情标题颜色-->
+    <color name="mine_detail_toolbar_title_tv">#DFDFE3</color>
+    <!--    tab选中时颜色-->
+    <color name="mine_detail_tab_selected">#778EFF</color>
+    <!--    tab未选中的颜色-->
+    <color name="mine_detail_tab_unselected">#CCF0F0F2</color>
+    <!--    商品兑换记录背景颜色-->
+    <color name="mine_detail_exchange_bg">#1D1D1D</color>
+    <!--    商品兑换记录标题颜色-->
+    <color name="mine_detail_exchange_item_title">#F0F0F2</color>
+    <!--    商品兑换记录日期颜色-->
+    <color name="mine_detail_exchange_item_date">#F0F0F2</color>
+    <!--    商品兑换记录箭头颜色-->
+    <color name="mine_detail_exchange_item_arrow">#F0F0F2</color>
+    <!--    商品兑换记录是否领取颜色-->
+    <color name="mine_detail_exchange_is_collect">#484848</color>
+    <!--    下划线-->
+    <color name="mine_detail_exchange_item_line">#14DBE5F3</color>
+    <!--    商品明细记录背景颜色-->
+    <color name="mine_detail_gain_bg">#1D1D1D</color>
+    <!--    商品兑换记录标题颜色-->
+    <color name="mine_detail_gain_item_title">#F0F0F2</color>
+    <!--    商品兑换记录日期颜色-->
+    <color name="mine_detail_gain_item_date">#F0F0F2</color>
+
+    <!--    兑换详细界面的通用颜色-->
+    <color name="mine_activity_exchange_background_color">#00000000</color>
+    <color name="mine_activity_exchange_text_color">#F0F0F2</color>
+    <color name="mine_activity_exchange_banner_text_color">#FFFFFF</color>
+    <color name="mine_activity_exchange_banner_background_color_light">#5956F1</color>
+
+    <color name="mine_task_recycle_item_multi_progress_color">#7D8AFF</color>
+
+    <color name="mine_exchange_detail_banner_dark">#979797</color>
+
+    <!--    兑换详情颜色-->
+    <color name="mine_detail_detail_detail">#F0F0F2</color>
 
 </resources>

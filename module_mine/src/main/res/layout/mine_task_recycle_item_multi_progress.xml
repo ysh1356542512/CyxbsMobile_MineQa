@@ -42,6 +42,7 @@
             android:layout_marginTop="2dp"
             android:text="@{data.taskDescription}"
             android:textColor="@color/mine_task_recycle_item_description_color"
+            android:alpha="0.4"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_task_name"
@@ -53,6 +54,7 @@
             android:layout_height="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="9dp"
+            app:progressBackGround="@color/map_download_progressbar_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_task_content"
             app:showOrNot="@{!(data.max == 1)}"  />

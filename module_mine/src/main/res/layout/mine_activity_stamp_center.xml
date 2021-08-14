@@ -34,8 +34,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="6.5dp"
-                android:background="#F2F3F8"
-                android:backgroundTint="#F2F3F8"
+                android:background="@color/common_transparent_background"
+                android:backgroundTint="@color/common_transparent_background"
                 android:contentDescription="@string/mine_stamp_back_iv"
                 android:gravity="center"
                 app:borderWidth="0dp"
@@ -53,7 +53,7 @@
                 android:layout_toEndOf="@id/fab_center_back"
                 android:gravity="center_vertical"
                 android:text="@string/mine_stamp_center"
-                android:textColor="#15315B"
+                android:textColor="@color/mine_center_toolbar_title"
                 android:textSize="22sp"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -96,7 +96,7 @@
                     android:background="@color/common_transparent_background"
                     app:tabBackground="@color/common_transparent_background"
                     app:tabIndicator="@drawable/mine_ic_stamp_indicator"
-                    app:tabIndicatorColor="#1AD0F2"
+                    app:tabIndicatorColor="@android:color/transparent"
                     app:tabIndicatorFullWidth="false"
                     app:tabIndicatorHeight="3dp"
                     app:tabRippleColor="@color/common_transparent_background"
