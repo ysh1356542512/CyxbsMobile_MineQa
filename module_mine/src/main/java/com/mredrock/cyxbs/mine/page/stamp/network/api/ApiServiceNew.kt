@@ -1,10 +1,10 @@
-//module_mine/src/main/java/com/mredrock/cyxbs/mine/page/stamp/network/bean/ApiServiceNew.kt
-package com.mredrock.cyxbs.mine.page.stamp.network.bean
+package com.mredrock.cyxbs.mine.page.stamp.network.api
 
 
-import io.reactivex.Observable
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsBuyRep
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeDetailInfo
+import io.reactivex.Observable
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 import retrofit2.http.GET
@@ -33,7 +33,7 @@ interface ApiServiceNew {
     fun getGoodsInfo(@Query("id")goodsId: String):Observable<GoodsInfo>
 
     @GET("")
-    fun getExchangedDetail(userId: Int,exchangeId:Int):Observable<ExchangeDetailInfo>
+    fun getExchangedDetail(userId: Int,exchangeId:Int):Observable<ExchangeInfo>
 
     fun updateProgress(title: String)
 

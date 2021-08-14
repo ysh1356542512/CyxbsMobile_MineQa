@@ -10,27 +10,25 @@ import java.io.Serializable
  * @Usage :
  * @Request : God bless my code
  **/
-data class ExchangeDetailInfo(
+data class ExchangeInfo(
     @SerializedName("data")
-    val `data`: List<Exchange>,
+    val `data`: List<Data>,
     @SerializedName("info")
     val info: String,
     @SerializedName("status")
     val status: Int
-): Serializable
+)
 
-data class Exchange(
-    @SerializedName("cos_stamp")
-    val cosStamp: Int,
+data class Data(
     @SerializedName("date")
-    val date: String,
-    @SerializedName("is_collected")
-    val isCollected: Boolean,
-    @SerializedName("moment")
-    val moment: String,
+    val date: Int,
+    @SerializedName("goods_name")
+    val goodsName: String,
+    @SerializedName("goods_price")
+    val goodsPrice: Int,
+    @SerializedName("is_received")
+    val isReceived: Boolean,
     @SerializedName("order_id")
-    val orderId: String,
-    @SerializedName("ware_name")
-    val wareName: String
-): Serializable
+    val orderId: Int
+)
 

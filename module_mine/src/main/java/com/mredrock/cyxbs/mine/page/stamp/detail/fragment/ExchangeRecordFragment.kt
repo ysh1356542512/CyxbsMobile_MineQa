@@ -7,19 +7,16 @@ import android.view.View
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
-import com.mredrock.cyxbs.common.utils.extensions.startActivity
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentExchangeRecordBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
-import com.mredrock.cyxbs.mine.page.stamp.config.DetailConfig
 import com.mredrock.cyxbs.mine.page.stamp.config.DetailConfig.EXCHANGE_TO_DETAIL_KEY
-import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.ExchangeRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
+import java.io.Serializable
 
 class ExchangeRecordFragment :
         BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentExchangeRecordBinding>() {
@@ -70,10 +67,9 @@ class ExchangeRecordFragment :
 
         private fun onItemClicked(v: View, any: Any?) {
             val intent = Intent(requireActivity(),ExchangeDetailActivity::class.java)
-            val bundle = Bundle()
-            bundle.putSerializable(EXCHANGE_TO_DETAIL_KEY,any as ExchangeItemInfo)
+            intent.putExtra(EXCHANGE_TO_DETAIL_KEY,any as Serializable)
 //            this@ExchangeRecordFragment.requireContext().startActivity<ExchangeDetailActivity>()
-            requireContext().startActivity(intent,bundle)
+            requireContext().startActivity(intent)
         }
     }
 }

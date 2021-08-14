@@ -15,9 +15,9 @@ interface StampDetailActivityContract {
 
     interface IPresenter {
         //得到兑换详情
-        fun getExchangeData(func: (ExchangeInfo) -> Unit)
         //得到明细详情
         fun getGainData(func: (GainInfo) -> Unit)
+        fun getExchangeData(func: (ExchangeInfo) -> Unit)
     }
 
     interface IVM {

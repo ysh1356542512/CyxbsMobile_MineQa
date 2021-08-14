@@ -3,9 +3,7 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.presenter
 //import com.mredrock.cyxbs.mine.network.bean.GoodsInfo
 import android.view.View
 import androidx.lifecycle.Lifecycle
-import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.presenter.BasePresenter
-import com.mredrock.cyxbs.common.utils.extensions.mapOrThrowApiException
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 //import com.mredrock.cyxbs.mine.page.stamp.network.bean.shop.GoodsInfo
@@ -13,11 +11,9 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
-import com.mredrock.cyxbs.mine.page.stamp.network.api.ApiGeneratorNew
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
 
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
+//import com.mredrock.cyxbs.mine.page.stamp.network.api.ApiServiceNew
 
 class GoodsPresenter(private val goodsId: String) : BasePresenter<GoodsViewModel>(), GoodsContract.GoodsPresenter {
 

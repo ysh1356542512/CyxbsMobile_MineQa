@@ -1,16 +1,13 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.presenter
 
 import android.util.Log
-import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.presenter.BasePresenter
-import com.mredrock.cyxbs.common.utils.extensions.mapOrThrowApiException
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 //import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 //import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 

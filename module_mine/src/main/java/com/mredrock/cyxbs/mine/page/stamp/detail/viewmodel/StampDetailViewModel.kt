@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.mine.page.stamp.detail.presenter.StampDetailActivityContract
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchangeExchangeInfo
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 

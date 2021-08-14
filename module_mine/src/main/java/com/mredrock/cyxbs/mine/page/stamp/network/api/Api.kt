@@ -1,8 +1,5 @@
 package com.mredrock.cyxbs.mine.page.stamp.network.api
 
-import com.mredrock.cyxbs.common.network.ApiGenerator
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
-
 /**
  *@author ZhiQiang Tu
  *@time 2021/8/13  16:20

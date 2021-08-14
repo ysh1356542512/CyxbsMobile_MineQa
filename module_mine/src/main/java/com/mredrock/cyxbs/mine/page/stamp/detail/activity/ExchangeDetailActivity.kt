@@ -22,11 +22,11 @@ class ExchangeDetailActivity :
     override fun getLayoutId(): Int = R.layout.mine_activity_exchange_detail
 
     override fun createPresenter(): ExchangeDetailPresenter =
-            ExchangeDetailPresenter(intent.getSerializableExtra(EXCHANGE_TO_DETAIL_KEY) as ExchangeItemInfo)
+            ExchangeDetailPresenter()
 
     override fun fetch() {
         super.fetch()
-        presenter?.fetch()
+        presenter?.fetch(intent.getSerializableExtra(EXCHANGE_TO_DETAIL_KEY) as ExchangeItemInfo)
     }
 
     override fun initListener() {

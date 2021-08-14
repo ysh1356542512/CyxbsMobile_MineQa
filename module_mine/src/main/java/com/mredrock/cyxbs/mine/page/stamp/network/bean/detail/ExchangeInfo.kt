@@ -11,24 +11,22 @@ import java.io.Serializable
  **/
 data class ExchangeInfo(
         @SerializedName("data")
-        val `data`: List<ExchangeItemInfo>,
+        val data: List<ExchangeItemInfo>,
         @SerializedName("info")
         val info: String,
         @SerializedName("status")
         val status: Int
 ):Serializable
 data class ExchangeItemInfo(
-        @SerializedName("buy_time")
-        val date: String,
-        @SerializedName("num")
-        val num: Int,
-        @SerializedName("price")
+        @SerializedName("date")
+        val date: Long,
+        @SerializedName("order_id")
+        val id: Int,
+        @SerializedName("goods_price")
         val price: Int,
-        @SerializedName("RemainTime")
-        val remainTime: Int,
-        @SerializedName("status")
+        @SerializedName("is_received")
         val getOrNot: Boolean,
-        @SerializedName("title")
+        @SerializedName("goods_name")
         val name: String
 ):Serializable
 
