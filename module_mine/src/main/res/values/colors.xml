@@ -108,5 +108,6 @@
     <!--    兑换详情颜色-->
     <color name="mine_detail_detail_detail">#15315B</color>
     <color name="mine_task_progress_bg">#E5E5E5</color>
+    <color name="mine_center_stamp_num_bg">#662B333F</color>
 
 </resources>
