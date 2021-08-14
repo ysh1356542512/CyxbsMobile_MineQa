@@ -15,32 +15,37 @@ import com.mredrock.cyxbs.mine.page.stamp.utils.Tools
 class ExchangeDetailPresenter() :
     BasePresenter<ExchangeDetailViewModel>(), ExchangeDetailContract.IPresenter {
 
-    lateinit var exchangeItemInfo: ExchangeItemInfo
+    var exchangeItemInfo: ExchangeItemInfo? = null
 
     override fun fetch() {
     }
 
     //由于时间原因 所以这里就不修改ExchangeDetailViewModel中的data类型 直接在P层转化为需要的
-    override fun getContent(): ExchangeDetailData {
-        return if (exchangeItemInfo.getOrNot) {
-            ExchangeDetailData(exchangeItemInfo.id.toLong(),
-                "已领取",
-                exchangeItemInfo.name,
-                exchangeItemInfo.price,
-                Tools.convertLongToDate(exchangeItemInfo.date, "yyyy-MM-dd HH:mm"))
-        } else {
-            ExchangeDetailData(exchangeItemInfo.id.toLong(),
-                "待领取",
-                exchangeItemInfo.name,
-                exchangeItemInfo.price,
-                Tools.convertLongToDate(exchangeItemInfo.date, "yyyy-MM-dd HH:mm"))
+    override fun getContent(): ExchangeDetailData? {
+        if (exchangeItemInfo == null){
+            return null
+        }
+        exchangeItemInfo!!.apply {
+           return if (getOrNot) {
+                ExchangeDetailData(id.toLong(),
+                    "已领取",
+                    name,
+                    price,
+                    Tools.convertLongToDate(date, "yyyy-MM-dd HH:mm"))
+            } else {
+                ExchangeDetailData(id.toLong(),
+                    "待领取",
+                    name,
+                    price,
+                    Tools.convertLongToDate(date, "yyyy-MM-dd HH:mm"))
+            }
         }
     }
 
     override fun fetch(exchangeItemInfo: ExchangeItemInfo) {
         this.exchangeItemInfo = exchangeItemInfo
         val content = getContent()
-        vm?.setExchangeDetail(content)
+        content?.also { vm?.setExchangeDetail(it) }
     }
 
 //    private fun getContent():  {
