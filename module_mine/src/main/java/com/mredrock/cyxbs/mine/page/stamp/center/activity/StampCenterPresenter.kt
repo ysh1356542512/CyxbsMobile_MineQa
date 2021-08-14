@@ -249,7 +249,8 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
                 CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt],
                 (0..1000).random() * 100,
                 (0..100).random(),
-                "卷卷"
+                "卷卷",
+                "-999"
             )
         }
     }

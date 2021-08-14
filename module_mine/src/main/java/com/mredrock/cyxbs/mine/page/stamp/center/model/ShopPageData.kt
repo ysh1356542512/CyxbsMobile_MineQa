@@ -23,7 +23,7 @@ data class ShopProductOne(
     val price: Int,
     val restCount: Int,
     val name: String,
-    val id:String = "1"
+    val id:String
 )
 
 data class ShopProductTwo(
@@ -35,8 +35,8 @@ data class ShopProductTwo(
     val price2: Int,
     val restCount2: Int,
     val name2: String,
-    val id1: String = "1",
-    val id2: String = "2"
+    val id1: String,
+    val id2: String
 )
 
  data class ItemClickInfo(

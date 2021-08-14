@@ -48,12 +48,12 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
     }
 
     override fun getGainData(func: (GainInfo) -> Unit){
-        apiServiceNew.getGainInfo()
+        apiServiceNew.getGainInfo(1,10)
                 .setSchedulers()
                 .doOnSubscribe {  }
                 .doOnError {  }
                 .safeSubscribeBy {
-                    Log.d("sss", "getGainData: ${it.status}+${it.info}")
+                    Log.d("sss", "getGainData: $it")
                     func(it)
                 }
 //        ApiGenerator.getApiService(ApiServiceNew::class.java)

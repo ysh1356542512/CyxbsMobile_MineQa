@@ -4,9 +4,9 @@ package com.mredrock.cyxbs.mine.page.stamp.network.api
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsBuyRep
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
-import io.reactivex.Observable
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
+import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
@@ -20,20 +20,20 @@ import retrofit2.http.Query
 interface ApiServiceNew {
 
     @GET("magipoke-intergral/User/info")
-    fun getCenterInfo():Observable<CenterInfo>
+    fun getCenterInfo(): Observable<CenterInfo>
 
 
     @GET("magipoke-intergral/User/exchange")
-    fun getExchangeInfo():Observable<ExchangeInfo>
+    fun getExchangeInfo(): Observable<ExchangeInfo>
 
     @GET("magipoke-intergral/User/getRecord")
-    fun getGainInfo():Observable<GainInfo>
+    fun getGainInfo(@Query("page") page: Int, @Query("size") size: Int): Observable<GainInfo>
 
     @GET("magipoke-intergral/Integral/getItemInfo")
-    fun getGoodsInfo(@Query("id")goodsId: String):Observable<GoodsInfo>
+    fun getGoodsInfo(@Query("id") goodsId: String): Observable<GoodsInfo>
 
     @GET("")
-    fun getExchangedDetail(userId: Int,exchangeId:Int):Observable<ExchangeInfo>
+    fun getExchangedDetail(userId: Int, exchangeId: Int): Observable<ExchangeInfo>
 
     fun updateProgress(title: String)
 
@@ -41,6 +41,6 @@ interface ApiServiceNew {
 
 
     @POST("")
-    fun buyGoodsRep(goodsId: Int):Observable<GoodsBuyRep>
+    fun buyGoodsRep(goodsId: Int): Observable<GoodsBuyRep>
 
 }
