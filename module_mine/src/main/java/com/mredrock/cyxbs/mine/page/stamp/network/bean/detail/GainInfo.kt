@@ -23,7 +23,7 @@ data class GainItemInfo(
         @SerializedName("task_income")
         val price: Int,
         @SerializedName("date")
-        val date: String,
+        val date: Long,
         @SerializedName("task_name")
         val name: String
 ):Serializable

@@ -11,6 +11,8 @@ import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeDetailData
 import com.mredrock.cyxbs.mine.page.stamp.detail.presenter.ExchangeDetailPresenter
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.ExchangeDetailViewModel
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
+import java.lang.Exception
+import java.lang.NullPointerException
 
 class ExchangeDetailActivity :
         BaseMVPVMActivity<ExchangeDetailViewModel,
@@ -26,7 +28,11 @@ class ExchangeDetailActivity :
 
     override fun fetch() {
         super.fetch()
-        presenter?.fetch(intent.getSerializableExtra(EXCHANGE_TO_DETAIL_KEY) as ExchangeItemInfo)
+        try{
+            presenter?.fetch(intent.getSerializableExtra(EXCHANGE_TO_DETAIL_KEY) as ExchangeItemInfo)
+        }catch (e:NullPointerException){
+
+        }
     }
 
     override fun initListener() {

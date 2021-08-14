@@ -23,7 +23,7 @@ import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
 
 
 class GoodsActivity :
-        BaseMVPVMActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding, GoodsPresenter>() {
+    BaseMVPVMActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding, GoodsPresenter>() {
     private lateinit var bvpViewPager: BannerViewPager<String>
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
@@ -42,7 +42,7 @@ class GoodsActivity :
 //        val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
         presenter?.let {
-            viewModel.goodsUrls.observe({lifecycle},{ it1 ->
+            viewModel?.goodsUrls?.observe(this) { it1 ->
                 it.initBVP(bvpViewPager, lifecycle, it1) { position, v ->
                     val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
 //                    intent.putExtra(GOODS_PHOTO_LIST_KEY,it1.toTypedArray())
@@ -51,9 +51,9 @@ class GoodsActivity :
                     this@GoodsActivity.startActivityForResult(intent,
                             GoodsConfig.GOODS_SHARE_PHOTO_RESPOND,
                             options)
+
                 }
-            })
-        }
+            }
 //        bvpViewPager.apply {
 //            //设置生命周期 当Activity可视的时候开启自动轮播
 //            setLifecycleRegistry(lifecycle)
@@ -89,6 +89,7 @@ class GoodsActivity :
 //                R.drawable.mine_ic_banner_pic
 //            )
 //        )
+        }
     }
 
 
@@ -115,13 +116,15 @@ class GoodsActivity :
 
                 vm?.goodsInfo?.value?.apply {
                     DoubleCheckDialog.showDialog(supportFragmentManager,
-                            "确定要用${price}邮票兑换${title}吗", "取消", "确认") {
+                        "确定要用${price}邮票兑换${title}吗", "取消", "确认") {
                         val isStampEnough = (0..1).random()
                         if (isStampEnough == 0) {
                             //邮票不足
                             NoneProductDialog.showDialog(supportFragmentManager,
-                                    "诶......邮票不够啊....穷日子真不好过呀QAQ", "确认") {
-                                Toast.makeText(this@GoodsActivity, "要多多赚邮票才能和智蔷哥哥基建哦", Toast.LENGTH_SHORT).show()
+                                "诶......邮票不够啊....穷日子真不好过呀QAQ", "确认") {
+                                Toast.makeText(this@GoodsActivity,
+                                    "要多多赚邮票才能和智蔷哥哥基建哦",
+                                    Toast.LENGTH_SHORT).show()
                             }
                         } else {
                             var isAmountEnough = (0..1).random()
@@ -129,20 +132,26 @@ class GoodsActivity :
                                 isAmountEnough = (0..1).random()
                                 //邮票足库存不足
                                 NoneProductDialog.showDialog(supportFragmentManager,
-                                        "阿欧，手慢了！下次再来吧= =", "确认") {
-                                    Toast.makeText(this@GoodsActivity, "智蔷哥哥今天太累了 下次再来吧", Toast.LENGTH_SHORT).show()
+                                    "阿欧，手慢了！下次再来吧= =", "确认") {
+                                    Toast.makeText(this@GoodsActivity,
+                                        "智蔷哥哥今天太累了 下次再来吧",
+                                        Toast.LENGTH_SHORT).show()
                                 }
                             } else {
                                 //足够 商品为邮物
                                 if (intent.getIntExtra(SHOP_TO_GOODS_USER_ID, -1) == 0) {
                                     NoneProductDialog.showDialog(supportFragmentManager,
-                                            "兑换成功！请在30天内到红岩网校领取哦", "确认") {
-                                        Toast.makeText(this@GoodsActivity, "尤物智蔷giegie购买成功", Toast.LENGTH_SHORT).show()
+                                        "兑换成功！请在30天内到红岩网校领取哦", "确认") {
+                                        Toast.makeText(this@GoodsActivity,
+                                            "尤物智蔷giegie购买成功",
+                                            Toast.LENGTH_SHORT).show()
                                     }
                                 } else {
                                     DoubleCheckDialog.showDialog(supportFragmentManager,
-                                            "兑换成功！现在就换掉原来的名片吧！", "再想想", "好的") {
-                                        Toast.makeText(this@GoodsActivity, "速来网校与智蔷giegie基建", Toast.LENGTH_SHORT).show()
+                                        "兑换成功！现在就换掉原来的名片吧！", "再想想", "好的") {
+                                        Toast.makeText(this@GoodsActivity,
+                                            "速来网校与智蔷giegie基建",
+                                            Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             }
@@ -163,6 +172,7 @@ class GoodsActivity :
 
     }
 
-    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getStringExtra(SHOP_TO_GOODS_USER_ID))
+    override fun createPresenter(): GoodsPresenter =
+        GoodsPresenter(intent.getStringExtra(SHOP_TO_GOODS_USER_ID))
 
 }

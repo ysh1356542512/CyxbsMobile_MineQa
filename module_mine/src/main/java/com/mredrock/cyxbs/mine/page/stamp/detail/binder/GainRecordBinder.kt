@@ -12,16 +12,16 @@ import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainItemInfo
  *@time 2021/8/6  16:13
  *@signature 我们不明前路，却已在路上
  */
-class GainRecordBinder(val data: GainItemInfo) : MultiTypeBinder<MineRecycleItemGainBinding>() {
+class GainRecordBinder(val data1: GainItemInfo) : MultiTypeBinder<MineRecycleItemGainBinding>() {
 
     override fun onBindViewHolder(binding: MineRecycleItemGainBinding) {
         binding.apply {
-            data = data
+            data = data1
         }
     }
 
     override fun layoutId(): Int = R.layout.mine_recycle_item_gain
 
     override fun areContentsTheSame(other: Any): Boolean =
-            other is GainRecordBinder && other.data == data
+            other is GainRecordBinder && other.data1 == data1
 }
