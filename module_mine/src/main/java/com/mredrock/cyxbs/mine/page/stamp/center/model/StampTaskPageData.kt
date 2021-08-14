@@ -15,7 +15,8 @@ data class StampTaskData(
 data class FirstLevelTask(
     var taskName: String,
     var taskDescription: String,
-    var isFinished: Boolean
+    var progress: Int,
+    var max: Int
 )
 
 //更多的任务

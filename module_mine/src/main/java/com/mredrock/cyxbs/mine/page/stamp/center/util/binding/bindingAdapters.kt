@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopFragment
 
 /**
  * @Date : 2021/8/6

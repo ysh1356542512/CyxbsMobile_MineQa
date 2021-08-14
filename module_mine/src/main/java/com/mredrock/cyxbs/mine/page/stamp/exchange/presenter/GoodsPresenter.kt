@@ -8,18 +8,24 @@ import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.utils.extensions.mapOrThrowApiException
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.shop.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
+import com.mredrock.cyxbs.mine.page.stamp.network.api.ApiGeneratorNew
+import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
 
-class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>(), GoodsContract.GoodsPresenter {
-    private var a = 0
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
+
+class GoodsPresenter(private val goodsId: String) : BasePresenter<GoodsViewModel>(), GoodsContract.GoodsPresenter {
+
 
     override fun initBVP(
             bvpViewPager: BannerViewPager<String>,
             lifecycle: Lifecycle,
+            list: List<String>,
             func: (Int, View) -> Unit
     ) {
         val bannerViewPager = BannerAdapter()
@@ -46,14 +52,13 @@ class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>()
                     func(position, v)
                 }
             }).create(
-                    listOf(
-//                            R.drawable.mine_ic_banner_pic,
-//                            R.drawable.mine_ic_banner_pic,
-//                            R.drawable.mine_ic_banner_pic
-                            "https://images.unsplash.com/photo-1628087237766-a2129e1ab8c7?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMwfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-                            "https://images.unsplash.com/photo-1628029799784-50d803e64ea0?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-                            "https://images.unsplash.com/photo-1628254747021-59531f59504b?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE2fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-                    )
+                    list
+//                    listOf(
+////                            R.drawable.mine_ic_banner_pic,
+////                            R.drawable.mine_ic_banner_pic,
+////                            R.drawable.mine_ic_banner_pic
+//
+//                    )
             )
         }
     }
@@ -72,9 +77,7 @@ class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>()
 //                    "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
 //            vm?.setGoodsDate("${goodsInfo.life}天")
 //        }
-        ApiGenerator.getApiService(ApiServiceNew::class.java)
-                .getGoodsInfo(goodsId)
-                .mapOrThrowApiException()
+        apiServiceNew.getGoodsInfo(goodsId)
                 .setSchedulers()
                 .doOnSubscribe {
 
@@ -84,18 +87,51 @@ class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>()
                     vm?.apply {
                         setGoodsValue(it.data)
                         if (it.data.type == 0) {
-                            vm?.setGoodsType("尤物")
-                            vm?.setDescription("1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。",
-                                    "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
-                            vm?.setGoodsDate("永久")
+                            vm?.apply {
+                                setGoodsType("尤物")
+                                setDescription("1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。",
+                                        "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
+                                setGoodsDate("永久")
+                                setGoodsUrls(it.data.urls)
+                            }
+
                         } else {
-                            vm?.setGoodsType("装饰")
-                            vm?.setDescription("1、虚拟商品版权归红岩网校工作站所有。",
-                                    "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
-                            vm?.setGoodsDate("${it.data.life}天")
+                            vm?.apply {
+                                setGoodsType("装饰")
+                                setDescription("1、虚拟商品版权归红岩网校工作站所有。",
+                                        "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
+                                setGoodsDate("${it.data.life}天")
+                                setGoodsUrls(it.data.urls)
+                            }
+
                         }
                     }
                 }
+
+//        ApiGenerator.getApiService(ApiServiceNew::class.java)
+//                .getGoodsInfo(goodsId)
+//                .mapOrThrowApiException()
+//                .setSchedulers()
+//                .doOnSubscribe {
+//
+//                }
+//                .doOnError { }
+//                .safeSubscribeBy {
+//                    vm?.apply {
+//                        setGoodsValue(it.data)
+//                        if (it.data.type == 0) {
+//                            vm?.setGoodsType("尤物")
+//                            vm?.setDescription("1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。",
+//                                    "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
+//                            vm?.setGoodsDate("永久")
+//                        } else {
+//                            vm?.setGoodsType("装饰")
+//                            vm?.setDescription("1、虚拟商品版权归红岩网校工作站所有。",
+//                                    "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
+//                            vm?.setGoodsDate("${it.data.life}天")
+//                        }
+//                    }
+//                }
     }
 
 //    private fun getGoodsInfo(): GoodsInfo {

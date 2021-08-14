@@ -72,4 +72,14 @@ object BindingAdapter {
         Glide.with(imageView).load(url).into(imageView)
     }
 
+    @JvmStatic
+    @BindingAdapter("showOrNot")
+    fun showOrNot(view:View?,showOrNot:Boolean?){
+        if (showOrNot == false){
+            view?.visibility = View.GONE
+        }else{
+            view?.visibility = View.VISIBLE
+        }
+    }
+
 }

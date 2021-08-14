@@ -3,7 +3,7 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.presenter
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeDetailData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.ExchangeDetailViewModel
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
 
 /**
 * @Date : 2021/8/13

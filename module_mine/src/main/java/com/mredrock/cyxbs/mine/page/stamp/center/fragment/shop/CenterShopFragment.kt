@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.center.fragment
+package com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop
 
 import android.content.Intent
 import android.view.View
@@ -13,7 +13,6 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentCenterShopBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.*
-import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopPresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
@@ -67,7 +66,7 @@ class CenterShopFragment :
                 add(GoodsTitleBinder(it.title1).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                 //添加对应内容
                 presenter?.mapDoubleCardToOne(it.decorator.indices, it.decorator)?.filter {
-                    if (it.restCount != -1 && it.restCount2 != -1) {
+                    if (it.restCount != Int.MIN_VALUE && it.restCount2 != Int.MIN_VALUE) {
                         add(GoodsProductTwoBinder(it).apply { /*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                         true
                     } else {

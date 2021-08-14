@@ -10,7 +10,7 @@ import com.mredrock.cyxbs.mine.page.stamp.config.DetailConfig.EXCHANGE_TO_DETAIL
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeDetailData
 import com.mredrock.cyxbs.mine.page.stamp.detail.presenter.ExchangeDetailPresenter
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.ExchangeDetailViewModel
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
 
 class ExchangeDetailActivity :
         BaseMVPVMActivity<ExchangeDetailViewModel,

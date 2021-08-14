@@ -9,7 +9,7 @@
             type="com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment.ClickHandler" />
         <variable
             name="data"
-            type="com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo" />
+            type="com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

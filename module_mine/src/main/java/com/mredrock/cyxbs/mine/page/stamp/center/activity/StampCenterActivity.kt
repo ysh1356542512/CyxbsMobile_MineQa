@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.transition.Slide
 import com.google.android.material.tabs.TabLayoutMediator

@@ -1,14 +1,18 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.presenter
 
+import android.util.Log
 import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.utils.extensions.mapOrThrowApiException
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.GainInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
+import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 
 /**
 * @Date : 2021/8/13
@@ -32,27 +36,38 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
     }
 
     override fun getExchangeData(func:(ExchangeInfo)->Unit){
-        ApiGenerator.getApiService(ApiServiceNew::class.java)
-                .getExchangeInfo(1)
-                .mapOrThrowApiException()
+        apiServiceNew.getExchangeInfo()
                 .setSchedulers()
                 .doOnSubscribe {  }
                 .doOnError {  }
                 .safeSubscribeBy {
+                    Log.d("sss", "getExchangeData: ${it.status}+${it.info}")
                     func(it)
                 }
+//        ApiGenerator.getApiService(ApiServiceNew::class.java)
+//                .getExchangeInfo(1)
+////                .mapOrThrowApiException()
+
     }
 
     override fun getGainData(func: (GainInfo) -> Unit){
-        ApiGenerator.getApiService(ApiServiceNew::class.java)
-                .getGainInfo(1)
-                .mapOrThrowApiException()
+        apiServiceNew.getGainInfo()
                 .setSchedulers()
                 .doOnSubscribe {  }
                 .doOnError {  }
                 .safeSubscribeBy {
+                    Log.d("sss", "getGainData: ${it.status}+${it.info}")
                     func(it)
                 }
+//        ApiGenerator.getApiService(ApiServiceNew::class.java)
+//                .getGainInfo(1)
+////                .mapOrThrowApiException()
+//                .setSchedulers()
+//                .doOnSubscribe {  }
+//                .doOnError {  }
+//                .safeSubscribeBy {
+//                    func(it)
+//                }
     }
         //        //获取兑换记录页数据
 //         exchangeData = getExchangeData()

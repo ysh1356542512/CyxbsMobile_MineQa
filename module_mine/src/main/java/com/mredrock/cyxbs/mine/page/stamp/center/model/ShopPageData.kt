@@ -38,3 +38,9 @@ data class ShopProductTwo(
     val id1: String = "1",
     val id2: String = "2"
 )
+
+ data class ItemClickInfo(
+     val currentProgress:Int,
+     val maxProgress:Int,
+     val name: String
+ )

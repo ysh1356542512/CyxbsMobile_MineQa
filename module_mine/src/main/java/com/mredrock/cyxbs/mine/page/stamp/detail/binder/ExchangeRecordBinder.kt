@@ -6,8 +6,9 @@ import com.mredrock.cyxbs.mine.databinding.MineRecycleItemDetailBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeItemData
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ExchangeItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
 
 /**
  *@author ZhiQiang Tu

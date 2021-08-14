@@ -39,6 +39,12 @@ class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
     val goodsDescription2: LiveData<String>
         get() = _goodsDescription2
 
+    private val _goodsUrls: MutableLiveData<List<String>> = MutableLiveData()
+
+    val goodsUrls :LiveData<List<String>>
+    get() = _goodsUrls
+
+
     override fun setGoodsValue(value: GoodsInfo.Data) {
         _goodsInfo.value = value
     }
@@ -54,6 +60,10 @@ class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
 
     override fun setGoodsDate(value: String) {
         _goodsDate.value = value
+    }
+
+    override fun setGoodsUrls(value: List<String>) {
+        _goodsUrls.value = value
     }
 
 

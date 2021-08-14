@@ -4,7 +4,8 @@ import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineRecycleItemGainBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.GainItemData
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.GainItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainItemInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.GainItemInfo
 
 /**
  *@author ZhiQiang Tu

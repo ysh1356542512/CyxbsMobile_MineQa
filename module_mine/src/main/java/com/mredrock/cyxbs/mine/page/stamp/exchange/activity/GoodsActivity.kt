@@ -40,13 +40,15 @@ class GoodsActivity :
 //        val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
         presenter?.let {
-            it.initBVP(bvpViewPager, lifecycle) { position, v ->
-                val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
-                intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, position)
-                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v, GOODS_SHARE_PHOTO_VALUE).toBundle()
-                this@GoodsActivity.startActivityForResult(intent,
-                        ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
-                        options)
+            viewModel?.goodsUrls?.value?.let { it1 ->
+                it.initBVP(bvpViewPager, lifecycle, it1) { position, v ->
+                    val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
+                    intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, position)
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v, GOODS_SHARE_PHOTO_VALUE).toBundle()
+                    this@GoodsActivity.startActivityForResult(intent,
+                            ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
+                            options)
+                }   
             }
         }
 //        bvpViewPager.apply {
@@ -158,6 +160,6 @@ class GoodsActivity :
 
     }
 
-    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getIntExtra(SHOP_TO_GOODS_USER_ID, -1))
+    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getStringExtra(SHOP_TO_GOODS_USER_ID))
 
 }

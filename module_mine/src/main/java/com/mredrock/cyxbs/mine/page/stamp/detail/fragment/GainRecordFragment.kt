@@ -14,7 +14,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMul
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.GainRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.GainListData
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.GainInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 
 class GainRecordFragment :
         BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentGainRecordBinding>() {
