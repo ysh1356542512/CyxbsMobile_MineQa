@@ -21,6 +21,7 @@ import com.mredrock.cyxbs.common.config.MINE_ENTRY
 import com.mredrock.cyxbs.common.config.QA_DYNAMIC_MINE
 import com.mredrock.cyxbs.common.config.QA_MY_COMMENT
 import com.mredrock.cyxbs.common.config.QA_MY_PRAISE
+import com.mredrock.cyxbs.common.event.RefreshQaEvent
 import com.mredrock.cyxbs.common.service.ServiceManager
 import com.mredrock.cyxbs.common.ui.BaseViewModelFragment
 import com.mredrock.cyxbs.common.utils.extensions.doIfLogin
@@ -34,6 +35,7 @@ import com.mredrock.cyxbs.mine.page.setting.SettingActivity
 import com.mredrock.cyxbs.mine.page.sign.DailySignActivity
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterActivity
 import kotlinx.android.synthetic.main.mine_fragment_main.*
+import org.greenrobot.eventbus.EventBus
 
 /**
  * Created by zzzia on 2018/8/14.

@@ -1,20 +1,14 @@
 package com.mredrock.cyxbs.mine.page.stamp.exchange.presenter
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Lifecycle
-import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.presenter.BasePresenter
-import com.mredrock.cyxbs.common.utils.extensions.mapOrThrowApiException
-import com.mredrock.cyxbs.mine.R
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.ApiServiceNew
 import com.mredrock.cyxbs.mine.network.bean.GoodsInfo
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.shop.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.BannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
-import com.mredrock.cyxbs.mine.util.extension.log
 
 class GoodsPresenter(private val goodsId: Int) : BasePresenter<GoodsViewModel>(), GoodsContract.GoodsPresenter {
     private var a = 0

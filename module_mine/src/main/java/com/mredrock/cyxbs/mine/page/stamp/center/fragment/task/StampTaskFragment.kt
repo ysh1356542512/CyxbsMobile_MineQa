@@ -1,18 +1,34 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.task
 
+import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alibaba.android.arouter.facade.Postcard
+import com.alibaba.android.arouter.facade.callback.NavigationCallback
+import com.alibaba.android.arouter.launcher.ARouter
+import com.mredrock.cyxbs.common.config.MINE_CHECK_IN
+import com.mredrock.cyxbs.common.config.QA_ENTRY
+import com.mredrock.cyxbs.common.event.RefreshQaEvent
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
+import com.mredrock.cyxbs.main.MAIN_MAIN
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentStampTaskBinding
+import com.mredrock.cyxbs.mine.page.edit.EditInfoActivity
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.MultiTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.OneTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.TitleBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.toast
+import com.mredrock.cyxbs.mine.page.stamp.center.model.FirstLevelTask
+import com.mredrock.cyxbs.mine.page.stamp.center.model.MoreTask
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
+import org.greenrobot.eventbus.EventBus
+import java.lang.ClassCastException
+import kotlin.math.max
 
 class StampTaskFragment :
     BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
@@ -89,6 +105,58 @@ class StampTaskFragment :
 
     //跳转到任务界面。
     fun onClicked(view: View, any: Any?) {
-        toast(view,"别点我")
+        var data1:MoreTask? = null
+        var data2:FirstLevelTask? = null
+        var currentProgress:Int = 0
+        var str:String = ""
+        var maxProgress = 0
+        try {
+            data1 = any as MoreTask
+            maxProgress = data1.max
+            currentProgress = data1.progress
+            str = data1.taskName
+        }catch (e:ClassCastException){
+            data2 = any as FirstLevelTask
+            maxProgress = data2.max
+            currentProgress = data2.progress
+            str = data2.taskName
+        }
+        toast(view,str)
+        if (maxProgress!=0 && maxProgress!=currentProgress){
+            when(str){
+                "逛逛邮问"->{
+                    activity?.finish()
+                    val fragment = ARouter.getInstance().build(QA_ENTRY).navigation()
+                    Log.e(TAG, "$fragment" )
+                    activity?.also{startActivity(Intent(it,EditInfoActivity::class.java))}
+                }
+                "每日打卡3"->{
+                    ARouter.getInstance().build(MINE_CHECK_IN).navigation()
+                }
+                "拍案叫绝"->{
+
+                }
+                "完善个人信息"->{
+                    activity?.also{startActivity(Intent(it,EditInfoActivity::class.java))}
+                }
+                "绑定志愿者账号"->{
+
+                }
+            }
+            /*if (str.contains("每日签到")){
+            }
+            else if (str.contains("逛逛邮问")){
+
+            }
+            else if (str.contains("拍案叫绝")){
+
+            }
+            else if (str.contains("完善个人信息")){
+
+            }
+            else if (str.contains("绑定志愿者账号")){
+
+            }  */
+        }
     }
 }
