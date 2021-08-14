@@ -23,14 +23,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="#F2F3F8">
+            android:background="@color/mine_activity_stamp_background_color">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_back_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#F2F3F8"
-                android:backgroundTint="#F2F3F8"
+                android:background="@color/common_transparent_background"
+                android:backgroundTint="@color/common_transparent_background"
                 android:contentDescription="@string/mine_exchange_back_arrow_content_description"
                 android:onClick="@{(v)->eventHandler.backArrowClick(v)}"
                 app:borderWidth="0dp"
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mine_stamp_detail_title"
-                android:textColor="#15315B"
+                android:textColor="@color/mine_detail_toolbar_title_tv"
                 android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/fab_back_arrow"
@@ -75,8 +75,8 @@
             app:layout_constraintTop_toBottomOf="@+id/include_tool_bar"
             app:tabIndicator="@null"
             app:tabRippleColor="#00000000"
-            app:tabSelectedTextColor="#5F75E4"
-            app:tabTextColor="#15315B">
+            app:tabSelectedTextColor="@color/mine_detail_tab_selected"
+            app:tabTextColor="@color/mine_detail_tab_unselected">
 
             <!--<com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"

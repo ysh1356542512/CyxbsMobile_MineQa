@@ -1,14 +1,17 @@
 package com.mredrock.cyxbs.mine.page.stamp.config
 
-object ExchangeConfig {
+object GoodsConfig {
 
     //商品页面
     const val GOODS_SHARE_PHOTO_KEY = "sharePhotoKey"
     const val GOODS_SHARE_PHOTO_VALUE = "sharePhoto"
     const val GOODS_SHARE_PHOTO_RESPOND = 1
 
+//    const val SHOP_TO_GOODS_EXTRA = 0
+
     const val GOODS_PHOTO_ITEM_KEY = "photoItemKey"
     const val GOODS_PHOTO_ITEM_RESPOND = 2
+    const val GOODS_PHOTO_LIST_KEY = "photoListKey"
 
     const val SHOP_SHARE_PHOTO_VALUE = "shareShopPhoto"
 }

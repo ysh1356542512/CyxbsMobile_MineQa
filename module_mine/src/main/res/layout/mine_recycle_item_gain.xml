@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:textColor="#15315B"
+            android:textColor="@color/mine_detail_gain_item_title"
             android:textSize="16sp"
             android:text="@{data.name}"
             app:layout_constraintBottom_toTopOf="@id/tv_date"
@@ -39,7 +39,7 @@
             android:layout_marginBottom="4dp"
             android:alpha="0.4"
             android:text="@{ConvertTools.INSTANCE.convertLongToDate(data.date,`yyyy.MM.dd`)}"
-            android:textColor="#15315B"
+            android:textColor="@color/mine_detail_gain_item_date"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#EFF3FA"
+            android:background="@color/mine_detail_exchange_item_line"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

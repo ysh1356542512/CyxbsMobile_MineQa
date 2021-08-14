@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    邮票明细界面的通用颜色-->
-    <color name="mine_activity_stamp_background_color">#F2F3F8</color>
-    <color name="mine_activity_stamp_decoration_color">#DEE3EC</color>
 
     <!--    兑换详细界面的通用颜色-->
     <color name="mine_activity_exchange_background_color">#FBFCFF</color>
     <color name="mine_activity_exchange_text_color">#15315B</color>
     <color name="mine_activity_exchange_banner_text_color">#FFFFFF</color>
     <color name="mine_activity_exchange_banner_background_color_light">#5956F1</color>
-    <color name="mine_task_recycle_item_task_name_color">#15315B</color>
+
     <color name="mine_task_recycle_item_multi_progress_color">#7D8AFF</color>
-    <color name="mine_task_recycle_item_description_color">#A1ADBD</color>
+
     <color name="mine_exchange_detail_banner_dark">#979797</color>
+
+
+    <!--    主页面颜色-->
+
+    <!--    主页面任务tab颜色-->
+    <color name="mine_center_tab">#15315B</color>
+    <!--    主界面顶部邮票中心颜色-->
+    <color name="mine_center_toolbar_title">#15315B</color>
+
 
     <!--    邮票小店界面的颜色-->
 
@@ -22,6 +28,85 @@
     <color name="mine_shop_tv">#15315B</color>
     <!--    邮物装饰颜色-->
     <color name="mine_shop_title_tv">#15315B</color>
+    <!--    每个Item的背景颜色-->
+    <color name="mine_shop_item_bg">#00000000</color>
+    <!--    每个Item的库存颜色-->
+    <color name="mine_shop_item_amount">#15315B</color>
+    <!--    每个Item的标题颜色-->
+    <color name="mine_shop_item_title">#15315B</color>
 
+
+    <!--    邮票任务界面颜色-->
+
+    <!--    任务题目颜色-->
+    <color name="mine_task_recycle_item_task_name_color">#15315B</color>
+    <!--    任务奖励颜色-->
+    <color name="mine_task_recycle_item_description_color">#15315B</color>
+
+
+    <!--    商品详情界面颜色-->
+
+    <!--    顶部详情标题颜色-->
+    <color name="mine_goods_toolbar_title_tv">#15315B</color>
+    <!--    商品标题颜色-->
+    <color name="mine_goods_title">#15315B</color>
+    <!--    商品库存颜色-->
+    <color name="mine_goods_amount">#15315B</color>
+    <!--    商品描述颜色-->
+    <color name="mine_goods_description">#15315B</color>
+    <!--    商品权益说明颜色-->
+    <color name="mine_goods_text">#15315B</color>
+    <!--    商品权益内容颜色-->
+    <color name="mine_goods_text_detail">#15315B</color>
+    <!--    商品详情下部的线-->
+    <color name="mine_goods_line_up">#66DBE5F3</color>
+    <color name="mine_goods_line_down">#66DBE5F3</color>
+    <color name="mine_goods_line_middle">#DBE5F3</color>
+
+
+    <!--    弹窗-->
+    <!--    弹窗背景颜色-->
+    <color name="mine_goods_dialog_bg">#FFFFFF</color>
+    <!--    弹窗字体颜色-->
+    <color name="mine_goods_dialog_tv">#15315B</color>
+    <!--    弹窗取消背景-->
+    <color name="mine_goods_dialog_cancel_bg">#C3D4EE</color>
+    <!--    弹窗取消字体颜色-->
+    <color name="mine_goods_dialog_cancel_tv">#FFF</color>
+
+
+
+    <!--    邮票明细界面的通用颜色-->
+    <color name="mine_activity_stamp_background_color">#F2F3F8</color>
+    <color name="mine_activity_stamp_decoration_color">#DEE3EC</color>
+    <!--    顶部详情标题颜色-->
+    <color name="mine_detail_toolbar_title_tv">#15315B</color>
+    <!--    tab选中时颜色-->
+    <color name="mine_detail_tab_selected">#5F75E4</color>
+    <!--    tab未选中的颜色-->
+    <color name="mine_detail_tab_unselected">#15315B</color>
+    <!--    商品兑换记录背景颜色-->
+    <color name="mine_detail_exchange_bg">#FFFFFF</color>
+    <!--    商品兑换记录标题颜色-->
+    <color name="mine_detail_exchange_item_title">#15315B</color>
+    <!--    商品兑换记录日期颜色-->
+    <color name="mine_detail_exchange_item_date">#15315B</color>
+    <!--    商品兑换记录箭头颜色-->
+    <color name="mine_detail_exchange_item_arrow">#15315B</color>
+    <!--    商品兑换记录是否领取颜色-->
+    <color name="mine_detail_exchange_is_collect">#E8F0FC</color>
+    <!--    下划线-->
+    <color name="mine_detail_exchange_item_line">#EFF3FA</color>
+    <!--    商品明细记录背景颜色-->
+    <color name="mine_detail_gain_bg">#FFFFFF</color>
+    <!--    商品兑换记录标题颜色-->
+    <color name="mine_detail_gain_item_title">#15315B</color>
+    <!--    商品兑换记录日期颜色-->
+    <color name="mine_detail_gain_item_date">#15315B</color>
+
+
+    <!--    兑换详情颜色-->
+    <color name="mine_detail_detail_detail">#15315B</color>
+    <color name="mine_task_progress_bg">#E5E5E5</color>
 
 </resources>

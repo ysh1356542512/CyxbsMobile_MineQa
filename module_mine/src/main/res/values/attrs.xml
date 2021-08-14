@@ -18,4 +18,8 @@
         <attr name="shadowColor" format="color" />
         <attr name="shadowRadius" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="ProgressBar" tools:ignore="ResourceName">
+        <attr name="progressBackGround" format="color"/>
+    </declare-styleable>
 </resources>

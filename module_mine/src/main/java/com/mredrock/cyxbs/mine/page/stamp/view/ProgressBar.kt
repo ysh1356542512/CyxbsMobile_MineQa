@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.mine.page.stamp.view
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import com.mredrock.cyxbs.mine.R
 
 /**
  * @Date : 2021/8/9
@@ -13,8 +15,12 @@ import android.view.View
  * @Usage : 自定义ProgressBar 第一个自己画的的自定义View 看了一天教程没有白费hhh
  * @Request : God bless my code
  */
-class ProgressBar(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
-    private var currentProgress = 0f
+class ProgressBar(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+
+    private var typeArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.ProgressBar)
+
+
+    private  var currentProgress = 0f
     private var maxProgress = 0f
 
     /*
@@ -36,7 +42,9 @@ class ProgressBar(context: Context?, attrs: AttributeSet?) : View(context, attrs
         val mPaint2 = Paint()
         mPaint1.color = Color.parseColor("#7D8AFF")
         mPaint1.style = Paint.Style.FILL
-        mPaint2.color = Color.parseColor("#E5E5E5")
+        mPaint2.color = typeArray.getColor(
+                R.styleable.ProgressBar_progressBackGround,
+        0)
         mPaint2.style = Paint.Style.FILL
         canvas?.apply {
             //最左侧半圆 虽然是个圆但后面会被覆盖

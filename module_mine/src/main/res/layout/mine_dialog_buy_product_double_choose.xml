@@ -20,7 +20,7 @@
             android:layout_marginTop="34dp"
             android:layout_marginEnd="18dp"
             android:gravity="center"
-            android:textColor="#15315B"
+            android:textColor="@color/mine_goods_dialog_tv"
             android:textSize="14sp"
             tools:text="确认要用100邮票兑换PM名片吗确认要用100邮票"
             tools:textSize="14sp" />
@@ -37,7 +37,7 @@
                 android:layout_height="34dp"
                 android:layout_marginStart="26dp"
                 android:background="@drawable/mine_shape_dialog_negative_button_bg_dark"
-                android:textColor="#FFF"
+                android:textColor="@color/mine_goods_dialog_cancel_tv"
                 tools:text="取消" />
 
             <androidx.appcompat.widget.AppCompatButton
