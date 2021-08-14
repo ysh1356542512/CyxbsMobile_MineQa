@@ -45,7 +45,7 @@ class GoodsActivity :
             viewModel?.goodsUrls?.observe(this) { it1 ->
                 it.initBVP(bvpViewPager, lifecycle, it1) { position, v ->
                     val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
-//                    intent.putExtra(GOODS_PHOTO_LIST_KEY,it1.toTypedArray())
+                    intent.putExtra(GOODS_PHOTO_LIST_KEY,it1.toTypedArray())
                     intent.putExtra(GOODS_PHOTO_ITEM_KEY, position)
                     val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v, GOODS_SHARE_PHOTO_VALUE).toBundle()
                     this@GoodsActivity.startActivityForResult(intent,
