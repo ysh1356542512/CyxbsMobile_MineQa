@@ -14,4 +14,14 @@
     <color name="mine_task_recycle_item_description_color">#A1ADBD</color>
     <color name="mine_exchange_detail_banner_dark">#979797</color>
 
+    <!--    邮票小店界面的颜色-->
+
+    <!--    vp背景颜色-->
+    <color name="mine_fragment_shop_vp_bg">#FBFCFF</color>
+    <!--    请在个人资料里查看-->
+    <color name="mine_shop_tv">#15315B</color>
+    <!--    邮物装饰颜色-->
+    <color name="mine_shop_title_tv">#15315B</color>
+
+
 </resources>
