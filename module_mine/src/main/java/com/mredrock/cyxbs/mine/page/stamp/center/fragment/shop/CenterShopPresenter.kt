@@ -42,8 +42,8 @@ class CenterShopPresenter : BasePresenter<StampCenterViewModel>() {
                             decorator[maxValue].restCount,
                             decorator[maxValue].name,
                             "",
-                            -1,
-                            -1,
+                            Int.MIN_VALUE,
+                            Int.MIN_VALUE,
                             ""
                     )
             )

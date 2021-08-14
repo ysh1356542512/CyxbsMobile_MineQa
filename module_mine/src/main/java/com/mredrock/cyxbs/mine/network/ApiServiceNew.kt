@@ -12,6 +12,7 @@ import retrofit2.http.POST
  * @Usage :
  * @Request : God bless my code
  */
+/*
 interface ApiServiceNew {
 
     //获得主页面内容
@@ -47,4 +48,4 @@ interface ApiServiceNew {
 
     @POST
     fun getStampRemain(userId: Int): Observable<RedrockApiWrapper<StampRemain>>
-}
+}*/

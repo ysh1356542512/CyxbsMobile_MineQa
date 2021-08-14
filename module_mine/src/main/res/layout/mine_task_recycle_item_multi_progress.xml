@@ -8,6 +8,7 @@
         <variable
             name="data"
             type="com.mredrock.cyxbs.mine.page.stamp.center.model.MoreTask" />
+
         <variable
             name="handler"
             type="com.mredrock.cyxbs.mine.page.stamp.center.binder.MultiTaskBinder" />
@@ -48,13 +49,13 @@
 
         <com.mredrock.cyxbs.mine.page.stamp.view.ProgressBar
             android:id="@+id/mine_space"
-
             android:layout_width="150dp"
             android:layout_height="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="9dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_task_content" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_task_content"
+            app:showOrNot="@{!(data.max == 1)}"  />
         <!--        style="@style/Widget.AppCompat.ProgressBar.Horizontal"-->
         <!--        android:progressDrawable="@drawable/mine_task_round_progress_bar_layer"-->
         <!--        android:max="5"-->
@@ -64,12 +65,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="@{@string/mine_recycle_item_progress_text(data.progress)}"
+            android:text="@{@string/mine_recycle_item_progress_text(data.progress,data.max)}"
             android:textColor="@color/mine_task_recycle_item_multi_progress_color"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/mine_space"
             app:layout_constraintStart_toEndOf="@+id/mine_space"
             app:layout_constraintTop_toTopOf="@+id/mine_space"
+            app:showOrNot="@{!(data.max == 1)}"
             tools:text="@string/mine_recycle_item_progress_text" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -79,9 +81,9 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
+            android:onClick="@{(view)->handler.onClick(view,data)}"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:onClick="@{(view)->handler.onClick(view,data)}"
             android:stateListAnimator="@animator/mine_scale_state_list_animator"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
