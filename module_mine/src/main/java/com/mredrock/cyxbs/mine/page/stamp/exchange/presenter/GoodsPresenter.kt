@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 
 //import com.mredrock.cyxbs.mine.page.stamp.network.api.ApiServiceNew
 
-class GoodsPresenter(private val goodsId: String) : BasePresenter<GoodsViewModel>(), GoodsContract.GoodsPresenter {
+class GoodsPresenter(private val goodsId: String,private val money: Int) : BasePresenter<GoodsViewModel>(), GoodsContract.GoodsPresenter {
 
 
     override fun initBVP(
@@ -93,6 +93,7 @@ class GoodsPresenter(private val goodsId: String) : BasePresenter<GoodsViewModel
 
                         } else {
                             vm?.apply {
+                                setUserAccount(money)
                                 setGoodsType("装饰")
                                 setDescription("1、虚拟商品版权归红岩网校工作站所有。",
                                         "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")

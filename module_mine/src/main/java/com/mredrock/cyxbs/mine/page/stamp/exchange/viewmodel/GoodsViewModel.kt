@@ -44,6 +44,12 @@ class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
     val goodsUrls :LiveData<List<String>>
     get() = _goodsUrls
 
+    private val _userAccount:MutableLiveData<Int> = MutableLiveData()
+    val userAccount = _userAccount
+    fun setUserAccount(value:Int){
+        _userAccount.postValue(value)
+    }
+
 
     override fun setGoodsValue(value: GoodsInfo.Data) {
         _goodsInfo.value = value

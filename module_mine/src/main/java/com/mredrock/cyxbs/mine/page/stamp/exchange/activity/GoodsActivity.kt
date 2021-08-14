@@ -9,7 +9,8 @@ import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
-import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_USER_ID
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopCardJumpData
+import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_EXTRA
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
@@ -18,6 +19,7 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsPresenter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
+import java.lang.NullPointerException
 
 
 class GoodsActivity :
@@ -138,7 +140,7 @@ class GoodsActivity :
                                 }
                             } else {
                                 //足够 商品为邮物
-                                if (intent.getIntExtra(SHOP_TO_GOODS_USER_ID, -1) == 0) {
+                                if (intent.getIntExtra(SHOP_TO_GOODS_EXTRA, -1) == 0) {
                                     NoneProductDialog.showDialog(supportFragmentManager,
                                         "兑换成功！请在30天内到红岩网校领取哦", "确认") {
                                         Toast.makeText(this@GoodsActivity,
@@ -171,7 +173,14 @@ class GoodsActivity :
 
     }
 
-    override fun createPresenter(): GoodsPresenter =
-        GoodsPresenter(intent.getStringExtra(SHOP_TO_GOODS_USER_ID))
+    override fun createPresenter(): GoodsPresenter {
+        val shop:ShopCardJumpData
+        try {
+            shop = intent.getSerializableExtra(SHOP_TO_GOODS_EXTRA) as ShopCardJumpData
+            return GoodsPresenter(shop.id,shop.money)
+        }catch (e:NullPointerException){
+            return GoodsPresenter("Null",Int.MIN_VALUE)
+        }
+    }
 
 }

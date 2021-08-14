@@ -33,10 +33,15 @@ class StampCenterViewModel() : BaseViewModel(), StampCenterContract.CenterVM {
 
     //我们要得到的bean类
     private val _userAccount = MutableLiveData<Int>()
-
+    val userAccount = _userAccount
     //获得用户余额
-    fun getUserAmount() {
-
+    fun setUserAccount(value:Int) {
+        _userAccount.value = value
     }
 
+    private val _hasGoodsToGet:MutableLiveData<Boolean> = MutableLiveData()
+    val hasGoodsToGet = _hasGoodsToGet
+    fun setHasGoodsToGet(value:Boolean){
+        _hasGoodsToGet.value = value
+    }
 }

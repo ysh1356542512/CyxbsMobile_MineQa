@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.presenter.BasePresenter
-import com.mredrock.cyxbs.common.utils.extensions.mapOrThrowApiException
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 import com.mredrock.cyxbs.mine.R
@@ -16,6 +15,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.model.*
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
+import com.mredrock.cyxbs.mine.page.stamp.ext.addFirstOrLast
 import com.mredrock.cyxbs.mine.page.stamp.ext.putDate
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
@@ -114,6 +114,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
             .safeSubscribeBy(
                 onError = {
                     Log.e(TAG, "fetch: erro $it")
+                    vm?.setUserAccount(0)
                     val taskData = getTaskPageData()
                     val shopData = getShopPageData()
                     vm?.setTasksValue(taskData)
@@ -122,6 +123,8 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
                 onComplete = {},
                 onNext = {
                     Log.e(TAG, "fetch: success $it")
+                    vm?.setUserAccount(it.data.userAmount)
+                    vm?.setHasGoodsToGet(it.data.unGotGood)
                     val shopPageData = convertToShopData(it)
                     vm?.setShopPageDataValue(shopPageData)
                     val taskData = convertToTaskData(it)
@@ -141,21 +144,21 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
         val moreTasks: MutableList<MoreTask> = mutableListOf()
         for (task in centerInfo.data.task) {
             if (task.type == "base") {
-                baseTasks.add(FirstLevelTask(
+                baseTasks.addFirstOrLast(task.currentProgress < task.maxProgress,
+                    FirstLevelTask(
                     task.title,
                     task.description,
                     task.currentProgress,
                     task.maxProgress
                 ))
             } else {
-                moreTasks.add(
+                moreTasks.addFirstOrLast(task.currentProgress < task.maxProgress,
                     MoreTask(
-                        task.title,
-                        task.description,
-                        task.currentProgress,
-                        task.maxProgress
-                    )
-                )
+                    task.title,
+                    task.description,
+                    task.currentProgress,
+                    task.maxProgress
+                ))
             }
         }
         return StampTaskData(baseTasks, getTitle(), moreTasks)

@@ -7,9 +7,11 @@ import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 //import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 //import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
+import com.mredrock.cyxbs.mine.page.stamp.ext.addFirstOrLast
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
 
 /**
 * @Date : 2021/8/13
@@ -39,7 +41,12 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
                 .doOnError {  }
                 .safeSubscribeBy {
                     Log.d("sss", "getExchangeData: ${it.status}+${it.info}")
-                    func(it)
+                    val list:MutableList<ExchangeItemInfo> = mutableListOf()
+                    it.data.forEach { it2->
+                        list.addFirstOrLast(!it2.getOrNot,it2)
+                    }
+                    val new = ExchangeInfo(list ,it.info,it.status)
+                    func(new)
                 }
 //        ApiGenerator.getApiService(ApiServiceNew::class.java)
 //                .getExchangeInfo(1)

@@ -8,7 +8,7 @@ package com.mredrock.cyxbs.mine.page.stamp.config
  */
 object CenterConfig {
 
-    const val SHOP_TO_GOODS_USER_ID = "shop_to_goods_info"
+    const val SHOP_TO_GOODS_EXTRA = "shop_to_goods_info"
 
     //进行测试的图片地址
     val TEST_UNSPLASH_PIC_URL: Array<String> = arrayOf(

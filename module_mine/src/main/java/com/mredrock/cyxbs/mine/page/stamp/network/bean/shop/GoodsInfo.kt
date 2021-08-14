@@ -31,8 +31,6 @@ data class GoodsInfo(
             val title: String,
             @SerializedName("type")
             val type: Int,
-            @SerializedName("user_account")
-            val userAccount: Int,
             @SerializedName("urls")
             val urls: List<String>
     ):Serializable

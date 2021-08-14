@@ -103,3 +103,12 @@ fun MultiTypeAdapter.setSpanCount(layoutManager: GridLayoutManager) {
 
     }
 }
+
+
+fun <E> MutableList<E>.addFirstOrLast(boolean: Boolean, e: E) {
+    if (boolean) {
+        add(0, e)
+    } else {
+        add(e)
+    }
+}
