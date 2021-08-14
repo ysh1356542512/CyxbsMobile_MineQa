@@ -293,7 +293,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="0.4"
-            android:text="@{String.valueOf(vm.userAccount)}"
+            android:text="@{`余额: ` + String.valueOf(vm.userAccount)}"
             android:textColor="#15315B"
             android:textSize="11sp"
             app:layout_constraintBottom_toTopOf="@+id/mine_guideline10"
