@@ -7,9 +7,7 @@ import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  * @Date : 2021/8/13   13:11
@@ -35,12 +33,16 @@ interface ApiServiceNew {
     @GET("")
     fun getExchangedDetail(userId: Int, exchangeId: Int): Observable<ExchangeInfo>
 
+
+    @POST
     fun updateProgress(title: String)
 
-    fun postOrderInfo(userId: Int, goodsId: Int)
+    @FormUrlEncoded
+    @POST("magipoke-intergral/Integral/order")
+    fun postOrderInfo()
 
-
-    @POST("")
-    fun buyGoodsRep(goodsId: Int): Observable<GoodsBuyRep>
+    @FormUrlEncoded
+    @POST("magipoke-intergral/Integral/purchase")
+    fun buyGoodsRep(@Field("id")userId: String): Observable<GoodsBuyRep>
 
 }

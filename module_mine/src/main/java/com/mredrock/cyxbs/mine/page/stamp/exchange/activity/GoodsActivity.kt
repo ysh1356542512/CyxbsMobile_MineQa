@@ -6,7 +6,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
+import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
+import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopCardJumpData
@@ -20,6 +22,7 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.dialog.NoneProductDialog
 import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsPresenter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
+import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
 import java.lang.NullPointerException
 
@@ -27,6 +30,7 @@ import java.lang.NullPointerException
 class GoodsActivity :
     BaseMVPVMActivity<GoodsViewModel, MineActivityStampGoodsDetailRealBinding, GoodsPresenter>() {
     private lateinit var bvpViewPager: BannerViewPager<String>
+    private var mId = ""
 
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_goods_detail_real
 
@@ -119,45 +123,63 @@ class GoodsActivity :
                 vm?.goodsInfo?.value?.apply {
                     DoubleCheckDialog.showDialog(supportFragmentManager,
                         "确定要用${price}邮票兑换${title}吗", "取消", "确认") {
-                        val isStampEnough = (0..1).random()
-                        if (isStampEnough == 0) {
-                            //邮票不足
-                            NoneProductDialog.showDialog(supportFragmentManager,
-                                "诶......邮票不够啊....穷日子真不好过呀QAQ", "确认") {
-                                Toast.makeText(this@GoodsActivity,
-                                    "要多多赚邮票才能和智蔷哥哥基建哦",
-                                    Toast.LENGTH_SHORT).show()
-                            }
-                        } else {
-                            var isAmountEnough = (0..1).random()
-                            if (isAmountEnough == 0) {
-                                isAmountEnough = (0..1).random()
-                                //邮票足库存不足
+//                        val isStampEnough = (0..1).random()
+                        vm?.userAccount?.value?.let {that->
+                            if (that<price) {
+                                //邮票不足
                                 NoneProductDialog.showDialog(supportFragmentManager,
-                                    "阿欧，手慢了！下次再来吧= =", "确认") {
+                                        "诶......邮票不够啊....穷日子真不好过呀QAQ", "确认") {
                                     Toast.makeText(this@GoodsActivity,
-                                        "智蔷哥哥今天太累了 下次再来吧",
-                                        Toast.LENGTH_SHORT).show()
+                                            "要多多赚邮票才能和智蔷哥哥基建哦",
+                                            Toast.LENGTH_SHORT).show()
                                 }
                             } else {
-                                //足够 商品为邮物
-                                if (intent.getIntExtra(SHOP_TO_GOODS_EXTRA, -1) == 0) {
-                                    NoneProductDialog.showDialog(supportFragmentManager,
-                                        "兑换成功！请在30天内到红岩网校领取哦", "确认") {
-                                        Toast.makeText(this@GoodsActivity,
-                                            "尤物智蔷giegie购买成功",
-                                            Toast.LENGTH_SHORT).show()
-                                    }
-                                } else {
-                                    DoubleCheckDialog.showDialog(supportFragmentManager,
-                                        "兑换成功！现在就换掉原来的名片吧！", "再想想", "好的") {
-                                        Toast.makeText(this@GoodsActivity,
-                                            "速来网校与智蔷giegie基建",
-                                            Toast.LENGTH_SHORT).show()
-                                    }
-                                }
+                                apiServiceNew.buyGoodsRep(mId)
+                                        .setSchedulers()
+                                        .doOnSubscribe { }
+                                        .doOnError { }
+                                        .safeSubscribeBy {
+                                            if (it.status == 400 && it.info == "Integral not enough") {
+                                                //邮票足库存不足
+                                                NoneProductDialog.showDialog(supportFragmentManager,
+                                                        "阿欧，手慢了！下次再来吧= =", "确认") {
+                                                    Toast.makeText(this@GoodsActivity,
+                                                            "智蔷哥哥今天太累了 下次再来吧",
+                                                            Toast.LENGTH_SHORT).show()
+                                                }
+                                            } else {
+                                                //足够 商品为邮物
+                                                if (intent.getIntExtra(SHOP_TO_GOODS_EXTRA, -1) == 0) {
+                                                    NoneProductDialog.showDialog(supportFragmentManager,
+                                                            "兑换成功！请在30天内到红岩网校领取哦", "确认") {
+                                                        Toast.makeText(this@GoodsActivity,
+                                                                "尤物智蔷giegie购买成功",
+                                                                Toast.LENGTH_SHORT).show()
+                                                    }
+                                                } else {
+                                                    DoubleCheckDialog.showDialog(supportFragmentManager,
+                                                            "兑换成功！现在就换掉原来的名片吧！", "再想想", "好的") {
+                                                        Toast.makeText(this@GoodsActivity,
+                                                                "速来网校与智蔷giegie基建",
+                                                                Toast.LENGTH_SHORT).show()
+                                                    }
+                                                }
+                                            }
+                                        }
+//                                var isAmountEnough = (0..1).random()
+//                                if (isAmountEnough == 0) {
+//                                    isAmountEnough = (0..1).random()
+//                                    //邮票足库存不足
+//                                    NoneProductDialog.showDialog(supportFragmentManager,
+//                                            "阿欧，手慢了！下次再来吧= =", "确认") {
+//                                        Toast.makeText(this@GoodsActivity,
+//                                                "智蔷哥哥今天太累了 下次再来吧",
+//                                                Toast.LENGTH_SHORT).show()
+//                                    }
+
                             }
                         }
+
                     }
                 }
 
@@ -176,11 +198,12 @@ class GoodsActivity :
 
     override fun createPresenter(): GoodsPresenter {
         val shop:ShopCardJumpData
-        try {
+        return try {
             shop = intent.getSerializableExtra(SHOP_TO_GOODS_EXTRA) as ShopCardJumpData
-            return GoodsPresenter(shop.id,shop.money)
+            mId = shop.id
+            GoodsPresenter(shop.id,shop.money)
         }catch (e:NullPointerException){
-            return GoodsPresenter("Null",Int.MIN_VALUE)
+            GoodsPresenter("Null",Int.MIN_VALUE)
         }
     }
 
