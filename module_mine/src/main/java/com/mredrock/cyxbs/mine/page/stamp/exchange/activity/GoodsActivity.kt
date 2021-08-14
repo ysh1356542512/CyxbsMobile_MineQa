@@ -40,7 +40,7 @@ class GoodsActivity :
 //        val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
         presenter?.let {
-            viewModel?.goodsUrls?.value?.let { it1 ->
+            /*viewModel?.goodsUrls?.value?.let { it1 ->
                 it.initBVP(bvpViewPager, lifecycle, it1) { position, v ->
                     val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
                     intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, position)
@@ -48,7 +48,17 @@ class GoodsActivity :
                     this@GoodsActivity.startActivityForResult(intent,
                             ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
                             options)
-                }   
+                }
+            }*/
+            viewModel?.goodsUrls?.observe(this){it1->
+                it.initBVP(bvpViewPager, lifecycle, it1) { position, v ->
+                    val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
+                    intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, position)
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v, GOODS_SHARE_PHOTO_VALUE).toBundle()
+                    this@GoodsActivity.startActivityForResult(intent,
+                        ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
+                        options)
+                }
             }
         }
 //        bvpViewPager.apply {

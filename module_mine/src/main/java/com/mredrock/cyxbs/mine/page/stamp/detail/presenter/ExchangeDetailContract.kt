@@ -13,7 +13,7 @@ import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
 */
 interface ExchangeDetailContract {
     interface IPresenter {
-        fun getContent():ExchangeDetailData
+        fun getContent(): ExchangeDetailData?
 //        //得到兑换详情
 //        fun getExchangeData(func: (ExchangeInfo) -> Unit)
 //        //得到明细详情
