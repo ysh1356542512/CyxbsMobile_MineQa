@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    邮票小店界面的颜色-->
+
+    <!--    vp背景颜色-->
+    <color name="mine_fragment_shop_vp_bg">#1D1D1D</color>
+    <!--    请在个人资料里查看-->
+    <color name="mine_shop_tv">#F0F0F2</color>
+    <!--    邮物装饰颜色-->
+    <color name="mine_shop_title_tv">#F0F0F2</color>
+
+</resources>
