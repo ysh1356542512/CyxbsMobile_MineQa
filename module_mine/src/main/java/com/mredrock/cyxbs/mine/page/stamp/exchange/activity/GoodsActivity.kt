@@ -176,11 +176,11 @@ class GoodsActivity :
 
     override fun createPresenter(): GoodsPresenter {
         val shop:ShopCardJumpData
-        try {
+        return try {
             shop = intent.getSerializableExtra(SHOP_TO_GOODS_EXTRA) as ShopCardJumpData
-            return GoodsPresenter(shop.id,shop.money)
+            GoodsPresenter(shop.id,shop.money)
         }catch (e:NullPointerException){
-            return GoodsPresenter("Null",Int.MIN_VALUE)
+            GoodsPresenter("Null",Int.MIN_VALUE)
         }
     }
 
