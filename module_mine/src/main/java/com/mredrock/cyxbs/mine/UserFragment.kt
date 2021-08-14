@@ -65,7 +65,8 @@ class UserFragment : BaseViewModelFragment<UserViewModel>() {
                 val bundle =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(this@UserFragment.requireActivity())
                         .toBundle()
-                doIfLogin { startActivity(intent, bundle) }
+                //doIfLogin { startActivity(intent, bundle) }
+                startActivity(intent, bundle)
             }
 //            mine_main_fm_point_store.setOnClickListener { doIfLogin { DailySignActivity.actionStart(this, BottomSheetBehavior.STATE_EXPANDED) } }
             mine_main_tv_sign.setOnClickListener {

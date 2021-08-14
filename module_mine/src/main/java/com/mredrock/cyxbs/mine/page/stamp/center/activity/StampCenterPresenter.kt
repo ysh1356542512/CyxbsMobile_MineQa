@@ -18,6 +18,7 @@ import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.ext.putDate
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
+import com.mredrock.cyxbs.mine.page.stamp.network.api.provideRetrofit
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
 
 
@@ -107,14 +108,14 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
     }
 
     override fun fetch() {
-
         apiServiceNew.getCenterInfo()
-            .mapOrThrowApiException()
+            //.mapOrThrowApiException()
             .setSchedulers()
             .doOnSubscribe { }
             .doOnError { }
             .safeSubscribeBy(
                 onError = {
+                    Log.e(TAG, "fetch: erro $it")
                     val taskData = getTaskPageData()
                     val shopData = getShopPageData()
                     vm?.setTasksValue(taskData)
@@ -122,6 +123,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
                 },
                 onComplete = {},
                 onNext = {
+                    Log.e(TAG, "fetch: success $it")
                     val shopPageData = convertToShopData(it)
                     vm?.setShopPageDataValue(shopPageData)
                     val taskData = convertToTaskData(it)
@@ -161,28 +163,28 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
         return StampTaskData(baseTasks, getTitle(), moreTasks)
     }
 
-    private fun convertToShopData(centerInfo: CenterInfo): ShopPageData{
+    private fun convertToShopData(centerInfo: CenterInfo): ShopPageData {
         val decorator = mutableListOf<ShopProductOne>()
         val entity = mutableListOf<ShopProductOne>()
         for (shop in centerInfo.data.shop) {
-            if (shop.type == 1){
+            if (shop.type == 1) {
                 decorator.add(
                     ShopProductOne(
                         shop.url,
                         shop.price,
                         shop.amount,
                         shop.title,
-                        shop.type.toString()
+                        shop.id.toString()
                     )
                 )
-            }else{
+            } else {
                 entity.add(
                     ShopProductOne(
                         shop.url,
                         shop.price,
                         shop.amount,
                         shop.title,
-                        shop.type.toString()
+                        shop.id.toString()
                     )
                 )
             }
@@ -211,9 +213,9 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
 
     private fun getTask1(): MutableList<FirstLevelTask> {
         return mutableListOf(
-            FirstLevelTask("每日打卡1", "每日签到 +10", 1,1),
-            FirstLevelTask("每日打卡2", "每日签到 +10", 2,2),
-            FirstLevelTask("每日打卡3", "每日签到 +10", 1,5)
+            FirstLevelTask("每日打卡1", "每日签到 +10", 1, 1),
+            FirstLevelTask("每日打卡2", "每日签到 +10", 2, 2),
+            FirstLevelTask("每日打卡3", "每日签到 +10", 1, 5)
         )
     }
 

@@ -7,4 +7,4 @@ import com.mredrock.cyxbs.common.network.ApiGenerator
  *@time 2021/8/13  16:20
  *@signature 我们不明前路，却已在路上
  */
-val apiServiceNew = ApiGenerator.getApiService(ApiServiceNew::class.java)
+val apiServiceNew = ApiGeneratorNew.getApiService(provideRetrofit(),ApiServiceNew::class.java)

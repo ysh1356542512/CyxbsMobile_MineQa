@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/RedRock/CyxbsMobile_MineQa/lib_common/src/main/res/drawable/common_dialog_btn_positive_blue.xml" value="0.17828947368421053" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/lib_common/src/main/res/layout/common_toolbar.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/lib_protocol/src/main/res/layout/protocol_activity_receive.xml" value="0.26614583333333336" />
         <entry key="..\:/RedRock/CyxbsMobile_MineQa/lib_protocol/src/main/res/layout/protocol_activity_web_container.xml" value="0.26614583333333336" />

@@ -4,6 +4,7 @@ import com.mredrock.cyxbs.common.bean.RedrockApiWrapper
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.shop.GoodsInfo
 import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -15,11 +16,11 @@ import retrofit2.http.Query
  **/
 interface ApiServiceNew {
 
-    @GET("magipoke-intergral/User/info")
-    fun getCenterInfo():Observable<RedrockApiWrapper<CenterInfo>>
+    @GET("/magipoke-intergral/User/info")
+    fun getCenterInfo():Observable</*RedrockApiWrapper<CenterInfo>*/CenterInfo>
 
-
-    fun getExchangeInfo(userId:Int)
+    @GET("/magipoke-intergral/User/exchange")
+    fun getExchangeInfo():Call<String>
 
     fun getGainInfo(userId: Int)
 
