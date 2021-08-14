@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.network.bean.detail
 import com.google.gson.annotations.SerializedName
+import com.mredrock.cyxbs.mine.page.stamp.detail.model.GainItemData
 import java.io.Serializable
 
 
@@ -10,20 +11,20 @@ import java.io.Serializable
  * @Request : God bless my code
  **/
 data class GainInfo(
-    @SerializedName("data")
-    val `data`: List<GainData>,
-    @SerializedName("info")
-    val info: String,
-    @SerializedName("status")
-    val status: Int
+        @SerializedName("data")
+        val `data`: List<GainItemInfo>,
+        @SerializedName("info")
+        val info: String,
+        @SerializedName("status")
+        val status: Int
 ):Serializable
 
-data class GainData(
-    @SerializedName("gain_stamp")
-    val gainStamp: Int,
-    @SerializedName("red_id")
-    val redId: String,
-    @SerializedName("task_name")
-    val taskName: String
+data class GainItemInfo(
+        @SerializedName("task_income")
+        val price: Int,
+        @SerializedName("date")
+        val date: String,
+        @SerializedName("task_name")
+        val name: String
 ):Serializable
 
