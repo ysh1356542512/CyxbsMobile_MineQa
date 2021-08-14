@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.transition.Slide
 import com.google.android.material.tabs.TabLayoutMediator
@@ -36,7 +37,7 @@ class StampCenterActivity :
         viewModel.apply {
         }
     }
-    
+
     override fun initView() {
         viewModel
         //先进行 viewPager2 和 TabLayout 的绑定

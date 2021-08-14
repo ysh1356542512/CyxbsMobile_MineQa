@@ -1,5 +1,6 @@
-package com.mredrock.cyxbs.mine.page.stamp.network.bean.shop
+package com.mredrock.cyxbs.mine.page.stamp.network.bean
 import com.google.gson.annotations.SerializedName
+import retrofit2.http.Url
 import java.io.Serializable
 
 
@@ -30,15 +31,12 @@ data class GoodsInfo(
             val title: String,
             @SerializedName("type")
             val type: Int,
+            @SerializedName("user_account")
+            val userAccount: Int,
             @SerializedName("urls")
-            val urls: List<Url>
-    ):Serializable{
-        data class Url(
-                @SerializedName("url")
-                val url: String
-        ):Serializable
-    }
-}
+            val urls: List<String>
+    ):Serializable
 
+}
 
 

@@ -40,14 +40,18 @@ class RecyclerviewAtVP2 : RecyclerView {
                     val endY = ev.y.toInt()
                     val disX = abs(endX - startX)
                     val disY = abs(endY - startY)
+                    //如果滑动的角度小于45度
                     if (disX > disY) {
-                        //为了解决RecyclerView嵌套RecyclerView时横向滑动的问题
+                        //为了解决RecyclerView嵌套RecyclerView时横向滑动VP2的问题
+                        //当按下时disallowIntercept就会为true
                         if (disallowIntercept) {
+                            //此时告诉VP2不要拦截我的事件 也就是不会用左右滑动拦截上下滑动
                             parent.requestDisallowInterceptTouchEvent(disallowIntercept)
                         } else {
                             parent.requestDisallowInterceptTouchEvent(canScrollHorizontally(startX - endX))
                         }
                     } else {
+                        //大于45度就向左右滑动
                         parent.requestDisallowInterceptTouchEvent(true)
                     }
                 }

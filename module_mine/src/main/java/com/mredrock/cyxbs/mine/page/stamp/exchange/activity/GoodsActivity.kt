@@ -9,7 +9,7 @@ import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
-import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_KEY
+import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_USER_ID
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
 import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
@@ -40,13 +40,15 @@ class GoodsActivity :
 //        val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
         presenter?.let {
-            it.initBVP(bvpViewPager, lifecycle) { position, v ->
-                val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
-                intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, position)
-                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v, GOODS_SHARE_PHOTO_VALUE).toBundle()
-                this@GoodsActivity.startActivityForResult(intent,
-                        ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
-                        options)
+            viewModel?.goodsUrls?.value?.let { it1 ->
+                it.initBVP(bvpViewPager, lifecycle, it1) { position, v ->
+                    val intent = Intent(this@GoodsActivity, GoodsPagerActivity::class.java)
+                    intent.putExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, position)
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@GoodsActivity, v, GOODS_SHARE_PHOTO_VALUE).toBundle()
+                    this@GoodsActivity.startActivityForResult(intent,
+                            ExchangeConfig.GOODS_SHARE_PHOTO_RESPOND,
+                            options)
+                }   
             }
         }
 //        bvpViewPager.apply {
@@ -129,7 +131,7 @@ class GoodsActivity :
                                 }
                             } else {
                                 //足够 商品为邮物
-                                if (intent.getIntExtra(SHOP_TO_GOODS_KEY, -1) == 0) {
+                                if (intent.getIntExtra(SHOP_TO_GOODS_USER_ID, -1) == 0) {
                                     NoneProductDialog.showDialog(supportFragmentManager,
                                             "兑换成功！请在30天内到红岩网校领取哦", "确认") {
                                         Toast.makeText(this@GoodsActivity, "尤物智蔷giegie购买成功", Toast.LENGTH_SHORT).show()
@@ -158,6 +160,6 @@ class GoodsActivity :
 
     }
 
-    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getIntExtra(SHOP_TO_GOODS_KEY, -1))
+    override fun createPresenter(): GoodsPresenter = GoodsPresenter(intent.getStringExtra(SHOP_TO_GOODS_USER_ID))
 
 }

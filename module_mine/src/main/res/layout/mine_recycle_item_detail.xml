@@ -4,16 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import
+            alias="ConvertTools"
+            type="com.mredrock.cyxbs.mine.page.stamp.utils.Tools" />
+
         <variable
             name="handler"
             type="com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment.ClickHandler" />
+
+        <variable
+            name="data"
+            type="com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_item"
         android:layout_width="match_parent"
         android:layout_height="73dp"
-        android:id="@+id/cl_item"
-        android:onClick="@{(v)->handler.onClicked(v,null)}">
+        android:onClick="@{(v)->handler.onClicked(v,data)}">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"
@@ -21,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
+            android:text="@{data.name}"
             android:textColor="#15315B"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/tv_date"
@@ -36,8 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="4dp"
-            android:textColor="#15315B"
             android:alpha="0.4"
+            android:text="@{ConvertTools.INSTANCE.convertLongToDate(data.date,`yyyy.MM.dd`)}"
+            android:textColor="#15315B"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:text="@{String.valueOf(data.price)}"
             android:textColor="#4B66F0"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"

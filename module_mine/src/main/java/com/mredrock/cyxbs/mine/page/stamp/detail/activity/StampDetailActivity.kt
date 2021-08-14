@@ -13,12 +13,22 @@ import com.mredrock.cyxbs.mine.databinding.MineActivityStampDetailBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.DepthPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.GainRecordFragment
+import com.mredrock.cyxbs.mine.page.stamp.detail.presenter.DetailPresenter
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 import kotlinx.android.synthetic.main.mine_activity_stamp_detail.*
 
 class StampDetailActivity :
         BaseMVPVMActivity<StampDetailViewModel, MineActivityStampDetailBinding, DetailPresenter>() {
+    //设置布局
+    override fun getLayoutId(): Int = R.layout.mine_activity_stamp_detail
+
+    override fun createPresenter(): DetailPresenter = DetailPresenter()
+
+    override fun fetch() {
+        super.fetch()
+        presenter?.fetch()
+    }
 
     override fun initView() {
         binding?.eventHandler = EventHandler()
@@ -81,13 +91,6 @@ class StampDetailActivity :
         Log.e(TAG, "$viewModel")
     }
 
-    override fun fetch() {
-        super.fetch()
-        presenter?.fetch()
-    }
-
-    //设置布局
-    override fun getLayoutId(): Int = R.layout.mine_activity_stamp_detail
 
 
     inner class EventHandler {
@@ -96,5 +99,5 @@ class StampDetailActivity :
         }
     }
 
-    override fun createPresenter(): DetailPresenter = DetailPresenter()
+
 }

@@ -6,12 +6,12 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.presenter.BasePresenter
+import com.mredrock.cyxbs.common.utils.extensions.mapOrThrowApiException
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopFragment
-
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.model.*
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
@@ -253,4 +253,30 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
             )
         }
     }
+//<<<<<<< HEAD
+//
+//    //获取邮票任务
+//    private fun getTask2(): MutableList<MoreTask> {
+//        return mutableListOf(
+//                MoreTask("逛逛邮问", "浏览5条动态 +15", 1, 5),
+//                MoreTask("逛逛邮问", "浏览5条动态 +15", 2, 5),
+//                MoreTask("逛逛邮问", "浏览5条动态 +15", 3, 5),
+//                MoreTask("逛逛邮问", "浏览5条动态 +15", 4, 5),
+//                MoreTask("逛逛邮问", "浏览5条动态 +15", 5, 5)
+//        )
+//    }
+//
+//    private fun getTitle(): String = "更多任务"
+//
+//    private fun getTask1(): MutableList<FirstLevelTask> {
+//        return mutableListOf(
+//                FirstLevelTask("每日打卡1", "每日签到 +10", true),
+//                FirstLevelTask("每日打卡2", "每日签到 +10", false),
+//                FirstLevelTask("每日打卡3", "每日签到 +10", false)
+//        )
+//    }
+//
+//
+//=======
+//>>>>>>> 9b5cb4c3028854d608073188b833b953496fad73
 }

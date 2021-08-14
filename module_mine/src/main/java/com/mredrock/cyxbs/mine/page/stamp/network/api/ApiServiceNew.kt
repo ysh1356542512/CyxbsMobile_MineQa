@@ -1,11 +1,14 @@
 package com.mredrock.cyxbs.mine.page.stamp.network.api
 
-import com.mredrock.cyxbs.common.bean.RedrockApiWrapper
+
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsBuyRep
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.shop.GoodsInfo
 import io.reactivex.Observable
-import retrofit2.Call
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 /**
@@ -16,22 +19,28 @@ import retrofit2.http.Query
  **/
 interface ApiServiceNew {
 
-    @GET("/magipoke-intergral/User/info")
-    fun getCenterInfo():Observable</*RedrockApiWrapper<CenterInfo>*/CenterInfo>
+    @GET("magipoke-intergral/User/info")
+    fun getCenterInfo():Observable<CenterInfo>
 
-    @GET("/magipoke-intergral/User/exchange")
-    fun getExchangeInfo():Call<String>
 
-    fun getGainInfo(userId: Int)
+    @GET("magipoke-intergral/User/exchange")
+    fun getExchangeInfo():Observable<ExchangeInfo>
+
+    @GET("magipoke-intergral/User/getRecord")
+    fun getGainInfo():Observable<GainInfo>
+
+    @GET("magipoke-intergral/Integral/getItemInfo")
+    fun getGoodsInfo(@Query("id")goodsId: String):Observable<GoodsInfo>
 
     @GET("")
-    fun getGoodsInfo(@Query("goodsId")goodsId: Int):Observable<RedrockApiWrapper<GoodsInfo>>
-
-    fun getExchangedDetail(userId: Int,exchangeId:Int)
+    fun getExchangedDetail(userId: Int,exchangeId:Int):Observable<ExchangeInfo>
 
     fun updateProgress(title: String)
 
     fun postOrderInfo(userId: Int, goodsId: Int)
 
+
+    @POST("")
+    fun buyGoodsRep(goodsId: Int):Observable<GoodsBuyRep>
 
 }

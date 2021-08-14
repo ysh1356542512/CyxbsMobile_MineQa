@@ -8,7 +8,6 @@ import com.mredrock.cyxbs.common.presenter.IPresenter
 import com.mredrock.cyxbs.common.viewmodel.IVM
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopPageData
 import com.mredrock.cyxbs.mine.page.stamp.center.model.StampTaskData
-import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 
 /**
  *@author ZhiQiang Tu

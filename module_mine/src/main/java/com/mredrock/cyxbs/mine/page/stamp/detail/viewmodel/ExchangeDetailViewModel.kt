@@ -3,8 +3,9 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
-import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailContract
+import com.mredrock.cyxbs.mine.page.stamp.detail.presenter.ExchangeDetailContract
 import com.mredrock.cyxbs.mine.page.stamp.detail.model.ExchangeDetailData
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
 
 /**
  *@author ZhiQiang Tu
@@ -17,8 +18,13 @@ class ExchangeDetailViewModel : BaseViewModel(), ExchangeDetailContract.IVM {
     private val _content: MutableLiveData<ExchangeDetailData> = MutableLiveData()
     val content: LiveData<ExchangeDetailData> = _content
 
-    override fun setContent(value: ExchangeDetailData) {
+    override fun setExchangeDetail(value: ExchangeDetailData) {
         _content.value = value
     }
+
+//    private val _exchangeDetail: MutableLiveData<ExchangeItemInfo> = MutableLiveData()
+//    val exchangeDetail : LiveData<ExchangeItemInfo> = _exchangeDetail
+
+
 
 }
