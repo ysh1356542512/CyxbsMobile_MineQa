@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mredrock.cyxbs.common.utils.extensions.setFullScreen
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.GalleryTransformer
-import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig.GOODS_PHOTO_ITEM_KEY
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig.GOODS_PHOTO_LIST_KEY
 import com.mredrock.cyxbs.mine.page.stamp.exchange.adapter.PagerBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
@@ -20,6 +22,7 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 class GoodsPagerActivity : AppCompatActivity() {
 
     private lateinit var viewPager2: BannerViewPager<String>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,11 +51,12 @@ class GoodsPagerActivity : AppCompatActivity() {
 //                }
                 override fun onPageClick(position: Int, v: View) {
                     setResult(position)
-                    v.transitionName = ExchangeConfig.GOODS_SHARE_PHOTO_VALUE
+                    v.transitionName = GoodsConfig.GOODS_SHARE_PHOTO_VALUE
                     onBackPressed()
                 }
             })
         }.create(
+//                intent.getStringArrayListExtra(GOODS_PHOTO_LIST_KEY)
                 listOf(
                         "https://images.unsplash.com/photo-1628087237766-a2129e1ab8c7?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMwfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
                         "https://images.unsplash.com/photo-1628029799784-50d803e64ea0?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -60,6 +64,6 @@ class GoodsPagerActivity : AppCompatActivity() {
                 )
         )
 
-        viewPager2.setCurrentItem(intent.getIntExtra(ExchangeConfig.GOODS_PHOTO_ITEM_KEY, 0), false)
+        viewPager2.setCurrentItem(intent.getIntExtra(GOODS_PHOTO_ITEM_KEY, 0), false)
     }
 }

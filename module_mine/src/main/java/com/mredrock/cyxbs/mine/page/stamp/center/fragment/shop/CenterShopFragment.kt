@@ -18,7 +18,7 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_USER_ID
-import com.mredrock.cyxbs.mine.page.stamp.config.ExchangeConfig
+import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 
 class CenterShopFragment :
@@ -115,7 +115,7 @@ class CenterShopFragment :
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                         requireActivity(),
                         view,
-                        ExchangeConfig.SHOP_SHARE_PHOTO_VALUE
+                        GoodsConfig.SHOP_SHARE_PHOTO_VALUE
                 ).toBundle()
                 context?.startActivity(intent, options)
             }
