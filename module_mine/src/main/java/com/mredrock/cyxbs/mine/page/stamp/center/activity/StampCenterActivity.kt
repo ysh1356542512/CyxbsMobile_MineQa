@@ -38,7 +38,8 @@ class StampCenterActivity :
     }
 
     override fun initView() {
-
+        //设置默认显示
+        presenter?.setDefaultPageData()
         //先进行 viewPager2 和 TabLayout 的绑定
         binding?.apply {
             try {

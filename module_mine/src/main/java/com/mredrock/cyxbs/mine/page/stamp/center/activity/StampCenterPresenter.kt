@@ -106,9 +106,6 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
     }
 
     override fun fetch() {
-        //设置默认显示
-        setDefaultPageData()
-
         //进行网络请求
         apiServiceNew.getCenterInfo()
             //.mapOrThrowApiException()
@@ -224,7 +221,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
     }
 
     //获取默认数据
-    private fun setDefaultPageData() {
+    fun setDefaultPageData() {
         //设置跑马灯
         vm?.setHasGoodsToGet(true)
         //设置User的邮票余额

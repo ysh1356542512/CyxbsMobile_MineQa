@@ -74,7 +74,6 @@ class GoodsPresenter(private val goodsId: String,private val money: Int) : BaseP
 //                    "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
 //            vm?.setGoodsDate("${goodsInfo.life}天")
 //        }
-        setDefaultData()
         apiServiceNew.getGoodsInfo(goodsId)
                 .setSchedulers()
                 .doOnSubscribe {
@@ -135,7 +134,7 @@ class GoodsPresenter(private val goodsId: String,private val money: Int) : BaseP
 //                }
     }
 
-    private fun setDefaultData() {
+    fun setDefaultData() {
         vm?.apply {
             setGoodsValue(GoodsInfo.Data(
                 999,"未知",0,121,"未知",1, listOf()

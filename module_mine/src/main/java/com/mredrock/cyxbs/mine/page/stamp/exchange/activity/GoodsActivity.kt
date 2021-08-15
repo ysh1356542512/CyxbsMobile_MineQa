@@ -44,7 +44,8 @@ class GoodsActivity :
     }
 
     override fun initView() {
-
+        //初始化默认数据
+        presenter?.setDefaultData()
 //        val bannerViewPager = BannerAdapter()
         bvpViewPager = findViewById(R.id.bvp_goods_real)
         presenter?.let {
