@@ -54,7 +54,7 @@
             android:layout_height="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="9dp"
-            app:progressBackGround="@color/map_download_progressbar_background"
+            app:progressBackGround="@color/mine_task_progress_bg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_task_content"
             app:showOrNot="@{!(data.max == 1)}"  />

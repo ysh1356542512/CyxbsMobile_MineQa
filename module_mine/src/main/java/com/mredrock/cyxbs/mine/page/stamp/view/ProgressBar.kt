@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
 import com.mredrock.cyxbs.mine.R
@@ -18,7 +19,7 @@ import com.mredrock.cyxbs.mine.R
 class ProgressBar(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
     private var typeArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.ProgressBar)
-
+    private val path = Path()
 
     private  var currentProgress = 0f
     private var maxProgress = 0f
@@ -51,6 +52,10 @@ class ProgressBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
             drawCircle(radius, radius, radius, mPaint1)
             //蓝色矩形
             drawRect(radius, height * 1f, radius + rectWidth, 0f, mPaint1)
+//            path.addRect(radius + rectWidth, height * 1f, width - radius, 0f, Path.Direction.CW)
+//            path.addCircle(width - radius, height / 2f, radius,Path.Direction.CCW)
+//            path.fillType = Path.FillType.WINDING
+//            drawPath(path,mPaint2)
             //灰色矩形
             drawRect(radius + rectWidth, height * 1f, width - radius, 0f, mPaint2)
             //最右侧灰色半圆
