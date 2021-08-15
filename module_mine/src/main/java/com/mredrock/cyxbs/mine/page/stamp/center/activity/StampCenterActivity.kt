@@ -1,6 +1,5 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.transition.Slide
 import com.google.android.material.tabs.TabLayoutMediator
@@ -8,10 +7,10 @@ import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
-import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.ext.isFirstTimeComeIn
 import kotlinx.android.synthetic.main.mine_activity_stamp_center.*
+import java.lang.Exception
 
 
 /**
@@ -39,9 +38,16 @@ class StampCenterActivity :
     }
 
     override fun initView() {
-        viewModel
+
         //先进行 viewPager2 和 TabLayout 的绑定
         binding?.apply {
+            try {
+                val field = srlRefresh.javaClass.getDeclaredField("mTouchSlop")
+                field.isAccessible = true
+                field.set(srlRefresh, 300)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
             includeCenterPart2.mineCenterPartThree.tvCenterCommend.setTextArray(
                     arrayOf(
                             "你还有待领取的商品，请尽快领取",
