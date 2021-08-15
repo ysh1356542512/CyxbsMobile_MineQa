@@ -116,12 +116,12 @@ class CenterShopFragment :
 //                }
                 intent.putExtra(SHOP_TO_GOODS_EXTRA,
                     ShopCardJumpData(id, shardViewModel?.userAccount?.value ?: 0))
-                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                /*val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                         requireActivity(),
                         view,
                         GoodsConfig.SHOP_SHARE_PHOTO_VALUE
-                ).toBundle()
-                context?.startActivity(intent, options)
+                ).toBundle()*/
+                context?.startActivity(intent/*, options*/)
             }
         }
     }
