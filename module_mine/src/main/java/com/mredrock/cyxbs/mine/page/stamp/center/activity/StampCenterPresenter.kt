@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.mine.page.stamp.center.activity
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.presenter.BasePresenter
@@ -256,6 +257,28 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
                 "-999"
             )
         }
+    }
+
+    fun refresh(srlRefresh: SwipeRefreshLayout) {
+        apiServiceNew.getCenterInfo()
+            //.mapOrThrowApiException()
+            .setSchedulers()
+            .doOnSubscribe { }
+            .doOnError { }
+            .safeSubscribeBy(
+                onError = {
+                },
+                onComplete = {},
+                onNext = {
+                    vm?.setUserAccount(it.data.userAmount)
+                    vm?.setHasGoodsToGet(it.data.unGotGood)
+                    val shopPageData = convertToShopData(it)
+                    vm?.setShopPageDataValue(shopPageData)
+                    val taskData = convertToTaskData(it)
+                    vm?.setTasksValue(taskData)
+                    srlRefresh.isRefreshing = false
+                }
+            )
     }
 //<<<<<<< HEAD
 //

@@ -102,12 +102,16 @@
                     app:tabRippleColor="@color/common_transparent_background"
                     app:tabSelectedTextColor="#112C57" />
 
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vp_center"
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:overScrollMode="never" />
+                    android:id="@+id/srl_refresh">
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vp_center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never" />
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
                 <!--                sob:adapter="@{context}"-->
                 <!--                <androidx.recyclerview.widget.RecyclerView-->
                 <!--                    android:id="@+id/rv"-->
