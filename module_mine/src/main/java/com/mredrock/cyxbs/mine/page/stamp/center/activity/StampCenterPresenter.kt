@@ -1,6 +1,8 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -9,6 +11,7 @@ import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
+import com.mredrock.cyxbs.common.utils.extensions.toast
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopFragment
@@ -28,7 +31,7 @@ import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
  */
 private const val TAG = "StampCenterPresenter"
 
-class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
+class StampCenterPresenter(private val isFirstTimeComeIn: Boolean,private val context: Context) :
     BasePresenter<StampCenterViewModel>(),
     StampCenterContract.CenterPresenter {
 
@@ -203,11 +206,11 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
             .doOnError { }
             .safeSubscribeBy(
                 onError = {
-                    toast(srlRefresh,"刷新失败")
+                    context.toast("刷新失败")
                     srlRefresh.isRefreshing = false
                 },
                 onComplete = {
-                    toast(srlRefresh,"刷新成功")
+                    context.toast("刷新成功")
                 },
                 onNext = {
                     //设置邮票数目

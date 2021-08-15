@@ -128,5 +128,5 @@ class StampCenterActivity :
         }
     }
 
-    override fun createPresenter(): StampCenterPresenter = StampCenterPresenter(isFirstTimeComeIn())
+    override fun createPresenter(): StampCenterPresenter = StampCenterPresenter(isFirstTimeComeIn(),this)
 }
