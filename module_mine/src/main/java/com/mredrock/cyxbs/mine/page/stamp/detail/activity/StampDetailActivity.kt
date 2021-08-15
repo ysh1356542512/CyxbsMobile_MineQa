@@ -33,6 +33,7 @@ class StampDetailActivity :
     override fun initView() {
         binding?.eventHandler = EventHandler()
         initViewPagerAndTabs()
+        presenter?.getDefaultData()
     }
 
     //初始化viewPager和Binding

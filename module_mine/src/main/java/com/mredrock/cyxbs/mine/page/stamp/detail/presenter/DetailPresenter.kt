@@ -25,19 +25,21 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
 
     override fun fetch() {
         vm?.apply {
-            getDefaultExchangeData{
-                setExchangeListDataValue(it)
-            }
-            getDefaultGainData{
-                setGainListDataValue(it)
-            }
-        }
-
-        vm?.apply {
             getExchangeData {
                 setExchangeListDataValue(it)
             }
             getGainData {
+                setGainListDataValue(it)
+            }
+        }
+    }
+
+    fun getDefaultData(){
+        vm?.apply {
+            getDefaultExchangeData{
+                setExchangeListDataValue(it)
+            }
+            getDefaultGainData{
                 setGainListDataValue(it)
             }
         }
