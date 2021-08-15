@@ -40,16 +40,17 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_goods_pic"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:scaleType="centerCrop"
                     android:contentDescription="@string/mine_stamp_goods_iv"
-                    app:layout_constraintDimensionRatio="w,145:167"
+                    app:layout_constraintBottom_toTopOf="@+id/mine_guideline13"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:netImage="@{data.image}"
                     app:srcCompat="@drawable/mine_ic_center_goods" />
-
+<!--                app:layout_constraintDimensionRatio="w,145:167"-->
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_goods_title"
                     android:layout_width="wrap_content"
@@ -121,6 +122,13 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/tv_stamp_num"
                     app:layout_constraintTop_toTopOf="@+id/tv_stamp_num" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/mine_guideline13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6130435" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
