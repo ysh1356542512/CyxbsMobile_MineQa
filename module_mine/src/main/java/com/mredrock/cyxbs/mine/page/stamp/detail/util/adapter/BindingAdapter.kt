@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
@@ -13,7 +14,7 @@ import com.bumptech.glide.Glide
  *@signature 我们不明前路，却已在路上
  */
 object BindingAdapter {
-    @BindingAdapter("drawableFalse", "textFalse", "textState", "drawableTrue", "textTrue", requireAll = true)
+    @BindingAdapter("drawableFalse", "textFalse", "textState", "drawableTrue", "textTrue","textColorTrue","textColorFalse", requireAll = true)
     @JvmStatic
     fun statedTextView(
             btn: TextView?,
@@ -21,15 +22,19 @@ object BindingAdapter {
             textFalse: String?,
             textState: Boolean?,
             drawableTrue: Drawable?,
-            textTrue: String?
+            textTrue: String?,
+            textColorTrue: Int,
+            textColorFalse:Int,
     ) {
         textState ?: return
         if (textState) {
             btn?.text = textTrue
             btn?.background = drawableTrue
+            btn?.setTextColor(textColorTrue)
         } else {
             btn?.text = textFalse
             btn?.background = drawableFalse
+            btn?.setTextColor(textColorFalse)
         }
     }
 

@@ -42,7 +42,12 @@
     <color name="mine_task_recycle_item_task_name_color">#15315B</color>
     <!--    任务奖励颜色-->
     <color name="mine_task_recycle_item_description_color">#15315B</color>
-
+    <!--    任务完成后字体颜色-->
+    <color name="mine_task_btn_tv_true">#FFFFFF</color>
+    <!--    任务未完成字体颜色-->
+    <color name="mine_task_btn_tv_false">#FFFFFF</color>
+    <!--    任务按钮完成后颜色-->
+    <color name="mine_task_btn_bg_finished">#C1C1C1</color>
 
     <!--    商品详情界面颜色-->
 
@@ -109,5 +114,6 @@
     <color name="mine_detail_detail_detail">#15315B</color>
     <color name="mine_task_progress_bg">#E5E5E5</color>
     <color name="mine_center_stamp_num_bg">#662B333F</color>
+
 
 </resources>

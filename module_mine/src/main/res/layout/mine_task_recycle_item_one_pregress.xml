@@ -62,9 +62,10 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:stateListAnimator="@animator/mine_scale_state_list_animator"
-            android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:textColorTrue="@{@color/mine_task_btn_tv_false}"
+            app:textColorFalse="@{@color/mine_task_btn_tv_true}"
             app:drawableFalse="@{@drawable/mine_task_btn_bg_doing}"
             app:drawableTrue="@{@drawable/mine_task_btn_bg_finished}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +76,7 @@
             app:textTrue="@{`已完成`}"
             tools:background="@drawable/mine_task_shape_do_it_btn_light"
             tools:text="@string/mine_task_do_it_btn_text" />
-
+<!--        android:textColor="#FFFFFF"-->
         <com.mredrock.cyxbs.mine.page.stamp.view.ProgressBar
             android:id="@+id/mine_space"
             android:layout_width="150dp"
