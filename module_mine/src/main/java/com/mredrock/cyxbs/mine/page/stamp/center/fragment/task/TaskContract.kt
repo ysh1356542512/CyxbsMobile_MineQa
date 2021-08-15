@@ -14,8 +14,5 @@ interface TaskContract {
         fun onClicked(view: View, any: Any?)
     }
 
-    interface TaskIVM {
-
-        fun setTasksValue(value: StampTaskData)
-    }
+    interface TaskIVM { fun setTasksValue(value: StampTaskData) }
 }

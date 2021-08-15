@@ -24,9 +24,11 @@ interface GoodsContract {
         fun setGoodsDate(value: String)
         fun setGoodsUrls(value: List<String>)
         fun setGoodsAmount(value: Int)
+        fun setUserAccount(value:Int)
     }
 
     interface GoodsPresenter : IPresenter<GoodsViewModel> {
         fun initBVP(bvpViewPager: BannerViewPager<String>, lifecycle: Lifecycle,list: List<String>, func: (Int, View) -> Unit)
+        fun setDefaultData()
     }
 }

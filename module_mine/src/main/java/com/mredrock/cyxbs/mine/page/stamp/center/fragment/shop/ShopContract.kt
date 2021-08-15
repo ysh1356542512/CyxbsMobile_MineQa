@@ -1,7 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop
 
-import androidx.lifecycle.LiveData
-import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopInfo
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductOne
+import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductTwo
 
 /**
  * @Date : 2021/8/9
@@ -10,10 +10,12 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopInfo
  * @Request : God bless my code
  */
 interface ShopContract {
-    interface ShopIPresenter{
+    interface ShopIPresenter {
+        fun mapDoubleCardToOne(
+                indices: IntRange,
+                decorator: List<ShopProductOne>,
+        ): List<ShopProductTwo>
+    }
 
-    }
-    interface ShopIVM{
-        fun getShopInfoList():LiveData<List<ShopInfo>>
-    }
+    interface ShopIVM {}
 }

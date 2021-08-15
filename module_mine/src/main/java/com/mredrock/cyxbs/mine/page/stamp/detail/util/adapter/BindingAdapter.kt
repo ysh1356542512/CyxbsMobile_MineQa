@@ -13,6 +13,10 @@ import com.bumptech.glide.Glide
  *@time 2021/8/6  22:57
  *@signature 我们不明前路，却已在路上
  */
+
+/**
+ * 绑定任务界面根据任务是否完成而显示不同的按钮样式
+ */
 object BindingAdapter {
     @BindingAdapter("drawableFalse", "textFalse", "textState", "drawableTrue", "textTrue","textColorTrue","textColorFalse", requireAll = true)
     @JvmStatic
@@ -37,6 +41,9 @@ object BindingAdapter {
         }
     }
 
+    /**
+     * 绑定图片
+     */
     @JvmStatic
     @BindingAdapter("imageState", "drawableFalse", "drawableTrue", requireAll = true)
     fun statedImageView(

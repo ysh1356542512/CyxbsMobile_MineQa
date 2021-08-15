@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
 import androidx.fragment.app.FragmentActivity
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -20,6 +21,8 @@ interface StampCenterContract {
     interface CenterVM : IVM {
         fun setTasksValue(value: StampTaskData)
         fun setShopPageDataValue(value: ShopPageData)
+        fun setUserAccount(value:Int)
+        fun setHasGoodsToGet(value:Boolean)
     }
 
     //内包含StampCenter界面的所有交互操作，也就是Presenter层需要暴露给View层的所有函数
@@ -29,6 +32,8 @@ interface StampCenterContract {
         fun initVP2(
                 fgActivity: FragmentActivity, vpCenter: ViewPager2, func: () -> Unit
         )
+        fun setDefaultPageData()
+        fun refresh(srlRefresh: SwipeRefreshLayout)
     }
 
 }

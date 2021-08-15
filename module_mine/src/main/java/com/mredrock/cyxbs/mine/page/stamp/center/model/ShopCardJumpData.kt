@@ -7,7 +7,7 @@ import java.io.Serializable
  *@time 2021/8/14  19:57
  *@signature 我们不明前路，却已在路上
  */
-data class ShopCardJumpData (
-    val id:String,
-    val money:Int
-        ):Serializable
+data class ShopCardJumpData(
+        val id: String,
+        val money: Int
+) : Serializable

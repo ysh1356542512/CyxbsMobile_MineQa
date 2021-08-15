@@ -23,18 +23,15 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 
 class StampTaskFragment :
-    BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
-
+        BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
     /**
-     * 布局文件
+     * 成员变量放在最前面
      */
-    override fun getLayoutId(): Int = R.layout.mine_fragment_stamp_task
-
     private val mAdapter by lazy {
         binding?.rvTask?.let {
             it.layoutAnimation = AnimationUtils.loadLayoutAnimation(
-                requireContext(),
-                R.anim.mine_task_rv_layout_animation
+                    requireContext(),
+                    R.anim.mine_task_rv_layout_animation
             )
             /*LayoutAnimationController(
         AnimationUtils.loadAnimation(
@@ -46,20 +43,36 @@ class StampTaskFragment :
         }
     }
 
-    //初始化视图。好像有些多🐟了
-    override fun initView() {
-    }
+    /**
+     * 布局文件
+     */
+    override fun getLayoutId(): Int = R.layout.mine_fragment_stamp_task
 
-    //观察所有数据
-    override fun observeData() {
-        super.observeData()
-        observeTasks()
-    }
+    /**
+     * 创建presenter
+     */
+    override fun createPresenter(): TaskPresenter = TaskPresenter()
 
-    //丢锅给presenter刷新数据
+    /**
+     * 丢锅给presenter刷新数据
+     */
     override fun fetch() {
         super.fetch()
         presenter?.fetch()
+    }
+
+    /**
+     * 初始化视图。好像有些多🐟了
+     */
+    override fun initView() {
+    }
+
+    /**
+     * 观察所有数据
+     */
+    override fun observeData() {
+        super.observeData()
+        observeTasks()
     }
 
 
@@ -77,7 +90,7 @@ class StampTaskFragment :
 
                 //获取并添加第二类数据
                 add(
-                    TitleBinder(it.title).also { it.setOnClickListener(::onClicked) }
+                        TitleBinder(it.title).also { it.setOnClickListener(::onClicked) }
                 )
 
                 //获取并添加第三类数据
@@ -91,12 +104,9 @@ class StampTaskFragment :
     }
 
     /**
-     * 创建presenter
+     * 跳转到任务界面。
      */
-    override fun createPresenter(): TaskPresenter = TaskPresenter()
-
-    //跳转到任务界面。
-    fun onClicked(view: View, any: Any?) {
+    private fun onClicked(view: View, any: Any?) {
         var data1: MoreTask? = null
         var data2: FirstLevelTask? = null
         var currentProgress: Int = 0
@@ -126,29 +136,13 @@ class StampTaskFragment :
                     ARouter.getInstance().build(MINE_CHECK_IN).navigation()
                 }
                 "拍案叫绝" -> {
-
                 }
                 "完善个人信息" -> {
                     activity?.also { startActivity(Intent(it, EditInfoActivity::class.java)) }
                 }
                 "绑定志愿者账号" -> {
-
                 }
             }
-            /*if (str.contains("每日签到")){
-            }
-            else if (str.contains("逛逛邮问")){
-
-            }
-            else if (str.contains("拍案叫绝")){
-
-            }
-            else if (str.contains("完善个人信息")){
-
-            }
-            else if (str.contains("绑定志愿者账号")){
-
-            }  */
         }
     }
 }

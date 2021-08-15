@@ -1,7 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop
 
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.databinding.library.baseAdapters.BR
@@ -9,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
+import com.mredrock.cyxbs.common.utils.extensions.toast
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentCenterShopBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
@@ -22,15 +22,14 @@ import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_EXTR
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 
 class CenterShopFragment :
-    BaseMVPVMFragment<StampCenterViewModel, MineFragmentCenterShopBinding, CenterShopPresenter>(),
-    OnViewClickListener {
+        BaseMVPVMFragment<StampCenterViewModel, MineFragmentCenterShopBinding, CenterShopPresenter>(),
+        OnViewClickListener {
     //初始化adapter
     private val mAdapter by lazy {
         binding?.rvShopReal?.let {
             it.layoutAnimation = AnimationUtils
-                .loadLayoutAnimation(requireContext(),
-                    R.anim.mine_shop_rv_layout_animation)
-
+                    .loadLayoutAnimation(requireContext(),
+                            R.anim.mine_shop_rv_layout_animation)
             createMultiTypeAdapter(it, LinearLayoutManager(context))
         }
     }
@@ -98,27 +97,14 @@ class CenterShopFragment :
             R.id.goods_container_2, R.id.goods_container_1, R.id.goods_container -> {
                 //商品的id
                 any as String
-
-                toast(view, "点击${any}")
+                context?.toast("点击${any}")
             }
             R.id.btn_goods_buy_2, R.id.btn_goods_buy_1, R.id.btn_goods_buy -> {
                 //商品的id
                 val id = any as String
-                Log.e(TAG, "$any")
                 val intent = Intent(requireActivity(), GoodsActivity::class.java)
-//                val randoms = (0..1).random()
-//                if (randoms == 0) {
-//                    intent.putExtra(SHOP_TO_GOODS_USER_ID, 0)
-//                } else {
-//                    intent.putExtra(SHOP_TO_GOODS_USER_ID, 1)
-//                }
                 intent.putExtra(SHOP_TO_GOODS_EXTRA,
-                    ShopCardJumpData(id, shardViewModel?.userAccount?.value ?: 0))
-                /*val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        requireActivity(),
-                        view,
-                        GoodsConfig.SHOP_SHARE_PHOTO_VALUE
-                ).toBundle()*/
+                        ShopCardJumpData(id, shardViewModel?.userAccount?.value ?: 0))
                 context?.startActivity(intent/*, options*/)
             }
         }
@@ -156,6 +142,7 @@ fun toast(view: View, message: String) {
        })
    }*/
 
+/**
 //    private fun setRecyclerViewContent(){
 //        //在这里可以add很多个类型的ContainerBinder
 //        mAdapter?.notifyAdapterChanged(mutableListOf<MultiTypeBinder<*>>().apply {
@@ -177,12 +164,11 @@ fun toast(view: View, message: String) {
 //    }
 //设置内容
 /*binding?.rvShopReal?.let {
-    context?.let { it1 ->
-        presenter?.setRecyclerViewContent(
-            it,
-            it1,
-            this
-        )
-    }
+context?.let { it1 ->
+presenter?.setRecyclerViewContent(
+it,
+it1,
+this
+)
+}
 }*/
-//        setRecyclerViewContent()

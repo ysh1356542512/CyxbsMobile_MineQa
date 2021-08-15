@@ -22,8 +22,11 @@ import java.lang.Exception
 class StampCenterActivity :
         BaseMVPVMActivity<StampCenterViewModel, MineActivityStampCenterBinding, StampCenterPresenter>() {
 
-
+    //提供布局信息
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
+
+    //提供P层信息
+    override fun createPresenter(): StampCenterPresenter = StampCenterPresenter(isFirstTimeComeIn(),this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         window.enterTransition = Slide()
@@ -31,10 +34,10 @@ class StampCenterActivity :
         binding?.vm = viewModel
     }
 
-    override fun observeData() {
-        super.observeData()
-        viewModel.apply {
-        }
+    //回到该界面时刷新数据
+    override fun onStart() {
+        super.onStart()
+        presenter?.fetch()
     }
 
     override fun initView() {
@@ -61,72 +64,29 @@ class StampCenterActivity :
                         this@StampCenterActivity,
                         vpCenter
                 ) {
-                    TabLayoutMediator(
-                            tlCenter,
-                            vpCenter,
-                            it
-                    ).attach()
+                    TabLayoutMediator(tlCenter, vpCenter, it).attach()
                 }
+                tlCenter.addOnTabSelectedListener(it)
             }
+        }
+    }
 
-            presenter?.let { tlCenter.addOnTabSelectedListener(it) }
-//            context = this@StampCenterActivity
-
-//            vpCenter.initViewPager2 {
-//                it.apply {
-//
-//                }
-//            }
-//
-//            vpCenter.setPageTransformer(ZoomOutPageTransformer())
-//            vpCenter.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-//            val fragments = arrayListOf<Fragment>(CenterShopFragment(), StampTaskFragment())
-//            //设置Adapter
-//            vpCenter.adapter = PagerAdapter(fragments, this@StampCenterActivity)
-//
-//            vpCenter.apply {
-//                offscreenPageLimit = 2
-//                //此处可动态设置tabItem布局
-//                //关于tablayout代码的设计 这样能够尽可能的减少网络请求的次数
-//                presenter?.let {
-//                    TabLayoutMediator(
-//                        tlCenter,
-//                        vpCenter,
-//                        it
-//                    ).attach()
-//                }
-//            }
+    override fun observeData() {
+        super.observeData()
+        viewModel.apply {
 
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        presenter?.fetch()
-    }
-
-    /*override fun fetch() {
-        presenter?.fetch()
-    }*/
-
     override fun initListener() {
         binding?.apply {
-            fabCenterBack.setOnSingleClickListener {
-                onBackPressed()
-            }
+            fabCenterBack.setOnSingleClickListener { onBackPressed() }
             includeCenterPart2.mineCenterPartThree.ivCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
             includeCenterPart2.mineCenterPartThree.tvCenterDetail.setOnSingleClickListener { startActivity<StampDetailActivity>() }
             //这个到时候可能会跳转至订单详情页 需要在 ExchangeDetailActivity中再加一个方法来跳转到详情页
             includeCenterPart2.mineCenterPartThree.tvCenterCommend.setOnSingleClickListener { startActivity<StampDetailActivity>() }
-            srlRefresh.setOnRefreshListener {
-                presenter?.refresh(srlRefresh)
-            }
+            srlRefresh.setOnRefreshListener { presenter?.refresh(srlRefresh) }
         }
     }
 
-    override fun createPresenter(): StampCenterPresenter = StampCenterPresenter(isFirstTimeComeIn(),this)
 }

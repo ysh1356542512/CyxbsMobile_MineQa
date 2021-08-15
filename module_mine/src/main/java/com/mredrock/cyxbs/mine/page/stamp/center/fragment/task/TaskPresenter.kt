@@ -11,12 +11,9 @@ import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
  */
 class TaskPresenter : BasePresenter<StampCenterViewModel>(), TaskContract.TaskIPresenter {
 
-    override fun fetch() {
-    }
+    override fun fetch() {}
 
 
-    override fun onClicked(view: View, any: Any?) {
-
-    }
+    override fun onClicked(view: View, any: Any?) {}
 
 }

@@ -9,10 +9,10 @@ import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopInfo
 /**
  * @Date : 2021/8/9
  * @By : ysh
- * @Usage :
+ * @Usage : 已弃用 统一使用StampCenterViewModel
  * @Request : God bless my code
  */
-class CenterShopViewModel : BaseViewModel(), ShopContract.ShopIVM {
+class CenterShopViewModel : BaseViewModel() {
 
     private val _shopInfo: MutableLiveData<List<ShopInfo>> = MutableLiveData(listOf(
             ShopInfo(20, 111, 121, "挂件挂件挂件挂件挂件", 0, "111"),
@@ -38,7 +38,7 @@ class CenterShopViewModel : BaseViewModel(), ShopContract.ShopIVM {
     private val shopInfo: LiveData<List<ShopInfo>>
         get() = _shopInfo
 
-    override fun getShopInfoList(): LiveData<List<ShopInfo>> {
+    fun getShopInfoList(): LiveData<List<ShopInfo>> {
         return shopInfo
     }
 

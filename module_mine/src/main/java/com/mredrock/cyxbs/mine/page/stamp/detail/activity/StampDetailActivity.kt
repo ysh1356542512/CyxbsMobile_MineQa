@@ -20,79 +20,47 @@ import kotlinx.android.synthetic.main.mine_activity_stamp_detail.*
 
 class StampDetailActivity :
         BaseMVPVMActivity<StampDetailViewModel, MineActivityStampDetailBinding, DetailPresenter>() {
-    //设置布局
+    /**
+     * 布局信息
+     */
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_detail
 
+    /**
+     * P层信息
+     */
     override fun createPresenter(): DetailPresenter = DetailPresenter()
 
+    /**
+     * 获取数据
+     */
     override fun fetch() {
         super.fetch()
         presenter?.fetch()
     }
 
+    /**
+     * 初始化view
+     */
     override fun initView() {
         binding?.eventHandler = EventHandler()
         initViewPagerAndTabs()
         presenter?.getDefaultData()
     }
 
-    //初始化viewPager和Binding
+    /**
+     * 初始化viewPager和Binding
+     */
     private fun initViewPagerAndTabs() {
         binding?.apply {
             //配置ViewPager的Adapter
-            vpDetail.setPageTransformer(DepthPageTransformer())
-            vpDetail.adapter =
-                    PagerAdapter(
-                            listOf(ExchangeRecordFragment(), GainRecordFragment()),
-                            this@StampDetailActivity
-                    )
-
-            //ViewPager和TabLayout联动
-            TabLayoutMediator(tlDetail, vpDetail) { tb, position ->
-                when (position) {
-                    0 -> {
-                        tb.text = "兑换记录"
-                        tb.view.scaleX = 1.12f
-                        tb.view.scaleY = 1.12f
-                    }
-                    1 -> {
-                        tb.text = "获取记录"
-
-                    }
+            presenter?.let {
+                it.initViewPagerAndTabs(this@StampDetailActivity,vpDetail){
+                    TabLayoutMediator(tlDetail,vpDetail,it).attach()
                 }
-            }.attach()
-            tlDetail.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                @SuppressLint("ObjectAnimatorBinding")
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    val animatorX = ObjectAnimator.ofFloat(tab?.view, "scaleX", 1f, 1.12f)
-                    val animatorY = ObjectAnimator.ofFloat(tab?.view, "scaleY", 1f, 1.12f)
-                    animatorX.duration = 800
-                    animatorY.duration = 800
-                    animatorX.start()
-                    animatorY.start()
-                }
-
-                @SuppressLint("ObjectAnimatorBinding")
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-                    val animatorX = ObjectAnimator.ofFloat(tab?.view, "scaleX", 1.12f, 1f)
-                    val animatorY = ObjectAnimator.ofFloat(tab?.view, "scaleY", 1.12f, 1f)
-                    animatorX.duration = 800
-                    animatorY.duration = 800
-                    animatorX.start()
-                    animatorY.start()
-                }
-
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-
-                }
-
-            })
+                tlDetail.addOnTabSelectedListener(it)
+            }
         }
-
-        Log.e(TAG, "$viewModel")
     }
-
-
 
     inner class EventHandler {
         fun backArrowClick(view: View) {

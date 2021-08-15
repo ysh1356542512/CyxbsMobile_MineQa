@@ -13,6 +13,10 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
  *@time 2021/8/9  14:35
  *@signature 我们不明前路，却已在路上
  */
+
+/**
+ *  每个binder对应一种item类型 在onBindViewHolder进行具体的设定
+ */
 class GoodsTitleBinder(val title: ShopTitle) : MultiTypeBinder<MineShopRecyleItemTitleBinding>() {
     override fun layoutId(): Int = R.layout.mine_shop_recyle_item_title
 

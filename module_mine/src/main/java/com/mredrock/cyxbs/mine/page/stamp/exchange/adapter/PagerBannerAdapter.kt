@@ -14,9 +14,7 @@ class PagerBannerAdapter : BaseBannerAdapter<String, PagerBannerAdapter.ViewHold
 
     override fun onBind(holder: ViewHolder, data: String, position: Int, pageSize: Int) {
         Glide.with(holder.imageView.context).load(data).into(holder.imageView)
-//        holder.imageView.setImageResource(data)
     }
-
 
     override fun createViewHolder(parent: ViewGroup, itemView: View, viewType: Int): ViewHolder {
         return ViewHolder(itemView)

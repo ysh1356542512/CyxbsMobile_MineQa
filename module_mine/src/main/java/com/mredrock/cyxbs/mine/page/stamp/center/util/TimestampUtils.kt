@@ -15,7 +15,7 @@ class TimestampUtils {
 
     //时间戳转日期
     @SuppressLint("SimpleDateFormat", "WeekBasedYear")
-    fun transToString(time:Long):String{
+    fun transToString(time: Long): String {
         val format = SimpleDateFormat("yyyy.MM.dd", Locale.CHINA)
         return format.format(time)
     }
@@ -23,7 +23,7 @@ class TimestampUtils {
 
     //日期转时间戳
     @SuppressLint("SimpleDateFormat", "WeekBasedYear")
-    fun transToTimeStamp(date:String):Long{
+    fun transToTimeStamp(date: String): Long {
         return SimpleDateFormat("YY-MM-DD-hh-mm-ss").parse(date, ParsePosition(0)).time
     }
 }

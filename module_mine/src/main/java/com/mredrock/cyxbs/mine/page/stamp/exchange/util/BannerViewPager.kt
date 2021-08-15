@@ -34,7 +34,7 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
     private lateinit var mIndicatorLayout: LinearLayout
     private lateinit var mViewPager: ViewPager2
     private var mBannerPagerAdapter: BaseBannerAdapter<T, *>? = null
-    private val onPageChangeCallback: ViewPager2.OnPageChangeCallback? = null
+    private var onPageChangeCallback: ViewPager2.OnPageChangeCallback? = null
     private var mCompositePageTransformer: CompositePageTransformer? = null
     private var mMarginPageTransformer: MarginPageTransformer? = null
     private var mOnPageClickListener: BaseBannerAdapter.OnPageClickListener? = null
@@ -136,8 +136,6 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
                     super.onPageSelected(position)
                     val realPosition: Int = mBannerPagerAdapter!!.getRealPosition(position)
                     onPageChangeCallback?.onPageSelected(realPosition)
-                    val goodsPageState = GoodsPageState.instance
-                    goodsPageState.postValue(position)
                     setIndicatorDots(position)
                 }
 
@@ -279,6 +277,10 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
 
     private fun stopTimer() {
         mHandler.removeCallbacks(runnable)
+    }
+
+    fun setOnPageSelectedCallBack(onPageChangeCallback: ViewPager2.OnPageChangeCallback){
+        this.onPageChangeCallback = onPageChangeCallback
     }
 
 

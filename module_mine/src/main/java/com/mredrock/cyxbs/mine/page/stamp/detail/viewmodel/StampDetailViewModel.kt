@@ -17,7 +17,7 @@ class StampDetailViewModel : BaseViewModel(), StampDetailActivityContract.IVM {
     private val _exchangeList: MutableLiveData<ExchangeInfo> = MutableLiveData()
     val exchangeListData: LiveData<ExchangeInfo> = _exchangeList
 
-    fun setExchangeListDataValue(value: ExchangeInfo) {
+    override fun setExchangeListDataValue(value: ExchangeInfo) {
         _exchangeList.value = value
     }
 
@@ -25,7 +25,7 @@ class StampDetailViewModel : BaseViewModel(), StampDetailActivityContract.IVM {
     private val _gainList: MutableLiveData<GainInfo> = MutableLiveData()
     val gainListData: LiveData<GainInfo> = _gainList
 
-    fun setGainListDataValue(value: GainInfo) {
+    override fun setGainListDataValue(value: GainInfo) {
         _gainList.value = value
     }
 

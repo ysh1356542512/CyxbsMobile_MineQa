@@ -14,7 +14,6 @@ class BannerAdapter : BaseBannerAdapter<String, BannerAdapter.ViewHolder>() {
 
     override fun onBind(holder: ViewHolder, data: String, position: Int, pageSize: Int) {
         Glide.with(holder.imageView.context).load(data).into(holder.imageView)
-//        holder.imageView.setImageResource(data)
     }
 
     override fun createViewHolder(parent: ViewGroup, itemView: View, viewType: Int): ViewHolder {
@@ -23,7 +22,6 @@ class BannerAdapter : BaseBannerAdapter<String, BannerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imageView: ImageView = itemView.findViewById(R.id.iv_banner)
-
     }
 
 }

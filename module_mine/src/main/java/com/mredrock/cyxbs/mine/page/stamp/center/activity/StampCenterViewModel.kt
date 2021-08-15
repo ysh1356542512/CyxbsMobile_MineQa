@@ -17,31 +17,33 @@ class StampCenterViewModel() : BaseViewModel(), StampCenterContract.CenterVM {
     private val _shopPageData: MutableLiveData<ShopPageData> = MutableLiveData()
     val shopPageData: LiveData<ShopPageData> = _shopPageData
 
+    //邮票任务的数据
+    private val _tasks: MutableLiveData<StampTaskData> = MutableLiveData()
+    val tasks: LiveData<StampTaskData> = _tasks
+
+    //我们要得到的bean类
+    private val _userAccount = MutableLiveData<Int>()
+    val userAccount = _userAccount
+
+    private val _hasGoodsToGet:MutableLiveData<Boolean> = MutableLiveData()
+    val hasGoodsToGet = _hasGoodsToGet
+
     //暴露给Presenter的接口
     override fun setShopPageDataValue(value: ShopPageData) {
         _shopPageData.value = value
     }
-
-    //邮票任务的数据
-    private val _tasks: MutableLiveData<StampTaskData> = MutableLiveData()
-    val tasks: LiveData<StampTaskData> = _tasks
 
     //暴露给Presenter的接口
     override fun setTasksValue(value: StampTaskData) {
         _tasks.postValue(value)
     }
 
-    //我们要得到的bean类
-    private val _userAccount = MutableLiveData<Int>()
-    val userAccount = _userAccount
     //获得用户余额
-    fun setUserAccount(value:Int) {
+    override fun setUserAccount(value:Int) {
         _userAccount.value = value
     }
 
-    private val _hasGoodsToGet:MutableLiveData<Boolean> = MutableLiveData()
-    val hasGoodsToGet = _hasGoodsToGet
-    fun setHasGoodsToGet(value:Boolean){
+    override fun setHasGoodsToGet(value:Boolean){
         _hasGoodsToGet.value = value
     }
 }

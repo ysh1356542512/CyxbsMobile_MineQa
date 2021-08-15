@@ -6,23 +6,23 @@ package com.mredrock.cyxbs.mine.page.stamp.center.model
  *@signature 我们不明前路，却已在路上
  */
 data class StampTaskData(
-    val task1: MutableList<FirstLevelTask>,
-    var title: String,
-    val task2: MutableList<MoreTask>
+        val task1: MutableList<FirstLevelTask>,
+        var title: String,
+        val task2: MutableList<MoreTask>
 )
 
 //基础任务
 data class FirstLevelTask(
-    var taskName: String,
-    var taskDescription: String,
-    var progress: Int,
-    var max: Int
+        var taskName: String,
+        var taskDescription: String,
+        var progress: Int,
+        var max: Int
 )
 
 //更多的任务
 data class MoreTask(
-    var taskName: String,
-    var taskDescription: String,
-    var progress: Int,
-    var max: Int
+        var taskName: String,
+        var taskDescription: String,
+        var progress: Int,
+        var max: Int
 )
