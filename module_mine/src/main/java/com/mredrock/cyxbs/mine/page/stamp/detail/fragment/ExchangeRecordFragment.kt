@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.mine.page.stamp.config.DetailConfig.EXCHANGE_TO_DETAIL
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.ExchangeDetailActivity
 import com.mredrock.cyxbs.mine.page.stamp.detail.binder.ExchangeRecordBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeItemInfo
 import java.io.Serializable
 
 class ExchangeRecordFragment :

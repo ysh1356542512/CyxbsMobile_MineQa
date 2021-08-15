@@ -24,8 +24,7 @@ object BindingAdapter {
             drawableTrue: Drawable?,
             textTrue: String?,
             textColorTrue: Int,
-            textColorFalse:Int,
-    ) {
+            textColorFalse:Int, ) {
         textState ?: return
         if (textState) {
             btn?.text = textTrue
@@ -41,10 +40,10 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("imageState", "drawableFalse", "drawableTrue", requireAll = true)
     fun statedImageView(
-            imageView: ImageView?,
-            state: Boolean?,
-            drawableFalse: Drawable?,
-            drawableTrue: Drawable?
+        imageView: ImageView?,
+        state: Boolean?,
+        drawableFalse: Drawable?,
+        drawableTrue: Drawable?,
     ) {
         state ?: return
         if (state) {
@@ -57,10 +56,10 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("viewState", "backgroundFalse", "backgroundTrue", requireAll = true)
     fun stateView(
-            view: View?,
-            state: Boolean?,
-            backgroundFalse: Drawable?,
-            backgroundTrue: Drawable?
+        view: View?,
+        state: Boolean?,
+        backgroundFalse: Drawable?,
+        backgroundTrue: Drawable?,
     ) {
         if (state == null) return
         if (state) {
@@ -71,18 +70,22 @@ object BindingAdapter {
     }
 
     @JvmStatic
-    @BindingAdapter("netImage")
-    fun netImage(imageView: ImageView, url: String?) {
+    @BindingAdapter("netImage", "placeholder", "error", requireAll = true)
+    fun netImage(
+        imageView: ImageView, url: String?,
+        placeholder: Drawable?,
+        error: Drawable?,
+    ) {
         url ?: return
-        Glide.with(imageView).load(url).into(imageView)
+        Glide.with(imageView).load(url).placeholder(placeholder).error(error).into(imageView)
     }
 
     @JvmStatic
     @BindingAdapter("showOrNot")
-    fun showOrNot(view:View?,showOrNot:Boolean?){
-        if (showOrNot == false){
+    fun showOrNot(view: View?, showOrNot: Boolean?) {
+        if (showOrNot == false) {
             view?.visibility = View.GONE
-        }else{
+        } else {
             view?.visibility = View.VISIBLE
         }
     }

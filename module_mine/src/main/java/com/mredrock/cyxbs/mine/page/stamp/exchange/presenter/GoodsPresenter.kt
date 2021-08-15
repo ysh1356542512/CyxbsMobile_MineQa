@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BaseBannerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsInfo
 
 //import com.mredrock.cyxbs.mine.page.stamp.network.api.ApiServiceNew
 
@@ -73,6 +74,7 @@ class GoodsPresenter(private val goodsId: String,private val money: Int) : BaseP
 //                    "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
 //            vm?.setGoodsDate("${goodsInfo.life}天")
 //        }
+        setDefaultData()
         apiServiceNew.getGoodsInfo(goodsId)
                 .setSchedulers()
                 .doOnSubscribe {
@@ -131,6 +133,20 @@ class GoodsPresenter(private val goodsId: String,private val money: Int) : BaseP
 //                        }
 //                    }
 //                }
+    }
+
+    private fun setDefaultData() {
+        vm?.apply {
+            setGoodsValue(GoodsInfo.Data(
+                999,"未知",0,121,"未知",1, listOf()
+            ))
+            setGoodsType("未知")
+            setDescription("1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。",
+                "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
+            setGoodsDate("未知")
+            setGoodsAmount(999)
+            setUserAccount(1222)
+        }
     }
 
 //    private fun getGoodsInfo(): GoodsInfo {

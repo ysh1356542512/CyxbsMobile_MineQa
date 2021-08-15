@@ -42,15 +42,17 @@
                     android:id="@+id/iv_goods_pic"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:scaleType="centerCrop"
                     android:contentDescription="@string/mine_stamp_goods_iv"
+                    android:scaleType="centerCrop"
                     app:layout_constraintBottom_toTopOf="@+id/mine_guideline13"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:netImage="@{data.image}"
+                    app:error="@{@drawable/mine_ic_center_goods}"
+                    app:placeholder="@{@drawable/mine_ic_center_goods}"
                     app:srcCompat="@drawable/mine_ic_center_goods" />
-<!--                app:layout_constraintDimensionRatio="w,145:167"-->
+                <!--                app:layout_constraintDimensionRatio="w,145:167"-->
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_goods_title"
                     android:layout_width="wrap_content"
