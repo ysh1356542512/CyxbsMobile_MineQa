@@ -61,7 +61,11 @@ class ProgressBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
             //最右侧灰色半圆
             drawCircle(width - radius, height / 2f, radius, mPaint2)
             //蓝色矩形右侧半圆
-            drawCircle(radius + rectWidth, height / 2f, radius, mPaint1)
+            if(currentProgress!=0f){
+                drawCircle(radius + rectWidth, height / 2f, radius, mPaint1)
+            }else{
+                drawCircle(radius + rectWidth, height / 2f, radius, mPaint2)
+            }
         }
         canvas?.restore()
         super.dispatchDraw(canvas)
