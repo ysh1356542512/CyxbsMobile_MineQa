@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopProductOne

@@ -108,9 +108,9 @@ class StampCenterActivity :
         presenter?.fetch()
     }
 
-    override fun fetch() {
+    /*override fun fetch() {
         presenter?.fetch()
-    }
+    }*/
 
     override fun initListener() {
         binding?.apply {

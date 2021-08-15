@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange
+package com.mredrock.cyxbs.mine.page.stamp.network.bean.detail
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 

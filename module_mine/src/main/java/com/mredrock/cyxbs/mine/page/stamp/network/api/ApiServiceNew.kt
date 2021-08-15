@@ -5,7 +5,7 @@ import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsBuyRep
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.GoodsInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeInfo
 import io.reactivex.Observable
 import retrofit2.http.*
 

@@ -14,7 +14,6 @@ import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransforme
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.model.*
-import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
 import com.mredrock.cyxbs.mine.page.stamp.ext.addFirstOrLast
 import com.mredrock.cyxbs.mine.page.stamp.ext.putDate
@@ -107,6 +106,10 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
     }
 
     override fun fetch() {
+        //设置默认显示
+        setDefaultPageData()
+
+        //进行网络请求
         apiServiceNew.getCenterInfo()
             //.mapOrThrowApiException()
             .setSchedulers()
@@ -115,30 +118,23 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
             .safeSubscribeBy(
                 onError = {
                     Log.e(TAG, "fetch: erro $it")
-                    vm?.setUserAccount(0)
-                    val taskData = getTaskPageData()
-                    val shopData = getShopPageData()
-                    vm?.setTasksValue(taskData)
-                    vm?.setShopPageDataValue(shopData)
                 },
                 onComplete = {},
                 onNext = {
                     Log.e(TAG, "fetch: success $it")
+                    //设置邮票数目
                     vm?.setUserAccount(it.data.userAmount)
+                    //设置时候显示跑马灯
                     vm?.setHasGoodsToGet(it.data.unGotGood)
+                    //设置邮票小店的数据
                     val shopPageData = convertToShopData(it)
                     vm?.setShopPageDataValue(shopPageData)
+                    //设置邮票任务的数据
                     val taskData = convertToTaskData(it)
                     vm?.setTasksValue(taskData)
                 }
             )
     }
-
-    private fun getShopTitle2(): ShopTitle = ShopTitle("邮物", "请在个人资料中查看")
-
-    private fun getShopTitle1(): ShopTitle = ShopTitle("装扮", "请在个人资料中查看")
-
-    private fun getTitle(): String = "更多任务"
 
     private fun convertToTaskData(centerInfo: CenterInfo): StampTaskData {
         val baseTasks: MutableList<FirstLevelTask> = mutableListOf()
@@ -147,19 +143,19 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
             if (task.type == "base") {
                 baseTasks.addFirstOrLast(task.currentProgress < task.maxProgress,
                     FirstLevelTask(
-                    task.title,
-                    task.description,
-                    task.currentProgress,
-                    task.maxProgress
-                ))
+                        task.title,
+                        task.description,
+                        task.currentProgress,
+                        task.maxProgress
+                    ))
             } else {
                 moreTasks.addFirstOrLast(task.currentProgress < task.maxProgress,
                     MoreTask(
-                    task.title,
-                    task.description,
-                    task.currentProgress,
-                    task.maxProgress
-                ))
+                        task.title,
+                        task.description,
+                        task.currentProgress,
+                        task.maxProgress
+                    ))
             }
         }
         return StampTaskData(baseTasks, getTitle(), moreTasks)
@@ -199,65 +195,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
         )
     }
 
-    //测试
-
     //Task
-
-    private fun getTaskPageData(): StampTaskData {
-        //获取Task1
-        val task1 = getTask1()
-        //获取Title
-        val title = getTitle()
-        //获取Task2
-        val task2 = getTask2()
-        return StampTaskData(task1, title, task2)
-    }
-
-    private fun getTask1(): MutableList<FirstLevelTask> {
-        return mutableListOf(
-            FirstLevelTask("每日打卡1", "每日签到 +10", 1, 1),
-            FirstLevelTask("每日打卡2", "每日签到 +10", 2, 2),
-            FirstLevelTask("每日打卡3", "每日签到 +10", 1, 5)
-        )
-    }
-
-    //获取邮票任务
-    private fun getTask2(): MutableList<MoreTask> {
-        return mutableListOf(
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 1, 1),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 2, 5),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 3, 5),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 4, 5),
-            MoreTask("逛逛邮问", "浏览5条动态 +15", 5, 5)
-        )
-    }
-
-    //小店
-    //设置数据
-    //获取邮票小店
-    private fun getShopPageData(): ShopPageData {
-        val title1 = getShopTitle1()
-        val decorator = getShopList()
-        val title2 = getShopTitle2()
-        val entity = getShopList()
-        return ShopPageData(
-            title1, decorator, title2, entity
-        )
-    }
-
-    private fun getShopList(): List<ShopProductOne> {
-        return (0..10).map {
-            val randomInt = (CenterConfig.TEST_UNSPLASH_PIC_URL.indices).random()
-            Log.e(TAG, CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt])
-            ShopProductOne(
-                CenterConfig.TEST_UNSPLASH_PIC_URL[randomInt],
-                (0..1000).random() * 100,
-                (0..100).random(),
-                "卷卷",
-                "-999"
-            )
-        }
-    }
 
     fun refresh(srlRefresh: SwipeRefreshLayout) {
         apiServiceNew.getCenterInfo()
@@ -270,40 +208,83 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
                 },
                 onComplete = {},
                 onNext = {
+                    //设置邮票数目
                     vm?.setUserAccount(it.data.userAmount)
+                    //设置时候显示跑马灯
                     vm?.setHasGoodsToGet(it.data.unGotGood)
+                    //设置邮票小店的数据
                     val shopPageData = convertToShopData(it)
                     vm?.setShopPageDataValue(shopPageData)
+                    //设置邮票任务的数据
                     val taskData = convertToTaskData(it)
                     vm?.setTasksValue(taskData)
                     srlRefresh.isRefreshing = false
                 }
             )
     }
-//<<<<<<< HEAD
-//
-//    //获取邮票任务
-//    private fun getTask2(): MutableList<MoreTask> {
-//        return mutableListOf(
-//                MoreTask("逛逛邮问", "浏览5条动态 +15", 1, 5),
-//                MoreTask("逛逛邮问", "浏览5条动态 +15", 2, 5),
-//                MoreTask("逛逛邮问", "浏览5条动态 +15", 3, 5),
-//                MoreTask("逛逛邮问", "浏览5条动态 +15", 4, 5),
-//                MoreTask("逛逛邮问", "浏览5条动态 +15", 5, 5)
-//        )
-//    }
-//
-//    private fun getTitle(): String = "更多任务"
-//
-//    private fun getTask1(): MutableList<FirstLevelTask> {
-//        return mutableListOf(
-//                FirstLevelTask("每日打卡1", "每日签到 +10", true),
-//                FirstLevelTask("每日打卡2", "每日签到 +10", false),
-//                FirstLevelTask("每日打卡3", "每日签到 +10", false)
-//        )
-//    }
-//
-//
-//=======
-//>>>>>>> 9b5cb4c3028854d608073188b833b953496fad73
+
+    //获取默认数据
+    private fun setDefaultPageData() {
+        //设置跑马灯
+        vm?.setHasGoodsToGet(true)
+        //设置User的邮票余额
+        vm?.setUserAccount(11000)
+        //由于优先展示邮票小店，优先设置邮票小店的默认数据
+        val shopData = getShopPageData()
+        vm?.setShopPageDataValue(shopData)
+        //设置邮票任务的默认数据
+        val taskData = getTaskPageData()
+        vm?.setTasksValue(taskData)
+    }
+
+    //邮票小店默认数据
+    private fun getShopPageData(): ShopPageData {
+        val title1 = getShopTitle1()
+        val decorator = getShopList()
+        val title2 = getShopTitle2()
+        val entity = getShopList()
+        return ShopPageData(
+            title1, decorator, title2, entity
+        )
+    }
+
+    private fun getShopList(): List<ShopProductOne> {
+        return (0..1).map {
+            ShopProductOne(
+                "NULL", 121, 20, "挂件挂件挂件挂件挂件", "NULL"
+            )
+        }
+    }
+
+    private fun getShopTitle2(): ShopTitle = ShopTitle("邮物", "请在个人资料中查看")
+
+    private fun getShopTitle1(): ShopTitle = ShopTitle("装扮", "请在个人资料中查看")
+
+    //邮票任务默认数据
+    private fun getTaskPageData(): StampTaskData {
+        //获取Task1
+        val task1 = getTask1()
+        //获取Title
+        val title = getTitle()
+        //获取Task2
+        val task2 = getTask2()
+        return StampTaskData(task1, title, task2)
+    }
+
+    private fun getTitle(): String = "更多任务"
+
+    private fun getTask1(): MutableList<FirstLevelTask> {
+        return mutableListOf(
+            FirstLevelTask("每日打卡", "每日签到 +10", 0, 1),
+            FirstLevelTask("逛逛邮问", "游览5条动态 +15", 1, 5),
+            FirstLevelTask("逛逛邮问", "游览5条动态 +15", 5, 5),
+        )
+    }
+
+    private fun getTask2(): MutableList<MoreTask> {
+        return mutableListOf(
+            MoreTask("逛逛邮问", "浏览5条动态 +15", 1, 5)
+        )
+    }
+
 }

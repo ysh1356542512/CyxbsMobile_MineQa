@@ -1,13 +1,13 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.binder
 
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeItemInfo
 import android.util.Log
 import android.view.View
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineRecycleItemDetailBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.MultiTypeBinder
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeItemInfo
 
 /**
  *@author ZhiQiang Tu

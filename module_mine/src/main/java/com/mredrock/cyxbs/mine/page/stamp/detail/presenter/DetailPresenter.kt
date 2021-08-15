@@ -5,13 +5,14 @@ import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 //import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeInfo
 import com.mredrock.cyxbs.mine.page.stamp.detail.viewmodel.StampDetailViewModel
 import com.mredrock.cyxbs.mine.page.stamp.ext.addFirstOrLast
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainItemInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeItemInfo
 
 /**
 * @Date : 2021/8/13
@@ -23,6 +24,14 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
 
 
     override fun fetch() {
+        vm?.apply {
+            getDefaultExchangeData{
+                setExchangeListDataValue(it)
+            }
+            getDefaultGainData{
+                setGainListDataValue(it)
+            }
+        }
 
         vm?.apply {
             getExchangeData {
@@ -32,6 +41,35 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
                 setGainListDataValue(it)
             }
         }
+    }
+
+    //获取“获取记录”界面的数据
+    private fun getDefaultGainData(func: (GainInfo) -> Unit) {
+        func(
+            GainInfo(
+                listOf(
+                        GainItemInfo(40,1617339294,"游览任务"),
+                ),
+                "Loading",
+                -1
+            )
+
+        )
+    }
+    //获取”兑换记录“的数据
+    private fun getDefaultExchangeData(func: (ExchangeInfo) -> Unit) {
+        func(
+            ExchangeInfo(
+                listOf(
+                    ExchangeItemInfo(1617339294,245769,4300,true,"卷卷鼠标垫"),
+                    ExchangeItemInfo(1617339294,245769,4300,false,"卷卷鼠标垫"),
+                    ExchangeItemInfo(1617339294,245769,4300,true,"卷卷鼠标垫")
+                ),
+                "Loading",
+                -1
+            )
+        )
+
     }
 
     override fun getExchangeData(func:(ExchangeInfo)->Unit){
@@ -82,24 +120,8 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
 //        //更新
 //        vm?.setGainListDataValue(gainData)
 
-
-//    private fun getGainData(): GainListData {
-//        return GainListData(
-//                listOf(
-//                        GainItemData("游览任务", "2030-1-1", 40),
-//                        GainItemData("游览任务", "2030-1-1", 40)
-//                )
-//        )
-//    }
-
-//    private fun getExchangeData(): ExchangeListData {
-//        return ExchangeListData(
-//                listOf(
-//                        ExchangeItemData("卷卷鼠标垫", "2030-1-1", 4000, true),
-//                        ExchangeItemData("卷卷鼠标垫", "2030-1-1", 4000, true),
-//                        ExchangeItemData("卷卷鼠标垫", "2030-1-1", 4000, true)
-//                )
-//        )
-//    }
+    /*private fun getDExchangeData(): ExchangeListData {
+        return
+    }*/
 
 }

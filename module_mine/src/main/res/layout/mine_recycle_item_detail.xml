@@ -15,7 +15,7 @@
 
         <variable
             name="data"
-            type="com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeItemInfo" />
+            type="com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeItemInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

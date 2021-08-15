@@ -10,7 +10,7 @@ import java.io.Serializable
  * @Usage :
  * @Request : God bless my code
  **/
-data class ExchangeInfo(
+data class ExchangeDetailInfo(
     @SerializedName("data")
     val `data`: List<Data>,
     @SerializedName("info")

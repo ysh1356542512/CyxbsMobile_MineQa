@@ -1,9 +1,9 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.presenter
 
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
+//import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeInfo
 //import com.mredrock.cyxbs.mine.page.stamp.network.bean.GainInfo
 import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
-import com.mredrock.cyxbs.mine.page.stamp.network.bean.exchange.ExchangeInfo
+import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeInfo
 
 /**
 * @Date : 2021/8/13

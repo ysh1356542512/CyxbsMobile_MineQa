@@ -13,7 +13,6 @@
         android:background="@drawable/mine_shape_shop_bg">
 
 
-
         <com.mredrock.cyxbs.mine.page.stamp.center.util.RecyclerviewAtVP2
             android:id="@+id/rv_shop_real"
             android:layout_width="match_parent"

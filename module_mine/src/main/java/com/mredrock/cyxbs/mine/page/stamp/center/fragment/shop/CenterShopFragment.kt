@@ -4,7 +4,6 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
-import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +19,6 @@ import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.binder.Mu
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.callback.OnViewClickListener
 import com.mredrock.cyxbs.mine.page.stamp.center.util.adlmrecyclerview.createMultiTypeAdapter
 import com.mredrock.cyxbs.mine.page.stamp.config.CenterConfig.SHOP_TO_GOODS_EXTRA
-import com.mredrock.cyxbs.mine.page.stamp.config.GoodsConfig
 import com.mredrock.cyxbs.mine.page.stamp.exchange.activity.GoodsActivity
 
 class CenterShopFragment :
