@@ -1,17 +1,11 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.fragment.task
 
-import android.content.Intent
-import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.alibaba.android.arouter.launcher.ARouter
-import com.mredrock.cyxbs.common.config.MINE_CHECK_IN
-import com.mredrock.cyxbs.common.config.QA_ENTRY
 import com.mredrock.cyxbs.common.ui.BaseMVPVMFragment
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineFragmentStampTaskBinding
-import com.mredrock.cyxbs.mine.page.edit.EditInfoActivity
 import com.mredrock.cyxbs.mine.page.stamp.center.activity.StampCenterViewModel
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.MultiTaskBinder
 import com.mredrock.cyxbs.mine.page.stamp.center.binder.OneTaskBinder
@@ -26,7 +20,7 @@ class StampTaskFragment :
     BaseMVPVMFragment<StampCenterViewModel, MineFragmentStampTaskBinding, TaskPresenter>() {
 
     /**
-     * 布局文件
+     *   布局文件
      */
     override fun getLayoutId(): Int = R.layout.mine_fragment_stamp_task
 
@@ -36,27 +30,27 @@ class StampTaskFragment :
                 requireContext(),
                 R.anim.mine_task_rv_layout_animation
             )
-            /*LayoutAnimationController(
-        AnimationUtils.loadAnimation(
-            requireContext(),
-            R.anim.mine_task_rv_load_animation
-        )
-    )*/
             createMultiTypeAdapter(it, LinearLayoutManager(context))
         }
     }
 
-    //初始化视图。好像有些多🐟了
+    /**
+     *  初始化视图。好像有些多🐟了
+     */
     override fun initView() {
     }
 
-    //观察所有数据
+    /**
+     *   观察所有数据
+     */
     override fun observeData() {
         super.observeData()
         observeTasks()
     }
 
-    //丢锅给presenter刷新数据
+    /**
+     *    丢锅给presenter刷新数据
+     */
     override fun fetch() {
         super.fetch()
         presenter?.fetch()
@@ -95,8 +89,21 @@ class StampTaskFragment :
      */
     override fun createPresenter(): TaskPresenter = TaskPresenter()
 
+    /**
+     *  设置tag防止Item重复点击
+     *  注意这里没有用局部变量主要是为了排除一次性点击两个Item。
+     */
+    var tag: Long = 0L
+
     //跳转到任务界面。
     fun onClicked(view: View, any: Any?) {
+        val time = System.currentTimeMillis()
+        if (time - tag < 500) {
+            tag = time
+            return
+        }
+        tag = time
+        //处理事件
         var data1: MoreTask? = null
         var data2: FirstLevelTask? = null
         var currentProgress: Int = 0
@@ -117,38 +124,20 @@ class StampTaskFragment :
         if (maxProgress != 0 && maxProgress != currentProgress) {
             when (str) {
                 "逛逛邮问" -> {
-                    activity?.finish()
-                    val fragment = ARouter.getInstance().build(QA_ENTRY).navigation()
-                    Log.e(TAG, "$fragment")
-                    activity?.also { startActivity(Intent(it, EditInfoActivity::class.java)) }
                 }
-                "每日打卡3" -> {
-                    ARouter.getInstance().build(MINE_CHECK_IN).navigation()
+
+                "每日打卡" -> {
                 }
+
                 "拍案叫绝" -> {
-
                 }
+
                 "完善个人信息" -> {
-                    activity?.also { startActivity(Intent(it, EditInfoActivity::class.java)) }
                 }
+
                 "绑定志愿者账号" -> {
-
                 }
             }
-            /*if (str.contains("每日签到")){
-            }
-            else if (str.contains("逛逛邮问")){
-
-            }
-            else if (str.contains("拍案叫绝")){
-
-            }
-            else if (str.contains("完善个人信息")){
-
-            }
-            else if (str.contains("绑定志愿者账号")){
-
-            }  */
         }
     }
 }

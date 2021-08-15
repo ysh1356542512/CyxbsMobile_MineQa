@@ -64,8 +64,17 @@ class ExchangeRecordFragment :
                 }
             }
         }
-
+        //设置tag防止Item重复点击
+        //注意这里没有用局部变量主要是为了排除一次性点击两个Item。
+        var tag = 0L
         private fun onItemClicked(v: View, any: Any?) {
+            val time = System.currentTimeMillis()
+            if (time - tag < 500) {
+                tag = time
+                return
+            }
+            tag = time
+            //处理事件
             val intent = Intent(requireActivity(),ExchangeDetailActivity::class.java)
             intent.putExtra(EXCHANGE_TO_DETAIL_KEY,any as Serializable)
 //            this@ExchangeRecordFragment.requireContext().startActivity<ExchangeDetailActivity>()
