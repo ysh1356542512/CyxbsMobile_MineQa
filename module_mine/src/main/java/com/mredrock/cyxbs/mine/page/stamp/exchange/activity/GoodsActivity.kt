@@ -148,6 +148,11 @@ class GoodsActivity :
                                                             Toast.LENGTH_SHORT).show()
                                                 }
                                             } else {
+                                                //手动减少[狗头]
+                                                vm?.setUserAccount(that-price)
+                                                vm?.let {
+                                                    it.goodsAmount.value?.minus(1)?.let { it1 -> it.setGoodsAmount(it1) }
+                                                }
                                                 //足够 商品为邮物
                                                 if (intent.getIntExtra(SHOP_TO_GOODS_EXTRA, -1) == 0) {
                                                     NoneProductDialog.showDialog(supportFragmentManager,

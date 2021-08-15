@@ -23,6 +23,7 @@ interface GoodsContract {
         fun setDescription(value: String, value2: String)
         fun setGoodsDate(value: String)
         fun setGoodsUrls(value: List<String>)
+        fun setGoodsAmount(value: Int)
     }
 
     interface GoodsPresenter : IPresenter<GoodsViewModel> {

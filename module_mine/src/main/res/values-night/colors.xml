@@ -2,7 +2,7 @@
 <resources>
     <color name="mine_center_stamp_num_bg">#4DF0F0F2</color>
 
-    <color name="mine_task_progress_bg">#33E5E5E5</color>
+    <color name="mine_task_progress_bg">#454545</color>
 
 
     <!--    主页面颜色-->

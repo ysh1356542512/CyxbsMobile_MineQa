@@ -93,6 +93,15 @@ class StampCenterActivity :
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        presenter?.fetch()
+    }
+
     override fun fetch() {
         presenter?.fetch()
     }
