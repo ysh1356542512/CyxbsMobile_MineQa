@@ -14,6 +14,11 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.presenter.GoodsContract
  * @Request : God bless my code
  */
 class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
+    private val _goodsAmount :MutableLiveData<Int> = MutableLiveData()
+
+    val goodsAmount :LiveData<Int>
+    get() = _goodsAmount
+
     private val _goodsInfo: MutableLiveData<GoodsInfo.Data> = MutableLiveData()
 
     val goodsInfo: LiveData<GoodsInfo.Data>
@@ -70,6 +75,10 @@ class GoodsViewModel : BaseViewModel(), GoodsContract.GoodsVM {
 
     override fun setGoodsUrls(value: List<String>) {
         _goodsUrls.value = value
+    }
+
+    override fun setGoodsAmount(value: Int) {
+        _goodsAmount.value = value
     }
 
 

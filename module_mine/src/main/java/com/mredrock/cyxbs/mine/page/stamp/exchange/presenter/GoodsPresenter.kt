@@ -89,6 +89,7 @@ class GoodsPresenter(private val goodsId: String,private val money: Int) : BaseP
                                         "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
                                 setGoodsDate("永久")
                                 setGoodsUrls(it.data.urls)
+                                setGoodsAmount(it.data.amount)
                             }
 
                         } else {
@@ -99,6 +100,7 @@ class GoodsPresenter(private val goodsId: String,private val money: Int) : BaseP
                                         "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")
                                 setGoodsDate("${it.data.life}天")
                                 setGoodsUrls(it.data.urls)
+                                setGoodsAmount(it.data.amount)
                             }
 
                         }
