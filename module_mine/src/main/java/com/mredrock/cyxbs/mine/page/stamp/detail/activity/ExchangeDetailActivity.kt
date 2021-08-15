@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.mine.page.stamp.detail.activity
 import android.view.View
 import androidx.lifecycle.LiveData
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
+import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityExchangeDetailBinding
 import com.mredrock.cyxbs.mine.page.stamp.config.DetailConfig
@@ -39,7 +40,10 @@ class ExchangeDetailActivity :
         super.initListener()
         val eventHandler = EventHandler()
         binding?.apply {
-            fabBackArrow.setOnClickListener(eventHandler::backArrowClicked)
+
+            fabBackArrow.setOnSingleClickListener{
+                eventHandler.backArrowClicked(it)
+            }
         }
     }
 

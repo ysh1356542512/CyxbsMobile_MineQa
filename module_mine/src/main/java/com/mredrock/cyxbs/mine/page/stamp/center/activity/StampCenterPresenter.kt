@@ -6,9 +6,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
+import com.mredrock.cyxbs.common.utils.extensions.toast
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopFragment
@@ -112,10 +114,11 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
             //.mapOrThrowApiException()
             .setSchedulers()
             .doOnSubscribe { }
-            .doOnError { }
+            .doOnError {
+            }
             .safeSubscribeBy(
                 onError = {
-                    Log.e(TAG, "fetch: erro $it")
+                    BaseApp.context.toast("网络请求失败了呢~")
                 },
                 onComplete = {},
                 onNext = {
