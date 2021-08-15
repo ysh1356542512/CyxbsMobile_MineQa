@@ -82,14 +82,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.85" />
+            app:layout_constraintGuide_percent="0.89" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/mine_guideline10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.94" />
+            app:layout_constraintGuide_percent="0.98" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/mine_guideline2"
@@ -233,7 +233,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.9" />
+            app:layout_constraintGuide_percent="0.94" />
 
         <View
             android:id="@+id/v_bottom_up"
@@ -299,8 +299,8 @@
             app:layout_constraintBottom_toTopOf="@+id/mine_guideline10"
             app:layout_constraintStart_toStartOf="@+id/tv_intr_detail_2"
             app:layout_constraintTop_toTopOf="@+id/mine_guideline11"
-            tools:ignore="SmallSp"
-            tools:layout_editor_absoluteX="23dp" />
+            app:layout_constraintVertical_bias="0.32999998"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/btn_stamp_buy"

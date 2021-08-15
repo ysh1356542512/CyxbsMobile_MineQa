@@ -68,8 +68,18 @@
                 motion:percentX="1.3"
                 motion:percentY="0.997"
                 />
-
-
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/motion_four" />
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="70"
+                motion:motionTarget="@+id/motion_four" />
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="80"
+                motion:motionTarget="@+id/motion_four" />
         </KeyFrameSet>
     </Transition>
     <ConstraintSet android:id="@+id/start">
@@ -100,8 +110,8 @@
         android:layout_height="wrap_content"
         motion:layout_constraintLeft_toRightOf="parent"
         motion:layout_constraintTop_toTopOf="parent"
-        motion:layout_constraintVertical_bias="0.997"
-        motion:layout_constraintHorizontal_bias="0.9"
+        motion:layout_constraintVertical_bias="1"
+        motion:layout_constraintHorizontal_bias="1"
         motion:layout_constraintBottom_toBottomOf="parent"/>
 
     </ConstraintSet>

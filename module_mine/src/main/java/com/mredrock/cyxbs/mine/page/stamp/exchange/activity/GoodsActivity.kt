@@ -2,11 +2,13 @@ package com.mredrock.cyxbs.mine.page.stamp.exchange.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
+import com.mredrock.cyxbs.common.utils.extensions.toast
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampGoodsDetailRealBinding
 import com.mredrock.cyxbs.mine.page.stamp.center.model.ShopCardJumpData
@@ -130,11 +132,16 @@ class GoodsActivity :
                                 .setSchedulers()
                                 .doOnSubscribe { }
                                 .doOnError {
-                                    NoneProductDialog.showDialog(supportFragmentManager,
-                                            "阿欧，手慢了！下次再来吧= =", "确认") {
-                                        Toast.makeText(this@GoodsActivity,
-                                                "智蔷哥哥今天太累了 下次再来吧",
-                                                Toast.LENGTH_SHORT).show()
+                                    if(it.message=="Unable to resolve host \"be-dev.redrock.cqupt.edu.cn\": No address associated with hostname"){
+                                        NoneProductDialog.showDialog(supportFragmentManager,
+                                                "网络瓦特了 联网后再来兑换吧", "确认") {}
+                                    }else {
+                                        NoneProductDialog.showDialog(supportFragmentManager,
+                                                "阿欧，手慢了！下次再来吧= =", "确认") {
+                                            Toast.makeText(this@GoodsActivity,
+                                                    "智蔷哥哥今天太累了 下次再来吧",
+                                                    Toast.LENGTH_SHORT).show()
+                                        }
                                     }
                                 }
                                 .safeSubscribeBy {
