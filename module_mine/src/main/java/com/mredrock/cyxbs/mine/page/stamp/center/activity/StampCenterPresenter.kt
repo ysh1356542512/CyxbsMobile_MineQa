@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.ZoomOutPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.CenterShopFragment
+import com.mredrock.cyxbs.mine.page.stamp.center.fragment.shop.toast
 import com.mredrock.cyxbs.mine.page.stamp.center.fragment.task.StampTaskFragment
 import com.mredrock.cyxbs.mine.page.stamp.center.model.*
 import com.mredrock.cyxbs.mine.page.stamp.detail.util.adapter.PagerAdapter
@@ -202,8 +203,12 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
             .doOnError { }
             .safeSubscribeBy(
                 onError = {
+                    toast(srlRefresh,"刷新失败")
+                    srlRefresh.isRefreshing = false
                 },
-                onComplete = {},
+                onComplete = {
+                    toast(srlRefresh,"刷新成功")
+                },
                 onNext = {
                     //设置邮票数目
                     vm?.setUserAccount(it.data.userAmount)
