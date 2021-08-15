@@ -19,6 +19,7 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.mredrock.cyxbs.mine.R
+import com.mredrock.cyxbs.mine.page.stamp.utils.GoodsPageState
 import com.umeng.commonsdk.debug.D
 
 /**
@@ -135,6 +136,8 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
                     super.onPageSelected(position)
                     val realPosition: Int = mBannerPagerAdapter!!.getRealPosition(position)
                     onPageChangeCallback?.onPageSelected(realPosition)
+                    val goodsPageState = GoodsPageState.instance
+                    goodsPageState.postValue(position)
                     setIndicatorDots(position)
                 }
 
@@ -201,6 +204,7 @@ class BannerViewPager<T> : RelativeLayout, LifecycleObserver {
             }
         }
     }
+
 
     private fun setIndicatorDots(position: Int) {
         if (isShowIndicator && listSize > 1) {

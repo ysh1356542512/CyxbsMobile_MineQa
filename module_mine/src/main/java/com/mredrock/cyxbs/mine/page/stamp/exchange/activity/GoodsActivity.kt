@@ -24,6 +24,7 @@ import com.mredrock.cyxbs.mine.page.stamp.exchange.util.BannerViewPager
 import com.mredrock.cyxbs.mine.page.stamp.exchange.viewmodel.GoodsViewModel
 import com.mredrock.cyxbs.mine.page.stamp.network.api.apiServiceNew
 import com.mredrock.cyxbs.mine.page.stamp.shop.dialog.DoubleCheckDialog
+import com.mredrock.cyxbs.mine.page.stamp.utils.GoodsPageState
 import java.lang.NullPointerException
 
 
@@ -103,7 +104,7 @@ class GoodsActivity :
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             GoodsConfig.GOODS_SHARE_PHOTO_RESPOND -> {
-                bvpViewPager.setCurrentItem(resultCode, false)
+//                bvpViewPager.setCurrentItem(resultCode, false)
             }
         }
     }
@@ -189,6 +190,14 @@ class GoodsActivity :
                 }
 
             }
+        }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val goodsPageState = GoodsPageState.instance
+        goodsPageState.value?.let {
+            bvpViewPager.setCurrentItem(it, false)
         }
     }
 
