@@ -85,6 +85,7 @@ class GoodsPresenter(private val goodsId: String,private val money: Int) : BaseP
                         setGoodsValue(it.data)
                         if (it.data.type == 0) {
                             vm?.apply {
+                                setUserAccount(money)
                                 setGoodsType("邮物")
                                 setDescription("1、每个实物商品每人限兑换一次，已经兑换的商品不能退货换货也不予折现。",
                                         "2、在法律允许的范围内，本活动的最终解释权归红岩网校工作站所有。")

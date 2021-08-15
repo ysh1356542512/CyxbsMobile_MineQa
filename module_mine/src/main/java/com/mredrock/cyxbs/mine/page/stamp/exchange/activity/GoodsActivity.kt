@@ -157,7 +157,7 @@ class GoodsActivity :
                                                 it.goodsAmount.value?.minus(1)?.let { it1 -> it.setGoodsAmount(it1) }
                                             }
                                             //足够 商品为邮物
-                                            if (intent.getIntExtra(SHOP_TO_GOODS_EXTRA, -1) == 0) {
+                                            if (vm?.goodsType?.value=="邮物") {
                                                 NoneProductDialog.showDialog(supportFragmentManager,
                                                         "兑换成功！请在30天内到红岩网校领取哦", "确认") {
                                                     Toast.makeText(this@GoodsActivity,
