@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
@@ -164,7 +165,6 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean, private val c
      */
     override fun refresh(srlRefresh: SwipeRefreshLayout) {
         apiServiceNew.getCenterInfo()
-                //.mapOrThrowApiException()
                 .setSchedulers()
                 .doOnSubscribe { }
                 .doOnError { }

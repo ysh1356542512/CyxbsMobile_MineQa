@@ -1,7 +1,4 @@
 package com.mredrock.cyxbs.mine.page.stamp.detail.presenter
-
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainInfo
-//import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.ExchangeInfo
 import android.animation.ObjectAnimator
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -27,8 +24,8 @@ import com.mredrock.cyxbs.mine.page.stamp.network.bean.detail.GainItemInfo
  * @Usage :
  * @Request : God bless my code
  */
-class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivityContract.IPresenter {
 
+class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivityContract.IPresenter {
 
     /**
      * 把数据给vm

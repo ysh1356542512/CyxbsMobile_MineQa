@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,12 @@ class GainRecordFragment :
     BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentGainRecordBinding>() {
 
     private val mAdapter by lazy {
-        binding?.rvGain?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
+        binding?.rvGain?.let {
+            it.layoutAnimation = AnimationUtils.loadLayoutAnimation(
+                    requireContext(),
+                    R.anim.mine_task_rv_layout_animation
+            )
+            createMultiTypeAdapter(it, LinearLayoutManager(context)) }
     }
 
     //设置布局

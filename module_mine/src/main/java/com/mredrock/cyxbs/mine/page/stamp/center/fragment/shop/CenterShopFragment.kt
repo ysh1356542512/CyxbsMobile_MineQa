@@ -77,7 +77,7 @@ class CenterShopFragment :
                 add(GoodsTitleBinder(it.title2).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                 //添加对应内容
                 presenter?.mapDoubleCardToOne(it.entity.indices, it.entity)?.filter {
-                    if (it.restCount != -1 && it.restCount2 != -1) {
+                    if (it.restCount != Int.MIN_VALUE && it.restCount2 != Int.MIN_VALUE) {
                         add(GoodsProductTwoBinder(it).apply {/*设置点击监听*/setOnClickListener(this@CenterShopFragment::onClick) })
                         true
                     } else {
@@ -90,9 +90,17 @@ class CenterShopFragment :
             mAdapter?.notifyAdapterChanged(list)
         }
     }
-
-    //点击处理
+    var tag:Long = 0L
+    //设置tag防止Item重复点击
+    //注意这里没有用局部变量主要是为了排除一次性点击两个Item。
     override fun onClick(view: View, any: Any?) {
+        val time = System.currentTimeMillis()
+        if (time - tag < 500) {
+            tag = time
+            return
+        }
+        tag = time
+        //处理事件
         when (view.id) {
             R.id.goods_container_2, R.id.goods_container_1, R.id.goods_container -> {
                 //商品的id

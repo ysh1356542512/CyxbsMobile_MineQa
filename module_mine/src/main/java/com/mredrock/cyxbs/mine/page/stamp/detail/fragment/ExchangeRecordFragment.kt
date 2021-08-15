@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseBindingSharedVMFragment
@@ -22,7 +23,12 @@ class ExchangeRecordFragment :
         BaseBindingSharedVMFragment<StampDetailViewModel, MineFragmentExchangeRecordBinding>() {
 
     private val mAdapter by lazy {
-        binding?.rvExchange?.let { createMultiTypeAdapter(it, LinearLayoutManager(context)) }
+        binding?.rvExchange?.let {
+            it.layoutAnimation = AnimationUtils.loadLayoutAnimation(
+                    requireContext(),
+                    R.anim.mine_task_rv_layout_animation
+            )
+            createMultiTypeAdapter(it, LinearLayoutManager(context)) }
     }
 
     override fun initView() {
@@ -64,11 +70,19 @@ class ExchangeRecordFragment :
                 }
             }
         }
-
+        //设置tag防止Item重复点击
+        //注意这里没有用局部变量主要是为了排除一次性点击两个Item。
+        var tag = 0L
         private fun onItemClicked(v: View, any: Any?) {
+            val time = System.currentTimeMillis()
+            if (time - tag < 500) {
+                tag = time
+                return
+            }
+            tag = time
+            //处理事件
             val intent = Intent(requireActivity(),ExchangeDetailActivity::class.java)
             intent.putExtra(EXCHANGE_TO_DETAIL_KEY,any as Serializable)
-//            this@ExchangeRecordFragment.requireContext().startActivity<ExchangeDetailActivity>()
             requireContext().startActivity(intent)
         }
     }
