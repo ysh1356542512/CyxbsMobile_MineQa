@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="8dp"
-                android:layout_marginBottom="6.5dp"
+                android:layout_marginBottom="8.5dp"
                 android:background="@color/common_transparent_background"
                 android:backgroundTint="@color/common_transparent_background"
                 android:contentDescription="@string/mine_stamp_back_iv"
