@@ -144,7 +144,7 @@ class GoodsPresenter(private val goodsId: String, private val money: Int) :
 
     fun setDefaultData() {
         vm?.apply {
-            setGoodsValue(GoodsInfo.Data(
+            setGoo:dsValue(GoodsInfo.Data(
                 999, "未知", 0, 121, "未知", 1, listOf()
             ))
             setGoodsType("未知")
