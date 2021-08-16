@@ -45,7 +45,7 @@ object ApiGeneratorNew {
         accountService.getVerifyService().addOnStateChangedListener {
             when (it) {
                 IUserStateService.UserState.LOGIN, IUserStateService.UserState.REFRESH -> {
-                    token = accountService.getUserTokenService().getToken()
+                    token ="Bearer "+ accountService.getUserTokenService().getToken()
                     refreshToken = accountService.getUserTokenService().getRefreshToken()
                 }
                 else -> {
@@ -53,7 +53,7 @@ object ApiGeneratorNew {
                 }
             }
         }
-        token = accountService.getUserTokenService().getToken()
+        token ="Bearer " + accountService.getUserTokenService().getToken()
         refreshToken = accountService.getUserTokenService().getRefreshToken()
         LogUtils.d("tokenTag1", "token = $token")
         LogUtils.d("tokenTag1", "refresh token = $refreshToken")
