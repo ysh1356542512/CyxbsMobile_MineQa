@@ -3,9 +3,11 @@ import android.animation.ObjectAnimator
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.common.presenter.BasePresenter
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
+import com.mredrock.cyxbs.common.utils.extensions.toast
 import com.mredrock.cyxbs.mine.page.stamp.center.animation.DepthPageTransformer
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.ExchangeRecordFragment
 import com.mredrock.cyxbs.mine.page.stamp.detail.fragment.GainRecordFragment
@@ -84,12 +86,14 @@ class DetailPresenter : BasePresenter<StampDetailViewModel>(), StampDetailActivi
                 .setSchedulers()
                 .doOnSubscribe { }
                 .doOnError { }
-                .safeSubscribeBy {
+                .safeSubscribeBy (onNext = {
                     val list: MutableList<ExchangeItemInfo> = mutableListOf()
                     it.data.forEach { it2 -> list.addFirstOrLast(!it2.getOrNot, it2) }
                     val new = ExchangeInfo(list, it.info, it.status)
                     func(new)
-                }
+                },onError = {
+                    BaseApp.context.toast("网络请求失败了呢~ ${it.message}")
+                },onComplete = {})
     }
 
     /**

@@ -5,7 +5,6 @@ import android.transition.Slide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mredrock.cyxbs.common.ui.BaseMVPVMActivity
 import com.mredrock.cyxbs.common.utils.extensions.setOnSingleClickListener
-import com.mredrock.cyxbs.common.utils.extensions.toast
 import com.mredrock.cyxbs.mine.R
 import com.mredrock.cyxbs.mine.databinding.MineActivityStampCenterBinding
 import com.mredrock.cyxbs.mine.page.stamp.detail.activity.StampDetailActivity
@@ -27,7 +26,7 @@ class StampCenterActivity :
     override fun getLayoutId(): Int = R.layout.mine_activity_stamp_center
 
     //提供P层信息
-    override fun createPresenter(): StampCenterPresenter = StampCenterPresenter(isFirstTimeComeIn(),this)
+    override fun createPresenter(): StampCenterPresenter = StampCenterPresenter(isFirstTimeComeIn())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         window.enterTransition = Slide()

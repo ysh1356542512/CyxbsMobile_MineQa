@@ -1,6 +1,5 @@
 package com.mredrock.cyxbs.mine.page.stamp.center.activity
 
-import android.content.Context
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -30,7 +29,7 @@ import com.mredrock.cyxbs.mine.page.stamp.network.bean.ceter.CenterInfo
  */
 private const val TAG = "StampCenterPresenter"
 
-class StampCenterPresenter(private val isFirstTimeComeIn: Boolean, private val context: Context) :
+class StampCenterPresenter(private val isFirstTimeComeIn: Boolean) :
         BasePresenter<StampCenterViewModel>(),
         StampCenterContract.CenterPresenter {
 
@@ -46,6 +45,7 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean, private val c
                 .doOnError { }
                 .safeSubscribeBy(
                         onError = {
+                            BaseApp.context.toast("网络请求失败了呢~ ${it.message}")
                             Log.e(TAG, "fetch: erro $it")
                         },
                         onComplete = {},
@@ -170,11 +170,11 @@ class StampCenterPresenter(private val isFirstTimeComeIn: Boolean, private val c
                 .doOnError { }
                 .safeSubscribeBy(
                         onError = {
-                            context.toast("刷新失败")
+                            BaseApp.context.toast("刷新失败")
                             srlRefresh.isRefreshing = false
                         },
                         onComplete = {
-                            context.toast("刷新成功")
+                            BaseApp.context.toast("刷新成功")
                         },
                         onNext = {
                             //设置邮票数目
