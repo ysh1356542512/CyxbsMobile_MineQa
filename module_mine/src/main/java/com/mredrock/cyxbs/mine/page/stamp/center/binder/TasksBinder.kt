@@ -27,7 +27,7 @@ class MultiTaskBinder(val moreTask: MoreTask) :
         binding.handler = this
         binding.mineSpace.setMaxProgress(moreTask.max.toFloat())
         val animator = ObjectAnimator.ofFloat(binding.mineSpace, "currentProgress", 0f, moreTask.progress.toFloat())
-        animator.duration = 1000
+        animator.duration = 1500
         animator.start()
     }
 }
@@ -43,7 +43,7 @@ class OneTaskBinder(private val firstLevelTask: FirstLevelTask) :
         binding.handler = this
         binding.mineSpace.setMaxProgress(firstLevelTask.max.toFloat())
         val animator = ObjectAnimator.ofFloat(binding.mineSpace, "currentProgress", 0f, firstLevelTask.progress.toFloat())
-        animator.duration = 1000
+        animator.duration = 1500
         animator.start()
     }
 }

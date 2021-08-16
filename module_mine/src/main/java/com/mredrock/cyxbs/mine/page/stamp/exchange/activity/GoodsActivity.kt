@@ -132,7 +132,8 @@ class GoodsActivity :
                                 .setSchedulers()
                                 .doOnSubscribe { }
                                 .doOnError {
-                                    if(it.message=="Unable to resolve host \"be-dev.redrock.cqupt.edu.cn\": No address associated with hostname"){
+                                    if(it.message=="Unable to resolve host \"be-dev.redrock.cqupt.edu.cn\": No address associated with hostname"
+                                            ||it.message=="HTTP 403 "){
                                         NoneProductDialog.showDialog(supportFragmentManager,
                                                 "网络瓦特了 联网后再来兑换吧", "确认") {}
                                     }else {
@@ -145,6 +146,7 @@ class GoodsActivity :
                                     }
                                 }
                                 .safeSubscribeBy {
+                                    Log.d("sss", "initDialog111:${it.info}+${it.status} ")
                                     //手动减少[狗头]
                                     vm.setUserAccount(that - price)
                                     vm.let {
